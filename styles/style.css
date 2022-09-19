@@ -84,7 +84,8 @@ body {
   margin: 0;
   font-size: 15px;
   line-height: 1.8;
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
+  font-family: 'Inter', sans-serif;
   color: #4d4d4d;
 }
 
@@ -119,7 +120,8 @@ button:focus {
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   color: #212121;
-  font-family: "Dosis", sans-serif;
+  /* font-family: "Dosis", sans-serif; */
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
 }
 
@@ -201,6 +203,10 @@ textarea.form-control {
   height: auto;
 }
 
+.h-56 {
+  height: 56px;
+}
+
 .ptb-100 {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -231,11 +237,11 @@ textarea.form-control {
 }
 
 .pl-30 {
-  padding-left: 30px;
+  padding-left: 30px !important;
 }
 
 .pr-30 {
-  padding-right: 30px;
+  padding-right: 30px !important;
 }
 
 .mt-30 {
@@ -271,8 +277,24 @@ textarea.form-control {
   margin-left: 30px;
 }
 
+.ml-12 {
+  margin-left: 12px;
+}
+
+.mr-0 {
+  margin-right: 0;
+}
+
 .mr-30 {
   margin-right: 30px;
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+
+.font-weight-500 {
+  font-weight: 500;
 }
 
 .fun-blue-bg {
@@ -284,6 +306,14 @@ Bg Color Four Area Style
 ======================================================*/
 .body-bg-color {
   background-color: #010032;
+}
+
+.color-white {
+  color: #ffffff;
+}
+
+.color-primary {
+  color: #167FFC;
 }
 
 /*
@@ -1285,7 +1315,8 @@ jumpx Nav Area Style
 }
 
 .navbar-area.is-sticky nav {
-  background-color: #000000;
+  /* background-color: #000000; */
+  background-color: #ffffff;
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -1646,7 +1677,8 @@ About Area Style
 }
 
 .about-content ul li {
-  font-family: "Dosis", sans-serif;
+  /* font-family: "Dosis", sans-serif; */
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: #212121;
@@ -2051,7 +2083,8 @@ Business  Area Style
 .single-counter h2 span {
   font-size: 50px;
   color: #6b6bd4;
-  font-family: "Dosis", sans-serif;
+  /* font-family: "Dosis", sans-serif; */
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   line-height: 1;
 }
@@ -2063,7 +2096,8 @@ Business  Area Style
 }
 
 .single-counter p {
-  font-family: "Dosis", sans-serif;
+  /* font-family: "Dosis", sans-serif; */
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 500;
   margin: 10px 0 0;
@@ -2128,7 +2162,8 @@ Industries Area Style
   font-size: 15px;
   font-weight: 600;
   color: #212121;
-  font-family: "Dosis", sans-serif;
+  /* font-family: "Dosis", sans-serif; */
+  font-family: 'Inter', sans-serif;
   margin-bottom: 15px;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
           box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
@@ -2592,7 +2627,8 @@ Footer Top Area Style
 
 .single-widget .information li.address span {
   display: block;
-  font-family: "Dosis", sans-serif;
+  /* font-family: "Dosis", sans-serif; */
+  font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 600;
 }
@@ -2912,7 +2948,8 @@ Pricing Area Style
 
 .single-pricing span {
   font-size: 30px;
-  font-family: "Dosis", sans-serif;
+  /* font-family: "Dosis", sans-serif; */
+  font-family: 'Inter', sans-serif;
   color: #212121;
   font-weight: 700;
   display: block;
@@ -3007,7 +3044,8 @@ Pricing Area Style
 .tab.quote-list-tab .tabs li {
   display: inline-block;
   padding: 0 10px;
-  font-family: "Dosis", sans-serif;
+  /* font-family: "Dosis", sans-serif; */
+  font-family: 'Inter', sans-serif;
   color: #212121;
   font-size: 20px;
   font-weight: 700;
@@ -3810,7 +3848,7 @@ jumpx SliderArea Style
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #24416b;
+  /* background-color: #24416b; */
   z-index: -1;
   opacity: 0.9;
 }
@@ -4572,7 +4610,8 @@ Blog Details Area Style
   left: 50px;
   top: -50px;
   z-index: -1;
-  font-family: 'boxicons';
+  /* font-family: 'boxicons'; */
+  font-family: 'Inter', sans-serif;
   font-size: 140px;
   font-weight: 900;
   opacity: 0.5;
@@ -5909,3 +5948,130 @@ Service Details Area Style
   font-size: 55px;
 }
 /*# sourceMappingURL=style.css.map */
+/* new Ezin v2 */
+/* tuan */
+.mx-auto {
+  margin: 0 auto !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important; 
+}
+
+.mb-46 {
+  margin-bottom: 46px !important; 
+}
+
+.mb-216 {
+  margin-bottom: 176px !important; 
+}
+
+.align-item-baseline {
+  align-items: baseline !important;
+}
+
+.text-60 {
+  font-size: 60px !important;
+}
+
+.text-18 {
+  font-size: 18px !important;
+}
+
+.h-56 {
+  height: 56px;
+}
+
+.start-25 {
+  left: 25%;
+}
+
+.text-black {
+	color: #000000 !important;
+}
+
+.nav-link:hover {
+	color: #167FFC !important;
+}
+
+.homepage-no-maxWidth {
+  max-width: none !important;
+}
+
+.slider-news {
+  width: 252px !important;
+}
+
+.text-dot-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.text-dot-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.home-brand-arrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 15%;
+}
+
+.home-brand-title {
+  position: absolute;
+  top: 40%;
+  left: 16px;
+  font-size: 16px;
+}
+
+.brand-slide .swiper-button-next,
+.brand-slide .swiper-button-prev {
+  background-color: white;
+  border-radius: 18px;
+  height: 36px;
+  width: 36px;  
+}
+
+.product-prize {
+  /* text-align: start; */
+  font-size: 22px;
+}
+
+.product-prize-old {
+  text-align: start;
+  font-size: 14px;
+  list-style: 12px;
+  text-decoration: line-through;
+}
+
+.product-coin {
+  font-size: 22px;
+  align-self: center;
+  text-align: end;
+}
+
+.product-decription {
+  height: 82px;
+  overflow: hidden;
+}
+
+.group-icons {
+  top: 26px;
+  left: 40px;
+}
+
+.group-wrap {
+  box-shadow: 0px 5px 20px rgba(14, 30, 62, 0.1);
+  width: 23%;
+}
+
+.hot-deal-icon {
+  position: absolute;
+  bottom: 24px;
+  left: 34px;
+}

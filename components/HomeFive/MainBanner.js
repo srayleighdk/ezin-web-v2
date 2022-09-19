@@ -19,26 +19,26 @@ class MainBanner extends Component {
                     <SwiperSlide>
                         <div 
                             className="jumpx-slider-item" 
-                            style={{ backgroundImage: `url(/images/home-five/slider1.jpg)` }}
+                            style={{ backgroundImage: `url(/images/home-five/slider.png)` }}
                         >
                             <div className="d-table">
                                 <div className="d-table-cell">
                                     <div className="container">
-                                        <div className="jumpx-slider-text overflow-hidden one">
-                                            <span>IT & AI Services</span>
-                                            <h1>Secure IT Solutions For A More Secure Environment</h1>
-                                            <p>If we drive down the cost of transportation in space, we can do great things.</p>
+                                        <div className="jumpx-slider-text overflow-hidden one mx-auto homepage-no-maxWidth">
+                                            {/* <span>IT & AI Services</span> */}
+                                            <h1 className="text-black mb-0 text-60">Trải nghiệm cuộc sống tuyệt vời</h1>
+                                            <p className="text-black mb-46">Những hy sinh của ngày hôm nay sẽ được đền đáp vào ngày mai.</p>
                                             
                                             <div className="slider-btn">
-                                                <Link href="/services">
-                                                    <a className="default-btn active">
-                                                        Our Services
+                                            <Link href="/contact">
+                                                    <a className="default-btn white">
+                                                        Mua bảo hiểm ngay
                                                     </a>
                                                 </Link>
 
-                                                <Link href="/contact">
-                                                    <a className="default-btn white">
-                                                        Contact Us
+                                                <Link href="/services">
+                                                    <a className="default-btn active">
+                                                        Xem video
                                                     </a>
                                                 </Link>
                                             </div>
@@ -49,7 +49,7 @@ class MainBanner extends Component {
                         </div>
                     </SwiperSlide>
 
-                    <SwiperSlide>
+                    {/* <SwiperSlide>
                         <div 
                             className="jumpx-slider-item" 
                             style={{ backgroundImage: `url(/images/home-five/slider2.jpg)` }}
@@ -113,7 +113,7 @@ class MainBanner extends Component {
                                 </div>
                             </div>
                         </div>
-                    </SwiperSlide>
+                    </SwiperSlide> */}
                 </Swiper>
             </section>
         );
