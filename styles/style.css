@@ -5955,12 +5955,20 @@ Service Details Area Style
   margin: 0 auto !important;
 }
 
+.line-height-60 {
+  line-height: 60px;
+}
+
 .mb-0 {
   margin-bottom: 0 !important; 
 }
 
 .mb-46 {
   margin-bottom: 46px !important; 
+}
+
+.text-16 {
+  font-size: 16px;
 }
 
 .mb-216 {
@@ -6106,4 +6114,18 @@ Service Details Area Style
 
 .bg-deals {
   background: linear-gradient(180deg, #F34337 0%, #FB813C 100%);
+}
+
+.bg-community {
+  background: linear-gradient(105.92deg, #0257BA 15.1%, #2DC2B9 100%);
+}
+
+.line-right::after {
+  content: "";
+  position: absolute;
+  top: 40%;
+  right: -4px;
+  width: 2px;
+  height: 50px;
+  background-color: #2087DC;
 }

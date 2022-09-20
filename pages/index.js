@@ -8,6 +8,7 @@ import EzStore from '../components/Common/EzStore';
 import About from '../components/HomeFive/About';
 import WhyChooseUs from '../components/HomeFive/WhyChooseUs';
 import Partner from '../components/HomeFive/Partner';
+import CommunityEzin from '../components/HomeFive/CommunityEzin';
 import Groups from '../components/HomeFive/Groups';
 import Services from '../components/HomeFive/Services';
 import Products from '../components/HomeFive/Products';
@@ -42,6 +43,8 @@ class Index5 extends Component {
                 <Partner />
 
                 <EzStore />
+
+                <CommunityEzin />
 
 
                 <About />
