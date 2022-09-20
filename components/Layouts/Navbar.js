@@ -188,13 +188,13 @@ class Navbar extends Component {
                                                     </a>
                                                 </Link>
 
-                                                <ul className="dropdown-menu">
+                                                {/* <ul className="dropdown-menu">
                                                     <li className="nav-item">
                                                         <Link href="/login" activeClassName="active">
                                                             <a className="nav-link">Quyền lợi</a>
                                                         </Link>
                                                     </li>
-                                                </ul>
+                                                </ul> */}
                                             </li>
 
                                             <li className="nav-item">
@@ -210,7 +210,7 @@ class Navbar extends Component {
                                                     </a>
                                                 </Link>
 
-                                                <ul className="dropdown-menu">
+                                                {/* <ul className="dropdown-menu">
                                                     <li className="nav-item">
                                                         <Link href="/login" activeClassName="active">
                                                             <a className="nav-link">TNDS xe máy</a>
@@ -222,7 +222,7 @@ class Navbar extends Component {
                                                             <a className="nav-link">TNDS xe ô tô</a>
                                                         </Link>
                                                     </li>
-                                                </ul>
+                                                </ul> */}
                                             </li>
 
                                             {/* <li className="nav-item">

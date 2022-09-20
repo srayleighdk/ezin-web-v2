@@ -87,6 +87,7 @@ body {
   /* font-family: "Open Sans", sans-serif; */
   font-family: 'Inter', sans-serif;
   color: #4d4d4d;
+  overflow: auto;
 }
 
 a {
@@ -5978,6 +5979,14 @@ Service Details Area Style
   font-size: 18px !important;
 }
 
+.text-20 {
+  font-size: 20px !important;
+}
+
+.text-40 {
+  font-size: 40px !important;
+}
+
 .h-56 {
   height: 56px;
 }
@@ -6074,4 +6083,27 @@ Service Details Area Style
   position: absolute;
   bottom: 24px;
   left: 34px;
+}
+
+.time-deal {
+  border: 1px solid #000;
+  height: 30px;
+  padding: 0 4px;
+  background-color: #000;
+  border-radius: 6px;
+}
+
+.line-footer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 70px;
+  width: 40%;
+  height: 4px;
+  background-color: #FBD462;
+  border-radius: 4px;
+}
+
+.bg-deals {
+  background: linear-gradient(180deg, #F34337 0%, #FB813C 100%);
 }

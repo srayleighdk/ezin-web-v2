@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 
-class PromotionSlider extends Component {
+class Banner extends Component {
     render() {
         return (
             <div className="ptb-100 position-relative" style={{padding: "30px 0"}}>
@@ -76,4 +76,4 @@ class PromotionSlider extends Component {
     }
 }
 
-export default PromotionSlider;
+export default Banner;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 
-class PartnerSlider extends Component {
+class NewsSlider extends Component {
     render() {
         return (
             <div className="brand-area-two ptb-100 position-relative" style={{padding: "30px 0"}}>
@@ -89,4 +89,4 @@ class PartnerSlider extends Component {
     }
 }
 
-export default PartnerSlider;
+export default NewsSlider;

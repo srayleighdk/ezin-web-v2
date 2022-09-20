@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Layouts/Navbar';
 import MainBanner from '../components/HomeFive/MainBanner';
-import PartnerSlider from '../components/Common/PartnerSlider';
-import PartnerPromotion from '../components/Common/PartnerPromotion';
+import NewsSlider from '../components/Common/NewsSlider';
+import Banner from '../components/Common/Banner';
 import HotDeals from '../components/Common/HotDeals';
+import EzStore from '../components/Common/EzStore';
 import About from '../components/HomeFive/About';
 import WhyChooseUs from '../components/HomeFive/WhyChooseUs';
+import Partner from '../components/HomeFive/Partner';
 import Groups from '../components/HomeFive/Groups';
 import Services from '../components/HomeFive/Services';
 import Products from '../components/HomeFive/Products';
@@ -25,15 +27,21 @@ class Index5 extends Component {
 
                 <MainBanner />
 
-                <PartnerSlider />
+                <NewsSlider />
 
-                <PartnerPromotion />
+                <Banner />
 
                 <Products />
 
-                <Groups />
+                {/* <Groups /> */}
 
                 <HotDeals />
+
+                <WhatWeOffer />
+
+                <Partner />
+
+                <EzStore />
 
 
                 <About />

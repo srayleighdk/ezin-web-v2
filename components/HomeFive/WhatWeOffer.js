@@ -1,71 +1,74 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
+import React, { Component } from "react";
+import Link from "next/link";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemPanel,
+  AccordionItemButton,
+} from "react-accessible-accordion";
 
 class WhatWeOffer extends Component {
-
-    openTabSection = (evt, tabNmae) => {
-        let i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabs_item");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-
-        tablinks = document.getElementsByTagName("li");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace("current", "");
-        }
-
-        document.getElementById(tabNmae).style.display = "block";
-        evt.currentTarget.className += "current";
+  openTabSection = (evt, tabNmae) => {
+    let i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabs_item");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
     }
 
-    render() {
-        return (
-            <section className="industries-area pb-100">
-			    <div className="container">
-                    <div className="section-title">
-                        <span>What We Offer</span>
-                        <h2>Industries We Serve</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eos ea obcaecati et similique incidunt animi, sed, quos officiis placeat. Id ipsa molestias.</p>
-                    </div>
+    tablinks = document.getElementsByTagName("li");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace("current", "");
+    }
 
-                    <div className="tab industries-list-tab">
-                        <div className="row align-items-center">
-                            <div className="col-lg-3">
-                                {/* Tabs navs */}
-                                <ul className="tabs">
-                                    <li
-                                        className="current"
-                                        onClick={(e) => this.openTabSection(e, 'tab1')}
-                                    >
-                                        <span>
-                                            <i className="flaticon-machine-learning"></i>
-                                            <h3>Heavy Industry</h3>
-                                            <p>All kind of industry</p>
-                                        </span>
-                                    </li>
+    document.getElementById(tabNmae).style.display = "block";
+    evt.currentTarget.className += "current";
+  };
 
-                                    <li
-                                        onClick={(e) => this.openTabSection(e, 'tab2')}
-                                    >
-                                        <span>
-                                            <i className="flaticon-artificial-intelligence"></i>
-                                            <h3>Transportation</h3>
-                                            <p>All kind of industry</p>
-                                        </span>
-                                    </li>
+  render() {
+    return (
+      <section className="industries-area pb-100">
+        <div className="container">
+          <div className="section-title">
+            <h2>
+              <span className="text-40">Tại sao</span> dùng Ezin?
+            </h2>
+            <p>Một trải nghiệm hoàn toàn mới để San sẻ rủi ro - Hết cả âu lo</p>
+          </div>
 
-                                    <li
-                                        onClick={(e) => this.openTabSection(e, 'tab3')}
-                                    >
-                                        <span>
-                                            <i className="flaticon-health"></i>
-                                            <h3>Health Care</h3>
-                                            <p>All kind of industry</p>
-                                        </span>
-                                    </li>
+          <div className="tab industries-list-tab">
+            <div className="row align-items-center">
+              <div className="col-lg-3">
+                {/* Tabs navs */}
+                <ul className="tabs">
+                  <li
+                    className="current"
+                    onClick={(e) => this.openTabSection(e, "tab1")}
+                  >
+                    <span>
+                      <i className="flaticon-health"></i>
+                      <h3>Quyền lợi</h3>
+                      {/* <p>All kind of industry</p> */}
+                    </span>
+                  </li>
 
-                                    <li
+                  <li onClick={(e) => this.openTabSection(e, "tab2")}>
+                    <span>
+                      <i className="flaticon-machine-learning"></i>
+                      <h3>Ezin Lifestyle</h3>
+                      {/* <p>All kind of industry</p> */}
+                    </span>
+                  </li>
+
+                  <li onClick={(e) => this.openTabSection(e, "tab3")}>
+                    <span>
+                      <i className="flaticon-artificial-intelligence"></i>
+                      <h3>FAQ</h3>
+                      {/* <p>All kind of industry</p> */}
+                    </span>
+                  </li>
+
+                  {/* <li
                                         onClick={(e) => this.openTabSection(e, 'tab4')}
                                     >
                                         <span>
@@ -73,263 +76,267 @@ class WhatWeOffer extends Component {
                                             <h3>Manufacturing</h3>
                                             <p>All kind of industry</p>
                                         </span>
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                            <div className="col-lg-9">
-                                <div className="tab_content">
-                                    {/* Tab item #1 */}
-                                    <div id="tab1" className="tabs_item">
-                                        <div className="row align-items-center">
-                                            <div className="col-lg-6">
-                                                <div className="industries-img left-img">
-                                                    <img src="/images/offer1.png" alt="Image" />
-                                                </div>
-                                            </div>
+                                    </li> */}
+                </ul>
+              </div>
 
-                                            <div className="col-lg-6">
-                                                <div className="industries-content">
-                                                    <h3>Heavy Industry</h3>
-                                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est atque recusandae esse alias reprehenderit.</p>
-                                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea doloribus molestias illo ad aperiam quo natus voluptatum, eos laboriosam vel deserunt?</p>
-                                                    
-                                                    <div className="row">
-                                                        <div className="col-lg-6 col-sm-6">
-                                                            <ul className="industries-item">
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Opportunities
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Creating
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Industries
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-
-                                                        <div className="col-lg-6 col-sm-6">
-                                                            <ul className="industries-item">
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Security
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Highest
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Priority
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                
-                                                    <div className="text-center">
-                                                        <Link href="/services">
-                                                            <a className="default-btn">Discover More</a>
-                                                        </Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    {/* Tab item #2 */}
-                                    <div id="tab2" className="tabs_item">
-                                        <div className="row  align-items-center">
-                                            <div className="col-lg-6">
-                                                <div className="industries-content">
-                                                    <h3>Transportation</h3>
-                                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est atque recusandae esse alias reprehenderit.</p>
-                                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea doloribus molestias illo ad aperiam quo natus voluptatum, eos laboriosam vel deserunt? Ab rerum eaque aperiam sequi dolore minus itaque eos!</p>
-
-                                                    <div className="row">
-                                                        <div className="col-lg-6 col-sm-6">
-                                                            <ul className="industries-item">
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Security
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Highest
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Priority
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-
-                                                        <div className="col-lg-6 col-sm-6">
-                                                            <ul className="industries-item">
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Opportunities
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Creating
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Industries
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div className="text-center">
-                                                        <Link href="/services">
-                                                            <a className="default-btn">Discover More</a>
-                                                        </Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="col-lg-6">
-                                                <div className="industries-img right-img">
-                                                    <img src="/images/offer2.png" alt="Image" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Tab item #3 */}
-                                    <div id="tab3" className="tabs_item">
-                                        <div className="row  align-items-center">
-                                            <div className="col-lg-6">
-                                                <div className="industries-img left-img">
-                                                    <img src="/images/offer3.png" alt="Image" />
-                                                </div>
-                                            </div>
-
-                                            <div className="col-lg-6">
-                                                <div className="industries-content">
-                                                    <h3>Health Care</h3>
-                                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est atque recusandae esse alias reprehenderit.</p>
-                                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea doloribus molestias illo ad aperiam quo natus voluptatum, eos laboriosam vel deserunt? Ab rerum eaque aperiam sequi dolore minus itaque eos!</p>
-                                                    
-                                                    <div className="row">
-                                                        <div className="col-lg-6 col-sm-6">
-                                                            <ul className="industries-item">
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Creating
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Consectetur
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Adipisicing
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-
-                                                        <div className="col-lg-6 col-sm-6">
-                                                            <ul className="industries-item">
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Artificial
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Industry
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Opportunities
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="text-center">
-                                                        <Link href="/services">
-                                                            <a className="default-btn">Discover More</a>
-                                                        </Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Tab item #4 */}
-                                    <div id="tab4" className="tabs_item">
-                                        <div className="row  align-items-center">
-                                            <div className="col-lg-6">
-                                                <div className="industries-content">
-                                                    <h3>Manufacturing</h3>
-                                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est atque recusandae esse alias reprehenderit.</p>
-                                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea doloribus molestias illo ad aperiam quo natus voluptatum, eos laboriosam vel deserunt? Ab rerum eaque aperiam sequi dolore minus itaque eos!</p>
-                                                    
-                                                    <div className="row">
-                                                        <div className="col-lg-6 col-sm-6">
-                                                            <ul className="industries-item">
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Opportunities
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Creating
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Industries
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-
-                                                        <div className="col-lg-6 col-sm-6">
-                                                            <ul className="industries-item">
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Security
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Highest
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Priority
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="text-center">
-                                                        <Link href="/services">
-                                                            <a className="default-btn">Discover More</a>
-                                                        </Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="col-lg-6">
-                                                <div className="industries-img right-img">
-                                                    <img src="/images/offer4.png" alt="Image" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+              <div className="col-lg-9">
+                <div className="tab_content">
+                  {/* Tab item #1 */}
+                  <div id="tab1" className="tabs_item">
+                    <div className="row align-items-center">
+                      <div className="col-lg-6">
+                        <div className="industries-img left-img">
+                          <img src="/images/why1.png" alt="Image" />
                         </div>
+                      </div>
+
+                      <div className="col-lg-6">
+                        <div className="industries-content">
+                          <h3>Quyền lợi</h3>
+                          {/* <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est atque recusandae esse alias reprehenderit.</p>
+                                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea doloribus molestias illo ad aperiam quo natus voluptatum, eos laboriosam vel deserunt?</p> */}
+
+                          <div className="row">
+                            <div className="col-lg-6 col-sm-6">
+                              <ul className="industries-item">
+                                <li>
+                                  <i className="flaticon-checked"></i>
+                                  Hoàn toàn điện tử - không giấy tờ
+                                </li>
+                                <li>
+                                  <i className="flaticon-checked"></i>
+                                  Cam kết hỗ trợ tới 100 triệu
+                                </li>
+                                <li>
+                                  <i className="flaticon-checked"></i>
+                                  Chăm sóc khách hàng 5 sao
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div className="col-lg-6 col-sm-6">
+                              <ul className="industries-item">
+                                <li>
+                                  <i className="flaticon-checked"></i>
+                                  Đòi bồi thường trực tuyến
+                                </li>
+                                <li>
+                                  <i className="flaticon-checked"></i>
+                                  Mua bảo hiểm trong 5 phút
+                                </li>
+                                {/* <li>
+                                                                    <i className="flaticon-checked"></i>
+                                                                    Chăm sóc khách hàng 5 sao
+                                                                </li> */}
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div className="text-center">
+                            <Link href="/services">
+                              <a className="default-btn">Discover More</a>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+
+                  {/* Tab item #2 */}
+                  <div id="tab2" className="tabs_item">
+                    <div className="row  align-items-center">
+                      <div className="col-lg-6">
+                        <div className="industries-content">
+                          <h3>Ezin Lifestyle</h3>
+                          {/* <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est atque recusandae esse alias reprehenderit.</p>
+                                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea doloribus molestias illo ad aperiam quo natus voluptatum, eos laboriosam vel deserunt? Ab rerum eaque aperiam sequi dolore minus itaque eos!</p> */}
+
+                          <div className="row">
+                            <div className="col-lg-12 col-sm-12">
+                              <ul className="industries-item">
+                                <li>
+                                  <i className="flaticon-checked"></i>
+                                  Sống an toàn
+                                </li>
+                                <li>
+                                  <i className="flaticon-checked"></i>
+                                  Sống lành mạnh
+                                </li>
+                                <li>
+                                  <i className="flaticon-checked"></i>
+                                  Sống đẹp
+                                </li>
+                              </ul>
+                            </div>
+
+                            {/* <div className="col-lg-6 col-sm-6">
+                                                            <ul className="industries-item">
+                                                                <li>
+                                                                    <i className="flaticon-checked"></i>
+                                                                    Opportunities
+                                                                </li>
+                                                                <li>
+                                                                    <i className="flaticon-checked"></i>
+                                                                    Creating
+                                                                </li>
+                                                                <li>
+                                                                    <i className="flaticon-checked"></i>
+                                                                    Industries
+                                                                </li>
+                                                            </ul>
+                                                        </div> */}
+                          </div>
+
+                          <div className="text-center">
+                            <Link href="/services">
+                              <a className="default-btn">Discover More</a>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="col-lg-6">
+                        <div className="industries-img right-img">
+                          <img src="/images/why2.png" alt="Image" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tab item #3 */}
+                  <div id="tab3" className="tabs_item">
+                    <div className="row  align-items-center">
+                      <div className="col-lg-6">
+                        <div className="industries-img left-img">
+                          <img src="/images/why3.png" alt="Image" />
+                        </div>
+                      </div>
+
+                      <div className="col-lg-6">
+                        <div className="industries-content">
+                          <h3>FAQ</h3>
+
+                          <div className="row">
+                            <div className="col-lg-12">
+                              <div className="faq-accordion">
+                                <Accordion preExpanded={["a"]}>
+                                  <AccordionItem uuid="a">
+                                    <AccordionItemHeading>
+                                      <AccordionItemButton>
+                                        Ezin là gì?
+                                      </AccordionItemButton>
+                                    </AccordionItemHeading>
+
+                                    <AccordionItemPanel>
+                                      <p>
+                                        Ezin là cách viết tắt của cụm từ Easy
+                                        Insurance- bảo hiểm thật dễ dàng. Đây
+                                        cũng là tôn chỉ của chúng tôi, những
+                                        người sáng lập nên Ezin. Chúng tôi muốn
+                                        tạo ra những sản phẩm bảo hiểm thật dễ
+                                        hiểu, mang lại những quyền lợi thiết
+                                        thực nhất để bảo vệ bạn và những người
+                                        thân yêu của bạn với mức chi phí dễ tiếp
+                                        cận nhất.
+                                      </p>
+                                    </AccordionItemPanel>
+                                  </AccordionItem>
+
+                                  <AccordionItem uuid="b">
+                                    <AccordionItemHeading>
+                                      <AccordionItemButton>
+                                        Bảo hiểm Ezin có gì khác biệt?
+                                      </AccordionItemButton>
+                                    </AccordionItemHeading>
+
+                                    <AccordionItemPanel>
+                                      <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna
+                                        aliqua. Quis ipsum suspendisse ultrices
+                                        gravida. Risus commodo viverra maecenas
+                                        accumsan lacus vel facilisis.
+                                      </p>
+                                    </AccordionItemPanel>
+                                  </AccordionItem>
+
+                                  <AccordionItem uuid="c">
+                                    <AccordionItemHeading>
+                                      <AccordionItemButton>
+                                        Claim như thế nào?
+                                      </AccordionItemButton>
+                                    </AccordionItemHeading>
+                                    <AccordionItemPanel>
+                                      <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna
+                                        aliqua. Quis ipsum suspendisse ultrices
+                                        gravida. Risus commodo viverra maecenas
+                                        accumsan lacus vel facilisis.
+                                      </p>
+                                    </AccordionItemPanel>
+                                  </AccordionItem>
+
+                                  <AccordionItem uuid="d">
+                                    <AccordionItemHeading>
+                                      <AccordionItemButton>
+                                        Kích hoạt ra sao?
+                                      </AccordionItemButton>
+                                    </AccordionItemHeading>
+                                    <AccordionItemPanel>
+                                      <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna
+                                        aliqua. Quis ipsum suspendisse ultrices
+                                        gravida. Risus commodo viverra maecenas
+                                        accumsan lacus vel facilisis.
+                                      </p>
+                                    </AccordionItemPanel>
+                                  </AccordionItem>
+
+                                  <AccordionItem uuid="e">
+                                    <AccordionItemHeading>
+                                      <AccordionItemButton>
+                                        AI Hoạt động như thế nào?
+                                      </AccordionItemButton>
+                                    </AccordionItemHeading>
+                                    <AccordionItemPanel>
+                                      <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna
+                                        aliqua. Quis ipsum suspendisse ultrices
+                                        gravida. Risus commodo viverra maecenas
+                                        accumsan lacus vel facilisis.
+                                      </p>
+                                    </AccordionItemPanel>
+                                  </AccordionItem>
+                                </Accordion>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* <div className="text-center">
+                            <Link href="/services">
+                              <a className="default-btn">Discover More</a>
+                            </Link>
+                          </div> */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            </section>
-        );
-    }
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 }
 
 export default WhatWeOffer;
