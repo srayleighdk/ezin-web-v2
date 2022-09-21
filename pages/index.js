@@ -12,6 +12,7 @@ import Partner from '../components/HomeFive/Partner';
 import CommunityEzin from '../components/HomeFive/CommunityEzin';
 import Groups from '../components/HomeFive/Groups';
 import Services from '../components/HomeFive/Services';
+import EzinCoin from '../components/HomeFive/EzinCoin';
 import Products from '../components/HomeFive/Products';
 import MakeYourBusiness from '../components/Common/MakeYourBusiness';
 import WhatWeOffer from '../components/HomeFive/WhatWeOffer';
@@ -29,31 +30,53 @@ class Index5 extends Component {
 
                 <MainBanner />
 
-                <PartnerSlider />
-
-                <About />
-
-                <WhyChooseUs />
-
-                <Services />
-
-                <MakeYourBusiness />
-
-                <WhatWeOffer />
-
-                <CaseStudies />
-
                 <NewsSlider />
 
                 <Banner />
 
                 <Products />
 
-                {/* <Groups /> */}
-
                 <HotDeals />
 
                 <WhatWeOffer />
+
+                {/* <PartnerSlider /> */}
+
+                {/* <About /> */}
+
+                {/* <WhyChooseUs /> */}
+
+                <EzinCoin />
+
+                <CommunityEzin />
+
+                <News />
+
+                <Testimonials />
+
+                <CaseStudies />
+
+                <Partner />
+
+                <EzStore />
+
+                {/* <MakeYourBusiness />
+
+                <WhatWeOffer />
+
+                <CaseStudies /> */}
+
+                {/* <NewsSlider />
+
+                <Banner />
+
+                <Products /> */}
+
+                {/* <Groups /> */}
+
+                {/* <HotDeals /> */}
+
+                {/* <WhatWeOffer />
 
                 <Partner />
 
@@ -72,14 +95,14 @@ class Index5 extends Component {
 
                 <WhatWeOffer />
 
-                <CaseStudies />
+                <CaseStudies /> */}
 
                 // Quang
-                <Testimonials />
+                {/* <Testimonials />
 
                 <Faq />
 
-                <News />
+                <News /> */}
                 
                 <Footer />
             </>

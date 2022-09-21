@@ -7,7 +7,7 @@ class CaseStudies extends Component {
     render() {
         return (
             <section className="case-area pb-100" style={{backgroundImage: 'linear-gradient(248.66deg, #FFF1F1 0%, #E9F8FB 100%)'}}>
-                <div className="container">
+                <div className="container pt-5">
                     <div className="section-title">
                          <h2 style={{color: '#167ffc'}}>Tiện ích <span>dành cho bạn</span> </h2>
                     </div>

@@ -77,7 +77,7 @@ class Partner extends Component {
             //     </div>
             // </section>
             <div className="brand-area">
-                <div className="container mb-5">
+                <div className="container my-5">
                     <div className="section-title mb-3">
                         <h2><span className="text-40">Ezin</span> partner</h2>
                     </div>
