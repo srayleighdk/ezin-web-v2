@@ -3837,7 +3837,6 @@ jumpx SliderArea Style
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
   position: relative;
   z-index: 1;
 }
@@ -5955,8 +5954,8 @@ Service Details Area Style
   margin: 0 auto !important;
 }
 
-.line-height-60 {
-  line-height: 60px;
+.line-height-30 {
+  line-height: 30px;
 }
 
 .mb-0 {

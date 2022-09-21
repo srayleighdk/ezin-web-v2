@@ -891,7 +891,17 @@
   }
 
   /* tuan */
-  
+  .line-footer::after {
+    left: 38px;
+  }
+
+  .text-xm-18 {
+    font-size: 18px !important;
+  }
+
+  .w-xs-comunity {
+    width: 160px !important;
+  }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {

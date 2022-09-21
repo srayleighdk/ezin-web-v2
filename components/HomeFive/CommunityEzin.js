@@ -9,28 +9,28 @@ class CommunityEzin extends Component {
                         <h2 className="text-white">Cộng đồng Ezin</h2>
                     </div>
                     <div className="row">
-                        <div className="col-lg-2 text-center position-relative line-right">
-                            <p className="text-16 mb-0 line-height-60" style={{height: 60}}>Số Eziner được bảo vệ</p>
+                        <div className="col-lg-2 text-center position-relative line-right d-flex flex-row-reverse flex-lg-column justify-content-around align-items-center">
+                            <p className="text-16 mb-0 w-xs-comunity">Số Eziner được bảo vệ</p>
                             <p className="text-40 font-weight-700">7K</p>
                         </div>
-                        <div className="col-lg-2 text-center position-relative line-right" >
-                            <p className="text-16 mb-0 line-height-60" style={{height: 60}}>Số EzCoin kiếm được</p>
+                        <div className="col-lg-2 text-center position-relative line-right d-flex flex-row-reverse flex-lg-column justify-content-around align-items-center" >
+                            <p className="text-16 mb-0 w-xs-comunity">Số EzCoin kiếm được</p>
                             <p className="text-40 font-weight-700">100M</p>
                         </div>
-                        <div className="col-lg-2 text-center position-relative line-right" >
-                            <p className="text-16 mb-0 line-height-60" style={{height: 60}}>Số Km an toàn</p>
+                        <div className="col-lg-2 text-center position-relative line-right d-flex flex-row-reverse flex-lg-column justify-content-around align-items-center" >
+                            <p className="text-16 mb-0 w-xs-comunity">Số Km an toàn</p>
                             <p className="text-40 font-weight-700">200K</p>
                         </div>
-                        <div className="col-lg-2 text-center position-relative line-right" >
-                            <p className="text-16 mb-0 line-height-60" style={{height: 60}}>Fan Facebook</p>
+                        <div className="col-lg-2 text-center position-relative line-right d-flex flex-row-reverse flex-lg-column justify-content-around align-items-center" >
+                            <p className="text-16 mb-0 w-xs-comunity">Fan Facebook</p>
                             <p className="text-40 font-weight-700">100K</p>
                         </div>
-                        <div className="col-lg-2 text-center position-relative line-right" >
-                            <p className="text-16 mb-0 line-height-60" style={{height: 60}}>Số EzStore</p>
+                        <div className="col-lg-2 text-center position-relative line-right d-flex flex-row-reverse flex-lg-column justify-content-around align-items-center" >
+                            <p className="text-16 mb-0 w-xs-comunity">Số EzStore</p>
                             <p className="text-40 font-weight-700">50</p>
                         </div>
-                        <div className="col-lg-2 text-center" >
-                            <p className="text-16 mb-0" style={{height: 60}}>Số người nhận được quyền lợi BH</p>
+                        <div className="col-lg-2 text-center d-flex flex-row-reverse flex-lg-column justify-content-around align-items-center" >
+                            <p className="text-16 mb-0 w-xs-comunity">Số người nhận được quyền lợi BH</p>
                             <p className="text-40 font-weight-700">13K</p>
                         </div>
                     </div>

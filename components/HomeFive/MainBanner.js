@@ -18,7 +18,7 @@ class MainBanner extends Component {
                 >
                     <SwiperSlide>
                         <div 
-                            className="jumpx-slider-item" 
+                            className="jumpx-slider-item vh-100" 
                             style={{ backgroundImage: `url(/images/home-five/slider.png)`, minHeight: "100vh" }}
                         >
                             <div className="d-table">
@@ -51,7 +51,7 @@ class MainBanner extends Component {
 
                     <SwiperSlide>
                         <div 
-                            className="jumpx-slider-item" 
+                            className="jumpx-slider-item vh-100" 
                             style={{ backgroundImage: `url(/images/home-five/slider.png)` }}
                         >
                             <div className="d-table">
@@ -84,7 +84,7 @@ class MainBanner extends Component {
                     
                     <SwiperSlide>
                         <div 
-                            className="jumpx-slider-item" 
+                            className="jumpx-slider-item vh-100" 
                             style={{ backgroundImage: `url(/images/home-five/slider.png)` }}
                         >
                             <div className="d-table">
