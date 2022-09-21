@@ -6,8 +6,8 @@ class NewsSlider extends Component {
     render() {
         return (
             <div className="brand-area-two ptb-100 position-relative" style={{padding: "30px 0"}}>
-                <img src="/images/brands/arrow.png" alt="Image" className="home-brand-arrow" />
-                <h4 className="home-brand-title font-weight-700 color-white">Tin tức mới nhất</h4>
+                <img src="/images/brands/arrow.png" alt="Image" className="home-brand-arrow d-none d-sm-block" />
+                <h4 className="home-brand-title font-weight-700 color-white d-none d-sm-block">Tin tức mới nhất</h4>
                 <div className="container mr-0">
                     <Swiper 
                         spaceBetween={25}

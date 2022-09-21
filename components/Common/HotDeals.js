@@ -9,26 +9,26 @@ class HotDeals extends Component {
       <div className="ptb-100 position-relative" style={{ padding: "30px 0" }}>
         <div className="container mb-20 mt-20 bg-deals rounded-3">
             <div className="row justify-content-between">
-                <div className="col-lg-5 d-flex" >
+                <div className="col-lg-5 col-12 d-flex" >
                     <img src="/images/flash-deal.png" alt="flash deal" className="mt-3 mb-1 ms-3" />
                     <div className="d-flex flex-wrap ms-4 text-white">
                         <h4 className="w-100 mb-0 align-self-end text-white">Giờ vàng deal sốc</h4>
-                        <div className="w-100 mb-0 me-3 mt-2 d-flex">Kết thúc trong <div className="ms-2 me-1 time-deal">01</div>:<div className="time-deal mx-1">30</div>:<div className="time-deal mx-1">09</div></div>
+                        <div className="w-100 mb-0 me-3 mt-2 d-flex align-items-center">Kết thúc trong <div className="ms-2 me-1 time-deal">01</div>:<div className="time-deal mx-1">30</div>:<div className="time-deal mx-1">09</div></div>
                     </div>
                 </div>
-                <div className="col-lg-7" >
+                <div className="col-lg-7 col-12" >
                     <div className="row text-white h-100 align-items-center text-center">
-                        <div className="col-lg-4 position-relative">
+                        <div className="col-lg-4 col-4 position-relative">
                             <p className="mb-0 text-18">Đang diễn ra</p>
-                            <p className="text-20 line-footer">14:00 - 16:00</p>
+                            <p className="text-20 text-xm-18 line-footer">14:00 - 16:00</p>
                         </div>
-                        <div className="col-lg-4 position-relative">
+                        <div className="col-lg-4 col-4 position-relative">
                             <p className="mb-0 text-18">Đang diễn ra</p>
-                            <p className="text-20">14:00 - 16:00</p>
+                            <p className="text-20 text-xm-18">14:00 - 16:00</p>
                         </div>
-                        <div className="col-lg-4 position-relative">
+                        <div className="col-lg-4 col-4 position-relative">
                             <p className="mb-0 text-18">Đang diễn ra</p>
-                            <p className="text-20">14:00 - 16:00</p>
+                            <p className="text-20 text-xm-18">14:00 - 16:00</p>
                         </div>
                     </div>
                 </div>
