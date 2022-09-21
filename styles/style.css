@@ -5909,3 +5909,108 @@ Service Details Area Style
   font-size: 55px;
 }
 /*# sourceMappingURL=style.css.map */
+
+ /* Quang */
+
+ /* .single-client {
+  margin-top: 0;
+  padding-top: 115px;
+ }
+
+.client-area .quotes {
+  height: 90px;
+  width: 90px;
+  top: 7.27px;
+}
+
+.client-area {
+  background-color: white;
+  height: 373.47px;
+}
+
+.client-area .style-name {
+ font-family: 'Inter';
+ font-style: normal;
+ font-weight: 600;
+ font-size: 16px;
+ line-height: 24px;
+ top: 115.24px; 
+}
+
+.ptb-100 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+} */
+
+.client-img img {
+  width: 60px;
+  height: 60px;
+}
+
+.client-img {
+  bottom: -150px;
+}
+
+.text-truncate-container {
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.section-title h2 {
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 40px;
+line-height: 60px;
+}
+
+.section-title span {
+    font-size: 35px;
+    color: black;
+}
+
+h3 {
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+
+color: #000000;
+}
+
+.style-font-p {
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+/* or 171% */
+
+
+color: #000000;
+}
+
+.blog-img a {
+  width: 100%;
+}
+
+.blog-img img {
+  width: 100%;
+}
+
+.img-center {
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding-top: 34px;
+}
+
+.h3-margin-bt {
+  margin-bottom: 2rem;
+}

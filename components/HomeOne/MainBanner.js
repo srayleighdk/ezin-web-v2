@@ -8,7 +8,7 @@ const MainBanner = () => {
                 <div className="row align-items-center">
                     <div className="col-lg-6">
                         <div className="banner-text">
-                            <h1>Specialized Artificial Intelligence Startup</h1>
+                            <h1>Specialized Artificial Intelligence Startupsdfdsfsdfsd</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida risus commodo</p>	
 
                             <div className="banner-btn">

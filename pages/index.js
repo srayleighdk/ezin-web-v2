@@ -1,41 +1,50 @@
-import Navbar from '../components/Layouts/Navbar'
-import MainBanner from '../components/HomeOne/MainBanner'
-import Features from '../components/HomeOne/Features'
-import About from '../components/HomeOne/About'
-import WhyChooseUs from '../components/HomeOne/WhyChooseUs'
-import Services from '../components/HomeOne/Services'
-import MakeYourBusiness from '../components/Common/MakeYourBusiness'
-import WhatWeOffer from '../components/HomeOne/WhatWeOffer'
-import Testimonials from '../components/Common/Testimonials'
-import News from '../components/Common/News'
-import Footer from '../components/Layouts/Footer'
+import React, { Component } from 'react';
+import Navbar from '../components/Layouts/Navbar';
+import MainBanner from '../components/HomeFive/MainBanner';
+import PartnerSlider from '../components/Common/PartnerSlider';
+import About from '../components/HomeFive/About';
+import WhyChooseUs from '../components/HomeFive/WhyChooseUs';
+import Services from '../components/HomeFive/Services';
+import MakeYourBusiness from '../components/Common/MakeYourBusiness';
+import WhatWeOffer from '../components/HomeFive/WhatWeOffer';
+import CaseStudies from '../components/HomeFive/CaseStudies';
+import Testimonials from '../components/Common/Testimonials';
+import Faq from '../components/HomeFive/Faq';
+import News from '../components/Common/News';
+import Footer from '../components/Layouts/Footer';
+ 
+class Index5 extends Component {
+    render() {
+        return (
+            <>
+                <Navbar />
 
-const Index = () => {
-    return (
-        <>
-            <Navbar />
-            
-            <MainBanner />
+                <MainBanner />
 
-            <Features />
+                <PartnerSlider />
 
-            <About />
+                <About />
 
-            <WhyChooseUs />
+                <WhyChooseUs />
 
-            <Services />
+                <Services />
 
-            <MakeYourBusiness />
+                <MakeYourBusiness />
 
-            <WhatWeOffer />
+                <WhatWeOffer />
 
-            <Testimonials />
+                <CaseStudies />
 
-            <News />
-            
-            <Footer />
-        </>
-    )
+                <Testimonials />
+
+                <Faq />
+
+                <News />
+                
+                <Footer />
+            </>
+        );
+    }
 }
 
-export default Index
+export default Index5;

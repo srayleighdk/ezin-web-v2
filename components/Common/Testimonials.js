@@ -7,14 +7,14 @@ class Testimonials extends Component {
         return (
             <section className="client-area ptb-100">
                 <div className="container">
-                    <div className="section-title">
+                    {/* <div className="section-title">
                         <span>Testimonials</span>
                         <h2>What Clients Say About Us</h2>
-                    </div>
+                    </div> */}
 
                     <Swiper 
                         spaceBetween={25}
-                        navigation={true} 
+                        navigation={false} 
                         autoplay={{
                             delay: 6500,
                             pauseOnMouseEnter: true,
@@ -36,7 +36,9 @@ class Testimonials extends Component {
                         <SwiperSlide>
                             <div className="single-client">
                                 <i className="quotes flaticon-left-quotes-sign"></i>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,do eiusmod tempor incididunt ut labore et dolore.</p>
+                                {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
+                                <p className='style-name'>Trần Thị Phương Thảo</p> */}
+                                <p>“ Always disappointed in how much insurance will fight against customer in a claim. Just had my first good experience with filing. Unbelievably quick and solid customer experience with”</p>
 
                                 <ul>
                                     <li><i className="bx bxs-star"></i></li>
@@ -47,9 +49,9 @@ class Testimonials extends Component {
                                 </ul>
 
                                 <div className="client-img">
-                                    <img src="/images/clients/client1.jpg" alt="Image" />
-                                    <h3>Alen Meair</h3>
-                                    <span>Developer</span>
+                                    <img src="/images/Ellipse9.png" alt="Image" />
+                                    <h3>Trần Thị Phương Thảo</h3>
+                                    {/* <span>Developer</span> */}
                                 </div>
                             </div>
                         </SwiperSlide>
@@ -57,7 +59,9 @@ class Testimonials extends Component {
                         <SwiperSlide>
                             <div className="single-client">
                                 <i className="quotes flaticon-left-quotes-sign"></i>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,do eiusmod tempor incididunt ut labore et dolore.</p>
+                                {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
+                                <p className='style-name'>Trần Thị Phương Thảo</p> */}
+                                <p>“ I just bought home insurance from you and I’m pretty sure it was easier than ordering pizza. Awesome job on the experience.”</p>
                             
                                 <ul>
                                     <li><i className="bx bxs-star"></i></li>
@@ -68,9 +72,9 @@ class Testimonials extends Component {
                                 </ul>
 
                                 <div className="client-img">
-                                    <img src="/images/clients/client2.jpg" alt="Image" />
-                                    <h3>Axon Detos</h3>
-                                    <span>CEO</span>
+                                    <img src="/images/Ellipse1.png" alt="Image" />
+                                    <h3>Lê Thị Mai</h3>
+                                    {/* <span>CEO</span> */}
                                 </div>
                             </div>
                         </SwiperSlide>
@@ -78,7 +82,9 @@ class Testimonials extends Component {
                         <SwiperSlide>
                             <div className="single-client">
                                 <i className="quotes flaticon-left-quotes-sign"></i>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,do eiusmod tempor incididunt ut labore et dolore.</p>
+                                {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
+                                <p className='style-name'>Trần Thị Phương Thảo</p> */}
+                                <p>“ Once every 2-3 years, I stumble across a truly outstanding app / business which nails everything. UX, pricing, customer service “ </p>
                                 
                                 <ul>
                                     <li><i className="bx bxs-star"></i></li>
@@ -89,9 +95,9 @@ class Testimonials extends Component {
                                 </ul>
 
                                 <div className="client-img">
-                                    <img src="/images/clients/client3.jpg" alt="Image" />
-                                    <h3>John Dona</h3>
-                                    <span>Designer</span>
+                                    <img src="/images/Ellipse2.png" alt="Image" />
+                                    <h3>Thế Nguyễn</h3>
+                                    {/* <span>Designer</span> */}
                                 </div>
                             </div>
                         </SwiperSlide>
@@ -99,7 +105,9 @@ class Testimonials extends Component {
                         <SwiperSlide>
                             <div className="single-client">
                                 <i className="quotes flaticon-left-quotes-sign"></i>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,do eiusmod tempor incididunt ut labore et dolore.</p>
+                                {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
+                                <p className='style-name'>Trần Thị Phương Thảo</p> */}
+                                <p>“ Always disappointed in how much insurance will fight against customer in a claim. Just had my first good experience with filing. Unbelievably quick and solid customer experience with”</p>
                             
                                 <ul>
                                     <li><i className="bx bxs-star"></i></li>
@@ -110,9 +118,9 @@ class Testimonials extends Component {
                                 </ul>
 
                                 <div className="client-img">
-                                    <img src="/images/clients/client4.jpg" alt="Image" />
-                                    <h3>Jon Smith</h3>
-                                    <span>Developer</span>
+                                    <img src="/images/Ellipse3.png" alt="Image" />
+                                    <h3>Mạnh Cường</h3>
+                                    {/* <span>Developer</span> */}
                                 </div>
                             </div>
                         </SwiperSlide>
