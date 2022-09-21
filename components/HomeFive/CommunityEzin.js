@@ -5,7 +5,7 @@ class CommunityEzin extends Component {
         return (
             <div className="brand-area bg-community py-3">
                 <div className="container mb-5 text-white">
-                    <div className="section-title my-4">
+                    <div className="section-title my-4 text-40">
                         <h2 className="text-white">Cộng đồng Ezin</h2>
                     </div>
                     <div className="row">

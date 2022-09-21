@@ -902,6 +902,18 @@
   .w-xs-comunity {
     width: 160px !important;
   }
+
+  .h-xs-tes {
+    height: 70px !important;
+  }
+
+  .mt-xs-3 {
+    margin-top: 1rem !important;
+  }
+
+  .w-xs-100 {
+    width: 100% !important;
+  }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {

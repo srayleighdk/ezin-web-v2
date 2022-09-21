@@ -79,7 +79,7 @@ class Partner extends Component {
             <div className="brand-area">
                 <div className="container my-5">
                     <div className="section-title mb-3">
-                        <h2><span className="text-40">Ezin</span> partner</h2>
+                        <h2><span className="text-40 color-primary">Ezin</span> partner</h2>
                     </div>
                     <div className="brand-list">
                         <div className="single-brand mb-3">
@@ -144,7 +144,7 @@ class Partner extends Component {
                     </div>
 
                     <div className="section-title mb-3 mt-4">
-                        <h2><span className="text-40">Công ty</span> bảo hiểm</h2>
+                        <h2><span className="text-40 color-primary">Công ty</span> bảo hiểm</h2>
                     </div>
                     <div className="brand-list">
                         <div className="single-brand mb-3">

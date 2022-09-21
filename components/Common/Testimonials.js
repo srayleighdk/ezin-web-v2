@@ -10,12 +10,12 @@ class Testimonials extends Component {
                     <div className="section-title">
                         <h2 style={{color: '#167ffc'}}>Dịch vụ <span>khách hàng 5 sao</span> </h2>
                         <p >Chúng tôi đã dành ngân sách Marketing để chăm sóc bạn. Mỗi khách hàng trung thành là một đại sứ thương hiệu</p>
-                        <div className='d-flex justify-content-around '>
-                            <img src="/images/Union.png" alt="" />
-                            <img src="/images/Union.png" alt="" />
-                            <img src="/images/Union.png" alt="" />
-                            <img src="/images/Union.png" alt="" />
-                            <img src="/images/Union.png" alt="" />
+                        <div className='d-flex justify-content-around px-3 '>
+                            <img src="/images/Union.png" alt="" style={{height: 60}}/>
+                            <img src="/images/Union.png" alt="" style={{height: 60}}/>
+                            <img src="/images/Union.png" alt="" style={{height: 60}}/>
+                            <img src="/images/Union.png" alt="" style={{height: 60}}/>
+                            <img src="/images/Union.png" alt="" style={{height: 60}}/>
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@ class Testimonials extends Component {
                         className="testimonials-slide"
                     >
                         <SwiperSlide>
-                            <div className="single-client">
+                            <div className="single-client text-dot-5 pt-5" style={{height: 240}}>
                                 <i className="quotes flaticon-left-quotes-sign"></i>
                                 {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
                                 <p className='style-name'>Trần Thị Phương Thảo</p> */}
@@ -64,7 +64,7 @@ class Testimonials extends Component {
                         </SwiperSlide>
 
                         <SwiperSlide>
-                            <div className="single-client">
+                            <div className="single-client text-dot-5 pt-5" style={{height: 240}}>
                                 <i className="quotes flaticon-left-quotes-sign"></i>
                                 {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
                                 <p className='style-name'>Trần Thị Phương Thảo</p> */}
@@ -87,7 +87,7 @@ class Testimonials extends Component {
                         </SwiperSlide>
 
                         <SwiperSlide>
-                            <div className="single-client">
+                            <div className="single-client text-dot-5 pt-5" style={{height: 240}}>
                                 <i className="quotes flaticon-left-quotes-sign"></i>
                                 {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
                                 <p className='style-name'>Trần Thị Phương Thảo</p> */}
@@ -110,7 +110,7 @@ class Testimonials extends Component {
                         </SwiperSlide>
 
                         <SwiperSlide>
-                            <div className="single-client">
+                            <div className="single-client text-dot-5 pt-5" style={{height: 240}}>
                                 <i className="quotes flaticon-left-quotes-sign"></i>
                                 {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
                                 <p className='style-name'>Trần Thị Phương Thảo</p> */}

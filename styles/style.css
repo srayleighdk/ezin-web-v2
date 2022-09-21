@@ -314,7 +314,7 @@ Bg Color Four Area Style
 }
 
 .color-primary {
-  color: #167FFC;
+  color: #167FFC !important;
 }
 
 /*
@@ -6133,6 +6133,12 @@ color: #000000;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+}
+
+.text-dot-5 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
 }
 
 .home-brand-arrow {

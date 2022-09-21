@@ -10,8 +10,27 @@ class EzStore extends Component {
         <div className="container mb-20 mt-20 rounded-3">
           <div className="section-title" style={{ maxWidth: 700 }}>
             <h2>
-              <span className="text-40">EzStore</span> bán bảo hiểm cực dễ dàng
+              <span className="text-40 color-primary">EzStore</span> bán bảo
+              hiểm cực dễ dàng
             </h2>
+          </div>
+          <div className="row mb-5 justify-content-center">
+            <div className="col-lg-6">
+              <select class="form-select w-75 w-xs-100 ms-auto" aria-label="Default select example">
+                <option selected>Chọn tỉnh/ thành phố</option>
+                <option value="1">Hà Nội</option>
+                <option value="2">Tp.Hồ Chí Minh</option>
+                <option value="3">Đà Nẵng</option>
+              </select>
+            </div>
+            <div className="col-lg-6">
+              <select class="form-select w-75 w-xs-100 mt-xs-3 me-auto" aria-label="Default select example">
+                <option selected>Chọn chi nhánh</option>
+                <option value="1">Thủ Đức</option>
+                <option value="2">Quận 1</option>
+                <option value="3">Quận Phú Nhuận</option>
+              </select>
+            </div>
           </div>
           <Swiper
             spaceBetween={25}

@@ -7,7 +7,7 @@ class EzinCoin extends Component {
             <section className="offer-area pt-100 pb-70">
 			    <div className="container">
                     <div className="section-title">
-                    <h2 style={{color: '#167ffc'}}>Ezcoin <span>- 999 cách để vui cùng Ezin</span> </h2>
+                    <h2 className="color-primary">Ezcoin <span>- 999 cách để vui cùng Ezin</span> </h2>
                         <p>Những trò chơi của Ezin bạn có thể kiếm thêm vô số coin cũng như mã giảm giá có giá trị cao</p>
                     </div>
 

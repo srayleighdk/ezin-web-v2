@@ -6,9 +6,9 @@ class News extends Component {
         return (
             <section className="news-area pt-100 pb-70">
                 <div className="container">
-                    <div className="section-title">
+                    <div className="section-title text-40">
                         {/* <span>Latest News</span> */}
-                        <h2 style={{color: '#167ffc'}}>Câu Chuyện <span>Eziner</span> </h2>
+                        <h2 className="color-primary">Câu Chuyện <span>Eziner</span> </h2>
                         {/* <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut ipsum fugit temporibus possimus itaque accusamus voluptatibus dignissimos nobis eaque.</p> */}
                     </div>
 

@@ -31,7 +31,7 @@ class WhatWeOffer extends Component {
         <div className="container">
           <div className="section-title">
             <h2>
-              <span className="text-40">Tại sao</span> dùng Ezin?
+              <span className="text-40 color-primary">Tại sao</span> dùng Ezin?
             </h2>
             <p>Một trải nghiệm hoàn toàn mới để San sẻ rủi ro - Hết cả âu lo</p>
           </div>
@@ -92,11 +92,8 @@ class WhatWeOffer extends Component {
                       </div>
 
                       <div className="col-lg-6">
-                        <div className="industries-content">
+                        <div className="industries-content text-center text-40">
                           <h3>Quyền lợi</h3>
-                          {/* <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est atque recusandae esse alias reprehenderit.</p>
-                                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea doloribus molestias illo ad aperiam quo natus voluptatum, eos laboriosam vel deserunt?</p> */}
-
                           <div className="row">
                             <div className="col-lg-6 col-sm-6">
                               <ul className="industries-item">
@@ -125,10 +122,6 @@ class WhatWeOffer extends Component {
                                   <i className="flaticon-checked"></i>
                                   Mua bảo hiểm trong 5 phút
                                 </li>
-                                {/* <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Chăm sóc khách hàng 5 sao
-                                                                </li> */}
                               </ul>
                             </div>
                           </div>
@@ -145,13 +138,15 @@ class WhatWeOffer extends Component {
 
                   {/* Tab item #2 */}
                   <div id="tab2" className="tabs_item">
-                    <div className="row  align-items-center">
+                    <div className="row align-items-center">
                       <div className="col-lg-6">
-                        <div className="industries-content">
+                        <div className="industries-img right-img">
+                          <img src="/images/why2.png" alt="Image" />
+                        </div>
+                      </div>
+                      <div className="col-lg-6">
+                        <div className="industries-content text-center text-40">
                           <h3>Ezin Lifestyle</h3>
-                          {/* <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est atque recusandae esse alias reprehenderit.</p>
-                                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea doloribus molestias illo ad aperiam quo natus voluptatum, eos laboriosam vel deserunt? Ab rerum eaque aperiam sequi dolore minus itaque eos!</p> */}
-
                           <div className="row">
                             <div className="col-lg-12 col-sm-12">
                               <ul className="industries-item">
@@ -169,23 +164,6 @@ class WhatWeOffer extends Component {
                                 </li>
                               </ul>
                             </div>
-
-                            {/* <div className="col-lg-6 col-sm-6">
-                                                            <ul className="industries-item">
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Opportunities
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Creating
-                                                                </li>
-                                                                <li>
-                                                                    <i className="flaticon-checked"></i>
-                                                                    Industries
-                                                                </li>
-                                                            </ul>
-                                                        </div> */}
                           </div>
 
                           <div className="text-center">
@@ -193,12 +171,6 @@ class WhatWeOffer extends Component {
                               <a className="default-btn">Discover More</a>
                             </Link>
                           </div>
-                        </div>
-                      </div>
-
-                      <div className="col-lg-6">
-                        <div className="industries-img right-img">
-                          <img src="/images/why2.png" alt="Image" />
                         </div>
                       </div>
                     </div>
@@ -214,7 +186,7 @@ class WhatWeOffer extends Component {
                       </div>
 
                       <div className="col-lg-6">
-                        <div className="industries-content">
+                        <div className="industries-content text-center text-40">
                           <h3>FAQ</h3>
 
                           <div className="row">
