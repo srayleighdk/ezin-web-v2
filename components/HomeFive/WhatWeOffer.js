@@ -29,9 +29,9 @@ class WhatWeOffer extends Component {
     return (
       <section className="industries-area pb-100">
         <div className="container">
-          <div className="section-title">
+          <div className="section-title text-40">
             <h2>
-              <span className="text-40 color-primary">Tại sao</span> dùng Ezin?
+              <span className="color-primary">Tại sao</span> dùng Ezin?
             </h2>
             <p>Một trải nghiệm hoàn toàn mới để San sẻ rủi ro - Hết cả âu lo</p>
           </div>

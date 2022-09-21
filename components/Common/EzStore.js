@@ -8,9 +8,9 @@ class EzStore extends Component {
     return (
       <div className="ptb-100 position-relative" style={{ padding: "30px 0" }}>
         <div className="container mb-20 mt-20 rounded-3">
-          <div className="section-title" style={{ maxWidth: 700 }}>
+          <div className="section-title text-40" style={{ maxWidth: 700 }}>
             <h2>
-              <span className="text-40 color-primary">EzStore</span> bán bảo
+              <span className=" color-primary">EzStore</span> bán bảo
               hiểm cực dễ dàng
             </h2>
           </div>
