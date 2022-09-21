@@ -37,7 +37,7 @@ class Navbar extends Component {
                         <div className="container">
                             <Link href="/">
                                 <a className="navbar-brand">
-                                    <img src="/images/white-logo.png" alt="logo" />
+                                    <img src="/images/logo.png" alt="logo" />
                                 </a>
                             </Link>
 
@@ -56,15 +56,16 @@ class Navbar extends Component {
                             </button>
 
                             <div className={classOne} id="navbarSupportedContent">
-                                <ul className="navbar-nav m-auto">
+                                <ul className="navbar-nav m-auto align-item-baseline">
                                     <li className="nav-item">
                                         <Link href="#">
-                                            <a className="nav-link" onClick={e => e.preventDefault()}>
-                                                Home <i className='bx bx-chevron-down'></i>
+                                            <a className="nav-link text-black" onClick={e => e.preventDefault()}>
+                                                Trang chủ 
+                                                {/* <i className='bx bx-chevron-down'></i> */}
                                             </a>
                                         </Link>
 
-                                        <ul className="dropdown-menu">
+                                        {/* <ul className="dropdown-menu">
                                             <li className="nav-item">
                                                 <Link href="/" activeClassName="active">
                                                     <a className="nav-link">Home One</a>
@@ -94,26 +95,32 @@ class Navbar extends Component {
                                                     <a className="nav-link">Home Five</a>
                                                 </Link>
                                             </li>
-                                        </ul>
+                                        </ul> */}
                                     </li>
 
                                     <li className="nav-item">
                                         <Link href="#">
-                                            <a className="nav-link" onClick={e => e.preventDefault()}>
-                                                About <i className='bx bx-chevron-down'></i>
+                                            <a className="nav-link text-black" onClick={e => e.preventDefault()}>
+                                                Sản phẩm <i className='bx bx-chevron-down'></i>
                                             </a>
                                         </Link>
 
                                         <ul className="dropdown-menu">
                                             <li className="nav-item">
                                                 <Link href="/about-1" activeClassName="active">
-                                                    <a className="nav-link">About Style One</a>
+                                                    <a className="nav-link">Ô tô</a>
                                                 </Link>
                                             </li>
 
                                             <li className="nav-item">
                                                 <Link href="/about-2" activeClassName="active">
-                                                    <a className="nav-link">About Style Two</a>
+                                                    <a className="nav-link">Xe máy</a>
+                                                </Link>
+                                            </li>
+
+                                            <li className="nav-item">
+                                                <Link href="/about-2" activeClassName="active">
+                                                    <a className="nav-link">Con người</a>
                                                 </Link>
                                             </li>
                                         </ul>
@@ -121,12 +128,13 @@ class Navbar extends Component {
 
                                     <li className="nav-item">
                                         <Link href="#">
-                                            <a className="nav-link" onClick={e => e.preventDefault()}>
-                                                Services <i className='bx bx-chevron-down'></i>
+                                            <a className="nav-link text-black" onClick={e => e.preventDefault()}>
+                                                Ezcoin 
+                                                {/* <i className='bx bx-chevron-down'></i> */}
                                             </a>
                                         </Link>
 
-                                        <ul className="dropdown-menu">
+                                        {/* <ul className="dropdown-menu">
                                             <li className="nav-item">
                                                 <Link href="/services" activeClassName="active">
                                                     <a className="nav-link">Services Style One</a>
@@ -156,64 +164,68 @@ class Navbar extends Component {
                                                     <a className="nav-link">Service Details</a>
                                                 </Link>
                                             </li>
-                                        </ul>
+                                        </ul> */}
                                     </li>
 
                                     <li className="nav-item">
                                         <Link href="#">
-                                            <a className="nav-link" onClick={e => e.preventDefault()}>
-                                                Pages <i className='bx bx-chevron-down'></i>
+                                            <a className="nav-link text-black" onClick={e => e.preventDefault()}>
+                                                EzLife <i className='bx bx-chevron-down'></i>
                                             </a>
                                         </Link>
 
                                         <ul className="dropdown-menu">
                                             <li className="nav-item">
                                                 <Link href="/pricing" activeClassName="active">
-                                                    <a className="nav-link">Pricing</a>
+                                                    <a className="nav-link">Ezin life</a>
                                                 </Link>
                                             </li>
                                     
                                             <li className="nav-item">
-                                                <Link href="/team" activeClassName="active">
-                                                    <a className="nav-link">Team</a>
+                                                <Link href="#">
+                                                    <a className="nav-link" onClick={e => e.preventDefault()}>
+                                                        BH tai nạn <i className='bx bx-chevron-down'></i>
+                                                    </a>
                                                 </Link>
-                                            </li>
 
-                                            <li className="nav-item">
-                                                <Link href="/testimonials" activeClassName="active">
-                                                    <a className="nav-link">Testimonials</a>
-                                                </Link>
+                                                {/* <ul className="dropdown-menu">
+                                                    <li className="nav-item">
+                                                        <Link href="/login" activeClassName="active">
+                                                            <a className="nav-link">Quyền lợi</a>
+                                                        </Link>
+                                                    </li>
+                                                </ul> */}
                                             </li>
 
                                             <li className="nav-item">
                                                 <Link href="/faq" activeClassName="active">
-                                                    <a className="nav-link">Faq</a>
+                                                    <a className="nav-link">Các quy tắc</a>
                                                 </Link>
                                             </li>
 
                                             <li className="nav-item">
                                                 <Link href="#">
                                                     <a className="nav-link" onClick={e => e.preventDefault()}>
-                                                        User <i className='bx bx-chevron-down'></i>
+                                                        TNDS <i className='bx bx-chevron-down'></i>
                                                     </a>
                                                 </Link>
 
-                                                <ul className="dropdown-menu">
+                                                {/* <ul className="dropdown-menu">
                                                     <li className="nav-item">
                                                         <Link href="/login" activeClassName="active">
-                                                            <a className="nav-link">Login</a>
+                                                            <a className="nav-link">TNDS xe máy</a>
                                                         </Link>
                                                     </li>
 
                                                     <li className="nav-item">
                                                         <Link href="/sign-up" activeClassName="active">
-                                                            <a className="nav-link">Sign Up</a>
+                                                            <a className="nav-link">TNDS xe ô tô</a>
                                                         </Link>
                                                     </li>
-                                                </ul>
+                                                </ul> */}
                                             </li>
 
-                                            <li className="nav-item">
+                                            {/* <li className="nav-item">
                                                 <Link href="/terms-conditions" activeClassName="active">
                                                     <a className="nav-link">Terms & Conditions</a>
                                                 </Link>
@@ -247,18 +259,19 @@ class Navbar extends Component {
                                                 <Link href="/404" activeClassName="active">
                                                     <a className="nav-link">404 error</a>
                                                 </Link>
-                                            </li>
+                                            </li> */}
                                         </ul>
                                     </li>
 
                                     <li className="nav-item">
                                         <Link href="#">
-                                            <a className="nav-link" onClick={e => e.preventDefault()}>
-                                                News <i className='bx bx-chevron-down'></i>
+                                            <a className="nav-link text-black" onClick={e => e.preventDefault()}>
+                                                Tiện ích 
+                                                {/* <i className='bx bx-chevron-down'></i> */}
                                             </a>
                                         </Link>
 
-                                        <ul className="dropdown-menu">
+                                        {/* <ul className="dropdown-menu">
                                             <li className="nav-item">
                                                 <Link href="/news-grid" activeClassName="active">
                                                     <a className="nav-link">News Grid</a>
@@ -276,17 +289,18 @@ class Navbar extends Component {
                                                     <a className="nav-link">News Details</a>
                                                 </Link>
                                             </li>
-                                        </ul>
+                                        </ul> */}
                                     </li>
 
                                     <li className="nav-item">
                                         <Link href="#">
-                                            <a className="nav-link" onClick={e => e.preventDefault()}>
-                                                Contact <i className='bx bx-chevron-down'></i>
+                                            <a className="nav-link text-black" onClick={e => e.preventDefault()}>
+                                                Đối tác 
+                                                {/* <i className='bx bx-chevron-down'></i> */}
                                             </a>
                                         </Link>
 
-                                        <ul className="dropdown-menu">
+                                        {/* <ul className="dropdown-menu">
                                             <li className="nav-item">
                                                 <Link href="/contact" activeClassName="active">
                                                     <a className="nav-link">Contact Style One</a>
@@ -298,7 +312,16 @@ class Navbar extends Component {
                                                     <a className="nav-link">Contact Style Two</a>
                                                 </Link>
                                             </li>
-                                        </ul>
+                                        </ul> */}
+                                    </li>
+
+                                    <li className="nav-item">
+                                        <Link href="#">
+                                            <a className="nav-link text-black" onClick={e => e.preventDefault()}>
+                                                Trở thành EzStore 
+                                                {/* <i className='bx bx-chevron-down'></i> */}
+                                            </a>
+                                        </Link>
                                     </li>
                                 </ul>
 
