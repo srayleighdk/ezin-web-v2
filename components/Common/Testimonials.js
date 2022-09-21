@@ -5,12 +5,19 @@ import { Navigation, Autoplay } from "swiper";
 class Testimonials extends Component {
     render() {
         return (
-            <section className="client-area ptb-100">
+            <section className="offer-area ptb-100">
                 <div className="container">
-                    {/* <div className="section-title">
-                        <span>Testimonials</span>
-                        <h2>What Clients Say About Us</h2>
-                    </div> */}
+                    <div className="section-title">
+                        <h2 style={{color: '#167ffc'}}>Dịch vụ <span>khách hàng 5 sao</span> </h2>
+                        <p >Chúng tôi đã dành ngân sách Marketing để chăm sóc bạn. Mỗi khách hàng trung thành là một đại sứ thương hiệu</p>
+                        <div className='d-flex justify-content-around '>
+                            <img src="/images/Union.png" alt="" />
+                            <img src="/images/Union.png" alt="" />
+                            <img src="/images/Union.png" alt="" />
+                            <img src="/images/Union.png" alt="" />
+                            <img src="/images/Union.png" alt="" />
+                        </div>
+                    </div>
 
                     <Swiper 
                         spaceBetween={25}
@@ -126,6 +133,14 @@ class Testimonials extends Component {
                         </SwiperSlide>
                     </Swiper>
 
+                </div>
+                <div className="offer-shape">
+                    <img src="/images/shape/services-shape/1.png" alt="Image" />
+                    <img src="/images/shape/services-shape/2.png" alt="Image" />
+                    <img src="/images/shape/services-shape/3.png" alt="Image" />
+                    <img src="/images/shape/services-shape/4.png" alt="Image" />
+                    <img src="/images/shape/services-shape/5.png" alt="Image" />
+                    <img src="/images/shape/services-shape/6.png" alt="Image" />
                 </div>
             </section>
         );

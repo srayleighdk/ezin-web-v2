@@ -97,7 +97,6 @@ class Index5 extends Component {
 
                 <CaseStudies /> */}
 
-                // Quang
                 {/* <Testimonials />
 
                 <Faq />
