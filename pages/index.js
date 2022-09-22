@@ -21,7 +21,16 @@ import Testimonials from '../components/Common/Testimonials';
 import Faq from '../components/HomeFive/Faq';
 import News from '../components/Common/News';
 import Footer from '../components/Layouts/Footer';
+import {getHeader} from './api'
  
+export async function getServerSideProps(context) {
+    const res = await getHeader();
+    console.log('res', res)
+    return {
+      props: {}, // will be passed to the page component as props
+    }
+  }
+  
 class Index5 extends Component {
     render() {
         return (
@@ -34,17 +43,13 @@ class Index5 extends Component {
 
                 <Banner />
 
+                <Groups />
+
                 <Products />
 
                 <HotDeals />
 
                 <WhatWeOffer />
-
-                {/* <PartnerSlider /> */}
-
-                {/* <About /> */}
-
-                {/* <WhyChooseUs /> */}
 
                 <EzinCoin />
 
@@ -59,6 +64,12 @@ class Index5 extends Component {
                 <Partner />
 
                 <EzStore />
+
+                {/* <PartnerSlider /> */}
+
+                {/* <About /> */}
+
+                {/* <WhyChooseUs /> */}
 
                 {/* <MakeYourBusiness />
 
