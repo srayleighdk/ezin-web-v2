@@ -25,7 +25,6 @@ import {getHeader} from './api'
  
 export async function getServerSideProps(context) {
     const res = await getHeader();
-    console.log('res', res)
     return {
       props: {}, // will be passed to the page component as props
     }
@@ -43,7 +42,7 @@ class Index5 extends Component {
 
                 <Banner />
 
-                <Groups />
+                {/* <Groups /> */}
 
                 <Products />
 
