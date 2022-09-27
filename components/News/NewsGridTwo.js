@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 
 export default function NewsGridTwo({ arrBlogs, arrCats, arrNewsestPost }) {
   console.log("res2", arrCats, arrNewsestPost);
-  const paginationNumber = Math.ceil(arrBlogs.length / 6);
+  const paginationNumber = Math.ceil(arrBlogs?.length / 6);
   const [pagiNumber, setPagiNumber] = useState(1);
   let pagination = [];
   for (var i = 0; i < paginationNumber; i++) {
@@ -18,7 +18,7 @@ export default function NewsGridTwo({ arrBlogs, arrCats, arrNewsestPost }) {
         <div className="row">
           <div className="col-lg-8 col-md-12">
             <div className="row">
-              {arrBlogs.map((item, index) => {
+              {arrBlogs?.map((item, index) => {
                 if (
                   index >= (pagiNumber - 1) * 6 &&
                   index <= pagiNumber * 6 - 1
