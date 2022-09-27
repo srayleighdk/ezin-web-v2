@@ -26,102 +26,10 @@ import { getHeader } from './api'
 export async function getServerSideProps(context) {
     const res = await getHeader();
     return {
-<<<<<<< HEAD
         props: {
             headers: res?.data?.data
         }, // will be passed to the page component as props
-=======
-      props: {}, // will be passed to the page component as props
-    }
-  }
-  
-class Index5 extends Component {
-    render() {
-        return (
-            <>
-                <Navbar />
 
-                <MainBanner />
-
-                <NewsSlider />
-
-                <Banner />
-
-                {/* <Groups /> */}
-
-                <Products />
-
-                <HotDeals />
-
-                <WhatWeOffer />
-
-                <EzinCoin />
-
-                <CommunityEzin />
-
-                <News />
-
-                <Testimonials />
-
-                <CaseStudies />
-
-                <Partner />
-
-                <EzStore />
-
-                {/* <PartnerSlider /> */}
-
-                {/* <About /> */}
-
-                {/* <WhyChooseUs /> */}
-
-                {/* <MakeYourBusiness />
-
-                <WhatWeOffer />
-
-                <CaseStudies /> */}
-
-                {/* <NewsSlider />
-
-                <Banner />
-
-                <Products /> */}
-
-                {/* <Groups /> */}
-
-                {/* <HotDeals /> */}
-
-                {/* <WhatWeOffer />
-
-                <Partner />
-
-                <EzStore />
-
-                <CommunityEzin />
-
-
-                <About />
-
-                <WhyChooseUs />
-
-                <Services />
-
-                <MakeYourBusiness />
-
-                <WhatWeOffer />
-
-                <CaseStudies /> */}
-
-                {/* <Testimonials />
-
-                <Faq />
-
-                <News /> */}
-                
-                <Footer />
-            </>
-        );
->>>>>>> c6f90cddfcf6defd8b9dbbb0ea3065192bd15f93
     }
 }
 const Home = ({ headers }) => {
