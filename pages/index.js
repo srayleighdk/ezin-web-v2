@@ -21,103 +21,102 @@ import Testimonials from '../components/Common/Testimonials';
 import Faq from '../components/HomeFive/Faq';
 import News from '../components/Common/News';
 import Footer from '../components/Layouts/Footer';
-import {getHeader} from './api'
- 
+import { getHeader } from './api'
+
 export async function getServerSideProps(context) {
     const res = await getHeader();
-    console.log('res', res)
     return {
-      props: {}, // will be passed to the page component as props
-    }
-  }
-  
-class Index5 extends Component {
-    render() {
-        return (
-            <>
-                <Navbar />
-
-                <MainBanner />
-
-                <NewsSlider />
-
-                <Banner />
-
-                <Groups />
-
-                <Products />
-
-                <HotDeals />
-
-                <WhatWeOffer />
-
-                <EzinCoin />
-
-                <CommunityEzin />
-
-                <News />
-
-                <Testimonials />
-
-                <CaseStudies />
-
-                <Partner />
-
-                <EzStore />
-
-                {/* <PartnerSlider /> */}
-
-                {/* <About /> */}
-
-                {/* <WhyChooseUs /> */}
-
-                {/* <MakeYourBusiness />
-
-                <WhatWeOffer />
-
-                <CaseStudies /> */}
-
-                {/* <NewsSlider />
-
-                <Banner />
-
-                <Products /> */}
-
-                {/* <Groups /> */}
-
-                {/* <HotDeals /> */}
-
-                {/* <WhatWeOffer />
-
-                <Partner />
-
-                <EzStore />
-
-                <CommunityEzin />
-
-
-                <About />
-
-                <WhyChooseUs />
-
-                <Services />
-
-                <MakeYourBusiness />
-
-                <WhatWeOffer />
-
-                <CaseStudies /> */}
-
-                {/* <Testimonials />
-
-                <Faq />
-
-                <News /> */}
-                
-                <Footer />
-            </>
-        );
+        props: {
+            headers: res?.data?.data
+        }, // will be passed to the page component as props
     }
 }
+const Home = ({ headers }) => {
+    console.log('headers', headers)
+    return (
+        <>
+            <Navbar headers={headers}/>
 
-export default Index5;
+            <MainBanner />
+
+            <NewsSlider />
+
+            <Banner />
+
+            <Groups />
+
+            <Products />
+
+            <HotDeals />
+
+            <WhatWeOffer />
+
+            <EzinCoin />
+
+            <CommunityEzin />
+
+            <News />
+
+            <Testimonials />
+
+            <CaseStudies />
+
+            <Partner />
+
+            <EzStore />
+
+            {/* <PartnerSlider /> */}
+
+            {/* <About /> */}
+
+            {/* <WhyChooseUs /> */}
+
+            {/* <MakeYourBusiness />
+
+            <WhatWeOffer />
+
+            <CaseStudies /> */}
+
+            {/* <NewsSlider />
+
+            <Banner />
+
+            <Products /> */}
+
+            {/* <Groups /> */}
+
+            {/* <HotDeals /> */}
+
+            {/* <WhatWeOffer />
+
+            <Partner />
+
+            <EzStore />
+
+            <CommunityEzin />
+
+
+            <About />
+
+            <WhyChooseUs />
+
+            <Services />
+
+            <MakeYourBusiness />
+
+            <WhatWeOffer />
+
+            <CaseStudies /> */}
+
+            {/* <Testimonials />
+
+            <Faq />
+
+            <News /> */}
+
+            <Footer />
+        </>
+    );
+}
+
+export default Home;
