@@ -15,7 +15,7 @@ class Footer extends Component {
                     <img src="/images/logo-2.png" alt="Image" />
                   </a>
 
-                  <p>San sẻ rủi ro - hết cả âu lo.</p>
+                  <p>Đi Bình An - Về Hạnh Phúc</p>
 
                   {/* <ul className="social-icon">
                     <li>
