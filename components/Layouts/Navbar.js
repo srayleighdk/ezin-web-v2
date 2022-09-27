@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component, useEffect, useState } from 'react';
 import Link from '../../utils/ActiveLink';
 
@@ -116,145 +117,226 @@ const  Navbar = ({headers}) => {
                                                 {/* <i className='bx bx-chevron-down'></i> */}
                                             </a>
                                         </Link>
+=======
+import React, { useState, useEffect } from "react";
+import Link from "../../utils/ActiveLink";
 
-                                        {/* <ul className="dropdown-menu">
-                                            <li className="nav-item">
-                                                <Link href="/" activeClassName="active">
-                                                    <a className="nav-link">Home One</a>
-                                                </Link>
-                                            </li>
+export default function Navbar() {
+  const [collapsed, setCollapsed] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
 
-                                            <li className="nav-item">
-                                                <Link href="/index-2" activeClassName="active">
-                                                    <a className="nav-link">Home Two</a>
-                                                </Link>
-                                            </li>
+  useEffect(() => {
+    let elementId = document.getElementById("navbar");
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > 170) {
+        elementId.classList.add("is-sticky");
+      } else {
+        elementId.classList.remove("is-sticky");
+      }
+    });
+    setIsMounted(false);
+  }, []);
 
-                                            <li className="nav-item">
-                                                <Link href="/index-3" activeClassName="active">
-                                                    <a className="nav-link">Home Three</a>
-                                                </Link>
-                                            </li>
+  // _isMounted = false;
+  const state = {
+    display: false,
+    // collapsed: true
+  };
+  const toggleNavbar = () => {
+    console.log("run1");
+    // this.setState({
+    //     collapsed: !this.state.collapsed,
+    // });
+    setCollapsed(!collapsed);
+  };
+  // componentDidMount() {
+  //     let elementId = document.getElementById("navbar");
+  //     document.addEventListener("scroll", () => {
+  //         if (window.scrollY > 170) {
+  //             elementId.classList.add("is-sticky");
+  //         } else {
+  //             elementId.classList.remove("is-sticky");
+  //         }
+  //     });
+  // }
+  // const componentWillUnmount = () => {
+  //     setIsMounted(false);
+  // }
 
-                                            <li className="nav-item">
-                                                <Link href="/index-4" activeClassName="active">
-                                                    <a className="nav-link">Home Four</a>
-                                                </Link>
-                                            </li>
-                                            
-                                            <li className="nav-item">
-                                                <Link href="/index-5" activeClassName="active">
-                                                    <a className="nav-link">Home Five</a>
-                                                </Link>
-                                            </li>
-                                        </ul> */}
-                                    </li>
+  // const { collapsed } = this.state;
+  const classOne = collapsed
+    ? "collapse navbar-collapse"
+    : "collapse navbar-collapse show";
+  const classTwo = collapsed
+    ? "navbar-toggler navbar-toggler-right collapsed"
+    : "navbar-toggler navbar-toggler-right";
+  return (
+    <>
+      <div id="navbar" className="navbar-area fixed-top">
+        <nav className="navbar navbar-expand-md navbar-light bg-light">
+          <div className="container">
+            <Link href="/">
+              <a className="navbar-brand">
+                <img src="/images/logo.png" alt="logo" />
+              </a>
+            </Link>
+>>>>>>> c6f90cddfcf6defd8b9dbbb0ea3065192bd15f93
 
-                                    <li className="nav-item">
-                                        <Link href="#">
-                                            <a className="nav-link text-black" onClick={e => e.preventDefault()}>
-                                                Sản phẩm <i className='bx bx-chevron-down'></i>
-                                            </a>
-                                        </Link>
+            <button
+              onClick={toggleNavbar}
+              className={classTwo}
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="icon-bar top-bar"></span>
+              <span className="icon-bar middle-bar"></span>
+              <span className="icon-bar bottom-bar"></span>
+            </button>
 
-                                        <ul className="dropdown-menu">
-                                            <li className="nav-item">
-                                                <Link href="/about-1" activeClassName="active">
-                                                    <a className="nav-link">Ô tô</a>
-                                                </Link>
-                                            </li>
+            <div className={classOne} id="navbarSupportedContent">
+              <ul className="navbar-nav m-auto align-item-baseline">
+                <li className="nav-item">
+                  <Link href="#">
+                    <a
+                      className="nav-link text-black"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      Trang chủ
+                    </a>
+                  </Link>
+                </li>
 
-                                            <li className="nav-item">
-                                                <Link href="/about-2" activeClassName="active">
-                                                    <a className="nav-link">Xe máy</a>
-                                                </Link>
-                                            </li>
+                <li className="nav-item">
+                  <Link href="#">
+                    <a
+                      className="nav-link text-black"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      Sản phẩm <i className="bx bx-chevron-down"></i>
+                    </a>
+                  </Link>
 
-                                            <li className="nav-item">
-                                                <Link href="/about-2" activeClassName="active">
-                                                    <a className="nav-link">Con người</a>
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    </li>
+                  <ul className="dropdown-menu">
+                    <li className="nav-item">
+                      <Link href="/about-1" activeClassName="active">
+                        <a className="nav-link">Ô tô</a>
+                      </Link>
+                    </li>
 
-                                    <li className="nav-item">
-                                        <Link href="#">
-                                            <a className="nav-link text-black" onClick={e => e.preventDefault()}>
-                                                Ezcoin 
-                                                {/* <i className='bx bx-chevron-down'></i> */}
-                                            </a>
-                                        </Link>
+                    <li className="nav-item">
+                      <Link href="/about-2" activeClassName="active">
+                        <a className="nav-link">Xe máy</a>
+                      </Link>
+                    </li>
 
-                                        {/* <ul className="dropdown-menu">
-                                            <li className="nav-item">
-                                                <Link href="/services" activeClassName="active">
-                                                    <a className="nav-link">Services Style One</a>
-                                                </Link>
-                                            </li>
+                    <li className="nav-item">
+                      <Link href="/about-2" activeClassName="active">
+                        <a className="nav-link">Con người</a>
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
 
-                                            <li className="nav-item">
-                                                <Link href="/services-2" activeClassName="active">
-                                                    <a className="nav-link">Services Style Two</a>
-                                                </Link>
-                                            </li>
+                <li className="nav-item">
+                  <Link href="#">
+                    <a
+                      className="nav-link text-black"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      Ezcoin
+                    </a>
+                  </Link>
+                </li>
 
-                                            <li className="nav-item">
-                                                <Link href="/services-3" activeClassName="active">
-                                                    <a className="nav-link">Services Style Three</a>
-                                                </Link>
-                                            </li>
+                <li className="nav-item">
+                  <Link href="#">
+                    <a
+                      className="nav-link text-black"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      EzLife <i className="bx bx-chevron-down"></i>
+                    </a>
+                  </Link>
 
-                                            <li className="nav-item">
-                                                <Link href="/services-4" activeClassName="active">
-                                                    <a className="nav-link">Services Style Four</a>
-                                                </Link>
-                                            </li>
+                  <ul className="dropdown-menu">
+                    <li className="nav-item">
+                      <Link href="/pricing" activeClassName="active">
+                        <a className="nav-link">Ezin life</a>
+                      </Link>
+                    </li>
 
-                                            <li className="nav-item">
-                                                <Link href="/service-details" activeClassName="active">
-                                                    <a className="nav-link">Service Details</a>
-                                                </Link>
-                                            </li>
-                                        </ul> */}
-                                    </li>
+                    <li className="nav-item">
+                      <Link href="#">
+                        <a
+                          className="nav-link"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          BH tai nạn <i className="bx bx-chevron-down"></i>
+                        </a>
+                      </Link>
+                    </li>
 
-                                    <li className="nav-item">
-                                        <Link href="#">
-                                            <a className="nav-link text-black" onClick={e => e.preventDefault()}>
-                                                EzLife <i className='bx bx-chevron-down'></i>
-                                            </a>
-                                        </Link>
+                    <li className="nav-item">
+                      <Link href="/faq" activeClassName="active">
+                        <a className="nav-link">Các quy tắc</a>
+                      </Link>
+                    </li>
 
-                                        <ul className="dropdown-menu">
-                                            <li className="nav-item">
-                                                <Link href="/pricing" activeClassName="active">
-                                                    <a className="nav-link">Ezin life</a>
-                                                </Link>
-                                            </li>
-                                    
-                                            <li className="nav-item">
-                                                <Link href="#">
-                                                    <a className="nav-link" onClick={e => e.preventDefault()}>
-                                                        BH tai nạn <i className='bx bx-chevron-down'></i>
-                                                    </a>
-                                                </Link>
+                    <li className="nav-item">
+                      <Link href="#">
+                        <a
+                          className="nav-link"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          TNDS <i className="bx bx-chevron-down"></i>
+                        </a>
+                      </Link>
+                    </li>
 
-                                                {/* <ul className="dropdown-menu">
-                                                    <li className="nav-item">
-                                                        <Link href="/login" activeClassName="active">
-                                                            <a className="nav-link">Quyền lợi</a>
-                                                        </Link>
-                                                    </li>
-                                                </ul> */}
-                                            </li>
+                  </ul>
+                </li>
 
-                                            <li className="nav-item">
-                                                <Link href="/faq" activeClassName="active">
-                                                    <a className="nav-link">Các quy tắc</a>
-                                                </Link>
-                                            </li>
+                <li className="nav-item">
+                  <Link href="#">
+                    <a
+                      className="nav-link text-black"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      Tiện ích
+                    </a>
+                  </Link>
 
+                </li>
+
+                <li className="nav-item">
+                  <Link href="#">
+                    <a
+                      className="nav-link text-black"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      Đối tác
+                    </a>
+                  </Link>
+
+                </li>
+
+                <li className="nav-item">
+                  <Link href="#">
+                    <a
+                      className="nav-link text-black"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      Trở thành EzStore
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+
+<<<<<<< HEAD
                                             <li className="nav-item">
                                                 <Link href="#">
                                                     <a className="nav-link" onClick={e => e.preventDefault()}>
@@ -734,3 +816,19 @@ const  Navbar = ({headers}) => {
 // }
 
 export default Navbar;
+=======
+              <div className="others-options">
+                <Link href="/login">
+                  <a className="default-btn">
+                    Log In <i className="bx bx-log-in-circle"></i>
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </>
+  );
+}
+>>>>>>> c6f90cddfcf6defd8b9dbbb0ea3065192bd15f93

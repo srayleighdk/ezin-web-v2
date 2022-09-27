@@ -40,7 +40,11 @@ export default class MyApp extends App {
                         name="viewport" 
                         content="width=device-width, initial-scale=1" 
                     />
-                    <title>Jumpx - React Next.js AI & IT Startup Template</title>
+                    <title>Ezin - Đi Bình An, Về Hạnh Phúc</title>
+                    <meta property='og:title' content='Ezin - Đi Bình An, Về Hạnh Phúc'></meta>
+                    <meta property='og:description' content='Bảo vệ bạn và những người yêu thương chưa bao giờ dễ dàng đến thế!'></meta>
+                    <meta property='og:url' content='https://www2.ezin.vn/'></meta>
+                    <meta property='og:image' content='https://api.ezin.vn/public/files/2021/12/54FA2CC66FB257F_ezin-slogan.jpg'></meta>
                 </Head>
 
                 <Component {...pageProps} />
