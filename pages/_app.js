@@ -40,7 +40,7 @@ export default class MyApp extends App {
                         name="viewport" 
                         content="width=device-width, initial-scale=1" 
                     />
-                    <title>Jumpx - React Next.js AI & IT Startup Template</title>
+                    <title>Ezin - Đi Bình An, Về Hạnh Phúc</title>
                 </Head>
 
                 <Component {...pageProps} />
