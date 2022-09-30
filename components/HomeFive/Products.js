@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 
-class Products extends Component {
-    render() {
+const Products = ({allNodeProducts}) => {
+    
         return (
             <section className="offer-area pt-100 pb-70">
 			    <div className="container">
@@ -12,6 +12,36 @@ class Products extends Component {
                     </div>
 
                     <div className="row">
+                        {allNodeProducts.map((product) => {
+                            return (
+                                <div className="col-lg-4 col-sm-6">
+                            <div className="single-offer pl-30 pr-30 text-center">
+                                <img src={product.thumbnail} alt="Image" className="mx-auto" />
+                                <h3 className="mt-3">
+                                    <Link href="/service-details">
+                                        <a>{product.name}</a>
+                                    </Link>
+                                </h3>
+                                {/* <p className="mb-0">Giảm tới 20% phí bảo hiểm mỗi năm.</p>
+                                <p className="mb-0">Hoàn toàn tự động với Trí tuệ nhân tạo.</p> */}
+                                {/* <p className="mb-0">Phần thưởng lớn với Ezcoin.</p> */}
+                                <p className='mb-0'>{product.intro}</p>
+                                <div className="d-flex my-3">
+                                    <div className="w-50 text-start">
+                                        <p className="mb-0 text-danger font-weight-700 product-prize lh-1" >{product.min_fee}</p>
+                                        <p className="product-prize-old">{product.max_fee} <a className="ml-3 text-dark">-10%</a></p>
+                                    </div>
+                                    <p className="product-coin font-weight-700 w-50">150.000 <img src="/images/coin.png" alt="Image" /></p>
+                                </div>
+                                <Link href="/about-1">
+                                    <a className="default-btn w-100 rounded-pill">
+                                        Mua ngay
+                                    </a>
+                                </Link>
+                            </div>
+                                </div>
+                            )
+                        })}
                         <div className="col-lg-4 col-sm-6">
                             <div className="single-offer pl-30 pr-30 text-center">
                                 <img src="/images/product/product1.png" alt="Image" className="mx-auto" />
@@ -171,7 +201,7 @@ class Products extends Component {
                 </div>
             </section>
         );
-    }
+    
 }
 
 export default Products;

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 
-class Testimonials extends Component {
-    render() {
+const Testimonials = ({testimonials}) => {
         return (
             <section className="offer-area ptb-100">
                 <div className="container">
@@ -40,12 +39,14 @@ class Testimonials extends Component {
                         modules={[Navigation, Autoplay]} 
                         className="testimonials-slide"
                     >
-                        <SwiperSlide>
+                        {testimonials.content.map((testimonial) => {
+                            return (
+                                <SwiperSlide>
                             <div className="single-client text-dot-5 pt-5" style={{height: 240}}>
                                 <i className="quotes flaticon-left-quotes-sign"></i>
                                 {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
                                 <p className='style-name'>Trần Thị Phương Thảo</p> */}
-                                <p>“ Always disappointed in how much insurance will fight against customer in a claim. Just had my first good experience with filing. Unbelievably quick and solid customer experience with”</p>
+                                <p>{testimonial.desc}</p>
 
                                 <ul>
                                     <li><i className="bx bxs-star"></i></li>
@@ -56,81 +57,15 @@ class Testimonials extends Component {
                                 </ul>
 
                                 <div className="client-img">
-                                    <img src="/images/Ellipse9.png" alt="Image" />
-                                    <h3>Trần Thị Phương Thảo</h3>
+                                    <img src={testimonial.image.path} alt="Image" />
+                                    <h3>{testimonial.name}</h3>
                                     {/* <span>Developer</span> */}
                                 </div>
                             </div>
                         </SwiperSlide>
+                            )
+                        })}
 
-                        <SwiperSlide>
-                            <div className="single-client text-dot-5 pt-5" style={{height: 240}}>
-                                <i className="quotes flaticon-left-quotes-sign"></i>
-                                {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
-                                <p className='style-name'>Trần Thị Phương Thảo</p> */}
-                                <p>“ I just bought home insurance from you and I’m pretty sure it was easier than ordering pizza. Awesome job on the experience.”</p>
-                            
-                                <ul>
-                                    <li><i className="bx bxs-star"></i></li>
-                                    <li><i className="bx bxs-star"></i></li>
-                                    <li><i className="bx bxs-star"></i></li>
-                                    <li><i className="bx bxs-star"></i></li>
-                                    <li><i className="bx bxs-star"></i></li>
-                                </ul>
-
-                                <div className="client-img">
-                                    <img src="/images/Ellipse1.png" alt="Image" />
-                                    <h3>Lê Thị Mai</h3>
-                                    {/* <span>CEO</span> */}
-                                </div>
-                            </div>
-                        </SwiperSlide>
-
-                        <SwiperSlide>
-                            <div className="single-client text-dot-5 pt-5" style={{height: 240}}>
-                                <i className="quotes flaticon-left-quotes-sign"></i>
-                                {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
-                                <p className='style-name'>Trần Thị Phương Thảo</p> */}
-                                <p>“ Once every 2-3 years, I stumble across a truly outstanding app / business which nails everything. UX, pricing, customer service “ </p>
-                                
-                                <ul>
-                                    <li><i className="bx bxs-star"></i></li>
-                                    <li><i className="bx bxs-star"></i></li>
-                                    <li><i className="bx bxs-star"></i></li>
-                                    <li><i className="bx bxs-star"></i></li>
-                                    <li><i className="bx bxs-star"></i></li>
-                                </ul>
-
-                                <div className="client-img">
-                                    <img src="/images/Ellipse2.png" alt="Image" />
-                                    <h3>Thế Nguyễn</h3>
-                                    {/* <span>Designer</span> */}
-                                </div>
-                            </div>
-                        </SwiperSlide>
-
-                        <SwiperSlide>
-                            <div className="single-client text-dot-5 pt-5" style={{height: 240}}>
-                                <i className="quotes flaticon-left-quotes-sign"></i>
-                                {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
-                                <p className='style-name'>Trần Thị Phương Thảo</p> */}
-                                <p>“ Always disappointed in how much insurance will fight against customer in a claim. Just had my first good experience with filing. Unbelievably quick and solid customer experience with”</p>
-                            
-                                <ul>
-                                    <li><i className="bx bxs-star"></i></li>
-                                    <li><i className="bx bxs-star"></i></li>
-                                    <li><i className="bx bxs-star"></i></li>
-                                    <li><i className="bx bxs-star"></i></li>
-                                    <li><i className="bx bxs-star"></i></li>
-                                </ul>
-
-                                <div className="client-img">
-                                    <img src="/images/Ellipse3.png" alt="Image" />
-                                    <h3>Mạnh Cường</h3>
-                                    {/* <span>Developer</span> */}
-                                </div>
-                            </div>
-                        </SwiperSlide>
                     </Swiper>
 
                 </div>
@@ -144,7 +79,6 @@ class Testimonials extends Component {
                 </div>
             </section>
         );
-    }
 }
 
 export default Testimonials;

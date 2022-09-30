@@ -21,19 +21,26 @@ import Testimonials from '../components/Common/Testimonials';
 import Faq from '../components/HomeFive/Faq';
 import News from '../components/Common/News';
 import Footer from '../components/Layouts/Footer';
-import { getHeader } from './api'
+import { getHeader, getAllNodeProducts, getHomeData } from './api';
+
 
 export async function getServerSideProps(context) {
-    const res = await getHeader();
+    const [res, allNodeProducts, homeData] = await Promise.all([
+        getHeader(),
+        getAllNodeProducts(),
+        getHomeData(),
+    ]);
     return {
         props: {
-            headers: res?.data?.data
+            headers: res?.data?.data,
+            allNodeProducts: allNodeProducts?.data?.data,
+            testimonials: homeData?.data?.data?.sections,
         }, // will be passed to the page component as props
 
     }
 }
-const Home = ({ headers }) => {
-    console.log('headers', headers)
+const Home = ({ headers, allNodeProducts, testimonials }) => {
+    console.log('headers', headers);
     return (
         <>
             <Navbar headers={headers}/>
@@ -46,7 +53,7 @@ const Home = ({ headers }) => {
 
             <Groups />
 
-            <Products />
+            <Products allNodeProducts={allNodeProducts} />
 
             <HotDeals />
 
@@ -58,7 +65,7 @@ const Home = ({ headers }) => {
 
             <News />
 
-            <Testimonials />
+            <Testimonials testimonials={testimonials.testimonials}/>
 
             <CaseStudies />
 
