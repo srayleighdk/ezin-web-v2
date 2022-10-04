@@ -6,7 +6,7 @@ import Footer from "../../components/Layouts/Footer";
 import { getPostCategories, getLatestPosts, getNewestPost } from "../../pages/api";
 
 export async function getServerSideProps() {
-  let [res1, res2, res3] = await Promise.all([getLatestPosts(), getPostCategories(), getNewestPost()]);
+  let [res1, res2, res3] = await Promise.all([getLatestPosts(), getPostCategories(), getNewestPost()])
   return {
     props: {
       arrBlogs: res1?.data?.data,
@@ -21,13 +21,6 @@ export default function Life({ arrBlogs = [], arrCats = [], arrNewsestPost = [] 
   return (
     <>
       <Navbar />
-
-      <PageBanner
-        pageTitle="News Right Sidebar"
-        homePageUrl="/"
-        homePageText="Home"
-        activePageText="News Right Sidebar"
-      />
 
       <NewsGridTwo arrBlogs={arrBlogs} arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
 

@@ -1,5 +1,5 @@
 const urls = {
-    development: 'https://sandbox.ezin.vn/api',
+    development: 'http://localhost:5050/api',
     test: 'https://sandbox.ezin.vn/api',
     staging: 'https://api-preprod.ezin.vn/api',
     production: 'https://api.ezin.vn/api',

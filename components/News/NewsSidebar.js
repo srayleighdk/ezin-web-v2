@@ -2,12 +2,19 @@ import React, { Component } from "react";
 import Link from "next/link";
 import dayjs from "dayjs";
 
-export default function NewsSidebar({ arrCats, arrNewsestPost }) {
-  console.log("res3", arrCats, arrNewsestPost);
+const titles = {
+  "tin-nong": "Tin nóng",
+  covid: "COVID",
+  video: "Video",
+  "tai-nan": "Tai nạn",
+};
+
+export default function NewsSidebar({ arrCats, arrNewsestPost, tags = [] }) {
+  console.log("res3", arrNewsestPost);
   return (
     <div className="widget-area" id="secondary">
       <div className="widget widget_search">
-        <h3 className="widget-title">Search Now</h3>
+        <h3 className="widget-title">Tìm kiếm</h3>
 
         <div className="post-wrap">
           <form className="search-form">
@@ -15,7 +22,7 @@ export default function NewsSidebar({ arrCats, arrNewsestPost }) {
               <input
                 type="search"
                 className="search-field"
-                placeholder="Search..."
+                placeholder="Tìm kiếm..."
               />
             </label>
 
@@ -27,13 +34,13 @@ export default function NewsSidebar({ arrCats, arrNewsestPost }) {
       </div>
 
       <div className="widget widget-posts-thumb">
-        <h3 className="widget-title">Newsest Posts</h3>
+        <h3 className="widget-title">Bài viết mới nhất</h3>
 
         <div className="post-wrap">
           {arrNewsestPost?.map((item) => {
             return (
               <article className="item">
-                <Link href="/news-details">
+                <Link href={`/life/p/${item.post_id}/${item.post.post_name}`}>
                   <a className="thumb">
                     <span
                       className="fullimage cover bg1"
@@ -46,7 +53,7 @@ export default function NewsSidebar({ arrCats, arrNewsestPost }) {
                 <div className="info">
                   <time>{dayjs(item.updated_at).format("DD-MM-YYYY")}</time>
                   <h4 className="title usmall">
-                    <Link href="/news-details">
+                    <Link href={`/life/p/${item.post_id}/${item.post.post_name}`}>
                       <a>{item.post.post_title}</a>
                     </Link>
                   </h4>
@@ -78,7 +85,7 @@ export default function NewsSidebar({ arrCats, arrNewsestPost }) {
       </div>
 
       <div className="widget widget_categories">
-        <h3 className="widget-title">Categories</h3>
+        <h3 className="widget-title">Chuyên mục</h3>
 
         <div className="post-wrap">
           <ul>
@@ -87,7 +94,7 @@ export default function NewsSidebar({ arrCats, arrNewsestPost }) {
                 <li>
                   <Link href={`/life/cat/${item.slug}`}>
                     <a>
-                        {item.name} <span>{item.count}</span>
+                      {item.name} <span>{item.count}</span>
                     </a>
                   </Link>
                 </li>
@@ -104,44 +111,58 @@ export default function NewsSidebar({ arrCats, arrNewsestPost }) {
         </div>
       </div>
 
-      <div className="widget widget_tag_cloud">
-        <h3 className="widget-title">Tags</h3>
+      <div className="widget widget_categories">
+        <h3 className="widget-title">Chủ đề</h3>
 
         <div className="post-wrap">
-          <div className="tagcloud">
-            {arrCats?.map((item) => {
-              return (
-                <Link href={`/life/cat/${item.slug}`}>
-                  <a>
-                    {item.name} ({item.count})
-                  </a>
-                </Link>
-              );
-            })}
-            {/* <Link href="#">
-              <a>IT Solution (3)</a>
-            </Link>
-            <Link href="#">
-              <a>Uncategorized (3)</a>
-            </Link>
-            <Link href="#">
-              <a>Tips (2)</a>
-            </Link>
-            <Link href="#">
-              <a>AI Solution (2)</a>
-            </Link>
-            <Link href="#">
-              <a>Technology (1)</a>
-            </Link>
-            <Link href="#">
-              <a>Privacy (1)</a>
-            </Link>
-            <Link href="#">
-              <a>Business (1)</a>
-            </Link> */}
-          </div>
+          <ul>
+            <li>
+              <Link href={`/life/chu-de/tin-nong`}>
+                <a>
+                  Tin nóng
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href={`/life/chu-de/covid`}>
+                <a>
+                  COVID
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href={`/life/chu-de/video`}>
+                <a>
+                  Video
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href={`/life/chu-de/tai-nan`}>
+                <a>
+                  Tai nạn
+                </a>
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
+
+      {tags?.length === 0 ? null : (
+        <div className="widget widget_tag_cloud">
+          <h3 className="widget-title">Tags</h3>
+
+          <div className="post-wrap">
+            <div className="tagcloud">
+              {tags?.map((item) => {
+                return (
+                  <div>{item.name}</div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
