@@ -32,7 +32,7 @@ export default function NewsGridTwo({
                   <span class="badge bg-primary text-16">{idCat}</span>
                 </div>
               )}
-              {arrBlogs.length === 0 ? (
+              {arrBlogs?.length === 0 ? (
                 <h4 className="text-center">
                   Hiện Ezin chưa có bài viết chủ đề này, vui lòng quay lại sau
                   nhé!
