@@ -25,77 +25,76 @@ import { getHeader, getAllNodeProducts, getHomeData } from './api';
 
 
 export async function getServerSideProps(context) {
-    const [res, allNodeProducts, homeData] = await Promise.all([
-        getHeader(),
-        getAllNodeProducts(),
-        getHomeData(),
-    ]);
-    return {
-        props: {
-            headers: res?.data?.data,
-            allNodeProducts: allNodeProducts?.data?.data,
-            testimonials: homeData?.data?.data?.sections,
-        }, // will be passed to the page component as props
+  const [res, allNodeProducts, homeData] = await Promise.all([
+    getHeader(),
+    getAllNodeProducts(),
+    getHomeData(),
+  ]);
+  return {
+    props: {
+      headers: res?.data?.data,
+      allNodeProducts: allNodeProducts?.data?.data,
+      testimonials: homeData?.data?.data?.sections,
+    }, // will be passed to the page component as props
 
-    }
+  }
 }
 const Home = ({ headers, allNodeProducts, testimonials }) => {
-    console.log('headers', headers);
-    return (
-        <>
-            <Navbar headers={headers}/>
+  return (
+    <>
+      <Navbar headers={headers} />
 
-            <MainBanner />
+      <MainBanner />
 
-            <NewsSlider />
+      <NewsSlider />
 
-            <Banner />
+      <Banner />
 
-            <Groups />
+      <Groups />
 
-            <Products allNodeProducts={allNodeProducts} />
+      <Products allNodeProducts={allNodeProducts} />
 
-            <HotDeals />
+      <HotDeals />
 
-            <WhatWeOffer />
+      <WhatWeOffer />
 
-            <EzinCoin />
+      <EzinCoin />
 
-            <CommunityEzin />
+      <CommunityEzin />
 
-            <News />
+      <News />
 
-            <Testimonials testimonials={testimonials.testimonials}/>
+      <Testimonials testimonials={testimonials.testimonials} />
 
-            <CaseStudies />
+      <CaseStudies />
 
-            <Partner />
+      <Partner />
 
-            <EzStore />
+      <EzStore />
 
-            {/* <PartnerSlider /> */}
+      {/* <PartnerSlider /> */}
 
-            {/* <About /> */}
+      {/* <About /> */}
 
-            {/* <WhyChooseUs /> */}
+      {/* <WhyChooseUs /> */}
 
-            {/* <MakeYourBusiness />
+      {/* <MakeYourBusiness />
 
             <WhatWeOffer />
 
             <CaseStudies /> */}
 
-            {/* <NewsSlider />
+      {/* <NewsSlider />
 
             <Banner />
 
             <Products /> */}
 
-            {/* <Groups /> */}
+      {/* <Groups /> */}
 
-            {/* <HotDeals /> */}
+      {/* <HotDeals /> */}
 
-            {/* <WhatWeOffer />
+      {/* <WhatWeOffer />
 
             <Partner />
 
@@ -116,15 +115,15 @@ const Home = ({ headers, allNodeProducts, testimonials }) => {
 
             <CaseStudies /> */}
 
-            {/* <Testimonials />
+      {/* <Testimonials />
 
             <Faq />
 
             <News /> */}
 
-            <Footer />
-        </>
-    );
+      <Footer />
+    </>
+  );
 }
 
 export default Home;
