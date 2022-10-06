@@ -9,7 +9,7 @@ const titles = {
   "tai-nan": "Tai nạn",
 };
 
-export default function NewsSidebar({ arrCats, arrNewsestPost, tags = [] }) {
+export default function NewsBar({ arrCats, arrNewsestPost, tags = [] }) {
   return (
     <div className="widget-area" id="secondary">
       <div className="widget widget_search">

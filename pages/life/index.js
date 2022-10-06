@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../components/Layouts/Navbar";
 import PageBanner from "../../components/Common/PageBanner";
-import NewsGridTwo from "../../components/News/NewsGridTwo";
+import ListNewsLife from "../../components/News/ListNewsLife";
 import Footer from "../../components/Layouts/Footer";
 import { getPostCategories, getLatestPosts, getNewestPost } from "../../pages/api";
 
@@ -22,7 +22,7 @@ export default function Life({ arrBlogs = [], arrCats = [], arrNewsestPost = [] 
     <>
       <Navbar />
 
-      <NewsGridTwo arrBlogs={arrBlogs} arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
+      <ListNewsLife arrBlogs={arrBlogs} arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
 
       <Footer />
     </>

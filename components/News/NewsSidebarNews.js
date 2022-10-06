@@ -9,7 +9,8 @@ const titles = {
   "tai-nan": "Tai nạn",
 };
 
-export default function NewsSidebar({ arrCats, arrNewsestPost, tags = [] }) {
+export default function NewsSidebarNews({ arrCats, arrNewsestPost, tags = [] }) {
+  console.log("tintuc", arrCats, arrNewsestPost)
   return (
     <div className="widget-area" id="secondary">
       <div className="widget widget_search">
@@ -93,7 +94,7 @@ export default function NewsSidebar({ arrCats, arrNewsestPost, tags = [] }) {
             {arrCats?.map((item) => {
               return (
                 <li>
-                  <Link href={`/life/cat/${item.slug}`}>
+                  <Link href={`/tin-tuc/cat/${item.slug}`}>
                     <a>
                       {item.name} <span>{item.count}</span>
                     </a>
@@ -118,22 +119,22 @@ export default function NewsSidebar({ arrCats, arrNewsestPost, tags = [] }) {
         <div className="post-wrap">
           <ul>
             <li>
-              <Link href={`/life/chu-de/tin-nong`}>
+              <Link href={`/tin-tuc/chu-de/tin-nong`}>
                 <a>Tin nóng</a>
               </Link>
             </li>
             <li>
-              <Link href={`/life/chu-de/covid`}>
+              <Link href={`/tin-tuc/chu-de/covid`}>
                 <a>COVID</a>
               </Link>
             </li>
             <li>
-              <Link href={`/life/chu-de/video`}>
+              <Link href={`/tin-tuc/chu-de/video`}>
                 <a>Video</a>
               </Link>
             </li>
             <li>
-              <Link href={`/life/chu-de/tai-nan`}>
+              <Link href={`/tin-tuc/chu-de/tai-nan`}>
                 <a>Tai nạn</a>
               </Link>
             </li>
@@ -150,7 +151,7 @@ export default function NewsSidebar({ arrCats, arrNewsestPost, tags = [] }) {
               {tags?.map((item) => {
                 return (
                   // <div>{item.name}</div>
-                  <Link href={`/life/tags/${item.slug}`}>
+                  <Link href={`/tin-tuc/tags/${item.slug}`}>
                     <a>{item.name || item.label}</a>
                   </Link>
                 );
