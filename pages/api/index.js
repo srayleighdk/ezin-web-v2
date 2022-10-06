@@ -1,4 +1,5 @@
 import eZinApi from './axios';
+import eZinApiNode from './axiosNode';
 
 /***
  * HOME PAGE
@@ -29,3 +30,9 @@ export const getNews = (query) => eZinApi.get(`${API.newsList}?${query || ''}`);
 export const getHomeBlogs = () => eZinApi.get(`/blog/public`);
 export const getAllBlogCats = () => eZinApi.get(`/blog/category`);
 export const getBlogDetail = (slug) => eZinApi.get(`/blog/blog/${slug}`);
+
+/***
+ * PRODUCT
+ */
+export const getProduct = (slug) => eZinApi.get(`/product/slug/${slug}`);
+export const getNodePackages = (product_id) => eZinApiNode.get(`/node/packages?product_id=${product_id}`);
