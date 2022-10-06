@@ -62,7 +62,7 @@ const Testimonials = ({ testimonials }) => {
                   <div className="client-img">
                     <img src={testimonial.image ? `${getImageUrl()}/${testimonial.image?.path}` : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRs20OhbD-VfH378DhoBDNTDhcMIYMWj5GurA&usqp=CAU'
                     } alt="Image" />
-                    <h3>{testimonial.name}</h3>
+                    <h3 className='text-black'>{testimonial.name}</h3>
                     {/* <span>Developer</span> */}
                   </div>
                 </div>

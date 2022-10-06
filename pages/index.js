@@ -54,7 +54,7 @@ const Home = ({ headers, allNodeProducts, testimonials }) => {
 
       <Products allNodeProducts={allNodeProducts} />
 
-      <HotDeals />
+      <HotDeals allNodeProducts={allNodeProducts} />
 
       <WhatWeOffer />
 
