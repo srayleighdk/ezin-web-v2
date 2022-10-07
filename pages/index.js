@@ -23,12 +23,12 @@ import News from '../components/Common/News';
 import Footer from '../components/Layouts/Footer';
 import {getHeader} from './api'
  
-export async function getServerSideProps(context) {
-    const res = await getHeader();
-    return {
-      props: {}, // will be passed to the page component as props
-    }
-  }
+// export async function getServerSideProps(context) {
+//     const res = await getHeader();
+//     return {
+//       props: {}, // will be passed to the page component as props
+//     }
+//   }
   
 class Index5 extends Component {
     render() {
