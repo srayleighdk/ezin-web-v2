@@ -1,3 +1,22 @@
 .shadow {
     box-shadow: 0 0 20px 3px rgb(0 0 0 / 5%);
 }
+
+.background {
+    background: linear-gradient(180deg,rgba(255,192,97,.23),rgba(255,192,97,0));
+}
+
+.benefit {
+    font-size: 12px;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+}
+
+.test {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+}

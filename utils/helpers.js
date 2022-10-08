@@ -11,3 +11,12 @@ export const getImageUrl = (path = "") => {
   }
   return url;
 };
+
+export const formatVND = (value = 0) => {
+  try {
+    return `${Number(value.toFixed(1)).toLocaleString()}đ`;
+  } catch (ex) {
+
+  }
+  return value
+}

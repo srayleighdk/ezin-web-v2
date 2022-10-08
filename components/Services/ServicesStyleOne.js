@@ -27,11 +27,13 @@ class ServicesStyleOne extends Component {
                                 <h3>Data Engineer</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, maxime ipsum praesentium culpa expedita.</p>
 
-                                <Link href="/service-details">
-                                    <a className="read-more-icon">
-                                        <span className="flaticon-right-arrow"></span>
-                                    </a>
-                                </Link>
+                                <div className="business-btn">
+                                    <Link href="/service-details">
+                                        <a className="read-more-icon default-btn w-50">
+                                            mua ngay
+                                        </a>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
 
