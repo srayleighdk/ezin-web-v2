@@ -4,8 +4,6 @@ import { Navigation, Autoplay } from "swiper";
 import { getImageUrl } from "../../utils/helpers.js"
 
 const Testimonials = ({ testimonials }) => {
-  console.log(testimonials);
-  console.log(process.env.NEXT_PUBLIC_APP_ENV);
   return (
     <section className="offer-area ptb-100">
       <div className="container">
