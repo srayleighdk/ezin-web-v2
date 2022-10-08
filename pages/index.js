@@ -40,8 +40,16 @@ export async function getServerSideProps(context) {
   }
 }
 const Home = ({ headers, allNodeProducts, testimonials }) => {
+  // export async function getServerSideProps(context) {
+  //     const res = await getHeader();
+  //     return {
+  //       props: {}, // will be passed to the page component as props
+  //     }
+  //   }
+
   return (
     <>
+
       <Navbar headers={headers} />
 
       <MainBanner />

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from 'react-player';
 import Link from "next/link";
-import NewsSidebar from "./NewsSidebar";
+import NewsSidebarNews from "./NewsSidebarNews";
 import dayjs from "dayjs";
 import styles from "../../pages/life/life.module.scss";
 
-export default function NewsGridTwo({
+export default function ListNews({
   arrBlogs,
   arrCats,
   arrNewsestPost,
@@ -190,7 +190,7 @@ export default function NewsGridTwo({
           </div>
 
           <div className="col-lg-4 col-md-12">
-            <NewsSidebar arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
+            <NewsSidebarNews arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
           </div>
         </div>
       </div>

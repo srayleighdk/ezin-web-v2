@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from 'react-player';
 import Link from "next/link";
-import NewsSidebar from "./NewsSidebar";
+import NewsBarBlogs from "./NewsBarBlogs";
 import dayjs from "dayjs";
 import styles from "../../pages/life/life.module.scss";
+import FullImage from "../FullImage";
+import { getImageUrl } from "../../utils/helpers";
 
-export default function NewsGridTwo({
+export default function ListNewsBlogs({
   arrBlogs,
   arrCats,
-  arrNewsestPost,
-  idCat,
 }) {
-  console.log("res2", arrCats, arrBlogs, arrNewsestPost);
+  console.log("res2", arrCats, arrBlogs);
   const paginationNumber = Math.ceil(arrBlogs?.length / 6);
   const [pagiNumber, setPagiNumber] = useState(1);
-  const isVideo = idCat == "video";
   let pagination = [];
   for (var i = 0; i < paginationNumber; i++) {
     pagination[i] = i;
@@ -26,12 +25,12 @@ export default function NewsGridTwo({
         <div className="row">
           <div className="col-lg-8 col-md-12">
             <div className="row">
-              {idCat && (
+              {/* {idCat && (
                 <div className="my-2 text-16">
                   Chuyên mục:{" "}
                   <span class="badge bg-primary text-16">{idCat}</span>
                 </div>
-              )}
+              )} */}
               {arrBlogs?.length === 0 ? (
                 <h4 className="text-center">
                   Hiện Ezin chưa có bài viết chủ đề này, vui lòng quay lại sau
@@ -48,21 +47,11 @@ export default function NewsGridTwo({
                         <div className="col-lg-6 col-md-6">
                           <div className="single-news">
                             <div className="blog-img">
-                              <Link
-                                href={`/life/p/${item.post_id}/${item.post.post_name}`}
-                              >
-                                <a>
-                                  <img
-                                    src={item.post_thumbnail}
-                                    style={{ height: 240 }}
-                                    alt="Image"
-                                  />
-                                </a>
-                              </Link>
+                              {/* <FullImage src={getImageUrl(item?.image?.path)} alt="img-blog" maxWidth="250px" /> */}
 
                               <div className="dates">
                                 <span>
-                                  {dayjs(item.updated_at).format("DD-MM-YYYY")}
+                                  {dayjs(item.published_on).format("DD-MM-YYYY")}
                                 </span>
                               </div>
                             </div>
@@ -73,36 +62,36 @@ export default function NewsGridTwo({
                               <ul>
                                 <li>
                                   <Link
-                                    href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                                    href={`/kien-thuc/${item.slug_url}`}
                                   >
                                     <a>
                                       <i className="flaticon-user"></i>{" "}
-                                      {item.post.post_author}
+                                      {item.author[0].name}
                                     </a>
                                   </Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                   <i className="flaticon-conversation"></i>{" "}
                                   {item.post.comment_count} Bình luận
-                                </li>
+                                </li> */}
                               </ul>
 
                               <Link
-                                href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                                href={`/kien-thuc/${item.slug_url}`}
                               >
                                 <a>
-                                  <h3>{item.post.post_title}</h3>
+                                  <h3>{item.title}</h3>
                                 </a>
                               </Link>
 
                               <p
                                 className={`${styles.post_description} text-dot-4`}
                               >
-                                {item.post.post_excerpt}
+                                {item.short_description}
                               </p>
 
                               <Link
-                                href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                                href={`/kien-thuc/${item.slug_url}`}
                               >
                                 <a className="read-more">
                                   Xem thêm <i className="bx bx-plus"></i>
@@ -190,7 +179,7 @@ export default function NewsGridTwo({
           </div>
 
           <div className="col-lg-4 col-md-12">
-            <NewsSidebar arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
+            <NewsBarBlogs arrCats={arrCats}  />
           </div>
         </div>
       </div>

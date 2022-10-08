@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import ReactPlayer from 'react-player';
+import ReactPlayer from "react-player";
 import Link from "next/link";
-import NewsSidebar from "./NewsSidebar";
+import NewsSidebarNews from "./NewsSidebarNews";
 import dayjs from "dayjs";
 import styles from "../../pages/life/life.module.scss";
 
-export default function NewsGridTwo({
+export default function ListTopicNews({
   arrBlogs,
   arrCats,
   arrNewsestPost,
@@ -21,14 +21,14 @@ export default function NewsGridTwo({
   }
 
   return (
-    <section className="news-details-area news-right-sidebar-area ptb-100">
+    <section className="news-details-area news-right-sidebar-area my-3 ">
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-md-12">
             <div className="row">
               {idCat && (
                 <div className="my-2 text-16">
-                  Chuyên mục:{" "}
+                  Chủ đề:{" "}
                   <span class="badge bg-primary text-16">{idCat}</span>
                 </div>
               )}
@@ -43,17 +43,15 @@ export default function NewsGridTwo({
                     index >= (pagiNumber - 1) * 6 &&
                     index <= pagiNumber * 6 - 1
                   ) {
-                    return (
+                    return !isVideo ? (
                       <>
                         <div className="col-lg-6 col-md-6">
                           <div className="single-news">
                             <div className="blog-img">
-                              <Link
-                                href={`/life/p/${item.post_id}/${item.post.post_name}`}
-                              >
+                              <Link href={item.img_hor}>
                                 <a>
                                   <img
-                                    src={item.post_thumbnail}
+                                    src={item.img_hor}
                                     style={{ height: 240 }}
                                     alt="Image"
                                   />
@@ -62,48 +60,39 @@ export default function NewsGridTwo({
 
                               <div className="dates">
                                 <span>
-                                  {dayjs(item.updated_at).format("DD-MM-YYYY")}
+                                  {dayjs(item.publishedAt).format("DD-MM-YYYY")}
                                 </span>
                               </div>
                             </div>
 
                             <div
-                              className={`news-content-wrap ${styles.height_313}`}
+                              className={`news-content-wrap ${styles.height_313} p-4`}
                             >
-                              <ul>
+                              <ul className="mb-0">
                                 <li>
                                   <Link
-                                    href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                                    href={`/tin-tuc/cat/${item.categories[0].url}`}
                                   >
                                     <a>
-                                      <i className="flaticon-user"></i>{" "}
-                                      {item.post.post_author}
+                                      <i>{item.categories[0].name}</i>
                                     </a>
                                   </Link>
                                 </li>
-                                <li>
-                                  <i className="flaticon-conversation"></i>{" "}
-                                  {item.post.comment_count} Bình luận
-                                </li>
                               </ul>
 
-                              <Link
-                                href={`/life/p/${item.post_id}/${item.post.post_name}`}
-                              >
+                              <Link href={`/tin-tuc/${item.url}`}>
                                 <a>
-                                  <h3>{item.post.post_title}</h3>
+                                  <h3>{item.title}</h3>
                                 </a>
                               </Link>
 
                               <p
                                 className={`${styles.post_description} text-dot-4`}
                               >
-                                {item.post.post_excerpt}
+                                {item.description}
                               </p>
 
-                              <Link
-                                href={`/life/p/${item.post_id}/${item.post.post_name}`}
-                              >
+                              <Link href={`/tin-tuc/${item.url}`}>
                                 <a className="read-more">
                                   Xem thêm <i className="bx bx-plus"></i>
                                 </a>
@@ -112,7 +101,24 @@ export default function NewsGridTwo({
                           </div>
                         </div>
                       </>
-                    )
+                    ) : (
+                      <>
+                        <div className="col-lg-12 col-md-12">
+                          <div className="single-news">
+                            <h3 className="mb-0">{item.title}</h3>
+                            <span>Theo </span>
+                            <Link
+                              href={`https://${item.from_source}${item.post_url}`}
+                            >
+                              <a>{item.from_source}</a>
+                            </Link>
+                            <div>
+                              <ReactPlayer url={item.video_url} />
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    );
                   }
                 })
               )}
@@ -123,12 +129,22 @@ export default function NewsGridTwo({
                   <div className="page-navigation-area">
                     <nav aria-label="Page navigation example text-center">
                       <ul className="pagination">
-                        <li className="page-item">
-                          <Link href="#">
-                            <a className="page-link page-links">
-                              <i className="bx bx-chevrons-left"></i>
-                            </a>
-                          </Link>
+                        <li
+                          className={`page-item ${pagiNumber === 1 && "d-none"}`}
+                          onClick={() => {
+                            setPagiNumber(pagiNumber - 1);
+                            setTimeout(function () {
+                              window.scroll({
+                                top: 0,
+                                left: 0,
+                                behavior: "smooth",
+                              });
+                            }, 100);
+                          }}
+                        >
+                          <a className="page-link page-links">
+                            <i className="bx bx-chevrons-left"></i>
+                          </a>
                         </li>
 
                         {pagination.map((item) => {
@@ -161,7 +177,7 @@ export default function NewsGridTwo({
                                   setPagiNumber(item + 1);
                                   setTimeout(function () {
                                     window.scroll({
-                                      top: 400,
+                                      top: 0,
                                       left: 0,
                                       behavior: "smooth",
                                     });
@@ -174,12 +190,24 @@ export default function NewsGridTwo({
                           );
                         })}
 
-                        <li className="page-item">
-                          <Link href="#">
-                            <a className="page-link">
-                              <i className="bx bx-chevrons-right"></i>
-                            </a>
-                          </Link>
+                        <li
+                          className={`page-item ${
+                            pagiNumber === paginationNumber && "d-none"
+                          }`}
+                          onClick={() => {
+                            setPagiNumber(pagiNumber + 1);
+                            setTimeout(function () {
+                              window.scroll({
+                                top: 0,
+                                left: 0,
+                                behavior: "smooth",
+                              });
+                            }, 100);
+                          }}
+                        >
+                          <a className="page-link">
+                            <i className="bx bx-chevrons-right"></i>
+                          </a>
                         </li>
                       </ul>
                     </nav>
@@ -190,7 +218,7 @@ export default function NewsGridTwo({
           </div>
 
           <div className="col-lg-4 col-md-12">
-            <NewsSidebar arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
+            <NewsSidebarNews arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
           </div>
         </div>
       </div>
