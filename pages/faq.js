@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navbar from '../components/Layouts/Navbar';
 import PageBanner from '../components/Common/PageBanner';
 import FaqContent from '../components/Faq/FaqContent';
@@ -18,7 +18,7 @@ export async function getStaticProps() {
 function Faq({ headers }) {
   return (
     <>
-      <Navbar headers={headers} />
+      <Navbar headers={headers} style={{ backgroundColor: "white" }} />
 
       <PageBanner
         pageTitle="Frequently Asked Questions"
