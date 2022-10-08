@@ -1,9 +1,5 @@
 import eZinApi from './axios';
 import eZinApiNode from './axiosNode';
-<<<<<<< HEAD
-=======
-
->>>>>>> 5331873742149d6be46ae4229bdc3618d8ccc6ff
 /***
  * HOME PAGE
  */
@@ -15,10 +11,10 @@ export const getHomeData = () => eZinApi.get(`/contents/home`)
  * NEWS (LIFE & NEWS)
  */
 
- export const API = {
-    newsList: `/news`,
-    newsDetails: `/news/byurl`,
- }
+export const API = {
+  newsList: `/news`,
+  newsDetails: `/news/byurl`,
+}
 export const getLatestPosts = (query) => eZinApi.get(`post/all?${query || ''}`);
 export const getPostCategories = () => eZinApi.get(`postcategory`);
 export const getNewestPost = () => eZinApi.get(`post/newest`);
