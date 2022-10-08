@@ -31,7 +31,6 @@ const Navbar = ({ headers }) => {
 
   const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
   const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
-  console.log("header", headers);
   return (
     <>
       <div id="navbar" className="navbar-area fixed-top">

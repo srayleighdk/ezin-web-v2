@@ -4,6 +4,7 @@ import { Navigation, Autoplay } from "swiper";
 import { getImageUrl } from "../../utils/helpers.js"
 
 const Testimonials = ({ testimonials }) => {
+  console.log('testimonials', testimonials)
   return (
     <section className="offer-area ptb-100">
       <div className="container">
@@ -40,7 +41,7 @@ const Testimonials = ({ testimonials }) => {
           modules={[Navigation, Autoplay]}
           className="testimonials-slide"
         >
-          {testimonials.content && testimonials.content.map((testimonial) => {
+          {testimonials?.content && testimonials?.content?.map((testimonial) => {
             return (
               <SwiperSlide key={testimonial._id}>
                 <div className="single-client text-dot-5 pt-5" style={{ height: 240 }}>
