@@ -40,7 +40,7 @@ const Testimonials = ({ testimonials }) => {
           modules={[Navigation, Autoplay]}
           className="testimonials-slide"
         >
-          {testimonials.content.map((testimonial) => {
+          {testimonials.content?.map((testimonial) => {
             return (
               <SwiperSlide key={testimonial._id}>
                 <div className="single-client text-dot-5 pt-5" style={{ height: 240 }}>
