@@ -18,7 +18,7 @@ ARG NODE_ENV
 ENV NODE_ENV=$NODE_ENV
 RUN echo ${NODE_ENV}
 WORKDIR /var/www/html/
-#COPY  .env.test /var/www/html/.env
+COPY  .env.production /var/www/html/.env
 # Build package basic
 COPY package.json /var/www/html/package.json
 RUN yarn install --frozen-lockfile

@@ -10,7 +10,6 @@ const titles = {
 };
 
 export default function NewsSidebar({ arrCats, tags = [] }) {
-  console.log("arrCats", arrCats);
   return (
     <div className="widget-area" id="secondary">
       <div className="widget widget_search">

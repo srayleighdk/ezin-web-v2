@@ -11,7 +11,6 @@ export default function ListNewsLife({
   arrNewsestPost,
   idCat,
 }) {
-  console.log("res2", arrCats, arrBlogs, arrNewsestPost);
   const paginationNumber = Math.ceil(arrBlogs?.length / 6);
   const [pagiNumber, setPagiNumber] = useState(1);
   const isVideo = idCat == "video";

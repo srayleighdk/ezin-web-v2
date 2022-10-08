@@ -21,102 +21,117 @@ import Testimonials from '../components/Common/Testimonials';
 import Faq from '../components/HomeFive/Faq';
 import News from '../components/Common/News';
 import Footer from '../components/Layouts/Footer';
-import {getHeader} from './api'
- 
-// export async function getServerSideProps(context) {
-//     const res = await getHeader();
-//     return {
-//       props: {}, // will be passed to the page component as props
-//     }
-//   }
-  
-class Index5 extends Component {
-    render() {
-        return (
-            <>
-                <Navbar />
-
-                <MainBanner />
-
-                <NewsSlider />
-
-                <Banner />
-
-                {/* <Groups /> */}
-
-                <Products />
-
-                <HotDeals />
-
-                <WhatWeOffer />
-
-                <EzinCoin />
-
-                <CommunityEzin />
-
-                <News />
-
-                <Testimonials />
-
-                <CaseStudies />
-
-                <Partner />
-
-                <EzStore />
-
-                {/* <PartnerSlider /> */}
-
-                {/* <About /> */}
-
-                {/* <WhyChooseUs /> */}
-
-                {/* <MakeYourBusiness />
-
-                <WhatWeOffer />
-
-                <CaseStudies /> */}
-
-                {/* <NewsSlider />
-
-                <Banner />
-
-                <Products /> */}
-
-                {/* <Groups /> */}
-
-                {/* <HotDeals /> */}
-
-                {/* <WhatWeOffer />
-
-                <Partner />
-
-                <EzStore />
-
-                <CommunityEzin />
+import { getHeader, getAllNodeProducts, getHomeData } from './api';
 
 
-                <About />
+export async function getServerSideProps(context) {
+  const [res, allNodeProducts, homeData] = await Promise.all([
+    getHeader(),
+    getAllNodeProducts(),
+    getHomeData(),
+  ]);
+  return {
+    props: {
+      headers: res?.data?.data,
+      allNodeProducts: allNodeProducts?.data?.data,
+      testimonials: homeData?.data?.data?.sections,
+    }, // will be passed to the page component as props
 
-                <WhyChooseUs />
+  }
+}
+const Home = ({ headers, allNodeProducts, testimonials }) => {
+  // export async function getServerSideProps(context) {
+  //     const res = await getHeader();
+  //     return {
+  //       props: {}, // will be passed to the page component as props
+  //     }
+  //   }
 
-                <Services />
+  return (
+    <>
 
-                <MakeYourBusiness />
+      <Navbar headers={headers} />
 
-                <WhatWeOffer />
+      <MainBanner />
 
-                <CaseStudies /> */}
+      <NewsSlider />
 
-                {/* <Testimonials />
+      <Banner />
 
-                <Faq />
+      <Groups />
 
-                <News /> */}
-                
-                <Footer />
-            </>
-        );
-    }
+      <Products allNodeProducts={allNodeProducts} />
+
+      <HotDeals allNodeProducts={allNodeProducts} />
+
+      <WhatWeOffer />
+
+      <EzinCoin />
+
+      <CommunityEzin />
+
+      <News />
+
+      <Testimonials testimonials={testimonials.testimonials} />
+
+      <CaseStudies />
+
+      <Partner />
+
+      <EzStore />
+
+      {/* <PartnerSlider /> */}
+
+      {/* <About /> */}
+
+      {/* <WhyChooseUs /> */}
+
+      {/* <MakeYourBusiness />
+
+            <WhatWeOffer />
+
+            <CaseStudies /> */}
+
+      {/* <NewsSlider />
+
+            <Banner />
+
+            <Products /> */}
+
+      {/* <Groups /> */}
+
+      {/* <HotDeals /> */}
+
+      {/* <WhatWeOffer />
+
+            <Partner />
+
+            <EzStore />
+
+            <CommunityEzin />
+
+
+            <About />
+
+            <WhyChooseUs />
+
+            <Services />
+
+            <MakeYourBusiness />
+
+            <WhatWeOffer />
+
+            <CaseStudies /> */}
+
+      {/* <Testimonials />
+
+            <Faq />
+
+            <News /> */}
+
+      <Footer />
+    </>
+  );
 }
 
-export default Index5;
+export default Home;
