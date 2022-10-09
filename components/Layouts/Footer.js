@@ -136,7 +136,7 @@ const Footer = () => {
 
                 <ul>
                   <li>
-                    <Link href="/about-1">
+                    <Link href="/p/dieu-khoan">
                       <a>
                         <i className="right-icon bx bx-chevrons-right"></i>
                         Điều khoản dịch vụ
@@ -144,7 +144,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services">
+                    <Link href="/p/chinh-sach-bao-mat">
                       <a>
                         <i className="right-icon bx bx-chevrons-right"></i>
                         Chính sách bảo mật
@@ -152,7 +152,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/pricing">
+                    <Link href="/p/chinh-sach-thanh-toan">
                       <a>
                         <i className="right-icon bx bx-chevrons-right"></i>
                         Chính sách thanh toán
@@ -160,7 +160,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/team">
+                    <Link href="/p/chinh-sach-giao-hang">
                       <a>
                         <i className="right-icon bx bx-chevrons-right"></i>
                         Chính sách giao hàng
@@ -168,7 +168,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contact">
+                    <Link href="/p/chinh-sach-doi-tra">
                       <a>
                         <i className="right-icon bx bx-chevrons-right"></i>
                         Chính sách đổi trả
