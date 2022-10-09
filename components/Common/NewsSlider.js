@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 
 export default function NewsSlider({ newsPost }) {
-    console.log("newsPost", newsPost);
+  console.log("newsPost", newsPost);
   return (
     <div
       className="brand-area-two ptb-100 position-relative"
@@ -17,7 +17,7 @@ export default function NewsSlider({ newsPost }) {
       <h4 className="home-brand-title font-weight-700 color-white d-none d-sm-block">
         Tin tức mới nhất
       </h4>
-      <div className="container mr-0">
+      <div className="container">
         <Swiper
           spaceBetween={25}
           // navigation={true}
@@ -43,16 +43,16 @@ export default function NewsSlider({ newsPost }) {
           style={{ width: "90%" }}
           className="brand-slide text-left"
         >
-            {newsPost.map(item => (
-                <SwiperSlide className="slider-news">
-                <a href={`/life/p/${item.post_id}/${item.post.post_name}`} target="_blank" className="d-flex align-items-center">
-                  <img src={item.post_thumbnail} alt={item.post.post_name} style={{height: 62}} />
-                  <p className="text-dot-2 h-56 ml-12">
-                    {item.post.post_title}
-                  </p>
-                </a>
-              </SwiperSlide>
-            ))}
+          {newsPost.map(item => (
+            <SwiperSlide className="slider-news">
+              <a href={`/life/p/${item.post_id}/${item.post.post_name}`} target="_blank" className="d-flex align-items-center">
+                <img src={item.post_thumbnail} alt={item.post.post_name} style={{ height: 62 }} />
+                <p className="text-dot-2 h-56 ml-12">
+                  {item.post.post_title}
+                </p>
+              </a>
+            </SwiperSlide>
+          ))}
           {/* <SwiperSlide className="slider-news">
             <a href="#" target="_blank" className="d-flex align-items-center">
               <img src="" alt="Image" />
