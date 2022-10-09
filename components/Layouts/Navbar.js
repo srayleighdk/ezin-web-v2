@@ -64,9 +64,33 @@ const Navbar = ({ headers }) => {
                       <Link href={header.link} key={header.key}>
                         <a className="nav-link text-black" onClick={e => e.preventDefault()}>
                           {header.label}
-                          {/* <i className='bx bx-chevron-down'></i> */}
+                          {header.children && <i className='bx bx-chevron-down'></i>} {/* <i className='bx bx-chevron-down'></i> */}
                         </a>
                       </Link>
+
+                      {header.children && <ul className='dropdown-menu'>{header.children.map((child) => {
+                        return (
+
+                          <li className="nav-item dropend" key={child.key}>
+                            <Link href={child.link} activeClassName="active">
+                              <a className="nav-link">
+                                {child.label}
+                                {child.children && <i className='bx bx-chevron-right' style={{ top: '4px' }}></i>}
+                              </a>
+                            </Link>
+                            {child.children && <ul className='dropdown-menu' style={{ top: '-5px' }}>{child.children.map((child) => {
+                              return (
+
+                                <li className="nav-item" key={child.key}>
+                                  <Link href={child.link} activeClassName="active">
+                                    <a className="nav-link">{child.label}</a>
+                                  </Link>
+                                </li>
+                              )
+                            })}</ul>}
+                          </li>
+                        )
+                      })}</ul>}
 
                       {/* <ul className="dropdown-menu">
                                   <li className="nav-item">

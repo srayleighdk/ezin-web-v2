@@ -1099,7 +1099,7 @@ jumpx Nav Area Style
   border: none;
   top: 80px;
   left: 0;
-  width: 250px;
+  width: auto;
   z-index: 99;
   display: block;
   opacity: 0;
@@ -1107,10 +1107,10 @@ jumpx Nav Area Style
   border-radius: 5px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  padding-top: 18px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 18px;
+  /* padding-top: 18px; */
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
+  /* padding-bottom: 18px; */
 }
 
 .navbar-area nav .navbar-nav .nav-item .dropdown-menu li {
@@ -1134,7 +1134,7 @@ jumpx Nav Area Style
 }
 
 .navbar-area nav .navbar-nav .nav-item .dropdown-menu li .dropdown-menu {
-  left: -250px;
+  left: 161px;
   top: 0;
   opacity: 0;
   visibility: hidden;
@@ -6248,4 +6248,8 @@ color: #000000;
   width: 2px;
   height: 50px;
   background-color: #2087DC;
+}
+
+.nav-area nav .navbar-nav .nav-item a i {
+  top: 5px;
 }
