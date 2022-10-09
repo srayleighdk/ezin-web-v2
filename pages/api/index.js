@@ -37,3 +37,10 @@ export const getBlogDetail = (slug) => eZinApi.get(`/blog/blog/${slug}`);
  */
 export const getProduct = (slug) => eZinApi.get(`/product/slug/${slug}`);
 export const getNodePackages = (product_id) => eZinApiNode.get(`/node/packages?product_id=${product_id}`);
+
+/*
+ * FAQ
+*/
+export const getFAQ = () => eZinApi.get(`faq/cat`);
+export const getFAQContent = (catId) => eZinApi.get(`/faq/bycat/${catId}`);
+

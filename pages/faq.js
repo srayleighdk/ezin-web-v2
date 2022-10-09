@@ -4,10 +4,10 @@ import PageBanner from '../components/Common/PageBanner';
 import FaqContent from '../components/Faq/FaqContent';
 import AskQuestionForm from '../components/Faq/AskQuestionForm';
 import Footer from '../components/Layouts/Footer';
-import { getHeader } from './api';
+import { getHeader, getFAQ } from './api';
 
 export async function getStaticProps() {
-  const res = await getHeader();
+  const [res, faq] = await Promise.all([getHeader(), getFAQ()]);
   return {
     props: {
       headers: res?.data?.data
