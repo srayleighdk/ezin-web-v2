@@ -6199,7 +6199,7 @@ color: #000000;
 
 .group-icons {
   top: 26px;
-  left: 40px;
+  left: 9%;
 }
 
 .group-wrap {
@@ -6248,4 +6248,14 @@ color: #000000;
   width: 2px;
   height: 50px;
   background-color: #2087DC;
+}
+
+.eziner-news {
+  height: 72px;
+  overflow: hidden;
+}
+
+.testimonial-description {
+  height: 136px;
+  overflow: hidden;
 }
