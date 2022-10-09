@@ -47,7 +47,7 @@ class News extends Component {
                                         </a>
                                     </Link>
 
-                                    <p className='style-font-p'>Tuổi, tình trạng sức khỏe, loại bảo hiểm, sản phẩm bổ trợ, thời hạn và số tiền bảo hiểm...</p>
+                                    <p className='style-font-p eziner-news text-dot-3'>Tuổi, tình trạng sức khỏe, loại bảo hiểm, sản phẩm bổ trợ, thời hạn và số tiền bảo hiểm...</p>
                                     
                                     <Link href="/news-details">
                                         <a className="read-more" style={{fontFamily: 'Inter'}}>

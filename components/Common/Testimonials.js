@@ -48,7 +48,7 @@ const Testimonials = ({ testimonials }) => {
                   <i className="quotes flaticon-left-quotes-sign"></i>
                   {/* <img className='quotes' src="/images/Ellipse9.png" alt="" />
                                 <p className='style-name'>Trần Thị Phương Thảo</p> */}
-                  <p>{testimonial.desc}</p>
+                  <p className='testimonial-description text-dot-5'>{testimonial.desc}</p>
 
                   <ul>
                     <li><i className="bx bxs-star"></i></li>

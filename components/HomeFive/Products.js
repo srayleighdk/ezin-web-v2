@@ -22,14 +22,11 @@ const Products = ({ allNodeProducts }) => {
                       <a>{product.name}</a>
                     </Link>
                   </h3>
-                  {/* <p className="mb-0">Giảm tới 20% phí bảo hiểm mỗi năm.</p>
-                                <p className="mb-0">Hoàn toàn tự động với Trí tuệ nhân tạo.</p> */}
-                  {/* <p className="mb-0">Phần thưởng lớn với Ezcoin.</p> */}
-                  <p className='mb-0'>{product.intro}</p>
+                  <p className='mb-0 product-decription text-dot-3'>{product.intro}</p>
                   <div className="d-flex my-3">
                     <div className="w-50 text-start">
                       <p className="mb-0 text-danger font-weight-700 product-prize lh-1" >{formatVND(product.min_fee)}</p>
-                      <p className="product-prize-old">{formatVND(product.max_fee)} <a className="ml-3 text-dark">-10%</a></p>
+                      <p className="product-prize-old">{formatVND(product.max_fee)} <a className="ml-3 text-dark">-{Math.round((product.max_fee - product.min_fee) / product.max_fee  * 100)}%</a></p>
                     </div>
                     <p className="product-coin font-weight-700 w-50">150.000 <img src="/images/coin.png" alt="Image" /></p>
                   </div>

@@ -3,7 +3,7 @@ import Navbar from '../../components/Layouts/Navbar';
 import PageBanner from '../../components/Common/PageBanner';
 import Footer from '../../components/Layouts/Footer';
 import { getPageContents, getHeader } from '../api';
-import { createMarkupNormal } from '../../utils/helpers';
+import { createMarkupNormal } from '../../utils/auth.helper';
 
 export async function getStaticProps({ params }) {
   const [res, headers] = await Promise.all([getPageContents(params.key), getHeader()])
@@ -29,16 +29,10 @@ export async function getStaticPaths() {
 }
 
 const TermsConditions = ({ data, headers }) => {
+  console.log("daaaaaa", data)
   return (
     <>
       <Navbar headers={headers} />
-
-      <PageBanner
-        pageTitle="Terms & Conditions"
-        homePageUrl="/"
-        homePageText="Home"
-        activePageText="Terms & Conditions"
-      />
 
       <div className="text-container ptb-100">
         <div className="container">
