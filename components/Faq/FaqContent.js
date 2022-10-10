@@ -7,19 +7,11 @@ import {
   AccordionItemButton
 } from 'react-accessible-accordion';
 import Link from 'next/link';
-// import { getFAQ, getFAQContent } from '../../pages/api/index';
-
-// export async function getStaticProps() {
-//   const res = await getFAQ();
-//   return {
-//     props: {
-//       faq: res?.data?.data,
-//     }
-//   }
-// }
 
 function FaqContent({ faq }) {
-  console.log(faq);
+  const faqCont = faq.filter((e) => e.is_active);
+  faqCont.sort((a, b) => a.title.length - b.title.length);
+  console.log(faqCont);
   return (
     <div className='container'>
       <div className='news-details-area'>
@@ -27,38 +19,38 @@ function FaqContent({ faq }) {
           <div className="widget widget_categories" >
             <h3 className="widget-title">Tổng Quan</h3>
             <div className='row'>
-              <div className="col-2 post-wrap">
+              <div className="col-3 post-wrap">
                 <ul>
-                  {faq && faq?.map((child) => {
+                  {faqCont?.map((child, index) => {
                     return (
 
                       <li key={child._id}>
                         <Link href={`/life/chu-de/tin-nong`}>
-                          <p>{child.title}</p>
+                          <a className='btn' data-bs-toggle="collapse" href={`#multiCollapseExample${index}`} role="button" aria-expanded="false" aria-controls={`#multiCollapseExample${index}`}>{child.title}</a>
                         </Link>
                       </li>
                     )
                   })}
-                  <li>
-                    <Link href={`/life/chu-de/tin-nong`}>
-                      <p>Tin nóng</p>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href={`/life/chu-de/covid`}>
-                      <a>COVID</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href={`/life/chu-de/video`}>
-                      <a>Video</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href={`/life/chu-de/tai-nan`}>
-                      <a>Tai nạn</a>
-                    </Link>
-                  </li>
+                  {/* <li> */}
+                  {/*   <Link href={`/life/chu-de/tin-nong`}> */}
+                  {/*     <p>Tin nóng</p> */}
+                  {/*   </Link> */}
+                  {/* </li> */}
+                  {/* <li> */}
+                  {/*   <Link href={`/life/chu-de/covid`}> */}
+                  {/*     <a>COVID</a> */}
+                  {/*   </Link> */}
+                  {/* </li> */}
+                  {/* <li> */}
+                  {/*   <Link href={`/life/chu-de/video`}> */}
+                  {/*     <a>Video</a> */}
+                  {/*   </Link> */}
+                  {/* </li> */}
+                  {/* <li> */}
+                  {/*   <Link href={`/life/chu-de/tai-nan`}> */}
+                  {/*     <a>Tai nạn</a> */}
+                  {/*   </Link> */}
+                  {/* </li> */}
                 </ul>
               </div>
 

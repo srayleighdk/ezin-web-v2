@@ -4,21 +4,23 @@ import PageBanner from '../components/Common/PageBanner';
 import FaqContent from '../components/Faq/FaqContent';
 import AskQuestionForm from '../components/Faq/AskQuestionForm';
 import Footer from '../components/Layouts/Footer';
-import { getHeader, getFAQ } from './api';
+import { getHeader, getFAQ, getFAQContent } from './api';
 
 export async function getStaticProps() {
-  const [res, faq] = await Promise.all([getHeader(), getFAQ()]);
+  const [res, faq, faqContent] = await Promise.all([getHeader(), getFAQ(), getFAQContent()]);
   return {
     props: {
-      headers: res?.data?.data
+      headers: res?.data?.data,
+      faq: faq?.data?.data,
+      faqContent: faqContent?.data?.data,
     }
   }
 }
 
-function Faq({ headers }) {
+function Faq({ headers, faq, faqContent }) {
   return (
     <>
-      <Navbar headers={headers} style={{ backgroundColor: "white" }} />
+      <Navbar headers={headers} style={{ background: "white" }} />
 
       <PageBanner
         pageTitle="Frequently Asked Questions"
@@ -27,7 +29,7 @@ function Faq({ headers }) {
         activePageText="Frequently Asked Questions"
       />
 
-      <FaqContent />
+      <FaqContent faq={faq} faqContent={faqContent} />
 
       <AskQuestionForm />
 
