@@ -18,7 +18,7 @@ const Products = ({ allNodeProducts }) => {
                 <div className="single-offer pl-30 pr-30 text-center">
                   <img src={product.thumbnail} alt="Image" className="mx-auto" />
                   <h3 className="mt-3">
-                    <Link href="/service-details">
+                    <Link href={`san-pham/${product.slug}#mua-ngay`}>
                       <a>{product.name}</a>
                     </Link>
                   </h3>
@@ -26,11 +26,11 @@ const Products = ({ allNodeProducts }) => {
                   <div className="d-flex my-3">
                     <div className="w-50 text-start">
                       <p className="mb-0 text-danger font-weight-700 product-prize lh-1" >{formatVND(product.min_fee)}</p>
-                      <p className="product-prize-old">{formatVND(product.max_fee)} <a className="ml-3 text-dark">-{Math.round((product.max_fee - product.min_fee) / product.max_fee  * 100)}%</a></p>
+                      <p className="product-prize-old">{formatVND(product.max_fee)} <a className="ml-3 text-dark">-{Math.round((product.max_fee - product.min_fee) / product.max_fee * 100)}%</a></p>
                     </div>
                     <p className="product-coin font-weight-700 w-50">150.000 <img src="/images/coin.png" alt="Image" /></p>
                   </div>
-                  <Link href="/about-1">
+                  <Link href={`san-pham/${product.slug}#mua-ngay`}>
                     <a className="default-btn w-100 rounded-pill">
                       Mua ngay
                     </a>
