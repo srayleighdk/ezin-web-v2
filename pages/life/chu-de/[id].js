@@ -39,7 +39,6 @@ export default function CatList({
   postNewest = [],
   arrCats = [],
 }) {
-  console.log("CatList", id, arrBlogs, postNewest);
   return (
     <>
       <ListTopic

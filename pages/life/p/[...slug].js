@@ -4,7 +4,7 @@ import Link from "next/link";
 import Navbar from "../../../components/Layouts/Navbar";
 import Footer from "../../../components/Layouts/Footer";
 import CommentsArea from "../../../components/News/CommentsArea";
-import { getPostCategories, getNewestPost, getPostDetails } from "../../../pages/api";
+import { getPostCategories, getNewestPost, getPostDetails, getHeader } from "../../../pages/api";
 import styles from "../life.module.scss";
 import { createMarkup } from '../../../utils/auth.helper';
 import dayjs from "dayjs";
@@ -12,12 +12,13 @@ import dayjs from "dayjs";
 export async function getServerSideProps(context) {
   const { slug } = context.params;
   const id = slug[0];
-  let [res1, res2, res3] = await Promise.all([getPostCategories(), getNewestPost(), getPostDetails(id)]);
+  let [res1, res2, res3, res4] = await Promise.all([getPostCategories(), getNewestPost(), getPostDetails(id), getHeader()]);
   return {
     props: {
       arrCats: res1?.data?.data,
       arrNewsestPost: res2?.data?.data,
       blogDetail: res3?.data?.data,
+      headers: res4?.data?.data
     },
   };
 }
@@ -25,12 +26,13 @@ export async function getServerSideProps(context) {
 export default function NewsDetailsContent({
   arrCats = [],
   arrNewsestPost = [],
-  blogDetail = []
+  blogDetail = [],
+  headers = []
 }) {
   console.log("blogDetail", blogDetail)
   return (
     <>
-    <Navbar />
+    <Navbar headers={headers} />
     <section className="news-details-area ptb-100">
       <div className="container">
         <div className="row">

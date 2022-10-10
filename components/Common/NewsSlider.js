@@ -41,7 +41,7 @@ export default function NewsSlider({ newsPost }) {
           }}
           modules={[Navigation, Autoplay]}
           style={{ width: "90%" }}
-          className="brand-slide text-left"
+          className="brand-slide text-left mr-0"
         >
           {newsPost.map(item => (
             <SwiperSlide className="slider-news">

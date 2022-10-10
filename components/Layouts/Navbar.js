@@ -10,7 +10,7 @@ const Navbar = ({ headers }) => {
    * If collapse is true, set collapse to false. If collapse is false, set collapse to true.
    */
   const toggleNavbar = () => {
-    setCollapse(!collapse);
+    setCollapse(!collapsed);
   }
 
   useEffect(() => {
