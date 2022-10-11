@@ -34,7 +34,7 @@ class CaseStudies extends Component {
                   <img
                     className="img-center"
                     src="/images/tien-ich-svg/Group.png"
-                    alt="Image"
+                    alt="Group"
                   />
                 </div>
 
@@ -60,7 +60,7 @@ class CaseStudies extends Component {
                   <img
                     className="img-center"
                     src="/images/tien-ich-svg/give-love.png"
-                    alt="Image"
+                    alt="give-love"
                   />
                 </div>
 
@@ -86,7 +86,7 @@ class CaseStudies extends Component {
                   <img
                     className="img-center"
                     src="/images/tien-ich-svg/Frame3210.png"
-                    alt="Image"
+                    alt="Frame3210"
                   />
                 </div>
 
@@ -112,7 +112,7 @@ class CaseStudies extends Component {
                   <img
                     className="img-center"
                     src="/images/tien-ich-svg/Frame13210.png"
-                    alt="Image"
+                    alt="Frame13210"
                   />
                 </div>
 

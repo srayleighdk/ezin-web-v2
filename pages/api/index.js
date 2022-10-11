@@ -1,12 +1,12 @@
-import eZinApi from './axios';
-import eZinApiNode from './axiosNode';
+import eZinApi from "./axios";
+import eZinApiNode from "./axiosNode";
 /***
  * HOME PAGE
  */
 export const getHeader = () => eZinApi.get(`/menu/main`);
 export const getPageContents = (key) => eZinApi.get(`/contents/key/${key}`);
 export const getAllNodeProducts = () => eZinApi.get(`/node/allproducts`);
-export const getHomeData = () => eZinApi.get(`/contents/home`)
+export const getHomeData = () => eZinApi.get(`/contents/home`);
 /***
  * NEWS (LIFE & NEWS)
  */
@@ -14,16 +14,17 @@ export const getHomeData = () => eZinApi.get(`/contents/home`)
 export const API = {
   newsList: `/news`,
   newsDetails: `/news/byurl`,
-}
-export const getLatestPosts = (query) => eZinApi.get(`post/all?${query || ''}`);
+};
+export const getLatestPosts = (query) => eZinApi.get(`post/all?${query || ""}`);
 export const getPostCategories = () => eZinApi.get(`postcategory`);
 export const getNewestPost = () => eZinApi.get(`post/newest`);
 export const getPostDetails = (id) => eZinApi.get(`post/byid/${id}`);
 export const getPostByCategory = (id) => eZinApi.get(`post/bycat/${id}`);
-export const getNewsByChuDe = (slug) => eZinApi.get(`${API.newsList}/chu-de/${slug}`);
+export const getNewsByChuDe = (slug) =>
+  eZinApi.get(`${API.newsList}/chu-de/${slug}`);
 export const getPostByTag = (id) => eZinApi.get(`post/bytag/${id}`);
 export const getNewsDetails = (id) => eZinApi.get(`${API.newsDetails}/${id}`);
-export const getNews = (query) => eZinApi.get(`${API.newsList}?${query || ''}`);
+export const getNews = (query) => eZinApi.get(`${API.newsList}?${query || ""}`);
 
 /***
  * KIEN THUC
@@ -36,11 +37,47 @@ export const getBlogDetail = (slug) => eZinApi.get(`/blog/blog/${slug}`);
  * PRODUCT
  */
 export const getProduct = (slug) => eZinApi.get(`/product/slug/${slug}`);
-export const getNodePackages = (product_id) => eZinApiNode.get(`/node/packages?product_id=${product_id}`);
+export const getNodePackages = (product_id) =>
+  eZinApiNode.get(`/node/packages?product_id=${product_id}`);
 
 /*
  * FAQ
-*/
+ */
 export const getFAQ = () => eZinApi.get(`faq/cat`);
 export const getFAQContent = (catId) => eZinApi.get(`/faq/bycat/${catId}`);
 
+/*
+ * FAQ
+ */
+export const registerApi = ({ username, password, legal_id, referal_link }) =>
+  new Promise((resolve, reject) => {
+    eZinApi
+      .post(`/account/register`, {
+        username,
+        password,
+        legal_id,
+        referal_link,
+      })
+      .then((rs) => {
+        resolve(rs.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+/*
+ * Login & Register
+ */
+export const verifyAccountApi = ({ username, otp }) =>
+  new Promise((resolve, reject) => {
+    eZinApi
+      .post(`/account/register/verify`, {
+        username,
+        otp,
+      })
+      .then((rs) => resolve(rs.data))
+      .catch((err) => {
+        reject(err);
+      });
+  });

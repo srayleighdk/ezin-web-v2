@@ -84,61 +84,61 @@ class Partner extends Component {
                     <div className="brand-list">
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/partner1.png" alt="Image" />
+                                <img src="/images/partner/partner1.png" alt="partner1" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/partner2.png" alt="Image" />
+                                <img src="/images/partner/partner2.png" alt="partner2" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/partner3.png" alt="Image" />
+                                <img src="/images/partner/partner3.png" alt="partner3" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/partner4.png" alt="Image" />
+                                <img src="/images/partner/partner4.png" alt="partner4" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/partner5.png" alt="Image" />
+                                <img src="/images/partner/partner5.png" alt="partner5" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/partner6.png" alt="Image" />
+                                <img src="/images/partner/partner6.png" alt="partner6" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/partner7.png" alt="Image" />
+                                <img src="/images/partner/partner7.png" alt="partner7" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/partner8.png" alt="Image" />
+                                <img src="/images/partner/partner8.png" alt="partner8" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/partner9.png" alt="Image" />
+                                <img src="/images/partner/partner9.png" alt="partner9" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/partner10.png" alt="Image" />
+                                <img src="/images/partner/partner10.png" alt="partner10" />
                             </a>
                         </div>
                     </div>
@@ -149,31 +149,31 @@ class Partner extends Component {
                     <div className="brand-list">
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/company1.png" alt="Image" />
+                                <img src="/images/partner/company1.png" alt="company1" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/company2.png" alt="Image" />
+                                <img src="/images/partner/company2.png" alt="company2" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/company3.png" alt="Image" />
+                                <img src="/images/partner/company3.png" alt="company3" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/company4.png" alt="Image" />
+                                <img src="/images/partner/company4.png" alt="company4" />
                             </a>
                         </div>
 
                         <div className="single-brand mb-3">
                             <a href="#" target="_blank">
-                                <img src="/images/partner/company5.png" alt="Image" />
+                                <img src="/images/partner/company5.png" alt="company5" />
                             </a>
                         </div>
                     </div>

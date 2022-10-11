@@ -4,7 +4,7 @@ import PageBanner from "../../components/Product/PageBanner";
 import PricingStyleOne from "../../components/Product/PricingStyleOne";
 import MoneyIcon from "../../public/images/money.svg";
 import Footer from "../../components/Layouts/Footer";
-import { getProduct, getNodePackages } from "../api/index";
+import { getProduct, getNodePackages, getHeader } from "../api/index";
 import Image from "next/image";
 import WorkIcon from "../../public/images/work.svg";
 import FileIcon from "../../public/images/file.svg";
@@ -23,22 +23,23 @@ import {
 export async function getServerSideProps(context) {
   const { product: slug } = context.params;
   const { data } = await getProduct(slug);
-  const resPackages = await getNodePackages(data.data._id);
+  const [ res, res2 ] = await Promise.all([getHeader(), getNodePackages(data.data._id)])
   return {
     props: {
       product: data.data,
-      nodePackages: resPackages?.data?.data,
+      nodePackages: res2?.data?.data,
+      headers: res?.data?.data,
     },
   };
 }
 
-export default function Product({ product, nodePackages }) {
-  console.log("product", product, nodePackages);
+export default function Product({ product, nodePackages, headers }) {
+  console.log("headers", product, nodePackages)
   const features = product?.features.split("\n") || [];
   const iconsFeatures = [MoneyIcon, WorkIcon, FileIcon];
   return (
     <>
-      <Navbar />
+      <Navbar headers={headers} />
 
       <PageBanner
         pageTitle={product?.name}
@@ -212,58 +213,6 @@ export default function Product({ product, nodePackages }) {
           </div>
         </div>
       </section>
-
-      <div className="container">
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop"
-        >
-          Launch static backdrop modal
-        </button>
-
-        <div
-          class="modal fade"
-          id="staticBackdrop"
-          data-bs-backdrop="static"
-          data-bs-keyboard="false"
-          tabindex="-1"
-          aria-labelledby="staticBackdropLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">
-                  Modal title
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">...</div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Understood
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* <PricingStyleOne product={product} nodePackages={nodePackages} /> */}
 
       <Footer />
     </>

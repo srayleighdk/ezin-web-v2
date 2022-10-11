@@ -63,7 +63,7 @@ class EzStore extends Component {
                   <div className="blog-img mb-2 text-center">
                     <Link href="/news-details">
                       <a>
-                        <img src="/images/ezstore1.png" alt="Image" />
+                        <img src="/images/ezstore1.png" alt="ezstore1" />
                       </a>
                     </Link>
                   </div>
@@ -102,7 +102,7 @@ class EzStore extends Component {
                   <div className="blog-img mb-2 text-center">
                     <Link href="/news-details">
                       <a>
-                        <img src="/images/ezstore2.png" alt="Image" />
+                        <img src="/images/ezstore2.png" alt="ezstore2" />
                       </a>
                     </Link>
                   </div>
@@ -141,7 +141,7 @@ class EzStore extends Component {
                   <div className="blog-img mb-2 text-center">
                     <Link href="/news-details">
                       <a>
-                        <img src="/images/ezstore3.png" alt="Image" />
+                        <img src="/images/ezstore3.png" alt="ezstore3" />
                       </a>
                     </Link>
                   </div>
@@ -180,7 +180,7 @@ class EzStore extends Component {
                   <div className="blog-img mb-2 text-center">
                     <Link href="/news-details">
                       <a>
-                        <img src="/images/ezstore4.png" alt="Image" />
+                        <img src="/images/ezstore4.png" alt="ezstore4" />
                       </a>
                     </Link>
                   </div>
@@ -219,7 +219,7 @@ class EzStore extends Component {
                   <div className="blog-img mb-2 text-center">
                     <Link href="/news-details">
                       <a>
-                        <img src="/images/ezstore1.png" alt="Image" />
+                        <img src="/images/ezstore1.png" alt="ezstore1" />
                       </a>
                     </Link>
                   </div>
@@ -258,7 +258,7 @@ class EzStore extends Component {
                   <div className="blog-img mb-2 text-center">
                     <Link href="/news-details">
                       <a>
-                        <img src="/images/ezstore2.png" alt="Image" />
+                        <img src="/images/ezstore2.png" alt="ezstore2" />
                       </a>
                     </Link>
                   </div>
@@ -297,7 +297,7 @@ class EzStore extends Component {
                   <div className="blog-img mb-2 text-center">
                     <Link href="/news-details">
                       <a>
-                        <img src="/images/ezstore3.png" alt="Image" />
+                        <img src="/images/ezstore3.png" alt="ezstore3" />
                       </a>
                     </Link>
                   </div>
@@ -336,7 +336,7 @@ class EzStore extends Component {
                   <div className="blog-img mb-2 text-center">
                     <Link href="/news-details">
                       <a>
-                        <img src="/images/ezstore4.png" alt="Image" />
+                        <img src="/images/ezstore4.png" alt="ezstore4" />
                       </a>
                     </Link>
                   </div>

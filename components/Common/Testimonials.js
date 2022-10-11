@@ -12,11 +12,11 @@ const Testimonials = ({ testimonials }) => {
           <h2 style={{ color: '#167ffc' }}>Dịch vụ <span>khách hàng 5 sao</span> </h2>
           <p >Chúng tôi đã dành ngân sách Marketing để chăm sóc bạn. Mỗi khách hàng trung thành là một đại sứ thương hiệu</p>
           <div className='d-flex justify-content-around px-3 '>
-            <img src="/images/Union.png" alt="" style={{ height: 60 }} />
-            <img src="/images/Union.png" alt="" style={{ height: 60 }} />
-            <img src="/images/Union.png" alt="" style={{ height: 60 }} />
-            <img src="/images/Union.png" alt="" style={{ height: 60 }} />
-            <img src="/images/Union.png" alt="" style={{ height: 60 }} />
+            <img src="/images/Union.png" alt="Union" style={{ height: 60 }} />
+            <img src="/images/Union.png" alt="Union" style={{ height: 60 }} />
+            <img src="/images/Union.png" alt="Union" style={{ height: 60 }} />
+            <img src="/images/Union.png" alt="Union" style={{ height: 60 }} />
+            <img src="/images/Union.png" alt="Union" style={{ height: 60 }} />
           </div>
         </div>
 
@@ -60,7 +60,7 @@ const Testimonials = ({ testimonials }) => {
 
                   <div className="client-img">
                     <img src={testimonial.image ? `${getImageUrl()}/${testimonial.image?.path}` : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRs20OhbD-VfH378DhoBDNTDhcMIYMWj5GurA&usqp=CAU'
-                    } alt="Image" />
+                    } alt={testimonial.name} />
                     <h3 className='text-black'>{testimonial.name}</h3>
                     {/* <span>Developer</span> */}
                   </div>
@@ -73,12 +73,12 @@ const Testimonials = ({ testimonials }) => {
 
       </div>
       <div className="offer-shape">
-        <img src="/images/shape/services-shape/1.png" alt="Image" />
-        <img src="/images/shape/services-shape/2.png" alt="Image" />
-        <img src="/images/shape/services-shape/3.png" alt="Image" />
-        <img src="/images/shape/services-shape/4.png" alt="Image" />
-        <img src="/images/shape/services-shape/5.png" alt="Image" />
-        <img src="/images/shape/services-shape/6.png" alt="Image" />
+        <img src="/images/shape/services-shape/1.png" alt="services-shape1" />
+        <img src="/images/shape/services-shape/2.png" alt="services-shape2" />
+        <img src="/images/shape/services-shape/3.png" alt="services-shape3" />
+        <img src="/images/shape/services-shape/4.png" alt="services-shape4" />
+        <img src="/images/shape/services-shape/5.png" alt="services-shape5" />
+        <img src="/images/shape/services-shape/6.png" alt="services-shape6" />
       </div>
     </section>
   );

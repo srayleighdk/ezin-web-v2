@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="col-lg-3 col-md-6">
               <div className="single-widget">
                 <a href="/" className="logo">
-                  <img src="/images/logo-2.png" alt="Image" />
+                  <img src="/images/logo-2.png" alt="logo-2" />
                 </a>
                 <p>Đi Bình An - Về Hạnh Phúc</p>
               </div>
@@ -281,8 +281,8 @@ const Footer = () => {
         </div>
 
         <div className="footer-shape">
-          <img src="/images/shape/footer-shape-one.png" alt="Image" />
-          <img src="/images/shape/footer-shape-two.png" alt="Image" />
+          <img src="/images/shape/footer-shape-one.png" alt="footer-shape-one" />
+          <img src="/images/shape/footer-shape-two.png" alt="footer-shape-two" />
         </div>
       </footer>
 

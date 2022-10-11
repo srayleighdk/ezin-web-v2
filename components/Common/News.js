@@ -18,7 +18,7 @@ class News extends Component {
                                 <div className="blog-img">
                                     <Link href="/news-details">
                                         <a>
-                                            <img src="/images/cau-chuyen-eziner/Rectangle1.png" alt="Image" />
+                                            <img src="/images/cau-chuyen-eziner/Rectangle1.png" alt="Rectangle1" />
                                         </a>
                                     </Link>
 
@@ -63,7 +63,7 @@ class News extends Component {
                                 <div className="blog-img">
                                     <Link href="/news-details">
                                         <a>
-                                            <img src="/images/cau-chuyen-eziner/Rectangle2.png" alt="Image" />
+                                            <img src="/images/cau-chuyen-eziner/Rectangle2.png" alt="Rectangle2" />
                                         </a>
                                     </Link>
 
@@ -108,7 +108,7 @@ class News extends Component {
                                 <div className="blog-img">
                                     <Link href="/news-details">
                                         <a>
-                                            <img src="/images/cau-chuyen-eziner/Rectangle3.png" alt="Image" />
+                                            <img src="/images/cau-chuyen-eziner/Rectangle3.png" alt="Rectangle3" />
                                         </a>
                                     </Link>
 

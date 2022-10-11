@@ -65,7 +65,7 @@ const HotDeals = ({ allNodeProducts }) => {
               <SwiperSlide className="slider-news">
                 <div className="single-offer pl-30 pr-30 text-center rounded">
                   <img
-                    src={product.thumbnail} alt="Image"
+                    src={product.thumbnail} alt={product.name}
                     className="mx-auto"
                   />
                   <h3 className="mt-3 mb-0 h-56 d-flex justify-content-center align-items-center">

@@ -21,3 +21,11 @@ export const formatVND = (value = 0) => {
   }
   return value
 }
+
+export const normalizePhoneNumber = (phoneNumber) => {
+  var number = phoneNumber;
+  if (phoneNumber.charAt(0) === '0') {
+    number = phoneNumber.substring(1);
+  }
+  return number;
+};

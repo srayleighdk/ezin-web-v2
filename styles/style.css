@@ -6260,3 +6260,7 @@ color: #000000;
   overflow: hidden;
 }
 
+.OTP__checkInput input {
+  width: 42px !important;
+  height: 46px;
+}

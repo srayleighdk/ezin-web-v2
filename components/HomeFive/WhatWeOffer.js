@@ -87,7 +87,7 @@ class WhatWeOffer extends Component {
                     <div className="row align-items-center">
                       <div className="col-lg-6">
                         <div className="industries-img left-img">
-                          <img src="/images/why1.png" alt="Image" />
+                          <img src="/images/why1.png" alt="why1" />
                         </div>
                       </div>
 
@@ -141,7 +141,7 @@ class WhatWeOffer extends Component {
                     <div className="row align-items-center">
                       <div className="col-lg-6">
                         <div className="industries-img right-img">
-                          <img src="/images/why2.png" alt="Image" />
+                          <img src="/images/why2.png" alt="why2" />
                         </div>
                       </div>
                       <div className="col-lg-6">
@@ -181,7 +181,7 @@ class WhatWeOffer extends Component {
                     <div className="row  align-items-center">
                       <div className="col-lg-6">
                         <div className="industries-img left-img">
-                          <img src="/images/why3.png" alt="Image" />
+                          <img src="/images/why3.png" alt="why3" />
                         </div>
                       </div>
 

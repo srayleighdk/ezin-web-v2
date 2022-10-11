@@ -11,12 +11,12 @@ export default function NewsSlider({ newsPost }) {
     >
       <img
         src="/images/brands/arrow.png"
-        alt="Image"
+        alt="News"
         className="home-brand-arrow d-none d-sm-block"
       />
-      <h4 className="home-brand-title font-weight-700 color-white d-none d-sm-block">
+      <h2 className="home-brand-title font-weight-700 color-white d-none d-sm-block">
         Tin tức mới nhất
-      </h4>
+      </h2>
       <div className="container">
         <Swiper
           spaceBetween={25}

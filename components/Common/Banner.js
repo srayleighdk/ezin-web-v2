@@ -36,37 +36,37 @@ class Banner extends Component {
                     >
                         <SwiperSlide className="slider-news">
                             <a href="#" target="_blank" className="d-flex align-items-center">
-                                <img src="/images/promotion/promotion1.png" alt="Image" />
+                                <img src="/images/promotion/promotion1.png" alt="Promotion1" />
                             </a>
                         </SwiperSlide>
 
                         <SwiperSlide className="slider-news">
                             <a href="#" target="_blank" className="d-flex align-items-center">
-                                <img src="/images/promotion/promotion2.png" alt="Image" />
+                                <img src="/images/promotion/promotion2.png" alt="Promotion2" />
                             </a>
                         </SwiperSlide>
 
                         <SwiperSlide className="slider-news">
                             <a href="#" target="_blank" className="d-flex align-items-center">
-                                <img src="/images/promotion/promotion3.png" alt="Image" />
+                                <img src="/images/promotion/promotion3.png" alt="Promotion3" />
                             </a>
                         </SwiperSlide>
 
                         <SwiperSlide className="slider-news">
                             <a href="#" target="_blank" className="d-flex align-items-center">
-                                <img src="/images/promotion/promotion1.png" alt="Image" />
+                                <img src="/images/promotion/promotion1.png" alt="Promotion1" />
                             </a>
                         </SwiperSlide>
 
                         <SwiperSlide className="slider-news">
                             <a href="#" target="_blank" className="d-flex align-items-center">
-                                <img src="/images/promotion/promotion2.png" alt="Image" />
+                                <img src="/images/promotion/promotion2.png" alt="Promotion2" />
                             </a>
                         </SwiperSlide>
 
                         <SwiperSlide className="slider-news">
                             <a href="#" target="_blank" className="d-flex align-items-center">
-                                <img src="/images/promotion/promotion3.png" alt="Image" />
+                                <img src="/images/promotion/promotion3.png" alt="Promotion3" />
                             </a>
                         </SwiperSlide>
                     </Swiper> 
