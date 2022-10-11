@@ -6204,7 +6204,7 @@ color: #000000;
 
 .group-wrap {
   box-shadow: 0px 5px 20px rgba(14, 30, 62, 0.1);
-  width: 23%;
+  /* width: 23%; */
 }
 
 .hot-deal-icon {
