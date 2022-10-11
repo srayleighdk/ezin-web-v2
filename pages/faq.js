@@ -7,17 +7,16 @@ import Footer from '../components/Layouts/Footer';
 import { getHeader, getFAQ, getFAQContent } from './api';
 
 export async function getStaticProps() {
-  const [res, faq, faqContent] = await Promise.all([getHeader(), getFAQ(), getFAQContent()]);
+  const [res, faq] = await Promise.all([getHeader(), getFAQ()]);
   return {
     props: {
       headers: res?.data?.data,
       faq: faq?.data?.data,
-      faqContent: faqContent?.data?.data,
     }
   }
 }
 
-function Faq({ headers, faq, faqContent }) {
+function Faq({ headers, faq }) {
   return (
     <>
       <Navbar headers={headers} style={{ background: "white" }} />
@@ -29,7 +28,7 @@ function Faq({ headers, faq, faqContent }) {
         activePageText="Frequently Asked Questions"
       />
 
-      <FaqContent faq={faq} faqContent={faqContent} />
+      <FaqContent faq={faq} />
 
       <AskQuestionForm />
 
