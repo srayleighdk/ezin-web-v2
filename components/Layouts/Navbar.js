@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from "react";
 import Link from "../../utils/ActiveLink";
 
 const Navbar = ({ headers }) => {
+  console.log("headers", headers)
   const [isMounted, setIsMounted] = useState(false);
   const [display, setDisplay] = useState(false);
   const [collapsed, setCollapse] = useState(true);
@@ -69,7 +70,7 @@ const Navbar = ({ headers }) => {
                         <Link href={header.link} key={header.key}>
                           <a
                             className="nav-link text-black"
-                            onClick={(e) => e.preventDefault()}
+                            // onClick={(e) => e.preventDefault()}
                           >
                             {header.label}
                             {header.children && (

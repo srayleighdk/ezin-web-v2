@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import Link from "next/link";
 
-const Footer = () => {
-  let currentYear = new Date().getFullYear();
+const Footer = ({ product }) => {
+  console.log("product footer", product);
+  // let currentYear = new Date().getFullYear();
   return (
     <>
       <footer className="footer-top-area pt-100 pb-70">
@@ -21,54 +22,16 @@ const Footer = () => {
               <div className="single-widget">
                 <h3>Sản phẩm</h3>
                 <ul>
-                  <li>
-                    <Link href="/service-details">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Hạnh Phúc 365
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/service-details">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Bình An 365
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/service-details">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Bắt buộc TNDS Xe máy
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/service-details">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Bắt buộc TNDS Xe Ô tô
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/service-details">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        An Gia
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/service-details">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        EvaCare
-                      </a>
-                    </Link>
-                  </li>
+                  {product?.map((item) => (
+                    <li>
+                      <Link href={`/san-pham/${item.slug}#mua-ngay`}>
+                        <a>
+                          <i className="right-icon bx bx-chevrons-right"></i>
+                          {item.name}
+                        </a>
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -79,7 +42,7 @@ const Footer = () => {
 
                 <ul>
                   <li>
-                    <Link href="/about-1">
+                    <Link href="/gioi-thieu">
                       <a>
                         <i className="right-icon bx bx-chevrons-right"></i>
                         Về chúng tôi
@@ -87,7 +50,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services">
+                    <Link href="/lien-he">
                       <a>
                         <i className="right-icon bx bx-chevrons-right"></i>
                         Liên hệ
@@ -95,7 +58,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/pricing">
+                    <Link href="/tin-tuc">
                       <a>
                         <i className="right-icon bx bx-chevrons-right"></i>
                         Tin tức
@@ -103,7 +66,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/team">
+                    <Link href="/kien-thuc">
                       <a>
                         <i className="right-icon bx bx-chevrons-right"></i>
                         Kiến thức
@@ -111,21 +74,13 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contact">
+                    <Link href="/oto/demo">
                       <a>
                         <i className="right-icon bx bx-chevrons-right"></i>
                         Công cụ giám định xe ô tô
                       </a>
                     </Link>
                   </li>
-                  {/* <li>
-                                            <Link href="/testimonials">
-                                                <a>
-                                                    <i className="right-icon bx bx-chevrons-right"></i>
-                                                    Testimonials
-                                                </a>
-                                            </Link>
-                                        </li> */}
                 </ul>
               </div>
             </div>
@@ -175,43 +130,9 @@ const Footer = () => {
                       </a>
                     </Link>
                   </li>
-                  {/* <li>
-                                            <Link href="/testimonials">
-                                                <a>
-                                                    <i className="right-icon bx bx-chevrons-right"></i>
-                                                    Testimonials
-                                                </a>
-                                            </Link>
-                                        </li> */}
                 </ul>
               </div>
             </div>
-
-            {/* <div className="col-lg-3 col-md-6">
-                                <div className="single-widget">
-                                    <h3>Quy định và chính sách</h3>
-
-                                    <ul className="information">
-                                        <li className="address">
-                                            <i className="flaticon-call"></i>
-                                            <span>Phone</span>
-                                            +882-569-756
-                                        </li>
-
-                                        <li className="address">
-                                            <i className="flaticon-envelope"></i>
-                                            <span>Email</span>
-                                            hello@jumpx.com
-                                        </li>
-
-                                        <li className="address">
-                                            <i className="flaticon-maps-and-flags"></i>
-                                            <span>Address</span>
-                                            123, Western Road, Melbourne Australia
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div> */}
           </div>
 
           <div className="row mt-4">
@@ -225,35 +146,25 @@ const Footer = () => {
               <div className="single-widget">
                 <ul>
                   <li>
-                    <Link href="/service-details">
-                      <a>
-                        Địa chỉ DKKD: Số 3/40, Thích Quảng Đức, P.3, Q.Phú
-                        Nhuận, TP.HCM, Việt Nam
-                      </a>
-                    </Link>
+                    <p>
+                      Địa chỉ DKKD: Số 3/40, Thích Quảng Đức, P.3, Q.Phú Nhuận,
+                      TP.HCM, Việt Nam
+                    </p>
                   </li>
                   <li>
-                    <Link href="/service-details">
-                      <a>
-                        Văn phòng: Toà nhà Petro Viet Nam, Số 1 Lê Duẩn, Bến
-                        Nghé, Quận 1, TP.HCM, Việt Nam
-                      </a>
-                    </Link>
+                    <p>
+                      Văn phòng: Toà nhà Petro Viet Nam, Số 1 Lê Duẩn, Bến Nghé,
+                      Quận 1, TP.HCM, Việt Nam
+                    </p>
                   </li>
                   <li>
-                    <Link href="/service-details">
-                      <a>Mã số DN/MST: 0316570253</a>
-                    </Link>
+                    <p>Mã số DN/MST: 0316570253</p>
                   </li>
                   <li>
-                    <Link href="/service-details">
-                      <a>Hotline: 028.999.66.333 / Zalo: 0909.088.313</a>
-                    </Link>
+                    <p>Hotline: 028.999.66.333 / Zalo: 0909.088.313</p>
                   </li>
                   <li>
-                    <Link href="/service-details">
-                      <a>Email: baohiem@ezin.vn</a>
-                    </Link>
+                    <p>Email: baohiem@ezin.vn</p>
                   </li>
                 </ul>
               </div>
@@ -265,12 +176,12 @@ const Footer = () => {
 
                 <ul className="social-icon">
                   <li>
-                    <a href="https://www.facebook.com/" target="_blank">
+                    <a href="https://www.facebook.com/baohiemezin" target="_blank">
                       <i className="bx bxl-facebook"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.linkedin.com/" target="_blank">
+                    <a href="https://www.youtube.com/channel/UCAISrxMuHxjkTl3LqX1S2cQ" target="_blank">
                       <i className="bx bxl-youtube"></i>
                     </a>
                   </li>
@@ -281,8 +192,14 @@ const Footer = () => {
         </div>
 
         <div className="footer-shape">
-          <img src="/images/shape/footer-shape-one.png" alt="footer-shape-one" />
-          <img src="/images/shape/footer-shape-two.png" alt="footer-shape-two" />
+          <img
+            src="/images/shape/footer-shape-one.png"
+            alt="footer-shape-one"
+          />
+          <img
+            src="/images/shape/footer-shape-two.png"
+            alt="footer-shape-two"
+          />
         </div>
       </footer>
 
@@ -301,6 +218,6 @@ const Footer = () => {
       </footer>
     </>
   );
-}
+};
 
 export default Footer;

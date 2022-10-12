@@ -4,7 +4,7 @@ import PageBanner from "../../components/Product/PageBanner";
 import PricingStyleOne from "../../components/Product/PricingStyleOne";
 import MoneyIcon from "../../public/images/money.svg";
 import Footer from "../../components/Layouts/Footer";
-import { getProduct, getNodePackages, getHeader } from "../api/index";
+import { getProduct, getNodePackages, getHeader, getAllNodeProducts } from "../api/index";
 import Image from "next/image";
 import WorkIcon from "../../public/images/work.svg";
 import FileIcon from "../../public/images/file.svg";
@@ -23,17 +23,18 @@ import {
 export async function getServerSideProps(context) {
   const { product: slug } = context.params;
   const { data } = await getProduct(slug);
-  const [ res, res2 ] = await Promise.all([getHeader(), getNodePackages(data.data._id)])
+  const [ res, res2, res3 ] = await Promise.all([getHeader(), getNodePackages(data.data._id), getAllNodeProducts()])
   return {
     props: {
       product: data.data,
       nodePackages: res2?.data?.data,
       headers: res?.data?.data,
+      allNodeProducts: res3?.data?.data,
     },
   };
 }
 
-export default function Product({ product, nodePackages, headers }) {
+export default function Product({ product, nodePackages, headers, allNodeProducts }) {
   console.log("headers", product, nodePackages)
   const features = product?.features.split("\n") || [];
   const iconsFeatures = [MoneyIcon, WorkIcon, FileIcon];
@@ -214,7 +215,7 @@ export default function Product({ product, nodePackages, headers }) {
         </div>
       </section>
 
-      <Footer />
+      <Footer product={allNodeProducts} />
     </>
   );
 }
