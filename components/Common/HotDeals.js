@@ -5,19 +5,28 @@ import Link from "next/link";
 import { formatVND } from "../../utils/helpers";
 
 const HotDeals = ({ allNodeProducts }) => {
-
   return (
     <div className="ptb-100 position-relative" style={{ padding: "30px 0" }}>
       <div className="container mb-20 mt-20 bg-deals rounded-3">
         <div className="row justify-content-between">
-          <div className="col-lg-5 col-12 d-flex" >
-            <img src="/images/flash-deal.png" alt="flash deal" className="mt-3 mb-1 ms-3" />
+          <div className="col-lg-5 col-12 d-flex">
+            <img
+              src="/images/flash-deal.png"
+              alt="flash deal"
+              className="mt-3 mb-1 ms-3"
+            />
             <div className="d-flex flex-wrap ms-4 text-white">
-              <h4 className="w-100 mb-0 align-self-end text-white">Giờ vàng deal sốc</h4>
-              <div className="w-100 mb-0 me-3 mt-2 d-flex align-items-center">Kết thúc trong <div className="ms-2 me-1 time-deal">01</div>:<div className="time-deal mx-1">30</div>:<div className="time-deal mx-1">09</div></div>
+              <h4 className="w-100 mb-0 align-self-end text-white">
+                Giờ vàng deal sốc
+              </h4>
+              <div className="w-100 mb-0 me-3 mt-2 d-flex align-items-center">
+                Kết thúc trong <div className="ms-2 me-1 time-deal">01</div>:
+                <div className="time-deal mx-1">30</div>:
+                <div className="time-deal mx-1">09</div>
+              </div>
             </div>
           </div>
-          <div className="col-lg-7 col-12" >
+          {/* <div className="col-lg-7 col-12" >
             <div className="row text-white h-100 align-items-center text-center">
               <div className="col-lg-4 col-4 position-relative">
                 <p className="mb-0 text-18">Đang diễn ra</p>
@@ -28,6 +37,38 @@ const HotDeals = ({ allNodeProducts }) => {
                 <p className="text-20 text-xm-18">14:00 - 16:00</p>
               </div>
               <div className="col-lg-4 col-4 position-relative">
+                <p className="mb-0 text-18">Đang diễn ra</p>
+                <p className="text-20 text-xm-18">14:00 - 16:00</p>
+              </div>
+            </div>
+          </div> */}
+          <div style={{width: 650}}>
+            <div className="d-flex align-items-center">
+              <div className="position-relative text-center bg-warning">
+                <p className="mb-0 text-18">Đang diễn ra</p>
+                <p className="text-20 text-xm-18 line-footer">14:00 - 16:00</p>
+              </div>
+              <div className="position-relative text-center bg-warning">
+                <p className="mb-0 text-18">Đang diễn ra</p>
+                <p className="text-20 text-xm-18">14:00 - 16:00</p>
+              </div>
+              <div className="position-relative text-center bg-warning">
+                <p className="mb-0 text-18">Đang diễn ra</p>
+                <p className="text-20 text-xm-18">14:00 - 16:00</p>
+              </div>
+              <div className="position-relative text-center bg-warning">
+                <p className="mb-0 text-18">Đang diễn ra</p>
+                <p className="text-20 text-xm-18">14:00 - 16:00</p>
+              </div>
+              <div className="position-relative text-center bg-warning">
+                <p className="mb-0 text-18">Đang diễn ra</p>
+                <p className="text-20 text-xm-18">14:00 - 16:00</p>
+              </div>
+              <div className="position-relative text-center bg-warning">
+                <p className="mb-0 text-18">Đang diễn ra</p>
+                <p className="text-20 text-xm-18">14:00 - 16:00</p>
+              </div>
+              <div className="position-relative text-center bg-warning">
                 <p className="mb-0 text-18">Đang diễn ra</p>
                 <p className="text-20 text-xm-18">14:00 - 16:00</p>
               </div>
@@ -58,14 +99,13 @@ const HotDeals = ({ allNodeProducts }) => {
           modules={[Navigation, Autoplay]}
           className="brand-slide text-left p-3"
         >
-
           {allNodeProducts.map((product) => {
             return (
-
               <SwiperSlide className="slider-news">
                 <div className="single-offer pl-30 pr-30 text-center rounded">
                   <img
-                    src={product.thumbnail} alt={product.name}
+                    src={product.thumbnail}
+                    alt={product.name}
                     className="mx-auto"
                   />
                   <h3 className="mt-3 mb-0 h-56 d-flex justify-content-center align-items-center">
@@ -77,9 +117,13 @@ const HotDeals = ({ allNodeProducts }) => {
                     311.000đ
                   </p>
                   <p className="product-prize-old text-center">
-                    {formatVND(product.min_fee)} <a className="ml-3 text-dark">-10%</a>
+                    {formatVND(product.min_fee)}{" "}
+                    <a className="ml-3 text-dark">-10%</a>
                   </p>
-                  <div class="progress position-relative" style={{ height: 20 }}>
+                  <div
+                    class="progress position-relative"
+                    style={{ height: 20 }}
+                  >
                     <div
                       class="progress-bar bg-warning"
                       role="progressbar"
@@ -88,20 +132,26 @@ const HotDeals = ({ allNodeProducts }) => {
                       aria-valuemin="0"
                       aria-valuemax="100"
                     ></div>
-                    <p className="position-absolute start-25 text-dark" style={{ top: -3 }}>
+                    <p
+                      className="position-absolute start-25 text-dark"
+                      style={{ top: -3 }}
+                    >
                       Đã bán 124/ 150
                     </p>
                   </div>
-                  <img src="/images/FireDeals.png" alt="Fire Deals" className="hot-deal-icon" />
+                  <img
+                    src="/images/FireDeals.png"
+                    alt="Fire Deals"
+                    className="hot-deal-icon"
+                  />
                 </div>
               </SwiperSlide>
-            )
+            );
           })}
         </Swiper>
       </div>
     </div>
   );
-
-}
+};
 
 export default HotDeals;
