@@ -81,3 +81,15 @@ export const verifyAccountApi = ({ username, otp }) =>
         reject(err);
       });
   });
+
+/*
+ * EzStore
+ */
+export const getTopStore = () => eZinApiNode.get(`/node/store/top`);
+
+/*
+ * Place
+ */
+export const getDistricts = (parent_code) => eZinApi.get(`/district/${parent_code}`);
+export const getWards = (parent_code) => eZinApi.get(`/ward/${parent_code}`);
+export const getCities = () => eZinApi.get(`/city`);

@@ -21,15 +21,17 @@ import {
   getAllNodeProducts,
   getHomeData,
   getNewestPost,
+  getTopStore,
 } from "./api";
 import SchemaCode from "../components/schema-code";
 
 export async function getServerSideProps(context) {
-  const [res, allNodeProducts, homeData, newsPost] = await Promise.all([
+  const [res, allNodeProducts, homeData, newsPost, topStore] = await Promise.all([
     getHeader(),
     getAllNodeProducts(),
     getHomeData(),
     getNewestPost(),
+    getTopStore(),
   ]);
   return {
     props: {
@@ -37,10 +39,12 @@ export async function getServerSideProps(context) {
       allNodeProducts: allNodeProducts?.data?.data,
       testimonials: homeData?.data?.data?.sections,
       newsPost: newsPost?.data?.data,
+      topStores: topStore?.data?.data,
     }, // will be passed to the page component as props
   };
 }
-const Home = ({ headers, allNodeProducts, testimonials, newsPost }) => {
+const Home = ({ headers, allNodeProducts, testimonials, newsPost, topStores }) => {
+  console.log("topStores", topStores)
   const router = useRouter();
   // export async function getServerSideProps(context) {
   //     const res = await getHeader();
@@ -89,7 +93,7 @@ const Home = ({ headers, allNodeProducts, testimonials, newsPost }) => {
 
       <Partner />
 
-      <EzStore />
+      <EzStore topStores={topStores} />
 
       <SchemaCode
         code={`
