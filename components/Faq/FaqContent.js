@@ -11,15 +11,15 @@ import { getFAQContent } from "../../pages/api";
 
 function FaqContent({ faq }) {
   const [FaqId, getFaqId] = useState(faq[0]._id);
+  const [faqContent, setFaqContent] = useState(null);
   const faqCont = faq.filter((e) => e.is_active);
   faqCont.sort((a, b) => a.title.length - b.title.length);
-  // console.log(faqCont);
 
   useEffect(() => {
-    const faqContent = getFAQContent(FaqId);
+    const res = getFAQContent(FaqId);
     console.log(faqContent);
     console.log(FaqId);
-  });
+  }, [FaqId]);
 
   return (
     <div className="container">
