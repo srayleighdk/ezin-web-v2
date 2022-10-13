@@ -6264,3 +6264,29 @@ color: #000000;
   width: 42px !important;
   height: 46px;
 }
+
+.navbar-coin {
+  width: 14px;
+}
+
+.bg-color-coin {
+  background: linear-gradient(90deg, #FFEEB4 0%, #FF9C65 100%);
+}
+
+.dropdown-menu.navbar {
+  width: 210px !important;
+  left: auto !important;
+  right: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.dropdown-menu.navbar li {
+  padding-left: 6px !important;
+}
+
+.dropdown-menu.navbar li:hover {
+  color: #167FFC !important;
+  background: linear-gradient(90deg, #E1EFFF 0%, rgba(225, 239, 255, 0) 121.16%);
+  border-left: 2px solid #167FFC;
+}

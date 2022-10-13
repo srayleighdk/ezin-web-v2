@@ -136,12 +136,51 @@ const Navbar = ({ headers }) => {
                   })}
               </ul>
 
+              {/* <Link href="/contact">
+                <a className="default-btn white" style={{padding: 16}}>Kích hoạt</a>
+              </Link>
+
+              <Link href="/contact">
+                <a className="default-btn white" style={{padding: 16}}>Download</a>
+              </Link> */}
+
               <div className="others-options">
-                <Link href="/login">
-                  <a className="default-btn">
-                    Log In <i className="bx bx-log-in-circle"></i>
-                  </a>
-                </Link>
+                <ul className="navbar-nav m-auto align-item-baseline">
+                  <li className="nav-item">
+                    <a className="pt-2 text-capitalize pb-3 px-3 default-btn nav-link text-black">
+                      Tài khoản
+                      <i className="bx bx-chevron-down"></i>
+                    </a>
+                    <ul className="dropdown-menu navbar">
+                      <Link href="/login">
+                        <li className="nav-item dropend cursor-pointer">
+                          Đăng nhập
+                        </li>
+                      </Link>
+                      <Link href="/sign-up">
+                        <li className="nav-item dropend cursor-pointer">
+                          Đăng ký{" "}
+                          <span class="badge rounded-pill bg-warning text-dark bg-color-coin">
+                            Nhận ngay 2000{" "}
+                            <img
+                              src="/images/coin.png"
+                              alt="Coin"
+                              className="navbar-coin"
+                            />
+                          </span>
+                        </li>
+                      </Link>
+                      <li className="nav-item dropend cursor-pointer">
+                        Quên mật khẩu
+                      </li>
+                      <Link href="/tra-cuu">
+                        <li className="nav-item dropend cursor-pointer">
+                          Tra cứu bảo hiểm
+                        </li>
+                      </Link>
+                    </ul>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
