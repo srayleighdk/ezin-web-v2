@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 import Link from "next/link";
 import { getDistricts, getWards, getCities } from "../../pages/api";
+import { getImageUrl } from "../../utils/helpers";
 
 export default function EzStore({ topStores }) {
   const [cities, setCities] = useState([]);
@@ -100,11 +101,11 @@ export default function EzStore({ topStores }) {
           {topStores?.map((item) => (
             <SwiperSlide className="slider-news">
               <div className="single-news">
-                <div className="news-content-wrap" style={{height: 317}}>
-                  <div className="blog-img mb-2 text-center">
+                <div className="news-content-wrap" style={{height: 382}}>
+                  <div className="blog-img mb-2 text-center" style={{height: 100}}>
                     <Link href="/news-details">
                       <a>
-                        <img src={item?.agency_id?.avatar?.path} alt={`EzStore ${item?.district?.name ? item?.district?.name : ""}`} />
+                        <img src={getImageUrl(item?.agency_id?.avatar?.path)} alt={`EzStore ${item?.district?.name ? item?.district?.name : ""}`} className="w-50" />
                       </a>
                     </Link>
                   </div>
@@ -127,7 +128,7 @@ export default function EzStore({ topStores }) {
                     <li className="pe-1">
                       <i className="flaticon-maps-and-flags"></i>
                     </li>
-                    <li style={{height: 81}}>{item?.ward?.path_with_type}</li>
+                    <li style={{height: 100}}>{item?.ward?.path_with_type}</li>
                   </ul>
 
                   <Link href="/services">
