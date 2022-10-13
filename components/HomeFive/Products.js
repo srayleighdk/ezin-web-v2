@@ -50,7 +50,7 @@ const Products = ({ allNodeProducts }) => {
         <img src="/images/shape/services-shape/4.png" alt="services-shape4" />
         <img src="/images/shape/services-shape/5.png" alt="services-shape5" />
         <img src="/images/shape/services-shape/6.png" alt="services-shape6" />
-      </div>services-shape1
+      </div>
     </section>
   );
 
