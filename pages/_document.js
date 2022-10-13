@@ -21,6 +21,9 @@ export default function MyDocument() {
           href="https://fonts.googleapis.com/css?family=Inter:200,300,400,500,600,700,800&display=swap"
           rel="stylesheet"
         />
+        <meta name="description" content="Ezin - Đi Bình An, Về Hạnh Phúc" />
+        <meta name="author" content="Ezin" />
+        <meta name="publisher" content="Công ty cổ phần Ezin Việt Nam" />
         <link rel="icon" type="image/png" href="/favicon.ico"></link>
         <link rel="canonical" href="https://ezin.vn" />
       </Head>
