@@ -2,7 +2,7 @@ import React, { Component, useEffect, useState } from "react";
 import Link from "../../utils/ActiveLink";
 
 const Navbar = ({ headers }) => {
-  console.log("headers", headers)
+  // console.log("headers", headers)
   const [isMounted, setIsMounted] = useState(false);
   const [display, setDisplay] = useState(false);
   const [collapsed, setCollapse] = useState(true);

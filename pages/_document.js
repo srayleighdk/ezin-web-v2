@@ -22,6 +22,7 @@ export default function MyDocument() {
           rel="stylesheet"
         />
         <link rel="icon" type="image/png" href="/favicon.ico"></link>
+        <link rel="canonical" href="https://ezin.vn" />
       </Head>
       <body>
         <Main />
