@@ -3,18 +3,40 @@ import Navbar from "../components/Layouts/Navbar";
 import PageBanner from "../components/Common/PageBanner";
 import Footer from "../components/Layouts/Footer";
 import Link from "next/link";
-import { getHeader } from "../pages/api";
+import { getHeader, loginApi } from "../pages/api";
+import { normalizePhoneNumber, getProfile } from "../utils/helpers";
+import { setAuth } from '../components/store/modal/actions';
+import { createStructuredSelector } from 'reselect';
+import { makeLoginVisible, makeModalData } from '../components/store/modal/selector';
 
 export async function getServerSideProps() {
-    const res = await getHeader();
-    return {
-        props: {
-            headers: res?.data?.data
-        },
-    }
+  const res = await getHeader();
+  return {
+    props: {
+      headers: res?.data?.data,
+    },
+  };
 }
 
+// const mapStateToProps = createStructuredSelector({
+//   loginVisible: makeLoginVisible(),
+//   data: makeModalData(),
+// });
+
 export default function Login({ headers }) {
+  // const onLogin = (values) => {
+  //   const formData = new FormData(values.target);
+  //   const formDataObj = Object.fromEntries(formData.entries());
+  //   console.log("valuee", formDataObj);
+  //   loginApi({
+  //     ...values,
+  //     username: '0' + normalizePhoneNumber(formDataObj.phone),
+  //   }).then(({ data, token, msg, success }) => {
+  //     if (success) {
+  //       getProfile().then((res) => dispatch(setAuth(res.data.data)));
+  //     }
+  //   });
+  // }
   return (
     <>
       <Navbar headers={headers} />
@@ -27,10 +49,21 @@ export default function Login({ headers }) {
                 <div className="form-heading text-center">
                   <h3 className="form-title">Đăng nhập tài khoản</h3>
                 </div>
-
-                <form>
+                <p className="text-center text-sm mb-3">
+                  <i>
+                    Sử dụng tài khoản Ezin để lưu trữ và tra cứu đơn bảo hiểm
+                    theo cách dễ dàng nhất!
+                  </i>
+                </p>
+                <form
+                  method="post"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    // onLogin(e);
+                  }}
+                >
                   <div className="row">
-                    <div className="col-lg-4 col-md-4 col-sm-12">
+                    {/* <div className="col-lg-4 col-md-4 col-sm-12">
                       <a href="#" className="default-btn mb-30">
                         <i className="bx bxl-google"></i> Google
                       </a>
@@ -46,14 +79,14 @@ export default function Login({ headers }) {
                       <a href="#" className="default-btn mb-30">
                         <i className="bx bxl-twitter"></i> Twitter
                       </a>
-                    </div>
+                    </div> */}
 
                     <div className="col-12">
                       <div className="form-group">
                         <input
                           className="form-control"
                           type="text"
-                          name="name"
+                          name="phone"
                           placeholder="Số điện thoại"
                         />
                       </div>
@@ -89,7 +122,7 @@ export default function Login({ headers }) {
                     </div>
 
                     <div className="col-lg-6 col-sm-6">
-                      <Link href="/recover-password">
+                      <Link href="/forgot-password">
                         <a className="forget">Quên mật khẩu?</a>
                       </Link>
                     </div>

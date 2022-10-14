@@ -1,10 +1,16 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Layouts/Navbar";
 import PageBanner from "../components/Common/PageBanner";
 import Footer from "../components/Layouts/Footer";
 import Link from "next/link";
 import { createStructuredSelector } from "reselect";
-import { getHeader, registerApi, verifyAccountApi } from "../pages/api";
+import {
+  getHeader,
+  registerApi,
+  verifyAccountApi,
+  newPasswordApi,
+  resendOTPApi,
+} from "../pages/api";
 import {
   makeOTPVisible,
   makeModalData,
@@ -27,22 +33,23 @@ export async function getServerSideProps() {
   };
 }
 
-// const mapStateToProps = createStructuredSelector({
-//   otpVisible: makeOTPVisible(),
-//   data: makeModalData(),
-// });
+const COUNTDOWN_TIME = 59;
 
 export default function SignUp({ headers }) {
-  // const { otpVisible, data } = useSelector(mapStateToProps);
   const [arrCode, setArrCode] = useState("");
   const [message, setMessage] = useState("");
   const [step, setStep] = useState(1);
   const [phone, setPhone] = useState("");
-  const button_ref = useRef(null);
-  // const dispatch = useDispatch();
+  const [countdown, setCountdown] = useState(COUNTDOWN_TIME);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      countdown > 0 && setCountdown(countdown - 1);
+    }, 1000);
+    return () => clearTimeout(timer);
+  });
 
   const onFormSubmit1 = (e) => {
-    e.preventDefault();
     const formData = new FormData(e.target);
     const formDataObj = Object.fromEntries(formData.entries());
     setPhone(formDataObj.phone);
@@ -76,28 +83,53 @@ export default function SignUp({ headers }) {
       console.log("res", res, phone, arrCode);
       if (res.success) {
         if (res.data.is_new) {
-          setStep(3);
           setMessage("");
+          setStep(3);
         } else {
           setMessage("Mã OTP không hợp lệ");
         }
+      } else {
+        setMessage("Mã OTP không hợp lệ 2");
+        // button_ref.current.disabled = false;
+        // message.error(res.msg);
       }
-      // else {
-      //   e.preventDefault();
-      //   setMessage("Mã OTP không hợp lệ 2");
-      //   // button_ref.current.disabled = false;
-      //   // message.error(res.msg);
-      // }
     } catch (err) {
-      e.preventDefault();
       // button_ref.current.disabled = false;
       console.log("err", err);
     }
   };
 
-  const onResend = () => {
-    alert("đã gửi lại otp")
-  }
+  const onFormSubmit3 = async (values) => {
+    const formData = new FormData(values.target);
+    const formDataObj = Object.fromEntries(formData.entries());
+    const res = await newPasswordApi({
+      username: phone,
+      newpassword: formDataObj.password,
+      full_name: formDataObj.full_name,
+      email: formDataObj.email,
+    });
+    console.log("wwwwww", res);
+    if (res.success) {
+      setMessage(res.msg);
+    } else {
+      setMessage("");
+    }
+  };
+
+  const onResend = async() => {
+    try {
+      const res = await resendOTPApi({ username: phone });
+      if (res.success) {
+        // message.success(res.msg);
+        setCountdown(COUNTDOWN_TIME);
+        setMessage(`Mã OTP đã được gửi đến số điện thoại ${phone}`);
+      } else {
+        // message.error(res.msg);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const render = () => {
     if (step === 1) {
@@ -115,7 +147,7 @@ export default function SignUp({ headers }) {
                 placeholder="Vui lòng nhập số điện thoại"
                 required
               />
-              <div class="text-danger">{message}</div>
+              <div className="text-danger">{message}</div>
             </div>
           </div>
           <div className="col-12">
@@ -128,7 +160,9 @@ export default function SignUp({ headers }) {
     } else if (step === 2) {
       return (
         <>
-          <div className="text-center mb-3">Mã xác thực đã được gửi vào số điện thoại 0939272027</div>
+          <div className="text-center mb-3">
+            Mã xác thực đã được gửi vào số điện thoại {phone}
+          </div>
           <div className="d-flex justify-content-center">
             <OtpInput
               className="OTP__checkInput mx-4 mb-2 mt-2"
@@ -139,22 +173,89 @@ export default function SignUp({ headers }) {
               // separator={<span>-</span>}
             />
           </div>
-          <div class="text-danger text-center mb-3">{message}</div>
+          <div className={`${message === "Mã OTP không hợp lệ" ? "text-danger" : "text-primary"} text-center mb-3`}>{message}</div>
+          <div className="col-lg-6 col-12">
+            <button className="default-btn btn-two" type="submit">
+              Xác nhận
+            </button>
+          </div>
           <div className="col-lg-6 col-12">
             <button className="default-btn btn-two" onClick={() => setStep(1)}>
               Quay lại
             </button>
+          </div>
+          <div class="text-center mt-3">
+            Không nhận được mã. 
+            {countdown === 0 ? <u className="cursor-pointer" onClick={onResend}>GỬI LẠI</u> : <u className="cursor-pointer">{countdown}</u>}
+          </div>
+        </>
+      );
+    } else if (step === 3) {
+      return (
+        <>
+          <div className="col-md-12 col-sm-12">
+            <div className="form-group">
+              <input
+                className="form-control"
+                type="text"
+                name="name"
+                placeholder="Vui lòng nhập họ tên"
+              />
+            </div>
+          </div>
+          <div className="col-md-12 col-sm-12">
+            <div className="form-group">
+              <input
+                className="form-control"
+                type="email"
+                name="email"
+                placeholder="Vui lòng nhập email"
+              />
+            </div>
+          </div>
+          <div className="col-md-12 col-sm-12">
+            <div className="form-group">
+              <input
+                className="form-control"
+                type="password"
+                name="password"
+                placeholder="Thiết lập mật khẩu (6 chữ số)"
+              />
+            </div>
+          </div>
+          <div className="col-md-12 col-sm-12">
+            <div className="form-group">
+              <input
+                className="form-control"
+                type="password"
+                name="confirmpassword"
+                placeholder="Nhập lại mật khẩu (6 chữ số)"
+              />
+            </div>
           </div>
           <div className="col-lg-6 col-12">
             <button className="default-btn btn-two" type="submit">
               Xác nhận
             </button>
           </div>
-          <div class="text-center mt-3">Không nhận được mã. <u onClick={onResend}>GỬI LẠI</u></div>
+          <div className="col-lg-6 col-12">
+            <button className="default-btn btn-two" onClick={() => setStep(2)}>
+              Quay lại
+            </button>
+          </div>
         </>
       );
     } else {
-      return <div>123</div>;
+      return (
+        <>
+          <div>{message}</div>
+          <div className="col-lg-6 col-12">
+            <button className="default-btn btn-two" type="submit">
+              Đến trang chủ
+            </button>
+          </div>
+        </>
+      );
     }
   };
 
@@ -172,17 +273,17 @@ export default function SignUp({ headers }) {
                 </div>
 
                 <form
-                  className="needs-validation"
                   method="post"
                   onSubmit={(e) => {
+                    e.preventDefault();
                     if (step === 1) {
                       onFormSubmit1(e);
                     } else if (step === 2) {
                       onFormSubmit2(e);
                     } else {
+                      onFormSubmit3(e);
                     }
                   }}
-                  novalidate
                 >
                   <div className="row">
                     {render()}

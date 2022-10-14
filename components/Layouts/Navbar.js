@@ -170,9 +170,11 @@ const Navbar = ({ headers }) => {
                           </span>
                         </li>
                       </Link>
-                      <li className="nav-item dropend cursor-pointer">
-                        Quên mật khẩu
-                      </li>
+                      <Link href="/forgot-password">
+                        <li className="nav-item dropend cursor-pointer">
+                          Quên mật khẩu
+                        </li>
+                      </Link>
                       <Link href="/tra-cuu">
                         <li className="nav-item dropend cursor-pointer">
                           Tra cứu bảo hiểm

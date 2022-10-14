@@ -82,6 +82,47 @@ export const verifyAccountApi = ({ username, otp }) =>
       });
   });
 
+export const newPasswordApi = ({ username, newpassword, full_name, email }) =>
+  new Promise((resolve, reject) => {
+    eZinApi
+      .post(`/account/password/new`, {
+        username,
+        newpassword,
+        full_name,
+        email,
+      })
+      .then((rs) => resolve(rs.data))
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+export const resendOTPApi = ({ username }) =>
+  new Promise((resolve, reject) => {
+    eZinApi
+      .post(`/account/password/sendotp`, {
+        username,
+      })
+      .then((rs) => resolve(rs.data))
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+export const loginApi = ({ username, password }) =>
+  new Promise((resolve, reject) => {
+    eZinApi
+      .post(`/account/login`, {
+        username,
+        password,
+      })
+      .then((rs) => resolve(rs.data))
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+export const getProfile = () => eZinApi.get(`/account/info`);
 /*
  * EzStore
  */
@@ -90,6 +131,7 @@ export const getTopStore = () => eZinApiNode.get(`/node/store/top`);
 /*
  * Place
  */
-export const getDistricts = (parent_code) => eZinApi.get(`/district/${parent_code}`);
+export const getDistricts = (parent_code) =>
+  eZinApi.get(`/district/${parent_code}`);
 export const getWards = (parent_code) => eZinApi.get(`/ward/${parent_code}`);
 export const getCities = () => eZinApi.get(`/city`);
