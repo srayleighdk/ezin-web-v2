@@ -23,6 +23,7 @@ import {
   toggleOTPModal,
 } from "../components/store/modal/actions";
 import OtpInput from "react-otp-input";
+import { useRouter } from "next/router";
 
 export async function getServerSideProps() {
   const res = await getHeader();
@@ -36,6 +37,7 @@ export async function getServerSideProps() {
 const COUNTDOWN_TIME = 59;
 
 export default function SignUp({ headers }) {
+  const router = useRouter();
   const [arrCode, setArrCode] = useState("");
   const [message, setMessage] = useState("");
   const [step, setStep] = useState(1);
@@ -50,6 +52,8 @@ export default function SignUp({ headers }) {
   });
 
   const onFormSubmit1 = (e) => {
+    setCountdown(COUNTDOWN_TIME);
+    setArrCode("");
     const formData = new FormData(e.target);
     const formDataObj = Object.fromEntries(formData.entries());
     setPhone(formDataObj.phone);
@@ -89,7 +93,7 @@ export default function SignUp({ headers }) {
           setMessage("Mã OTP không hợp lệ");
         }
       } else {
-        setMessage("Mã OTP không hợp lệ 2");
+        setMessage("Mã OTP không hợp lệ");
         // button_ref.current.disabled = false;
         // message.error(res.msg);
       }
@@ -102,21 +106,26 @@ export default function SignUp({ headers }) {
   const onFormSubmit3 = async (values) => {
     const formData = new FormData(values.target);
     const formDataObj = Object.fromEntries(formData.entries());
+    if(formDataObj.confirmpassword !== formDataObj.password) {
+      setMessage("Xác nhận mật khẩu sai. Vui lòng nhập lại")
+      return;
+    }
+    console.log("wwwwww", formDataObj);
     const res = await newPasswordApi({
       username: phone,
       newpassword: formDataObj.password,
       full_name: formDataObj.full_name,
       email: formDataObj.email,
     });
-    console.log("wwwwww", res);
     if (res.success) {
       setMessage(res.msg);
+      setStep(4);
     } else {
       setMessage("");
     }
   };
 
-  const onResend = async() => {
+  const onResend = async () => {
     try {
       const res = await resendOTPApi({ username: phone });
       if (res.success) {
@@ -144,14 +153,15 @@ export default function SignUp({ headers }) {
                 className="form-control"
                 type="text"
                 name="phone"
-                placeholder="Vui lòng nhập số điện thoại"
+                placeholder="Vui lòng nhập số điện thoại (10 số)"
+                maxlength="10"
                 required
               />
               <div className="text-danger">{message}</div>
             </div>
           </div>
           <div className="col-12">
-            <button className="default-btn btn-two" type="submit">
+            <button className="w-100 default-btn btn-two" type="submit">
               Đăng ký
             </button>
           </div>
@@ -173,20 +183,38 @@ export default function SignUp({ headers }) {
               // separator={<span>-</span>}
             />
           </div>
-          <div className={`${message === "Mã OTP không hợp lệ" ? "text-danger" : "text-primary"} text-center mb-3`}>{message}</div>
+          <div
+            className={`${
+              message === "Mã OTP không hợp lệ" ? "text-danger" : "text-primary"
+            } text-center mb-3`}
+          >
+            {message}
+          </div>
           <div className="col-lg-6 col-12">
             <button className="default-btn btn-two" type="submit">
               Xác nhận
             </button>
           </div>
           <div className="col-lg-6 col-12">
-            <button className="default-btn btn-two" onClick={() => setStep(1)}>
+            <button
+              className="default-btn btn-two"
+              onClick={() => {
+                setMessage("");
+                setStep(1);
+              }}
+            >
               Quay lại
             </button>
           </div>
           <div class="text-center mt-3">
-            Không nhận được mã. 
-            {countdown === 0 ? <u className="cursor-pointer" onClick={onResend}>GỬI LẠI</u> : <u className="cursor-pointer">{countdown}</u>}
+            Không nhận được mã.{" "}
+            {countdown === 0 ? (
+              <u className="cursor-pointer pl-1" onClick={onResend}>
+                GỬI LẠI
+              </u>
+            ) : (
+              <u className="">{countdown}</u>
+            )}
           </div>
         </>
       );
@@ -195,16 +223,24 @@ export default function SignUp({ headers }) {
         <>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
+              <label for="name" class="form-label">
+                Họ tên
+              </label>
               <input
                 className="form-control"
                 type="text"
                 name="name"
+                title="họ tên"
                 placeholder="Vui lòng nhập họ tên"
+                required
               />
             </div>
           </div>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
+              <label for="email" class="form-label">
+                Email
+              </label>
               <input
                 className="form-control"
                 type="email"
@@ -215,42 +251,57 @@ export default function SignUp({ headers }) {
           </div>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
+              <label for="password" class="form-label">
+                Mật khẩu
+              </label>
               <input
                 className="form-control"
                 type="password"
                 name="password"
                 placeholder="Thiết lập mật khẩu (6 chữ số)"
+                required
               />
             </div>
           </div>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
+              <label for="confirmpassword" class="form-label">
+                Xác nhận mật khẩu
+              </label>
               <input
                 className="form-control"
                 type="password"
                 name="confirmpassword"
                 placeholder="Nhập lại mật khẩu (6 chữ số)"
+                required
               />
             </div>
           </div>
-          <div className="col-lg-6 col-12">
-            <button className="default-btn btn-two" type="submit">
+          <div className="text-center text-danger mb-2">{message}</div>
+          <div className="col-12">
+            <button className="w-100 default-btn btn-two" type="submit">
               Xác nhận
             </button>
           </div>
-          <div className="col-lg-6 col-12">
-            <button className="default-btn btn-two" onClick={() => setStep(2)}>
+          {/* <div className="col-lg-6 col-12">
+            <button
+              className="default-btn btn-two"
+              onClick={() => {
+                setMessage("");
+                setStep(2);
+              }}
+            >
               Quay lại
             </button>
-          </div>
+          </div> */}
         </>
       );
     } else {
       return (
         <>
-          <div>{message}</div>
-          <div className="col-lg-6 col-12">
-            <button className="default-btn btn-two" type="submit">
+          <div className="text-center mb-3">{message}</div>
+          <div className="col-12">
+            <button className="w-100 default-btn btn-two" type="submit">
               Đến trang chủ
             </button>
           </div>
@@ -280,8 +331,10 @@ export default function SignUp({ headers }) {
                       onFormSubmit1(e);
                     } else if (step === 2) {
                       onFormSubmit2(e);
-                    } else {
+                    } else if (step === 3) {
                       onFormSubmit3(e);
+                    } else {
+                      router.push("/");
                     }
                   }}
                 >
