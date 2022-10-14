@@ -35,6 +35,7 @@ export async function getServerSideProps() {
 export default function SignUp({ headers }) {
   // const { otpVisible, data } = useSelector(mapStateToProps);
   const [arrCode, setArrCode] = useState("");
+  const [message, setMessage] = useState("");
   const [step, setStep] = useState(1);
   const [phone, setPhone] = useState("");
   const button_ref = useRef(null);
@@ -54,8 +55,9 @@ export default function SignUp({ headers }) {
       .then((res) => {
         if (res.success) {
           setStep(2);
+          setMessage("");
         } else {
-          alert("Số điện thoại đã đăng ký");
+          setMessage("Số điện thoại đã đăng ký");
         }
       })
       .catch((err) => console.log(err));
@@ -67,35 +69,35 @@ export default function SignUp({ headers }) {
 
   const onFormSubmit2 = async (e) => {
     try {
-      // button_ref.current.disabled = true;
-      console.log("value", arrCode);
       const res = await verifyAccountApi({
         username: phone,
         otp: checkValidCode().code,
       });
-      console.log("res", res);
+      console.log("res", res, phone, arrCode);
       if (res.success) {
-        console.log("success");
-        // message.success(res.msg);
-        // dispatch(toggleOTPModal());
         if (res.data.is_new) {
-          console.log("success 111");
           setStep(3);
-          // dispatch(toggleNewPass());
+          setMessage("");
         } else {
-          console.log("success 222");
-          // dispatch(toggleResetPass());
+          setMessage("Mã OTP không hợp lệ");
         }
-      } else {
-        console.log("false");
-        // button_ref.current.disabled = false;
-        // message.error(res.msg);
       }
+      // else {
+      //   e.preventDefault();
+      //   setMessage("Mã OTP không hợp lệ 2");
+      //   // button_ref.current.disabled = false;
+      //   // message.error(res.msg);
+      // }
     } catch (err) {
+      e.preventDefault();
       // button_ref.current.disabled = false;
       console.log("err", err);
     }
   };
+
+  const onResend = () => {
+    alert("đã gửi lại otp")
+  }
 
   const render = () => {
     if (step === 1) {
@@ -103,7 +105,9 @@ export default function SignUp({ headers }) {
         <>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
-              <label for="phone" class="form-label">Số điện thoại</label>
+              <label for="phone" class="form-label">
+                Số điện thoại
+              </label>
               <input
                 className="form-control"
                 type="text"
@@ -111,7 +115,7 @@ export default function SignUp({ headers }) {
                 placeholder="Vui lòng nhập số điện thoại"
                 required
               />
-              <div class="valid-feedback">Looks good!</div>
+              <div class="text-danger">{message}</div>
             </div>
           </div>
           <div className="col-12">
@@ -124,9 +128,10 @@ export default function SignUp({ headers }) {
     } else if (step === 2) {
       return (
         <>
+          <div className="text-center mb-3">Mã xác thực đã được gửi vào số điện thoại 0939272027</div>
           <div className="d-flex justify-content-center">
             <OtpInput
-              className="OTP__checkInput mx-4 mb-4 mt-2"
+              className="OTP__checkInput mx-4 mb-2 mt-2"
               value={arrCode}
               onChange={(e) => setArrCode(e)}
               numInputs={4}
@@ -134,11 +139,18 @@ export default function SignUp({ headers }) {
               // separator={<span>-</span>}
             />
           </div>
-          <div className="col-12">
+          <div class="text-danger text-center mb-3">{message}</div>
+          <div className="col-lg-6 col-12">
+            <button className="default-btn btn-two" onClick={() => setStep(1)}>
+              Quay lại
+            </button>
+          </div>
+          <div className="col-lg-6 col-12">
             <button className="default-btn btn-two" type="submit">
               Xác nhận
             </button>
           </div>
+          <div class="text-center mt-3">Không nhận được mã. <u onClick={onResend}>GỬI LẠI</u></div>
         </>
       );
     } else {

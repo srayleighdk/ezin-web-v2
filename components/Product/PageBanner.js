@@ -12,7 +12,7 @@ class PageBanner extends Component {
                 <div className="container">
                     <div className="page-title-content">
                         <img src={getImageUrl(img)} alt={name} style={{width: "100%"}} />
-                        <h2 className="text-dark product-banner">{pageTitle}</h2>
+                        <h2 className="product-banner">{pageTitle}</h2>
                         {/* <ul>
                             <li>
                                 <Link href={homePageUrl}>
