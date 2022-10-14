@@ -44,6 +44,8 @@ export default function Product({ product, nodePackages, headers, allNodeProduct
 
       <PageBanner
         pageTitle={product?.name}
+        img={product.image.path}
+        name={product.name}
         //   homePageUrl="/"
         //   homePageText="TNDS"
         //   activePageText="Xe máy"

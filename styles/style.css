@@ -6290,3 +6290,13 @@ color: #000000;
   background: linear-gradient(90deg, #E1EFFF 0%, rgba(225, 239, 255, 0) 121.16%);
   border-left: 2px solid #167FFC;
 }
+
+.product-banner {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+}
+
+.pt-banner {
+  padding-top: 124px;
+}

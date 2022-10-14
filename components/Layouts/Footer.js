@@ -161,10 +161,31 @@ const Footer = ({ product }) => {
                     <p>Mã số DN/MST: 0316570253</p>
                   </li>
                   <li>
-                    <p>Hotline: 028.999.66.333 / Zalo: 0909.088.313</p>
+                    <p>
+                      Hotline: <a
+                        href="tel:0909088313"
+                        style={{ paddingLeft: 0, paddingRight: 6}}
+                      >
+                        0909.088.313
+                      </a> / Zalo:{" "}
+                      <a
+                        href="https://zalo.me/0909.088.313"
+                        style={{ paddingLeft: 6 }}
+                      >
+                        0909.088.313
+                      </a>
+                    </p>
                   </li>
                   <li>
-                    <p>Email: baohiem@ezin.vn</p>
+                    <p>
+                      Email:
+                      <a
+                        href="mailto:baohiem@ezin.vn"
+                        style={{ paddingLeft: 6 }}
+                      >
+                        baohiem@ezin.vn
+                      </a>
+                    </p>
                   </li>
                 </ul>
               </div>
@@ -176,12 +197,18 @@ const Footer = ({ product }) => {
 
                 <ul className="social-icon">
                   <li>
-                    <a href="https://www.facebook.com/baohiemezin" target="_blank">
+                    <a
+                      href="https://www.facebook.com/baohiemezin"
+                      target="_blank"
+                    >
                       <i className="bx bxl-facebook"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.youtube.com/channel/UCAISrxMuHxjkTl3LqX1S2cQ" target="_blank">
+                    <a
+                      href="https://www.youtube.com/channel/UCAISrxMuHxjkTl3LqX1S2cQ"
+                      target="_blank"
+                    >
                       <i className="bx bxl-youtube"></i>
                     </a>
                   </li>

@@ -3,12 +3,19 @@ import Navbar from "../components/Layouts/Navbar";
 import PageBanner from "../components/Common/PageBanner";
 import Footer from "../components/Layouts/Footer";
 import Link from "next/link";
-import { createStructuredSelector } from 'reselect';
+import { createStructuredSelector } from "reselect";
 import { getHeader, registerApi, verifyAccountApi } from "../pages/api";
-import { makeOTPVisible, makeModalData } from "../components/store/modal/selector";
-import { useSelector, useDispatch } from 'react-redux';
+import {
+  makeOTPVisible,
+  makeModalData,
+} from "../components/store/modal/selector";
+import { useSelector, useDispatch } from "react-redux";
 import { normalizePhoneNumber } from "../utils/helpers";
-import { toggleNewPass, toggleResetPass, toggleOTPModal } from "../components/store/modal/actions"
+import {
+  toggleNewPass,
+  toggleResetPass,
+  toggleOTPModal,
+} from "../components/store/modal/actions";
 import OtpInput from "react-otp-input";
 
 export async function getServerSideProps() {
@@ -27,9 +34,9 @@ export async function getServerSideProps() {
 
 export default function SignUp({ headers }) {
   // const { otpVisible, data } = useSelector(mapStateToProps);
-  const [arrCode, setArrCode] = useState('');
+  const [arrCode, setArrCode] = useState("");
   const [step, setStep] = useState(1);
-  const [phone, setPhone] = useState('')
+  const [phone, setPhone] = useState("");
   const button_ref = useRef(null);
   // const dispatch = useDispatch();
 
@@ -48,7 +55,7 @@ export default function SignUp({ headers }) {
         if (res.success) {
           setStep(2);
         } else {
-          alert("Số điện thoại đã đăng ký")
+          alert("Số điện thoại đã đăng ký");
         }
       })
       .catch((err) => console.log(err));
@@ -58,29 +65,29 @@ export default function SignUp({ headers }) {
     return { code: arrCode, isValid: arrCode.toString().length === 4 };
   };
 
-  const onFormSubmit2 = async(e) => {
+  const onFormSubmit2 = async (e) => {
     try {
       // button_ref.current.disabled = true;
-      console.log("value", arrCode)
+      console.log("value", arrCode);
       const res = await verifyAccountApi({
         username: phone,
         otp: checkValidCode().code,
       });
-      console.log("res", res)
+      console.log("res", res);
       if (res.success) {
-        console.log('success')
+        console.log("success");
         // message.success(res.msg);
         // dispatch(toggleOTPModal());
         if (res.data.is_new) {
-          console.log('success 111')
+          console.log("success 111");
           setStep(3);
           // dispatch(toggleNewPass());
         } else {
-          console.log('success 222')
+          console.log("success 222");
           // dispatch(toggleResetPass());
         }
       } else {
-        console.log('false')
+        console.log("false");
         // button_ref.current.disabled = false;
         // message.error(res.msg);
       }
@@ -88,7 +95,7 @@ export default function SignUp({ headers }) {
       // button_ref.current.disabled = false;
       console.log("err", err);
     }
-  }
+  };
 
   const render = () => {
     if (step === 1) {
@@ -96,12 +103,15 @@ export default function SignUp({ headers }) {
         <>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
+              <label for="phone" class="form-label">Số điện thoại</label>
               <input
                 className="form-control"
                 type="text"
                 name="phone"
                 placeholder="Vui lòng nhập số điện thoại"
+                required
               />
+              <div class="valid-feedback">Looks good!</div>
             </div>
           </div>
           <div className="col-12">
@@ -149,15 +159,19 @@ export default function SignUp({ headers }) {
                   <h3 className="form-title">Tạo tài khoản</h3>
                 </div>
 
-                <form method="post" onSubmit={(e) => {
-                  if(step === 1) {
-                    onFormSubmit1(e);
-                  } else if (step === 2) {
-                    onFormSubmit2(e);
-                  } else {
-
-                  }
-                }}>
+                <form
+                  className="needs-validation"
+                  method="post"
+                  onSubmit={(e) => {
+                    if (step === 1) {
+                      onFormSubmit1(e);
+                    } else if (step === 2) {
+                      onFormSubmit2(e);
+                    } else {
+                    }
+                  }}
+                  novalidate
+                >
                   <div className="row">
                     {render()}
                     {/* <div className="col-md-12 col-sm-12">

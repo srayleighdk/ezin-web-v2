@@ -29,12 +29,11 @@ export async function getStaticPaths() {
 }
 
 const TermsConditions = ({ data, headers }) => {
-  console.log("daaaaaa", data)
   return (
     <>
       <Navbar headers={headers} />
 
-      <div className="text-container ptb-100">
+      <div className="text-container mt-5 ptb-100">
         <div className="container">
           {data
             ? (
@@ -53,7 +52,6 @@ const TermsConditions = ({ data, headers }) => {
             )
             : (<div>Xin lỗi chúng tôi không tìm thấy nội dung này. Quay về <Link href="/">Trang chủ</Link></div>)
           }
-
         </div>
       </div>
 
