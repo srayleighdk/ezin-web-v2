@@ -8,6 +8,7 @@ import { getPostCategories, getNewestPost, getPostDetails, getHeader } from "../
 import styles from "../life.module.scss";
 import { createMarkup } from '../../../utils/auth.helper';
 import dayjs from "dayjs";
+import Head from "next/head";
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
@@ -32,83 +33,87 @@ export default function NewsDetailsContent({
   console.log("blogDetail", blogDetail)
   return (
     <>
-    <Navbar headers={headers} />
-    <section className="news-details-area ptb-100">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-8 col-md-12">
-            <div className="blog-details-desc">
-              <div className="article-image">
-                <img src={blogDetail?.post_thumbnail} alt="Image" className={`${styles.life_title_img}`} />
-              </div>
+      <Head><title>
 
-              <div className="article-content">
-                <div className="entry-meta">
-                  <ul>
-                    <li>
-                      <span>Posted On:</span> {dayjs(blogDetail?.updated_at).format("DD-MM-YYYY")}
-                    </li>
-                    <li>
-                      <span>Posted By:</span>
-                      <Link href="#">
-                        <a>{blogDetail?.post?.post_author}</a>
-                      </Link>
-                    </li>
-                  </ul>
+        {blogDetail?.post?.post_title}
+      </title></Head>
+      <Navbar headers={headers} />
+      <section className="news-details-area ptb-100">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 col-md-12">
+              <div className="blog-details-desc">
+                <div className="article-image">
+                  <img src={blogDetail?.post_thumbnail} alt="Image" className={`${styles.life_title_img}`} />
                 </div>
 
-                <h2 className="mt-3">
-                  {blogDetail?.post?.post_title}
-                </h2>
+                <div className="article-content">
+                  <div className="entry-meta">
+                    <ul>
+                      <li>
+                        <span>Posted On:</span> {dayjs(blogDetail?.updated_at).format("DD-MM-YYYY")}
+                      </li>
+                      <li>
+                        <span>Posted By:</span>
+                        <Link href="#">
+                          <a>{blogDetail?.post?.post_author}</a>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
 
-                <p
-                  dangerouslySetInnerHTML={createMarkup(blogDetail?.description)}
-                >
-                </p>
+                  <h2 className="mt-3">
+                    {blogDetail?.post?.post_title}
+                  </h2>
 
-                <p
-                  dangerouslySetInnerHTML={createMarkup(blogDetail?.post?.post_content.replace(/\n/g, ''))}
-                >
-                </p>
-              </div>
+                  <p
+                    dangerouslySetInnerHTML={createMarkup(blogDetail?.description)}
+                  >
+                  </p>
 
-              <div className="article-footer">
-                <div className="article-tags">
-                  <span>
-                    <i className="bx bx-share-alt"></i>
-                  </span>
-                  <Link href="#">
-                    <a>Share</a>
-                  </Link>
+                  <p
+                    dangerouslySetInnerHTML={createMarkup(blogDetail?.post?.post_content.replace(/\n/g, ''))}
+                  >
+                  </p>
                 </div>
 
-                <div className="article-share">
-                  <ul className="social">
-                    <li>
-                      <a href="https://www.facebook.com/" target="_blank">
-                        <i className="bx bxl-facebook"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.twitter.com/" target="_blank">
-                        <i className="bx bxl-twitter"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/" target="_blank">
-                        <i className="bx bxl-linkedin"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.pinterest.com/" target="_blank">
-                        <i className="bx bxl-pinterest-alt"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                <div className="article-footer">
+                  <div className="article-tags">
+                    <span>
+                      <i className="bx bx-share-alt"></i>
+                    </span>
+                    <Link href="#">
+                      <a>Share</a>
+                    </Link>
+                  </div>
 
-              {/* <div className="post-navigation">
+                  <div className="article-share">
+                    <ul className="social">
+                      <li>
+                        <a href="https://www.facebook.com/" target="_blank">
+                          <i className="bx bxl-facebook"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.twitter.com/" target="_blank">
+                          <i className="bx bxl-twitter"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.linkedin.com/" target="_blank">
+                          <i className="bx bxl-linkedin"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.pinterest.com/" target="_blank">
+                          <i className="bx bxl-pinterest-alt"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* <div className="post-navigation">
                 <div className="navigation-links">
                   <div className="nav-previous">
                     <Link href="#">
@@ -128,18 +133,18 @@ export default function NewsDetailsContent({
                 </div>
               </div> */}
 
-              {/* Comments Area */}
-              {/* <CommentsArea /> */}
+                {/* Comments Area */}
+                {/* <CommentsArea /> */}
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-12">
+              <NewsSidebar arrCats={arrCats} arrNewsestPost={arrNewsestPost} tags={blogDetail?.taxonomies?.post_tag} />
             </div>
           </div>
-
-          <div className="col-lg-4 col-md-12">
-            <NewsSidebar arrCats={arrCats} arrNewsestPost={arrNewsestPost} tags={blogDetail?.taxonomies?.post_tag} />
-          </div>
         </div>
-      </div>
-    </section>
-    <Footer />
+      </section>
+      <Footer />
     </>
   );
 }

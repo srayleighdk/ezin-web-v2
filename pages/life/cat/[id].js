@@ -15,14 +15,16 @@ import {
 import styles from "../life.module.scss";
 import { createMarkup } from "../../../utils/auth.helper";
 import dayjs from "dayjs";
+import Head from "next/head";
 
-export default function CatList({ id, arrBlogs = [], postNewest=[], arrCats=[], headers = [] }) {
+export default function CatList({ id, arrBlogs = [], postNewest = [], arrCats = [], headers = [] }) {
   console.log("CatList", id, arrBlogs, postNewest);
   return (
     <>
-    <Navbar headers={headers} />
-    <ListNewsLife arrBlogs={arrBlogs} arrCats={arrCats} arrNewsestPost={postNewest} idCat={id}/>
-    <Footer />
+      <Head><title>Chuyên mục Ezin</title></Head>
+      <Navbar headers={headers} />
+      <ListNewsLife arrBlogs={arrBlogs} arrCats={arrCats} arrNewsestPost={postNewest} idCat={id} />
+      <Footer />
     </>
   );
 }

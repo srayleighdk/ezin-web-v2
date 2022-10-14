@@ -21,7 +21,7 @@ export default function ListNews({
   }
 
   return (
-    <section className="news-details-area news-right-sidebar-area ptb-100">
+    <section className="news-details-area news-right-sidebar-area ptb-100" style={{ paddingTop: "150px" }}>
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-md-12">
@@ -33,7 +33,7 @@ export default function ListNews({
                 </div>
               )}
               {arrBlogs?.length === 0 ? (
-                <h4 className="text-center">
+                <h4 className="text-center" style={{ paddingTop: "50px" }}>
                   Hiện Ezin chưa có bài viết chủ đề này, vui lòng quay lại sau
                   nhé!
                 </h4>
@@ -139,7 +139,7 @@ export default function ListNews({
                                   className="page-item active cursor-pointer"
                                   onClick={() => {
                                     setPagiNumber(item + 1);
-                                    setTimeout(function () {
+                                    setTimeout(function() {
                                       window.scroll({
                                         top: 400,
                                         left: 0,
@@ -159,7 +159,7 @@ export default function ListNews({
                                 className="page-item cursor-pointer"
                                 onClick={() => {
                                   setPagiNumber(item + 1);
-                                  setTimeout(function () {
+                                  setTimeout(function() {
                                     window.scroll({
                                       top: 400,
                                       left: 0,

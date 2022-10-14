@@ -24,6 +24,7 @@ import {
 } from "../components/store/modal/actions";
 import OtpInput from "react-otp-input";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export async function getServerSideProps() {
   const res = await getHeader();
@@ -106,7 +107,7 @@ export default function SignUp({ headers }) {
   const onFormSubmit3 = async (values) => {
     const formData = new FormData(values.target);
     const formDataObj = Object.fromEntries(formData.entries());
-    if(formDataObj.confirmpassword !== formDataObj.password) {
+    if (formDataObj.confirmpassword !== formDataObj.password) {
       setMessage("Xác nhận mật khẩu sai. Vui lòng nhập lại")
       return;
     }
@@ -144,6 +145,10 @@ export default function SignUp({ headers }) {
     if (step === 1) {
       return (
         <>
+          <Head>
+            <title>Signup
+            </title>
+          </Head>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
               <label for="phone" class="form-label">
@@ -180,13 +185,12 @@ export default function SignUp({ headers }) {
               onChange={(e) => setArrCode(e)}
               numInputs={4}
               shouldAutoFocus={true}
-              // separator={<span>-</span>}
+            // separator={<span>-</span>}
             />
           </div>
           <div
-            className={`${
-              message === "Mã OTP không hợp lệ" ? "text-danger" : "text-primary"
-            } text-center mb-3`}
+            className={`${message === "Mã OTP không hợp lệ" ? "text-danger" : "text-primary"
+              } text-center mb-3`}
           >
             {message}
           </div>

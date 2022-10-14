@@ -4,6 +4,7 @@ import PageBanner from '../../components/Common/PageBanner';
 import Footer from '../../components/Layouts/Footer';
 import { getPageContents, getHeader } from '../api';
 import { createMarkupNormal } from '../../utils/auth.helper';
+import Head from 'next/head';
 
 export async function getStaticProps({ params }) {
   const [res, headers] = await Promise.all([getPageContents(params.key), getHeader()])
@@ -31,6 +32,9 @@ export async function getStaticPaths() {
 const TermsConditions = ({ data, headers }) => {
   return (
     <>
+      <Head>
+        <title>{data.name}</title>
+      </Head>
       <Navbar headers={headers} />
 
       <div className="text-container mt-5 ptb-100">

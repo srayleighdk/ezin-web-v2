@@ -14,7 +14,7 @@ const Products = ({ allNodeProducts }) => {
         <div className="row">
           {allNodeProducts.map((product) => {
             return (
-              <div className="col-lg-4 col-sm-6">
+              <div className="col-lg-4 col-sm-6" key={product._id}>
                 <div className="single-offer pl-30 pr-30 text-center">
                   <img src={product.thumbnail} alt={product.name} className="mx-auto" />
                   <h3 className="mt-3">

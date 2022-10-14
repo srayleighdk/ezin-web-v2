@@ -8,6 +8,7 @@ import { normalizePhoneNumber, getProfile } from "../utils/helpers";
 import { setAuth } from '../components/store/modal/actions';
 import { createStructuredSelector } from 'reselect';
 import { makeLoginVisible, makeModalData } from '../components/store/modal/selector';
+import Head from "next/head";
 
 export async function getServerSideProps() {
   const res = await getHeader();
@@ -39,6 +40,9 @@ export default function Login({ headers }) {
   // }
   return (
     <>
+      <Head>
+        <title>Login</title>
+      </Head >
       <Navbar headers={headers} />
 
       <div className="user-area-all-style log-in-area ptb-100">
