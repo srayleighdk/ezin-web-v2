@@ -8,19 +8,6 @@ import styles from "../life/life.module.scss";
 import { createMarkup } from "../../utils/auth.helper";
 import dayjs from "dayjs";
 
-// export async function getServerSideProps(context) {
-//   const { slug } = context.params;
-//   const id = slug[0];
-//   let [res1, res2, res3] = await Promise.all([getPostCategories(), getNewestPost(), getBlogDetail(id)]);
-//   return {
-//     props: {
-//       arrCats: res1?.data?.data,
-//       arrNewsestPost: res2?.data?.data,
-//       blogDetail: res3?.data?.data,
-//     },
-//   };
-// }
-
 export default function Blog({
   arrCats = [],
   blogDetail = [],
