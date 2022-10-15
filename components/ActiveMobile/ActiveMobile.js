@@ -109,21 +109,21 @@ function ActiveMobile({ type = 0 }) {
         </h2>
 
         <div className="d-flex">
-          <div className={`activateOption ${activeType == 0 ? 'active' : ''}`} onClick={() => handleChangeActiveType(0)}>
+          <div className={`activateOption ${activeType == 0 ? 'activeMobile' : ''}`} onClick={() => handleChangeActiveType(0)}>
             <div>
               <Image width={25} height={18} src={NewVoucher} alt="Voucher mới" />
             </div>
             <div className="text-11">Voucher mới</div>
             {activeType == 0 && (<Tick />)}
           </div>
-          <div className={`activateOption ${activeType == 1 ? 'active' : ''}`} onClick={() => handleChangeActiveType(1)}>
+          <div className={`activateOption ${activeType == 1 ? 'activeMobile' : ''}`} onClick={() => handleChangeActiveType(1)}>
             <div>
               <Image width={25} height={18} src={SeriCode} alt="Seri/Code" />
             </div>
             <div className="text-11">Seri/code</div>
             {activeType == 1 && (<Tick />)}
           </div>
-          <div className={`activateOption ${activeType == 2 ? 'active' : ''}`} onClick={() => handleChangeActiveType(2)}>
+          <div className={`activateOption ${activeType == 2 ? 'activeMobile' : ''}`} onClick={() => handleChangeActiveType(2)}>
             <div>
               <Image width={25} height={18} src={Shopee} alt="Shopee" />
             </div>
