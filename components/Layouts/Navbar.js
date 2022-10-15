@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "../../utils/ActiveLink";
 
 const Navbar = ({ headers }) => {
@@ -14,20 +14,6 @@ const Navbar = ({ headers }) => {
     setCollapse(!collapsed);
   };
 
-  useEffect(() => {
-    let elementId = document.getElementById("navbar");
-    document.addEventListener("scroll", () => {
-      if (window.scrollY > 170) {
-        elementId.classList.add("is-sticky");
-      } else {
-        elementId.classList.remove("is-sticky");
-      }
-    });
-
-    return function cleanup() {
-      setIsMounted(false);
-    };
-  }, []);
 
   const classOne = collapsed
     ? "collapse navbar-collapse"
@@ -66,11 +52,11 @@ const Navbar = ({ headers }) => {
                 {headers &&
                   headers.map((header) => {
                     return (
-                      <li className="nav-item">
-                        <Link href={header.link} key={header.key}>
+                      <li className="nav-item" key={header.key}>
+                        <Link href={header.link} >
                           <a
                             className="nav-link text-black"
-                            // onClick={(e) => e.preventDefault()}
+                          // onClick={(e) => e.preventDefault()}
                           >
                             {header.label}
                             {header.children && (
@@ -150,7 +136,7 @@ const Navbar = ({ headers }) => {
                         <a href="/sign-up" className="text-dark text-capitalize">
                           <li className="nav-item dropend cursor-pointer d-flex align-items-center">
                             Đăng ký{" "}
-                            <span class="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
+                            <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
                               Nhận ngay 2000{" "}
                               <img
                                 src="/images/coin.png"

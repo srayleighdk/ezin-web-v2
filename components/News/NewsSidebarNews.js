@@ -37,9 +37,9 @@ export default function NewsSidebarNews({ arrCats, arrNewsestPost, tags = [] }) 
         <h3 className="widget-title">Bài viết mới nhất</h3>
 
         <div className="post-wrap">
-          {arrNewsestPost?.map((item) => {
+          {arrNewsestPost?.map((item, index) => {
             return (
-              <article className="item">
+              <article className="item" key={index}>
                 <Link href={`/life/p/${item.post_id}/${item.post.post_name}`}>
                   <a className="thumb">
                     <span
@@ -91,9 +91,9 @@ export default function NewsSidebarNews({ arrCats, arrNewsestPost, tags = [] }) 
 
         <div className="post-wrap">
           <ul>
-            {arrCats?.map((item) => {
+            {arrCats?.map((item, index) => {
               return (
-                <li>
+                <li key={index}>
                   <Link href={`/tin-tuc/cat/${item.slug}`}>
                     <a>
                       {item.name} <span>{item.count}</span>
@@ -148,10 +148,10 @@ export default function NewsSidebarNews({ arrCats, arrNewsestPost, tags = [] }) 
 
           <div className="post-wrap">
             <div className="tagcloud">
-              {tags?.map((item) => {
+              {tags?.map((item, index) => {
                 return (
                   // <div>{item.name}</div>
-                  <Link href={`/tin-tuc/tags/${item.slug}`}>
+                  <Link href={`/tin-tuc/tags/${item.slug}`} key={index}>
                     <a>{item.name || item.label}</a>
                   </Link>
                 );

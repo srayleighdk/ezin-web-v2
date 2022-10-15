@@ -23,7 +23,7 @@ const Footer = ({ product }) => {
                 <h3>Sản phẩm</h3>
                 <ul>
                   {product?.map((item) => (
-                    <li>
+                    <li key={item._id}>
                       <Link href={`/san-pham/${item.slug}#mua-ngay`}>
                         <a>
                           <i className="right-icon bx bx-chevrons-right"></i>
@@ -164,7 +164,7 @@ const Footer = ({ product }) => {
                     <p>
                       Hotline: <a
                         href="tel:0909088313"
-                        style={{ paddingLeft: 0, paddingRight: 6}}
+                        style={{ paddingLeft: 0, paddingRight: 6 }}
                       >
                         0909.088.313
                       </a> / Zalo:{" "}

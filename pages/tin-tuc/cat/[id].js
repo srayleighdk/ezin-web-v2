@@ -9,29 +9,32 @@ import {
   getPostCategories,
   getNewestPost,
   getNews,
+  getHeader,
 } from "../../../pages/api";
 // import styles from "../life.module.scss";
 // import { createMarkup } from "../../../utils/auth.helper";
 // import dayjs from "dayjs";
 
-export default function CatList({ id, arrBlogs = [], postNewest=[], arrCats=[] }) {
+export default function CatList({ id, arrBlogs = [], postNewest = [], arrCats = [], headers }) {
   console.log("CatList", id, arrBlogs, postNewest);
   return (
     <>
-    <Navbar />
-    <ListNews arrBlogs={arrBlogs} arrCats={arrCats} arrNewsestPost={postNewest} idCat={id}/>
-    <Footer />
+      <Navbar headers={headers} />
+      <ListNews arrBlogs={arrBlogs} arrCats={arrCats} arrNewsestPost={postNewest} idCat={id} />
+      <Footer />
     </>
   );
 }
 
 CatList.getInitialProps = async ({ query: { id } }) => {
-  const [res1, res2, res3] = await Promise.all([
+  const [res, res1, res2, res3] = await Promise.all([
+    getHeader(),
     getNews(`cat=${id}`),
     getNewestPost(),
     getPostCategories(),
   ]);
   return {
+    headers: res?.data?.data,
     arrBlogs: res1?.data?.data,
     id: id,
     postNewest: res2?.data?.data,

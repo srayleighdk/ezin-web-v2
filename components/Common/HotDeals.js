@@ -104,7 +104,7 @@ const HotDeals = ({ allNodeProducts }) => {
         >
           {allNodeProducts.map((product) => {
             return (
-              <SwiperSlide className="slider-news">
+              <SwiperSlide className="slider-news" key={product._id}>
                 <div className="single-offer pl-30 pr-30 text-center rounded">
                   <img
                     src={product.thumbnail}

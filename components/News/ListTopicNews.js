@@ -21,7 +21,7 @@ export default function ListTopicNews({
   }
 
   return (
-    <section className="news-details-area news-right-sidebar-area my-3 ">
+    <section className="news-details-area news-right-sidebar-area my-3 " style={{ paddingTop: "150px" }}>
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-md-12">
@@ -45,7 +45,7 @@ export default function ListTopicNews({
                   ) {
                     return !isVideo ? (
                       <>
-                        <div className="col-lg-6 col-md-6">
+                        <div className="col-lg-6 col-md-6" key={index}>
                           <div className="single-news">
                             <div className="blog-img">
                               <Link href={item.img_hor}>
@@ -133,7 +133,7 @@ export default function ListTopicNews({
                           className={`page-item ${pagiNumber === 1 && "d-none"}`}
                           onClick={() => {
                             setPagiNumber(pagiNumber - 1);
-                            setTimeout(function () {
+                            setTimeout(function() {
                               window.scroll({
                                 top: 0,
                                 left: 0,
@@ -151,11 +151,11 @@ export default function ListTopicNews({
                           if (pagiNumber === item + 1) {
                             return (
                               <>
-                                <li
+                                <li key={item._id}
                                   className="page-item active cursor-pointer"
                                   onClick={() => {
                                     setPagiNumber(item + 1);
-                                    setTimeout(function () {
+                                    setTimeout(function() {
                                       window.scroll({
                                         top: 400,
                                         left: 0,
@@ -175,7 +175,7 @@ export default function ListTopicNews({
                                 className="page-item cursor-pointer"
                                 onClick={() => {
                                   setPagiNumber(item + 1);
-                                  setTimeout(function () {
+                                  setTimeout(function() {
                                     window.scroll({
                                       top: 0,
                                       left: 0,
@@ -191,12 +191,11 @@ export default function ListTopicNews({
                         })}
 
                         <li
-                          className={`page-item ${
-                            pagiNumber === paginationNumber && "d-none"
-                          }`}
+                          className={`page-item ${pagiNumber === paginationNumber && "d-none"
+                            }`}
                           onClick={() => {
                             setPagiNumber(pagiNumber + 1);
-                            setTimeout(function () {
+                            setTimeout(function() {
                               window.scroll({
                                 top: 0,
                                 left: 0,

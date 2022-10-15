@@ -135,3 +135,32 @@ export const getDistricts = (parent_code) =>
   eZinApi.get(`/district/${parent_code}`);
 export const getWards = (parent_code) => eZinApi.get(`/ward/${parent_code}`);
 export const getCities = () => eZinApi.get(`/city`);
+
+
+
+/***
+* Kich Hoat The
+*/
+
+export const getCardInfoByShortId = (payload) =>
+  new Promise((resolve, reject) => {
+    eZinApi
+      .post(`/card/by-short-id`, payload)
+      .then((rs) => resolve(rs.data))
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+
+export const getCardInfo = ({ seri, code }) =>
+  new Promise((resolve, reject) => {
+    eZinApi
+      .get(`${API.getCardInfo}/${seri}/${code}`)
+      .then((rs) => resolve(rs.data))
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+

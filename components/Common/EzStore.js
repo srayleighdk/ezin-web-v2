@@ -28,7 +28,7 @@ export default function EzStore({ topStores }) {
   const loadDistricts = async (value) => {
     const res = await getDistricts(value);
     setDistricts(
-      res?.data?.data?.map((e) => ({ label: e.name_with_type, value: e.code })),
+      res?.data?.data?.map((e, index) => ({ label: e.name_with_type, value: e.code, key: index })),
     );
   };
 
@@ -57,7 +57,7 @@ export default function EzStore({ topStores }) {
             >
               <option selected>Chọn tỉnh/ thành phố</option>
               {cities?.map(item => (
-                <option value={item.value}>{item.label}</option>
+                <option value={item.value} key={item._id}>{item.label}</option>
               ))}
             </select>
           </div>
@@ -68,7 +68,7 @@ export default function EzStore({ topStores }) {
             >
               <option selected>Chọn chi nhánh</option>
               {districts?.map(item => (
-                <option value={item.value}>{item.label}</option>
+                <option value={item.value} key={item._id}>{item.label}</option>
               ))}
             </select>
           </div>
@@ -99,10 +99,10 @@ export default function EzStore({ topStores }) {
           className="brand-slide text-left"
         >
           {topStores?.map((item) => (
-            <SwiperSlide className="slider-news">
+            <SwiperSlide className="slider-news" key={item._id}>
               <div className="single-news">
-                <div className="news-content-wrap" style={{height: 382}}>
-                  <div className="blog-img mb-2 text-center" style={{height: 100}}>
+                <div className="news-content-wrap" style={{ height: 382 }}>
+                  <div className="blog-img mb-2 text-center" style={{ height: 100 }}>
                     <Link href="/news-details">
                       <a>
                         <img src={getImageUrl(item?.agency_id?.avatar?.path)} alt={`EzStore ${item?.district?.name ? item?.district?.name : ""}`} className="w-50" />
@@ -128,7 +128,7 @@ export default function EzStore({ topStores }) {
                     <li className="pe-1">
                       <i className="flaticon-maps-and-flags"></i>
                     </li>
-                    <li style={{height: 100}}>{item?.ward?.path_with_type}</li>
+                    <li style={{ height: 100 }}>{item?.ward?.path_with_type}</li>
                   </ul>
 
                   <Link href="/services">

@@ -44,7 +44,7 @@ export default function NewsSlider({ newsPost }) {
           className="brand-slide text-left mr-0"
         >
           {newsPost.map(item => (
-            <SwiperSlide className="slider-news">
+            <SwiperSlide className="slider-news" key={item._id}>
               <a href={`/life/p/${item.post_id}/${item.post.post_name}`} target="_blank" className="d-flex align-items-center">
                 <img src={item.post_thumbnail} alt={item.post.post_name} style={{ height: 62 }} />
                 <p className="text-dot-2 h-56 ml-12">

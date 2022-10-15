@@ -8,21 +8,26 @@ import {
   getPostCategories,
   getNewestPost,
   getNewsDetails,
+  getHeader,
 } from "../../pages/api";
 import styles from "../life/life.module.scss";
 import { createMarkup } from "../../utils/auth.helper";
 import dayjs from "dayjs";
+import Head from "next/head";
+
 
 export default function Blog({
   arrCats = [],
   arrNewsestPost = [],
   blogDetail = [],
+  headers
 }) {
   console.log("blogDetail", blogDetail);
   return (
     <>
-      <Navbar />
-      <section className="news-details-area ptb-100">
+      <Head><title>{blogDetail.title}</title></Head>
+      <Navbar headers={headers} />
+      <section className="news-details-area ptb-100" style={{ paddingTop: "150px" }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-md-12">
@@ -51,17 +56,17 @@ export default function Blog({
                     </div>
                   </div>
 
-                  <p
+                  <div
                     dangerouslySetInnerHTML={createMarkup(
                       blogDetail?.description
                     )}
-                  ></p>
+                  ></div>
 
-                  <p
+                  <div
                     dangerouslySetInnerHTML={createMarkup(
                       blogDetail?.content.replace(/\n/g, "")
                     )}
-                  ></p>
+                  ></div>
                 </div>
 
                 <div className="article-footer">
@@ -141,12 +146,14 @@ export default function Blog({
 }
 
 Blog.getInitialProps = async ({ query: { id } }) => {
-  let [res1, res2, res3] = await Promise.all([
+  let [res, res1, res2, res3] = await Promise.all([
+    getHeader(),
     getPostCategories(),
     getNewestPost(),
     getNewsDetails(id),
   ]);
   return {
+    headers: res?.data?.data,
     arrCats: res1?.data?.data,
     arrNewsestPost: res2?.data?.data,
     blogDetail: res3?.data?.data,

@@ -33,18 +33,16 @@ function FaqContent({ faq }) {
                   {faqCont?.map((child, index) => {
                     return (
                       <li key={child._id}>
-                        <Link href={`/life/chu-de/tin-nong`}>
-                          <a
-                            className="btn"
-                            data-bs-toggle="collapse"
-                            href={`#multiCollapseExample${index}`}
-                            role="button"
-                            aria-expanded="false"
-                            aria-controls={`#multiCollapseExample${index}`}
-                          >
-                            {child.title}
-                          </a>
-                        </Link>
+                        <a
+                          className="btn"
+                          data-bs-toggle="collapse"
+                          href={`#multiCollapseExample${index}`}
+                          role="button"
+                          aria-expanded="false"
+                          aria-controls={`#multiCollapseExample${index}`}
+                        >
+                          {child.title}
+                        </a>
                       </li>
                     );
                   })}
