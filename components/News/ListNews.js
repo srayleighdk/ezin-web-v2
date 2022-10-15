@@ -123,12 +123,22 @@ export default function ListNews({
                   <div className="page-navigation-area">
                     <nav aria-label="Page navigation example text-center">
                       <ul className="pagination">
-                        <li className="page-item">
-                          <Link href="#">
-                            <a className="page-link page-links">
-                              <i className="bx bx-chevrons-left"></i>
-                            </a>
-                          </Link>
+                        <li
+                          className={`page-item ${pagiNumber === 1 && "d-none"}`}
+                          onClick={() => {
+                            setPagiNumber(pagiNumber - 1);
+                            setTimeout(function () {
+                              window.scroll({
+                                top: 0,
+                                left: 0,
+                                behavior: "smooth",
+                              });
+                            }, 100);
+                          }}
+                        >
+                          <a className="page-link page-links">
+                            <i className="bx bx-chevrons-left"></i>
+                          </a>
                         </li>
 
                         {pagination.map((item) => {
@@ -139,7 +149,7 @@ export default function ListNews({
                                   className="page-item active cursor-pointer"
                                   onClick={() => {
                                     setPagiNumber(item + 1);
-                                    setTimeout(function() {
+                                    setTimeout(function () {
                                       window.scroll({
                                         top: 400,
                                         left: 0,
@@ -159,9 +169,9 @@ export default function ListNews({
                                 className="page-item cursor-pointer"
                                 onClick={() => {
                                   setPagiNumber(item + 1);
-                                  setTimeout(function() {
+                                  setTimeout(function () {
                                     window.scroll({
-                                      top: 400,
+                                      top: 0,
                                       left: 0,
                                       behavior: "smooth",
                                     });
@@ -174,12 +184,24 @@ export default function ListNews({
                           );
                         })}
 
-                        <li className="page-item">
-                          <Link href="#">
-                            <a className="page-link">
-                              <i className="bx bx-chevrons-right"></i>
-                            </a>
-                          </Link>
+                        <li
+                          className={`page-item ${
+                            pagiNumber === paginationNumber && "d-none"
+                          }`}
+                          onClick={() => {
+                            setPagiNumber(pagiNumber + 1);
+                            setTimeout(function () {
+                              window.scroll({
+                                top: 0,
+                                left: 0,
+                                behavior: "smooth",
+                              });
+                            }, 100);
+                          }}
+                        >
+                          <a className="page-link">
+                            <i className="bx bx-chevrons-right"></i>
+                          </a>
                         </li>
                       </ul>
                     </nav>
