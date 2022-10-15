@@ -38,7 +38,7 @@ export default function NewsDetailsContent({
         {blogDetail?.post?.post_title}
       </title></Head>
       <Navbar headers={headers} />
-      <section className="news-details-area ptb-100">
+      <section className="news-details-area ptb-100 mt-3">
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-md-12">
