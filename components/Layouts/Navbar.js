@@ -14,7 +14,6 @@ const Navbar = ({ headers }) => {
     setCollapse(!collapsed);
   };
 
-
   const classOne = collapsed
     ? "collapse navbar-collapse"
     : "collapse navbar-collapse show";
@@ -53,10 +52,10 @@ const Navbar = ({ headers }) => {
                   headers.map((header) => {
                     return (
                       <li className="nav-item" key={header.key}>
-                        <Link href={header.link} >
+                        <Link href={header.link}>
                           <a
                             className="nav-link text-black"
-                          // onClick={(e) => e.preventDefault()}
+                            // onClick={(e) => e.preventDefault()}
                           >
                             {header.label}
                             {header.children && (
@@ -128,47 +127,47 @@ const Navbar = ({ headers }) => {
                         <i className="bx bx-chevron-down"></i>
                       </a>
                       <ul className="dropdown-menu navbar">
-                        <a href="/login" className="text-dark text-capitalize">
-                          <li className="nav-item dropend cursor-pointer">
-                            Đăng nhập
-                          </li>
-                        </a>
-                        <a href="/sign-up" className="text-dark text-capitalize">
-                          <li className="nav-item dropend cursor-pointer d-flex align-items-center">
-                            Đăng ký{" "}
-                            <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
-                              Nhận ngay 2000{" "}
-                              <img
-                                src="/images/coin.png"
-                                alt="Coin"
-                                className="navbar-coin"
-                              />
-                            </span>
-                          </li>
-                        </a>
-                        <a href="/forgot-password" className="text-dark text-capitalize">
-                          <li className="nav-item dropend cursor-pointer">
-                            Quên mật khẩu
-                          </li>
-                        </a>
-                        <a href="/tra-cuu" className="text-dark text-capitalize">
-                          <li className="nav-item dropend cursor-pointer">
-                            Tra cứu bảo hiểm
-                          </li>
-                        </a>
+                        <Link href="/login">
+                          <a className="text-dark text-capitalize">
+                            <li className="nav-item dropend cursor-pointer">
+                              Đăng nhập
+                            </li>
+                          </a>
+                        </Link>
+                        <Link href="/sign-up">
+                          <a className="text-dark text-capitalize">
+                            <li className="nav-item dropend cursor-pointer d-flex align-items-center">
+                              Đăng ký{" "}
+                              <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
+                                Nhận ngay 2000{" "}
+                                <img
+                                  src="/images/coin.png"
+                                  alt="Coin"
+                                  className="navbar-coin"
+                                />
+                              </span>
+                            </li>
+                          </a>
+                        </Link>
+                        <Link href="/forgot-password">
+                          <a className="text-dark text-capitalize">
+                            <li className="nav-item dropend cursor-pointer">
+                              Quên mật khẩu
+                            </li>
+                          </a>
+                        </Link>
+                        <Link href="/tra-cuu">
+                          <a className="text-dark text-capitalize">
+                            <li className="nav-item dropend cursor-pointer">
+                              Tra cứu bảo hiểm
+                            </li>
+                          </a>
+                        </Link>
                       </ul>
                     </li>
                   </ul>
                 </div>
               </ul>
-
-              {/* <Link href="/contact">
-                <a className="default-btn white" style={{padding: 16}}>Kích hoạt</a>
-              </Link>
-
-              <Link href="/contact">
-                <a className="default-btn white" style={{padding: 16}}>Download</a>
-              </Link> */}
             </div>
           </div>
         </nav>
