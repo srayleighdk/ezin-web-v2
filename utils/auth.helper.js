@@ -1,5 +1,6 @@
 const ACCESS_TOKEN = 'token';
 const USER = 'user';
+
 export function setToken(token) {
   localStorage.setItem(ACCESS_TOKEN, token);
 }

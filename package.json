@@ -17,6 +17,7 @@
         "dayjs": "^1.11.5",
         "fslightbox-react": "^1.6.2-2",
         "immer": "^9.0.15",
+        "js-cookie": "^3.0.1",
         "moment": "^2.29.4",
         "next": "^12.2.5",
         "nodemailer": "^6.7.7",

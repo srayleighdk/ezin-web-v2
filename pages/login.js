@@ -1,13 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 import Navbar from "../components/Layouts/Navbar";
-import PageBanner from "../components/Common/PageBanner";
+// import PageBanner from "../components/Common/PageBanner";
+import useAuth from '../components/auth-wrapper/auth.context';
 import Footer from "../components/Layouts/Footer";
 import Link from "next/link";
 import { getHeader, loginApi } from "../pages/api";
 import { normalizePhoneNumber, getProfile } from "../utils/helpers";
-import { setAuth } from '../components/store/modal/actions';
-import { createStructuredSelector } from 'reselect';
-import { makeLoginVisible, makeModalData } from '../components/store/modal/selector';
+// import { setAuth } from '../components/store/modal/actions';
+// import { createStructuredSelector } from 'reselect';
+// import { makeLoginVisible, makeModalData } from '../components/store/modal/selector';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  toggleLoginModal,
+  toggleRegisterModal,
+  toggleForgot,
+  setParentModal,
+} from '../components/store/modal/actions';
 import Head from "next/head";
 
 export async function getServerSideProps() {
@@ -25,19 +33,26 @@ export async function getServerSideProps() {
 // });
 
 export default function Login({ headers }) {
-  // const onLogin = (values) => {
-  //   const formData = new FormData(values.target);
-  //   const formDataObj = Object.fromEntries(formData.entries());
-  //   console.log("valuee", formDataObj);
-  //   loginApi({
-  //     ...values,
-  //     username: '0' + normalizePhoneNumber(formDataObj.phone),
-  //   }).then(({ data, token, msg, success }) => {
-  //     if (success) {
-  //       getProfile().then((res) => dispatch(setAuth(res.data.data)));
-  //     }
-  //   });
-  // }
+  const { login: loginUser } = useAuth();
+  // const dispatch = useDispatch();
+
+  const onLogin = (values) => {
+    const formData = new FormData(values.target);
+    const formDataObj = Object.fromEntries(formData.entries());
+    console.log("formDataObj", formDataObj)
+    loginApi({
+      username: '0' + normalizePhoneNumber(formDataObj.phone),
+      password: formDataObj.password,
+    })
+    .then(({ data, token, msg, success }) => {
+      console.log("ressssss", data, token, msg, success)
+      if (success) {
+        // dispatch(toggleLoginModal());
+        loginUser({ user: data, token: token });
+        
+      }
+    });
+  }
   return (
     <>
       <Head>
@@ -45,7 +60,7 @@ export default function Login({ headers }) {
       </Head >
       <Navbar headers={headers} />
 
-      <div className="user-area-all-style log-in-area ptb-100">
+      <div className="user-area-all-style log-in-area ptb-100 mt-4">
         <div className="container">
           <div className="row">
             <div className="col-12">
@@ -63,7 +78,7 @@ export default function Login({ headers }) {
                   method="post"
                   onSubmit={(e) => {
                     e.preventDefault();
-                    // onLogin(e);
+                    onLogin(e);
                   }}
                 >
                   <div className="row">

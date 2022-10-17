@@ -87,12 +87,8 @@ export default function SignUp({ headers }) {
       });
       console.log("res", res, phone, arrCode);
       if (res.success) {
-        if (res.data.is_new) {
           setMessage("");
           setStep(3);
-        } else {
-          setMessage("Mã OTP không hợp lệ");
-        }
       } else {
         setMessage("Mã OTP không hợp lệ");
         // button_ref.current.disabled = false;
@@ -108,7 +104,7 @@ export default function SignUp({ headers }) {
     const formData = new FormData(values.target);
     const formDataObj = Object.fromEntries(formData.entries());
     if (formDataObj.confirmpassword !== formDataObj.password) {
-      setMessage("Xác nhận mật khẩu sai. Vui lòng nhập lại")
+      setMessage("Xác nhận mật khẩu sai. Vui lòng nhập lại");
       return;
     }
     console.log("wwwwww", formDataObj);
@@ -146,8 +142,7 @@ export default function SignUp({ headers }) {
       return (
         <>
           <Head>
-            <title>Signup
-            </title>
+            <title>Signup</title>
           </Head>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
@@ -185,19 +180,15 @@ export default function SignUp({ headers }) {
               onChange={(e) => setArrCode(e)}
               numInputs={4}
               shouldAutoFocus={true}
-            // separator={<span>-</span>}
+              // separator={<span>-</span>}
             />
           </div>
           <div
-            className={`${message === "Mã OTP không hợp lệ" ? "text-danger" : "text-primary"
-              } text-center mb-3`}
+            className={`${
+              message === "Mã OTP không hợp lệ" ? "text-danger" : "text-primary"
+            } text-center mb-3`}
           >
             {message}
-          </div>
-          <div className="col-lg-6 col-12">
-            <button className="default-btn btn-two" type="submit">
-              Xác nhận
-            </button>
           </div>
           <div className="col-lg-6 col-12">
             <button
@@ -208,6 +199,11 @@ export default function SignUp({ headers }) {
               }}
             >
               Quay lại
+            </button>
+          </div>
+          <div className="col-lg-6 col-12">
+            <button className="default-btn btn-two" type="submit">
+              Xác nhận
             </button>
           </div>
           <div class="text-center mt-3">
@@ -318,7 +314,7 @@ export default function SignUp({ headers }) {
     <>
       <Navbar headers={headers} />
 
-      <div className="user-area-all-style sign-up-area ptb-100">
+      <div className="user-area-all-style sign-up-area ptb-100 mt-4">
         <div className="container">
           <div className="row">
             <div className="col-12">
