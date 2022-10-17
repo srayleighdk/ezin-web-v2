@@ -100,7 +100,7 @@ export function AuthProvider({ children }) {
   const login = async ({ user, token }) => {
     console.log("1111");
     if (user) {
-      Cookies.set('token', token, { expires: 3600 * 1000 });
+      Cookies.set("token", token, { expires: 3600 * 1000 });
       eZinApi.defaults.headers.Authorization = `Bearer ${token}`;
       eZinApiNode.defaults.headers.Authorization = `Bearer ${token}`;
       dispatch(setAuth(user));

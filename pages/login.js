@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Layouts/Navbar";
 // import PageBanner from "../components/Common/PageBanner";
-import useAuth from '../components/auth-wrapper/auth.context';
+import useAuth from "../components/auth-wrapper/auth.context";
 import Footer from "../components/Layouts/Footer";
 import Link from "next/link";
 import { getHeader, loginApi } from "../pages/api";
@@ -9,13 +9,13 @@ import { normalizePhoneNumber, getProfile } from "../utils/helpers";
 // import { setAuth } from '../components/store/modal/actions';
 // import { createStructuredSelector } from 'reselect';
 // import { makeLoginVisible, makeModalData } from '../components/store/modal/selector';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import {
   toggleLoginModal,
   toggleRegisterModal,
   toggleForgot,
   setParentModal,
-} from '../components/store/modal/actions';
+} from "../components/store/modal/actions";
 import Head from "next/head";
 
 export async function getServerSideProps() {
@@ -33,31 +33,29 @@ export async function getServerSideProps() {
 // });
 
 export default function Login({ headers }) {
-  const { login: loginUser } = useAuth();
-  // const dispatch = useDispatch();
-
+  const { login } = useAuth();
+  const dispatch = useDispatch();
+  console.log(login);
   const onLogin = (values) => {
     const formData = new FormData(values.target);
     const formDataObj = Object.fromEntries(formData.entries());
-    console.log("formDataObj", formDataObj)
+    console.log("formDataObj", formDataObj);
     loginApi({
-      username: '0' + normalizePhoneNumber(formDataObj.phone),
+      username: "0" + normalizePhoneNumber(formDataObj.phone),
       password: formDataObj.password,
-    })
-    .then(({ data, token, msg, success }) => {
-      console.log("ressssss", data, token, msg, success)
+    }).then(({ data, token, msg, success }) => {
+      console.log("ressssss", data, token, msg, success);
       if (success) {
         // dispatch(toggleLoginModal());
-        loginUser({ user: data, token: token });
-        
+        login({ user: data, token: token });
       }
     });
-  }
+  };
   return (
     <>
       <Head>
         <title>Login</title>
-      </Head >
+      </Head>
       <Navbar headers={headers} />
 
       <div className="user-area-all-style log-in-area ptb-100 mt-4">
