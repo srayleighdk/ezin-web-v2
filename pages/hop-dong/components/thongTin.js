@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import ActivateForm from '../components/ActivateForm';
-import ActivateFormAuto from '../components/ActivateFormAuto';
-import ActivateFormMoto from '../components/ActivateFormMoto';
-import ActivateFormAnGia from '../components/ActivateFormAnGia';
+import ActivateForm from './ActivateForm';
+import ActivateFormAuto from './ActivateFormAuto';
+import ActivateFormMoto from './ActivateFormMoto';
+import ActivateFormAnGia from './ActivateFormAnGia';
 import { createStructuredSelector } from 'reselect';
 import { useSelector, useDispatch } from 'react-redux';
 import { makeSelectAuth } from '../../../src/store/selector';

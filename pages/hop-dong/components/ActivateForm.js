@@ -17,17 +17,17 @@ import {
 import NewIcon from '../../../public/images/new-icon.gif';
 import Image from 'next/image';
 import { detectVehicleRegistration } from '../../api';
-// import { createStructuredSelector } from 'reselect';
-// import { makeSelectAuth } from 'store/selector';
-// import { useSelector } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { makeSelectAuth } from '../../../src/store/selector';
+import { useSelector } from 'react-redux';
 
 const layout = {
   wrapperCol: { span: 24 },
 };
 
-// const mapStateToProps = createStructuredSelector({
-//     auth: makeSelectAuth(),
-// });
+const mapStateToProps = createStructuredSelector({
+    auth: makeSelectAuth(),
+});
 
 export default function ActivateForm({ data, initData, onNext, onPrev }) {
   const router = useRouter();
