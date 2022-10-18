@@ -18,7 +18,7 @@ const mapForms = {
 // const mapStateToProps = createStructuredSelector({
 //     auth: makeSelectAuth(),
 // });
-export default function ThongTinBH({ data, onNext }) {
+export default function ThongTinBH({ data = [], onNext = [] }) {
     // const { auth } = useSelector(mapStateToProps);
     // const dispatch = useDispatch();
 

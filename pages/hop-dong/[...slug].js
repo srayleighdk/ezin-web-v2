@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import { getPackage, requestActivate } from '../api';
-import QnA from './components/qna';
+// import QnA from './components/qna';
 import ThongTinBH from './components/thongTin';
 import XacNhan from './components/xacNhan';
 import ThanhToan from './components/thanhToan';
