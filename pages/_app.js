@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
 
   const componentDidMount = () => {
     timerHandle = setTimeout(
-      () => this.setState({ loading: false }),
+      () => setState({ loading: false }),
       2000
     );
   };
