@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Link from "../../utils/ActiveLink";
+import useAuth from '../../src/container/auth-wrapper/auth.context';
 
 const Navbar = ({ headers, auth }) => {
+  const { logout } = useAuth();
   const [isMounted, setIsMounted] = useState(false);
   const [display, setDisplay] = useState(false);
   const [collapsed, setCollapse] = useState(true);
@@ -144,8 +146,8 @@ const Navbar = ({ headers, auth }) => {
                         <i className="bx bx-chevron-down"></i>
                       </a>
                       <ul className="dropdown-menu navbar">
-                        {auth ? (
-                          <Link href="/">
+                        {auth?.full_name || auth?.username ? (
+                          <Link href="/" onClick={logout}>
                             <a className="text-dark text-capitalize w-100">
                               <li className="nav-item dropend cursor-pointer">
                                 Đăng xuất
