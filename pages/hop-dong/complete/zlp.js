@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Button } from 'antd';
-import Success from 'public/images/success.png';
-import Fail from 'public/images/fail.png';
-import { formatVND, formatDateTime } from 'utils/helpers';
+import Success from '../../../public/images/success.png';
+import Fail from '../../../public/images/fail.png';
+import { formatVND, formatDateTime } from '../../../utils/helpers';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getRequestFromPayment } from 'pages/api';
+import { getRequestFromPayment } from '../../api';
 import TableInfo from '../components/TableInfo';
 
 export default function Complete({data}) {

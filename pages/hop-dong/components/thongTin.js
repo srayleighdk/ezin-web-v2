@@ -22,10 +22,10 @@ const mapStateToProps = createStructuredSelector({
   auth: makeSelectAuth(),
 });
 export default function ThongTinBH({ data, initData, onNext, onPrev }) {
-  
+  const res = useSelector(mapStateToProps);
   const {user, loading} = useAuth()
   const auth = user;
-  console.log("user", user, loading);
+  console.log("user" , res);
   const dispatch = useDispatch();
   useEffect(() => {
     if (!loading && !auth?.username) {
