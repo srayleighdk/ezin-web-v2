@@ -59,35 +59,6 @@ export default function ComingSoon() {
           <div className="container">
             <div className="coming-soon-content">
               <h1>Tính năng sắp ra mắt</h1>
-
-              {/* <div id="timer">
-                <div id="days">
-                  {state.days} <span>Days</span>
-                </div>
-                <div id="hours">
-                  {state.hours} <span>Hours</span>
-                </div>
-                <div id="minutes">
-                  {state.minutes} <span>Minutes</span>
-                </div>
-                <div id="seconds">
-                  {state.seconds} <span>Seconds</span>
-                </div>
-              </div> */}
-
-              {/* <form className="newsletter-form">
-                <input
-                  type="email"
-                  className="input-newsletter"
-                  placeholder="Enter email address"
-                  name="email"
-                  required
-                />
-
-                <button type="submit" className="default-btn">
-                  Notify Me
-                </button>
-              </form> */}
             </div>
           </div>
         </div>

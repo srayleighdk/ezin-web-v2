@@ -14,7 +14,9 @@ import WhatWeOffer from "../components/HomeFive/WhatWeOffer";
 import CaseStudies from "../components/HomeFive/CaseStudies";
 import Testimonials from "../components/Common/Testimonials";
 import News from "../components/Common/News";
+import { useSelector, useDispatch } from 'react-redux';
 import Footer from "../components/Layouts/Footer";
+import { createStructuredSelector } from 'reselect';
 import { useRouter } from 'next/router';
 import {
   getHeader,
@@ -24,6 +26,19 @@ import {
   getTopStore,
 } from "./api";
 import SchemaCode from "../components/schema-code";
+import {
+  makeSelectActivationVisible,
+  makeSelectAuth,
+  makeSelectCart,
+  makeSelectCartVisible,
+} from '../src/store/selector';
+
+const mapStateToProps = createStructuredSelector({
+  auth: makeSelectAuth(),
+  cart: makeSelectCart(),
+  cartVisible: makeSelectCartVisible(),
+  activationVisible: makeSelectActivationVisible(),
+});
 
 export async function getServerSideProps(context) {
   const [res, allNodeProducts, homeData, newsPost, topStore] = await Promise.all([
@@ -44,7 +59,8 @@ export async function getServerSideProps(context) {
   };
 }
 const Home = ({ headers, allNodeProducts, testimonials, newsPost, topStores }) => {
-  console.log("topStores", topStores)
+  const { auth, activationVisible } = useSelector(mapStateToProps);
+  console.log("topStores", auth, activationVisible)
   const router = useRouter();
   // export async function getServerSideProps(context) {
   //     const res = await getHeader();
@@ -65,7 +81,7 @@ const Home = ({ headers, allNodeProducts, testimonials, newsPost, topStores }) =
 
   return (
     <>
-      <Navbar headers={headers} />
+      <Navbar headers={headers} auth={auth} />
 
       <MainBanner />
 

@@ -1,0 +1,23 @@
+@import '../../../styles/variables';
+#benefits td, #benefits th , #benefits tr{
+  border: 1px solid #dadada;
+  padding: 0.5rem;
+}
+#benefits {
+  border-collapse: collapse;
+  border-radius: 8px;
+  border-style: hidden; /* hide standard table (collapsed) border */
+  box-shadow: 0 0 0 1px #dadada; /* this draws the table border  */
+}
+
+ #benefits th , {
+   background-color: $button-color;
+   border-top-left-radius: 8px;
+   border-top-right-radius: 8px;
+   border-style: hidden; /* hide standard table (collapsed) border */
+   box-shadow: 0 0 0 1px $button-color; /* this draws the table border  */
+}
+
+.bg-gray {
+  background-color: #EFEFEF;
+}

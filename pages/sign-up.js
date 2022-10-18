@@ -21,7 +21,7 @@ import {
   toggleNewPass,
   toggleResetPass,
   toggleOTPModal,
-} from "../components/store/modal/actions";
+} from "../src/store/modal/actions";
 import OtpInput from "react-otp-input";
 import { useRouter } from "next/router";
 import Head from "next/head";

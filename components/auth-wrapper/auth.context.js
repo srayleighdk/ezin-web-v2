@@ -5,11 +5,11 @@ import eZinApi from "../../pages/api/axios";
 import eZinApiNode from "../../pages/api/axiosNode";
 import React, { useEffect, useState, createContext, useContext } from "react";
 import { useDispatch } from "react-redux";
-import { setAuth, setCart } from "../../components/store/actions";
+import { setAuth, setCart } from "../../src/store/actions";
 import {
   toggleLoginModal,
   toggleRegisterModal,
-} from "../../components/store/modal/actions";
+} from "../../src/store/modal/actions";
 import { removeUser } from "../../utils/auth.helper";
 // const isAbsoluteURLRegex = /^(?:\w+:)\/\//;
 
@@ -98,7 +98,6 @@ export function AuthProvider({ children }) {
   };
 
   const login = async ({ user, token }) => {
-    console.log("1111");
     if (user) {
       Cookies.set("token", token, { expires: 3600 * 1000 });
       eZinApi.defaults.headers.Authorization = `Bearer ${token}`;

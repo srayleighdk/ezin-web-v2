@@ -6301,7 +6301,6 @@ color: #000000;
   padding-top: 124px;
 }
 
-
 .activateOption {
   margin: 5px;
   padding: 10px;
@@ -6316,11 +6315,9 @@ color: #000000;
   text-align: center;
 }
 
-
 .activeMobile {
   border: 1px solid #167FFC;
 }
-
 
 .tick {
   position: absolute;
@@ -6328,3 +6325,33 @@ color: #000000;
   right: 2px;
 }
   
+.border-dashed {
+  border: 1px dashed;
+}
+
+.ant-upload-list-item-name {
+  margin-left: 22px;
+}
+
+.ant-upload-list-item-actions {
+  position: absolute;
+  top: 42%;
+  left: 40%;
+}
+
+.ant-upload-list-picture-card-container {
+  position: relative;
+}
+
+.anticon-eye,
+.anticon-delete {
+  font-size: 22px;
+}
+
+.anticon-delete {
+  color: #1a70ec !important;
+}
+
+.anticon-delete:hover {
+  color: #000 !important;
+}

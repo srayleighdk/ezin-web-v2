@@ -162,6 +162,11 @@ export const resetPasswordApi = ({ username, newpassword }) =>
       });
   });
 
+/***
+ * Account
+ */
+export const getAccountMembers = () => eZinApi.get(`/account/get-members`);
+
 /*
  * EzStore
  */
@@ -198,3 +203,65 @@ export const getCardInfo = ({ seri, code }) =>
         reject(err);
       });
   });
+
+/***
+ * Products
+ */
+export const getPackage = (id) =>
+  eZinApiNode.get(`/node/packages/bypackageid/${id}`);
+
+export const requestActivate = (body) => {
+  body = {
+    _aff_network: Cookies.get("_aff_network"),
+    _aff_sid: Cookies.get("_aff_sid"),
+    ...body,
+  };
+  return eZinApiNode.post(`/node/v2/request/activate`, body);
+};
+
+/***
+ * Complete
+ */
+export const getRequestFromPayment = (payment_id) =>
+  eZinApiNode.get(`/node/payment/request/${payment_id}`);
+
+/***
+ * Fields
+ */
+export const getDataFromCollection = ({ collection, filter }) =>
+  eZinApi.post(`/data/datasource`, { collection, filter });
+
+/***
+ * AI
+ */
+export const detectVehicleRegistration = (formData, detectType) => {
+  // const endPoint = (detectType == 'submit-registrations' ? 'submit-registrations': 'submit-inspect')
+  return eZinApi({
+    url: `/computer-vision/ocr/${detectType}?format_type=file&get_thumb=false`,
+    method: "post",
+    data: formData,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+
+/***
+ * Payment
+ */
+export const createPaymentURL = (body) =>
+  eZinApiNode.post(`/node/payment/create-payment-url`, body);
+export const createTokenURL = (body) =>
+  eZinApiNode.post(`/node/payment/create-token-url`, body);
+export const getAccountVnpayToken = () => eZinApi.get(`/account/vnpaytoken`);
+export const applyVoucher = (body) => eZinApiNode.post(`/voucher/apply`, body);
+export const createDynamicShopeePayQR = (body) =>
+  eZinApiNode.post("/node/shopeepay/create-dynamic-qr", body);
+export const createShopeePayOrder = (body) =>
+  eZinApiNode.post("/node/shopeepay/create-order", body);
+export const checkShopeePayQRInvalidate = (body) =>
+  eZinApiNode.post("/node/shopeepay/qrcode-invalidate", body);
+export const checkShopeePayStatus = (body) =>
+  eZinApiNode.post("/node/shopeepay/check-payment-status", body);
+export const createDynamicZaloPayQR = (body) =>
+  eZinApiNode.post("/node/zalopay/create-payment-url", body);

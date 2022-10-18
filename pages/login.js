@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Layouts/Navbar";
 // import PageBanner from "../components/Common/PageBanner";
 import useAuth from "../components/auth-wrapper/auth.context";
 import Footer from "../components/Layouts/Footer";
 import Link from "next/link";
-import { getHeader, loginApi } from "../pages/api";
-import { normalizePhoneNumber, getProfile } from "../utils/helpers";
-// import { setAuth } from '../components/store/modal/actions';
+import { getHeader, loginApi, getProfile } from "../pages/api";
+import { normalizePhoneNumber } from "../utils/helpers";
+import { setAuth } from "../src/store/actions";
+// import { setAuth } from '../src/store/modal/actions';
 // import { createStructuredSelector } from 'reselect';
 // import { makeLoginVisible, makeModalData } from '../components/store/modal/selector';
 import { useSelector, useDispatch } from "react-redux";
@@ -15,8 +16,9 @@ import {
   toggleRegisterModal,
   toggleForgot,
   setParentModal,
-} from "../components/store/modal/actions";
+} from "../src/store/modal/actions";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 export async function getServerSideProps() {
   const res = await getHeader();
@@ -33,9 +35,11 @@ export async function getServerSideProps() {
 // });
 
 export default function Login({ headers }) {
+  const router = useRouter();
   const { login } = useAuth();
   const dispatch = useDispatch();
-  console.log(login);
+  const [message, setMessage] = useState("");
+
   const onLogin = (values) => {
     const formData = new FormData(values.target);
     const formDataObj = Object.fromEntries(formData.entries());
@@ -48,6 +52,10 @@ export default function Login({ headers }) {
       if (success) {
         // dispatch(toggleLoginModal());
         login({ user: data, token: token });
+        getProfile().then((res) => dispatch(setAuth(res.data.data)));
+        router.push("/");
+      } else {
+        setMessage(msg);
       }
     });
   };
@@ -80,24 +88,6 @@ export default function Login({ headers }) {
                   }}
                 >
                   <div className="row">
-                    {/* <div className="col-lg-4 col-md-4 col-sm-12">
-                      <a href="#" className="default-btn mb-30">
-                        <i className="bx bxl-google"></i> Google
-                      </a>
-                    </div>
-
-                    <div className="col-lg-4 col-md-4 col-sm-12">
-                      <a href="#" className="default-btn mb-30">
-                        <i className="bx bxl-facebook"></i> Facebook
-                      </a>
-                    </div>
-
-                    <div className="col-lg-4 col-md-4 col-sm-12">
-                      <a href="#" className="default-btn mb-30">
-                        <i className="bx bxl-twitter"></i> Twitter
-                      </a>
-                    </div> */}
-
                     <div className="col-12">
                       <div className="form-group">
                         <input
@@ -110,7 +100,7 @@ export default function Login({ headers }) {
                     </div>
 
                     <div className="col-12">
-                      <div className="form-group">
+                      <div className="form-group mb-2">
                         <input
                           className="form-control"
                           type="password"
@@ -118,9 +108,10 @@ export default function Login({ headers }) {
                           placeholder="Password"
                         />
                       </div>
+                      <div className="text-danger text-center">{message}</div>
                     </div>
 
-                    <div className="col-lg-6 col-sm-6 form-condition">
+                    {/* <div className="col-lg-6 col-sm-6 form-condition">
                       <div className="agree-label">
                         <div className="form-check">
                           <input
@@ -136,15 +127,14 @@ export default function Login({ headers }) {
                           </label>
                         </div>
                       </div>
-                    </div>
-
-                    <div className="col-lg-6 col-sm-6">
+                    </div> */}
+                    <div className="col-12 mt-1">
                       <Link href="/forgot-password">
                         <a className="forget">Quên mật khẩu?</a>
                       </Link>
                     </div>
 
-                    <div className="col-12">
+                    <div className="col-12 mt-3">
                       <button className="default-btn btn-two" type="submit">
                         Đăng nhập
                       </button>

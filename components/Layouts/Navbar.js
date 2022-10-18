@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Link from "../../utils/ActiveLink";
 
-const Navbar = ({ headers }) => {
+const Navbar = ({ headers, auth }) => {
   // console.log("headers", headers)
   const [isMounted, setIsMounted] = useState(false);
   const [display, setDisplay] = useState(false);
   const [collapsed, setCollapse] = useState(true);
+
+  function ellipsis(str, len) {
+    return str ? (str.length < len ? str : str.substr(0, len)) : "";
+  }
+  function titleCase(str) {
+    return (
+      str &&
+      str.toLowerCase().replace(/(^|\s)(\w)/g, function (x) {
+        return x.toUpperCase();
+      })
+    );
+  }
+
+  console.log("name", ellipsis(titleCase(auth?.full_name)));
 
   /**
    * If collapse is true, set collapse to false. If collapse is false, set collapse to true.
@@ -123,41 +137,57 @@ const Navbar = ({ headers }) => {
                   <ul className="navbar-nav m-auto align-item-baseline">
                     <li className="nav-item">
                       <a className="pt-2 text-capitalize pb-3 px-3 default-btn nav-link text-black">
-                        Tài khoản
+                        {auth
+                          ? ellipsis(
+                              titleCase(auth?.full_name || auth?.username)
+                            )
+                          : "Tài khoản"}
                         <i className="bx bx-chevron-down"></i>
                       </a>
                       <ul className="dropdown-menu navbar">
-                        <Link href="/login">
-                          <a className="text-dark text-capitalize">
-                            <li className="nav-item dropend cursor-pointer">
-                              Đăng nhập
-                            </li>
-                          </a>
-                        </Link>
-                        <Link href="/sign-up">
-                          <a className="text-dark text-capitalize">
-                            <li className="nav-item dropend cursor-pointer d-flex align-items-center">
-                              Đăng ký{" "}
-                              <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
-                                Nhận ngay 2000{" "}
-                                <img
-                                  src="/images/coin.png"
-                                  alt="Coin"
-                                  className="navbar-coin"
-                                />
-                              </span>
-                            </li>
-                          </a>
-                        </Link>
-                        <Link href="/forgot-password">
-                          <a className="text-dark text-capitalize">
-                            <li className="nav-item dropend cursor-pointer">
-                              Quên mật khẩu
-                            </li>
-                          </a>
-                        </Link>
+                        {auth ? (
+                          <Link href="/">
+                            <a className="text-dark text-capitalize w-100">
+                              <li className="nav-item dropend cursor-pointer">
+                                Đăng xuất
+                              </li>
+                            </a>
+                          </Link>
+                        ) : (
+                          <>
+                            <Link href="/login">
+                              <a className="text-dark text-capitalize w-100">
+                                <li className="nav-item dropend cursor-pointer">
+                                  Đăng nhập
+                                </li>
+                              </a>
+                            </Link>
+                            <Link href="/sign-up">
+                              <a className="text-dark text-capitalize w-100">
+                                <li className="nav-item dropend cursor-pointer d-flex align-items-center">
+                                  Đăng ký{" "}
+                                  <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
+                                    Nhận ngay 2000{" "}
+                                    <img
+                                      src="/images/coin.png"
+                                      alt="Coin"
+                                      className="navbar-coin"
+                                    />
+                                  </span>
+                                </li>
+                              </a>
+                            </Link>
+                            <Link href="/forgot-password">
+                              <a className="text-dark text-capitalize w-100">
+                                <li className="nav-item dropend cursor-pointer">
+                                  Quên mật khẩu
+                                </li>
+                              </a>
+                            </Link>
+                          </>
+                        )}
                         <Link href="/tra-cuu">
-                          <a className="text-dark text-capitalize">
+                          <a className="text-dark text-capitalize w-100">
                             <li className="nav-item dropend cursor-pointer">
                               Tra cứu bảo hiểm
                             </li>

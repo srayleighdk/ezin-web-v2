@@ -1,0 +1,97 @@
+@import '~styles/mixin';
+.activateMobileSection {
+  padding: 20px 0;
+  h2 {
+    color: #000 !important;
+    font-weight: bold !important;
+  }
+}
+.activateContainer {
+  max-width: 450px;
+  width: 90%;
+}
+.activateOption {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 80px;
+  position: relative;
+  text-align: center;
+  
+}
+.active {
+  border: 1px solid #167FFC;
+}
+.tick {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+.goiBaoHiem {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  font-size: 12px;
+  transform: translate(-50%, 0%);
+}
+.tenBaoHiem {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  transform: translate(-50%, 0%);
+  width: 100%;
+}
+.tenGoiBaoHiem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  transform: translate(-50%, 0%);
+  width: 100%;
+}
+.phiBaoHiem {
+  position: absolute;
+  top: 70%;
+  left: 5%;
+  font-size: 13px;
+}
+.giaTriBaoHiem {
+  position: absolute;
+  top: 80%;
+  left: 5%;
+  font-size: 13px;
+}
+.phiBaoHiemValue {
+  position: absolute;
+  top: 70%;
+  right: 5%;
+  font-size: 13px;
+}
+.giaTriBaoHiemValue {
+  position: absolute;
+  top: 80%;
+  right: 5%;
+  font-size: 13px;
+}
+.cardContainer {
+  color: #FFF;
+  position: relative;
+  text-align: center;
+}
+.loading {
+  font-size: 30px;
+  text-align: center;
+  color: #167FFC;
+}
+.bg-gray {
+  background-color: #F3F4F6 !important;
+}
+
