@@ -11,17 +11,17 @@ import { getCities, getWards, getDistricts, getAccountMembers } from '../../api'
 import NewIcon from '../../../public/images/new-icon.gif';
 import { detectVehicleRegistration } from '../../api';
 import Image from 'next/image';
-// import { createStructuredSelector } from 'reselect';
-// import { makeSelectAuth } from 'store/selector';
+import { createStructuredSelector } from 'reselect';
+import { makeSelectAuth } from '../../../src/store/selector';
 import { useSelector } from 'react-redux';
 
 const layout = {
     wrapperCol: { span: 24 },
 };
 
-// const mapStateToProps = createStructuredSelector({
-//     auth: makeSelectAuth(),  
-// });
+const mapStateToProps = createStructuredSelector({
+    auth: makeSelectAuth(),  
+});
 
 
 export default function ActivateFormAuto({ data, initData, onNext }) {
