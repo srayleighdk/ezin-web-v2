@@ -34,13 +34,8 @@ import { useState } from "react";
 const initialState = {};
 const store = configureStores(initialState);
 
-function MyApp({ Component, pageProps }) {
-  var timerHandle;
-  const [state, setState] = useState({
-    loading: true,
-  });
-
-  useConstructor(() => {
+export default class MyApp extends App {
+  useConstructor() {
     if (Cookies.get("token")) {
       eZinApi.defaults.headers.Authorization = `Bearer ${Cookies.get("token")}`;
       eZinApiNode.defaults.headers.Authorization = `Bearer ${Cookies.get(
@@ -49,55 +44,61 @@ function MyApp({ Component, pageProps }) {
     }
     // node token
     // eZinApi.defaults.headers.token = `EzinWebApp@123`;
-  });
+  };
   // Preloader
 
-  const componentDidMount = () => {
-    timerHandle = setTimeout(
-      () => setState({ loading: false }),
+  state = {
+    loading: true,
+  };
+  componentDidMount() {
+    this.timerHandle = setTimeout(
+      () => this.setState({ loading: false }),
       2000
     );
-  };
-  componentDidMount();
-  const componentWillUnmount = () => {
-    if (timerHandle) {
-      clearTimeout(timerHandle);
-      timerHandle = 0;
+  }
+  componentWillUnmount() {
+    if (this.timerHandle) {
+      clearTimeout(this.timerHandle);
+      this.timerHandle = 0;
     }
-  };
-  componentWillUnmount();
+  }
 
-  return (
-    <Provider store={store}>
-      <AuthProvider>
-        <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>Ezin - Đi Bình An, Về Hạnh Phúc</title>
-          <meta
-            property="og:title"
-            content="Ezin - Đi Bình An, Về Hạnh Phúc"
-          ></meta>
-          <meta
-            property="og:description"
-            content="Bảo vệ bạn và những người yêu thương chưa bao giờ dễ dàng đến thế!"
-          ></meta>
-          <meta property="og:url" content="https://ezin.vn/"></meta>
-          <meta
-            property="og:image"
-            content="https://api.ezin.vn/public/files/2021/12/54FA2CC66FB257F_ezin-slogan.jpg"
-          ></meta>
-        </Head>
+  render() {
+    const { Component, pageProps } = this.props;
+    return (
+      <Provider store={store}>
+        <AuthProvider>
+          <Head>
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+            <title>Ezin - Đi Bình An, Về Hạnh Phúc</title>
+            <meta
+              property="og:title"
+              content="Ezin - Đi Bình An, Về Hạnh Phúc"
+            ></meta>
+            <meta
+              property="og:description"
+              content="Bảo vệ bạn và những người yêu thương chưa bao giờ dễ dàng đến thế!"
+            ></meta>
+            <meta property="og:url" content="https://ezin.vn/"></meta>
+            <meta
+              property="og:image"
+              content="https://api.ezin.vn/public/files/2021/12/54FA2CC66FB257F_ezin-slogan.jpg"
+            ></meta>
+          </Head>
 
-        <Component {...pageProps} />
+          <Component {...pageProps} />
 
-        {/* Preloader */}
-        <Loader loading={state.loading} />
+          {/* Preloader */}
+          <Loader loading={this.state.loading} />
 
-        {/* Go Top Button */}
-        <GoTop scrollStepInPx="100" delayInMs="10.50" />
-      </AuthProvider>
-    </Provider>
-  );
+          {/* Go Top Button */}
+          <GoTop scrollStepInPx="100" delayInMs="10.50" />
+        </AuthProvider>
+      </Provider>
+    );
+  }
 }
 
-export default MyApp;
