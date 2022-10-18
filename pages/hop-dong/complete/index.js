@@ -5,7 +5,7 @@ import { Button } from 'antd';
 import Success from '../../../public/images/success.png';
 import Fail from '../../../public/images/fail.png';
 import { getRequestFromPayment } from '../../api';
-import { formatVND, formatDateTime } from 'utils/helpers';
+import { formatVND, formatDateTime } from '../../../utils/helpers';
 import TableInfo from '../components/TableInfo';
 import Image from 'next/image';
 import Link from 'next/link';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { DatePicker, Form, Input, Modal, Select, Tooltip } from 'antd';
-import EzinDatePicker from 'components/EzinDatePicker';
+import EzinDatePicker from '../../../components/EzinDatePicker';
 // import CustomSelect from '../../../components/Select';
 import slugify from 'slugify';
 import { useMediaQuery } from 'react-responsive';

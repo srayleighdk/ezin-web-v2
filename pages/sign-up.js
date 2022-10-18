@@ -14,7 +14,7 @@ import {
 import {
   makeOTPVisible,
   makeModalData,
-} from "../components/store/modal/selector";
+} from "../src/store/modal/selector";
 import { useSelector, useDispatch } from "react-redux";
 import { normalizePhoneNumber } from "../utils/helpers";
 import {
