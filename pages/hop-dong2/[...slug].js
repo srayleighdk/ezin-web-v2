@@ -5,10 +5,10 @@ import { getHeader, getAllNodeProducts } from "../api";
 import Navbar from "../../components/Layouts/Navbar";
 import Footer from "../../components/Layouts/Footer";
 import Head from "next/head";
-import ActivateFormAuto from "./components/ActivateFormAuto";
-import ActivateFormMoto from "./components/ActivateFormMoto";
-import ActivateFormAnGia from "./components/ActivateFormAnGia";
-import ActivateForm from "./components/ActivateForm";
+import ActivateFormAuto from "./components/ActivateFormAuto2";
+import ActivateFormMoto from "./components/ActivateFormMoto2";
+import ActivateFormAnGia from "./components/ActivateFormAnGia2";
+import ActivateForm from "./components/ActivateForm2";
 
 export async function getServerSideProps(context) {
   const [res, allNodeProducts] = await Promise.all([
