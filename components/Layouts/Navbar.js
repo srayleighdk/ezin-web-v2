@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Link from "../../utils/ActiveLink";
 
 const Navbar = ({ headers, auth }) => {
-  // console.log("headers", headers)
   const [isMounted, setIsMounted] = useState(false);
   const [display, setDisplay] = useState(false);
   const [collapsed, setCollapse] = useState(true);
@@ -137,7 +136,7 @@ const Navbar = ({ headers, auth }) => {
                   <ul className="navbar-nav m-auto align-item-baseline">
                     <li className="nav-item">
                       <a className="pt-2 text-capitalize pb-3 px-3 default-btn nav-link text-black">
-                        {auth
+                        {auth?.full_name || auth?.username
                           ? ellipsis(
                               titleCase(auth?.full_name || auth?.username)
                             )
