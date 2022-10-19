@@ -21,8 +21,8 @@ const mapForms = {
 const mapStateToProps = createStructuredSelector({
   auth: makeSelectAuth(),
 });
+
 export default function ThongTinBH({ data, initData = [], onNext, onPrev }) {
-  const res = useSelector(mapStateToProps);
   const {user, loading} = useAuth()
   const auth = user;
   console.log("user" , res);
