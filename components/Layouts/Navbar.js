@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "antd"
 import Link from "../../utils/ActiveLink";
-import useAuth from '../../src/container/auth-wrapper/auth.context';
+import useAuth from "../../src/container/auth-wrapper/auth.context";
 
 const Navbar = ({ headers, auth }) => {
   const { logout } = useAuth();
   const [isMounted, setIsMounted] = useState(false);
   const [display, setDisplay] = useState(false);
   const [collapsed, setCollapse] = useState(true);
+  console.log("logout", logout);
 
   function ellipsis(str, len) {
     return str ? (str.length < len ? str : str.substr(0, len)) : "";
@@ -148,12 +150,20 @@ const Navbar = ({ headers, auth }) => {
                       <ul className="dropdown-menu navbar">
                         {auth?.full_name || auth?.username ? (
                           <Link href="/" onClick={logout}>
-                            <a className="text-dark text-capitalize w-100">
+                            <div className="text-dark text-capitalize w-100" >
                               <li className="nav-item dropend cursor-pointer">
                                 Đăng xuất
                               </li>
-                            </a>
+                            </div>
                           </Link>
+                          // <Button
+                          //   type="outline"
+                          //   onClick={logout}
+                          //   key="2"
+                          //   className="text-dark"
+                          // >
+                          //   Đăng xuất
+                          // </Button>
                         ) : (
                           <>
                             <Link href="/login">
@@ -164,7 +174,7 @@ const Navbar = ({ headers, auth }) => {
                               </a>
                             </Link>
                             <Link href="/sign-up">
-                              <a className="text-dark text-capitalize w-100">
+                              <a className="text-dark text-capitalize">
                                 <li className="nav-item dropend cursor-pointer d-flex align-items-center">
                                   Đăng ký{" "}
                                   <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
