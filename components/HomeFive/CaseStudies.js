@@ -40,7 +40,7 @@ class CaseStudies extends Component {
 
                 <div className="py-4" style={{ textAlign: "center" }}>
                   <h3 className="h3-margin-bt">Kiến thức</h3>
-                  <Link href="/services">
+                  <Link href="/tra-cuu">
                     <a className="default-btn w-75 text-center">Liên hệ</a>
                   </Link>
                 </div>
@@ -66,7 +66,7 @@ class CaseStudies extends Component {
 
                 <div className="py-4" style={{ textAlign: "center" }}>
                   <h3 className="h3-margin-bt">Kinh nghiệm</h3>
-                  <Link href="/services">
+                  <Link href="/tra-cuu">
                     <a className="default-btn w-75 text-center">Liên hệ</a>
                   </Link>
                 </div>
@@ -92,7 +92,7 @@ class CaseStudies extends Component {
 
                 <div className="py-4" style={{ textAlign: "center" }}>
                   <h3 className="h3-margin-bt">Tư vấn đòi quyền lợi bảo hiểm</h3>
-                  <Link href="/services">
+                  <Link href="/tra-cuu">
                     <a className="default-btn w-75 text-center">Liên hệ</a>
                   </Link>
                 </div>
@@ -118,7 +118,7 @@ class CaseStudies extends Component {
 
                 <div className="py-4" style={{ textAlign: "center" }}>
                   <h3 className="h3-margin-bt">Quản lý bảo hiểm giùm bạn</h3>
-                  <Link href="/services">
+                  <Link href="/tra-cuu">
                     <a className="default-btn w-75 text-center">Liên hệ</a>
                   </Link>
                 </div>

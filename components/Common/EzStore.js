@@ -131,7 +131,7 @@ export default function EzStore({ topStores }) {
                     <li style={{ height: 100 }}>{item?.ward?.path_with_type}</li>
                   </ul>
 
-                  <Link href="/services">
+                  <Link href="/tra-cuu">
                     <a className="default-btn w-100 text-center">Liên hệ</a>
                   </Link>
                 </div>

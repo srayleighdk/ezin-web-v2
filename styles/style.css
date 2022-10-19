@@ -309,9 +309,9 @@ Bg Color Four Area Style
   background-color: #010032;
 }
 
-.color-white {
+/* .color-white {
   color: #ffffff;
-}
+} */
 
 .color-primary {
   color: #167FFC !important;
@@ -6103,8 +6103,8 @@ color: #000000;
   font-size: 40px !important;
 }
 
-.h-56 {
-  height: 56px;
+.h-62 {
+  height: 62px;
 }
 
 .start-25 {
@@ -6198,8 +6198,8 @@ color: #000000;
 }
 
 .group-icons {
-  top: 26px;
-  left: 9%;
+  top: 8px;
+  left: 14%;
 }
 
 .group-wrap {
