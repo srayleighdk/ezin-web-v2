@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "antd"
+import { Button } from "antd";
 import Link from "../../utils/ActiveLink";
 import useAuth from "../../src/container/auth-wrapper/auth.context";
 
@@ -8,7 +8,6 @@ const Navbar = ({ headers, auth }) => {
   const [isMounted, setIsMounted] = useState(false);
   const [display, setDisplay] = useState(false);
   const [collapsed, setCollapse] = useState(true);
-  console.log("logout", logout);
 
   function ellipsis(str, len) {
     return str ? (str.length < len ? str : str.substr(0, len)) : "";
@@ -21,8 +20,6 @@ const Navbar = ({ headers, auth }) => {
       })
     );
   }
-
-  console.log("name", ellipsis(titleCase(auth?.full_name)));
 
   /**
    * If collapse is true, set collapse to false. If collapse is false, set collapse to true.
@@ -149,13 +146,15 @@ const Navbar = ({ headers, auth }) => {
                       </a>
                       <ul className="dropdown-menu navbar">
                         {auth?.full_name || auth?.username ? (
-                          <Link href="/" onClick={logout}>
-                            <div className="text-dark text-capitalize w-100" >
-                              <li className="nav-item dropend cursor-pointer">
-                                Đăng xuất
-                              </li>
-                            </div>
-                          </Link>
+                          <div
+                            className="text-dark text-capitalize w-100"
+                            onClick={logout}
+                          >
+                            <li className="nav-item dropend cursor-pointer">
+                              Đăng xuất
+                            </li>
+                          </div>
+                        ) : (
                           // <Button
                           //   type="outline"
                           //   onClick={logout}
@@ -164,7 +163,6 @@ const Navbar = ({ headers, auth }) => {
                           // >
                           //   Đăng xuất
                           // </Button>
-                        ) : (
                           <>
                             <Link href="/login">
                               <a className="text-dark text-capitalize w-100">

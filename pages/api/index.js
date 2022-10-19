@@ -1,5 +1,6 @@
 import eZinApi from "./axios";
 import eZinApiNode from "./axiosNode";
+import Cookies from 'js-cookie';
 /***
  * HOME PAGE
  */
