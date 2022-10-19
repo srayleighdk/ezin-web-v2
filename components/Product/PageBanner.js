@@ -10,17 +10,17 @@ class PageBanner extends Component {
         return (
             <div className="page-title-area item-bg1 bg-white pt-banner pb-0">
                 <div className="container">
-                    <div className="page-title-content">
-                        <img src={getImageUrl(img)} alt={name} style={{width: "100%"}} />
+                    <div className="page-title-content" style={{backgroundImage: `url(${getImageUrl(img)})`}}>
+                        {/* <img src={getImageUrl(img)} alt={name} style={{width: "100%"}} /> */}
                         <h2 className="product-banner">{pageTitle}</h2>
-                        {/* <ul>
+                        <ul>
                             <li>
                                 <Link href={homePageUrl}>
                                     <a>{homePageText}</a>
                                 </Link>
                             </li>
                             <li>{activePageText}</li>
-                        </ul> */}
+                        </ul>
                     </div>
                 </div>
             </div>

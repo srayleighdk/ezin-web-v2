@@ -3927,14 +3927,14 @@ Page Title Area Style
 }
 
 .page-title-area .page-title-content ul li::before {
-  content: "";
+  /* content: "";
   position: absolute;
   top: 12px;
   right: -3px;
   background-color: #1dd3f8;
   width: 5px;
   height: 5px;
-  border-radius: 50%;
+  border-radius: 50%; */
 }
 
 .page-title-area .page-title-content ul li:last-child::before {
