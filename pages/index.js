@@ -124,7 +124,7 @@ const Home = ({
 
       <CommunityEzin />
 
-      <News news={news || {}} />
+      <News news={news} />
 
       <Testimonials testimonials={testimonials.testimonials} />
 
