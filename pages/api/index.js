@@ -1,6 +1,6 @@
 import eZinApi from "./axios";
 import eZinApiNode from "./axiosNode";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 /***
  * HOME PAGE
  */
@@ -268,3 +268,9 @@ export const checkShopeePayStatus = (body) =>
   eZinApiNode.post("/node/shopeepay/check-payment-status", body);
 export const createDynamicZaloPayQR = (body) =>
   eZinApiNode.post("/node/zalopay/create-payment-url", body);
+
+/***
+ * TransactionInfo
+ *
+ */
+export const getTransactionsInfo = () => eZinApi.get(`/request/allinfo`);
