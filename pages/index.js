@@ -130,7 +130,7 @@ const Home = ({
 
       <CaseStudies />
 
-      <Partner partners={partners || {}} />
+      <Partner partners={partners} />
 
       <EzStore topStores={topStores} />
 
