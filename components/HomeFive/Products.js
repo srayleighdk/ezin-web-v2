@@ -10,7 +10,7 @@ const Products = ({ allNodeProducts }) => {
   };
 
   return (
-    <section className="offer-area pt-100 pb-70">
+    <section id="san-pham" className="offer-area pt-100 pb-70">
       <div className="container">
         <div className="section-title">
           <h2>
@@ -27,7 +27,10 @@ const Products = ({ allNodeProducts }) => {
           {allNodeProducts.map((product) => {
             return (
               <div className="col-lg-4 col-sm-6" key={product._id}>
-                <div className="single-offer pl-30 pr-30 text-center" style={{height: 618}}>
+                <div
+                  className="single-offer pl-30 pr-30 text-center"
+                  style={{ height: 618 }}
+                >
                   <img
                     src={product.thumbnail}
                     alt={product.name}
@@ -38,7 +41,7 @@ const Products = ({ allNodeProducts }) => {
                       <a>{product.name}</a>
                     </Link>
                   </h3>
-                  <p className="mb-0 product-decription text-dot-3" >
+                  <p className="mb-0 product-decription text-dot-3">
                     {product.intro}
                   </p>
                   <div className="d-flex align-items-center my-3">
