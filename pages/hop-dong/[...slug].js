@@ -11,27 +11,28 @@ import {
 } from "../api";
 import Navbar from "../../components/Layouts/Navbar";
 import Footer from "../../components/Layouts/Footer";
+import RegisterModal from "../../components/ezin-modal/RegisterModal";
+import LoginModal from "../../components/ezin-modal/LoginModal";
 // import QnA from './components/qna';
 import ThongTinBH from "./components/thongTin";
 import XacNhan from "./components/xacNhan";
 import ThanhToan from "./components/thanhToan";
 import moment from "moment";
 import SecondStep from "../../src/container/activeCard/Second";
-// import { createStructuredSelector } from 'reselect';
-// import { makeSelectAuth } from 'store/selector';
-// import { makeSelectActivation } from 'store/selector';
+import { createStructuredSelector } from "reselect";
+import { makeSelectAuth } from "../../src/store/selector";
+import { makeSelectActivation } from "../../src/store/selector";
 
 const { Step } = Steps;
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
   const id = slug[0];
-  const [res, allNodeProducts, data] =
-    await Promise.all([
-      getHeader(),
-      getAllNodeProducts(),
-      getPackage(id)
-    ]);
+  const [res, allNodeProducts, data] = await Promise.all([
+    getHeader(),
+    getAllNodeProducts(),
+    getPackage(id),
+  ]);
   return {
     props: {
       data: data?.data?.data || null,
@@ -41,21 +42,20 @@ export async function getServerSideProps(context) {
   };
 }
 
-// const mapStateToProps = createStructuredSelector({
-//   activation: makeSelectActivation(),
-//   auth: makeSelectAuth(),
-
-// });
+const mapStateToProps = createStructuredSelector({
+  activation: makeSelectActivation(),
+  auth: makeSelectAuth(),
+});
 
 export default function HopdongPage({ headers, allNodeProducts }) {
   const router = useRouter();
+  const { auth } = useSelector(mapStateToProps);
   const id = router?.query?.slug?.[0];
   const type = router?.query?.slug?.[1].indexOf("EVA");
   // const [nStep, setStep] = useState(0);
   const [requestId, setRequestId] = useState(null);
   const [submitData, setSubmitData] = useState(null);
   const [cardInfo, setCardInfo] = useState({});
-  // const { activation } = useSelector(mapStateToProps);
   const [data, setData] = useState(null);
   const nStep = Number(router?.query?.step) || 0;
 
@@ -295,8 +295,10 @@ export default function HopdongPage({ headers, allNodeProducts }) {
             </div>
           </div>
         </div>
+        {auth && <LoginModal />}
       </section>
       <Footer product={allNodeProducts} />
+      {/* <RegisterModal /> */}
     </>
   );
 }
