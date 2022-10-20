@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 import dayjs from "dayjs";
 
-export default function News({ news = {} }) {
+export default function News({ news }) {
   console.log("news", news);
   return (
     <section className="news-area pt-100 pb-70">
@@ -60,7 +60,10 @@ export default function News({ news = {} }) {
                     <ul>
                       <li>
                         <Link href="/news-grid">
-                          <a style={{ fontFamily: "Inter" }} className="text-center">
+                          <a
+                            style={{ fontFamily: "Inter" }}
+                            className="text-center"
+                          >
                             <i className="flaticon-user"></i> Ezin
                           </a>
                         </Link>
@@ -69,7 +72,12 @@ export default function News({ news = {} }) {
 
                     <Link href="/news-details">
                       <a className="text-center">
-                        <h3 style={{maxHeight: 42, overflow: 'hidden'}} className="text-dot-2">{item?.title}</h3>
+                        <h3
+                          style={{ maxHeight: 42, overflow: "hidden" }}
+                          className="text-dot-2"
+                        >
+                          {item?.title}
+                        </h3>
                       </a>
                     </Link>
 
