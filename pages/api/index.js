@@ -274,3 +274,5 @@ export const createDynamicZaloPayQR = (body) =>
  *
  */
 export const getTransactionsInfo = () => eZinApi.get(`/request/allinfo`);
+export const getTransactionInfo = (id) =>
+  eZinApi.get(`${API.getTransactionInfo}/${id}`);

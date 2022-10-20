@@ -39,7 +39,7 @@ export default function News({ news }) {
             modules={[Navigation, Autoplay]}
             className="testimonials-slide"
           >
-            {news.map((item) => (
+            {news?.map((item) => (
               <SwiperSlide className="pt-2">
                 <div className="single-news">
                   <div className="blog-img">
