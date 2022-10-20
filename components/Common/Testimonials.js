@@ -6,10 +6,10 @@ import { getImageUrl } from "../../utils/helpers.js"
 const Testimonials = ({ testimonials }) => {
   console.log('testimonials', testimonials)
   return (
-    <section className="offer-area ptb-100">
+    <section className="brand-area bg-community ptb-100">
       <div className="container">
         <div className="section-title">
-          <h2 style={{ color: '#167ffc' }}>Dịch vụ <span>khách hàng 5 sao</span> </h2>
+          <h2 className="text-white">Dịch vụ <span>khách hàng 5 sao</span> </h2>
           <p >Chúng tôi đã dành ngân sách Marketing để chăm sóc bạn. Mỗi khách hàng trung thành là một đại sứ thương hiệu</p>
           <div className='d-flex justify-content-around px-3 '>
             <img src="/images/Union.png" alt="Union" style={{ height: 60 }} />
@@ -72,14 +72,14 @@ const Testimonials = ({ testimonials }) => {
         </Swiper>
 
       </div>
-      <div className="offer-shape">
+      {/* <div className="offer-shape">
         <img src="/images/shape/services-shape/1.png" alt="services-shape1" />
         <img src="/images/shape/services-shape/2.png" alt="services-shape2" />
         <img src="/images/shape/services-shape/3.png" alt="services-shape3" />
         <img src="/images/shape/services-shape/4.png" alt="services-shape4" />
         <img src="/images/shape/services-shape/5.png" alt="services-shape5" />
         <img src="/images/shape/services-shape/6.png" alt="services-shape6" />
-      </div>
+      </div> */}
     </section>
   );
 }

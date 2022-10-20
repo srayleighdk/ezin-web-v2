@@ -404,7 +404,7 @@ export default function ActivateFormMoto({ data, initData, onNext }) {
                     {listName.map((item, index) => (
                         <Button key={index}
                             type="primary"
-                            className={`text-11 text-white mr-1 mt-1 ${index == currentName ? 'bg-primary' : 'bg-dark'}`}
+                            className={`text-11 text-white mr-1 mt-1 ${index == currentName ? 'bg-primary' : 'bg-gray'}`}
                             onClick={() => onSelectUser(index + 1)}
                         >
                             {item.full_name || item.username}

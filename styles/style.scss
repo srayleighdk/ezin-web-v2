@@ -3463,14 +3463,14 @@ Page Title Area Style
 				padding-left: 10px;
 				color: $main-color;
 				&::before {
-					content: "";
-					position: absolute;
-					top: 12px;
-					right: -3px;
-					background-color: $main-color;
-					width: 5px;
-					height: 5px;
-					border-radius: 50%;
+					// content: "";
+					// position: absolute;
+					// top: 12px;
+					// right: -3px;
+					// background-color: $main-color;
+					// width: 5px;
+					// height: 5px;
+					// border-radius: 50%;
 				}
 				&:last-child {
 					&::before {

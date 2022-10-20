@@ -4,7 +4,12 @@ import PageBanner from "../../components/Product/PageBanner";
 import PricingStyleOne from "../../components/Product/PricingStyleOne";
 import MoneyIcon from "../../public/images/money.svg";
 import Footer from "../../components/Layouts/Footer";
-import { getProduct, getNodePackages, getHeader, getAllNodeProducts } from "../api/index";
+import {
+  getProduct,
+  getNodePackages,
+  getHeader,
+  getAllNodeProducts,
+} from "../api/index";
 import Image from "next/image";
 import WorkIcon from "../../public/images/work.svg";
 import FileIcon from "../../public/images/file.svg";
@@ -23,7 +28,11 @@ import {
 export async function getServerSideProps(context) {
   const { product: slug } = context.params;
   const { data } = await getProduct(slug);
-  const [ res, res2, res3 ] = await Promise.all([getHeader(), getNodePackages(data.data._id), getAllNodeProducts()])
+  const [res, res2, res3] = await Promise.all([
+    getHeader(),
+    getNodePackages(data.data._id),
+    getAllNodeProducts(),
+  ]);
   return {
     props: {
       product: data.data,
@@ -34,21 +43,35 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function Product({ product, nodePackages, headers, allNodeProducts }) {
-  console.log("headers", product, nodePackages)
+export default function Product({
+  product,
+  nodePackages,
+  headers,
+  allNodeProducts,
+}) {
+  console.log("headers", product, nodePackages);
   const features = product?.features.split("\n") || [];
   const iconsFeatures = [MoneyIcon, WorkIcon, FileIcon];
   return (
     <>
       <Navbar headers={headers} />
 
-      <PageBanner
+      {/* <PageBanner
         pageTitle={product?.name}
         img={product.image.path}
         name={product.name}
         //   homePageUrl="/"
         //   homePageText="TNDS"
         //   activePageText="Xe máy"
+      /> */}
+
+      <PageBanner
+        pageTitle={product?.name}
+        img={product.image.path}
+        name={product.name}
+        homePageUrl="#"
+        // homePageText="Home"
+        // activePageText="Contact Style Two"
       />
 
       <section className="team-area mt-4 pb-70">

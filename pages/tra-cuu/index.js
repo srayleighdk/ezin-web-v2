@@ -1,6 +1,24 @@
 import React, { useState } from "react";
+import Navbar from "../../components/Layouts/Navbar";
+import Footer from "../../components/Layouts/Footer";
+import { getHeader, getAllNodeProducts } from "../api";
+import Link from "next/link";
+import Head from "next/head";
 
-export default function ComingSoon() {
+export async function getServerSideProps() {
+  const [res, allNodeProducts] = await Promise.all([
+    getHeader(),
+    getAllNodeProducts(),
+  ]);
+  return {
+    props: {
+      headers: res?.data?.data,
+      allNodeProducts: allNodeProducts?.data?.data,
+    }, // will be passed to the page component as props
+  };
+}
+
+export default function ComingSoon({ headers, allNodeProducts }) {
   var myInterval;
   const [state, setState] = useState({
     days: "",
@@ -53,16 +71,26 @@ export default function ComingSoon() {
   };
 
   return (
-    <div className="coming-soon-area">
-      <div className="d-table">
-        <div className="d-table-cell">
-          <div className="container">
-            <div className="coming-soon-content">
-              <h1>Tính năng sắp ra mắt</h1>
+    <>
+      <Head>
+        <title>Tính năng sắp ra mắt</title>
+      </Head>
+      <Navbar headers={headers} />
+      <div className="coming-soon-area">
+        <div className="d-table">
+          <div className="d-table-cell">
+            <div className="container d-flex justify-content-center flex-column align-items-center">
+              <div className="coming-soon-content">
+                <h1 className="text-white">Tính năng sắp ra mắt</h1>
+              </div>
+              <Link href="/">
+                <a className="default-btn w-25 text-center rounded-pill mt-4">Về trang chủ</a>
+              </Link>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <Footer product={allNodeProducts} />
+    </>
   );
 }

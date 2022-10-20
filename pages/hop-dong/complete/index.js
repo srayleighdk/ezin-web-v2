@@ -4,13 +4,15 @@ import { useRouter } from 'next/router';
 import { Button } from 'antd';
 import Success from '../../../public/images/success.png';
 import Fail from '../../../public/images/fail.png';
-import { getRequestFromPayment } from '../../api';
+import Navbar from "../../../components/Layouts/Navbar";
+import Footer from "../../../components/Layouts/Footer";
+import { getRequestFromPayment, getAllNodeProducts, getHeader } from '../../api';
 import { formatVND, formatDateTime } from '../../../utils/helpers';
 import TableInfo from '../components/TableInfo';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Complete({data}) {
+export default function Complete({ data, headers, allNodeProducts }) {
   // const [data, setData] = useState(null);
   const router = useRouter();
   const { vnp_ResponseCode } = router.query;
@@ -116,6 +118,7 @@ export default function Complete({data}) {
         {/* <meta property="og:image" key="og-image" content={data && data.image && `${getImageUrl()}/${data.image.path}`} /> */}
         {/* <meta property="og:description" key="og-description" content={data && data.desc} /> */}
       </Head>
+      <Navbar headers={headers} />
       <div id="activation">
         <div className="main-section content-section">
           <div className="container">
@@ -140,6 +143,7 @@ export default function Complete({data}) {
           </div>
         </div>
       </div>
+      <Footer product={allNodeProducts} />
     </>
   );
 }
@@ -147,11 +151,17 @@ export default function Complete({data}) {
 
 // This function gets called at build time
 export async function getServerSideProps(context) {
-  const { vnp_TxnRef } = context.query;
-  const { data } = await getRequestFromPayment(vnp_TxnRef);
+  const { vnp_txn_ref } = context.query;
+  const [res, allNodeProducts, data] = await Promise.all([
+    getHeader(),
+    getAllNodeProducts(),
+    getRequestFromPayment(vnp_txn_ref)
+  ]);
   return {
     props: {
-      data: data?.data || null,
-    },
+      headers: res?.data?.data,
+      allNodeProducts: allNodeProducts?.data?.data,
+      data: data?.data?.data || null,
+    }, // will be passed to the page component as props
   };
 }

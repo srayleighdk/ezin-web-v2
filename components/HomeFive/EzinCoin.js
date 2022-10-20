@@ -20,7 +20,7 @@ class EzinCoin extends Component {
             <div className="col-lg-4 col-md-6">
               <div className="single-news">
                 <div className="blog-img rounded-top">
-                  <Link href="/news-details">
+                  <Link href="/tra-cuu">
                     <a>
                       <img
                         src="/images/ezcoin/nhiem-vu-hang-ngay.png"
@@ -59,7 +59,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Link href="/contact">
+                    <Link href="/tra-cuu">
                       <a className="default-btn white rounded-pill">
                         Xem nhiệm vụ
                       </a>
@@ -72,7 +72,7 @@ class EzinCoin extends Component {
             <div className="col-lg-4 col-md-6">
               <div className="single-news">
                 <div className="blog-img rounded-top">
-                  <Link href="/news-details">
+                  <Link href="/tra-cuu">
                     <a>
                       <img src="/images/ezcoin/ez-game.png" alt="ez-game" />
                     </a>
@@ -108,7 +108,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Link href="/contact">
+                    <Link href="/tra-cuu">
                       <a className="default-btn white rounded-pill">
                         Chơi ngay
                       </a>
@@ -121,7 +121,7 @@ class EzinCoin extends Component {
             <div className="col-lg-4 col-md-6">
               <div className="single-news">
                 <div className="blog-img rounded-top">
-                  <Link href="/news-details">
+                  <Link href="/tra-cuu">
                     <a>
                       <img
                         src="/images/ezcoin/thu-tai-cung-ai.png"
@@ -160,7 +160,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Link href="/contact">
+                    <Link href="/tra-cuu">
                       <a className="default-btn white rounded-pill">
                         Chơi ngay
                       </a>
@@ -173,7 +173,7 @@ class EzinCoin extends Component {
             <div className="col-lg-4 col-md-6">
               <div className="single-news">
                 <div className="blog-img rounded-top">
-                  <Link href="/news-details">
+                  <Link href="/tra-cuu">
                     <a>
                       <img src="/images/ezcoin/ride-to-earn.png" alt="ride-to-earn" />
                     </a>
@@ -209,7 +209,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Link href="/contact">
+                    <Link href="/tra-cuu">
                       <a className="default-btn white rounded-pill">
                         Chơi ngay
                       </a>
@@ -222,7 +222,7 @@ class EzinCoin extends Component {
             <div className="col-lg-4 col-md-6">
               <div className="single-news">
                 <div className="blog-img rounded-top">
-                  <Link href="/news-details">
+                  <Link href="/tra-cuu">
                     <a>
                       <img
                         src="/images/ezcoin/tro-thanh-ez-store.png"
@@ -261,7 +261,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Link href="/contact">
+                    <Link href="/tra-cuu">
                       <a className="default-btn white rounded-pill">Chi tiết</a>
                     </Link>
                   </div>
@@ -272,7 +272,7 @@ class EzinCoin extends Component {
             <div className="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
               <div className="single-news">
                 <div className="blog-img rounded-top">
-                  <Link href="/news-details">
+                  <Link href="/tra-cuu">
                     <a>
                       <img
                         src="/images/ezcoin/doi-ez-coin-lay-qua.png"
@@ -311,7 +311,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Link href="/contact">
+                    <Link href="/tra-cuu">
                       <a className="default-btn white rounded-pill">Chi tiết</a>
                     </Link>
                   </div>

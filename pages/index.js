@@ -60,7 +60,7 @@ export async function getServerSideProps(context) {
 }
 const Home = ({ headers, allNodeProducts, testimonials, newsPost, topStores }) => {
   const { auth, activationVisible } = useSelector(mapStateToProps);
-  console.log("topStores", auth, activationVisible)
+  console.log("topStores", allNodeProducts)
   const router = useRouter();
   // export async function getServerSideProps(context) {
   //     const res = await getHeader();

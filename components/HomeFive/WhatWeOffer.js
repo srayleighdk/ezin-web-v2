@@ -67,16 +67,6 @@ class WhatWeOffer extends Component {
                       {/* <p>All kind of industry</p> */}
                     </span>
                   </li>
-
-                  {/* <li
-                                        onClick={(e) => this.openTabSection(e, 'tab4')}
-                                    >
-                                        <span>
-                                            <i className="flaticon-automation"></i>
-                                            <h3>Manufacturing</h3>
-                                            <p>All kind of industry</p>
-                                        </span>
-                                    </li> */}
                 </ul>
               </div>
 
@@ -126,11 +116,11 @@ class WhatWeOffer extends Component {
                             </div>
                           </div>
 
-                          <div className="text-center">
+                          {/* <div className="text-center">
                             <Link href="/services">
                               <a className="default-btn">Discover More</a>
                             </Link>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -166,11 +156,11 @@ class WhatWeOffer extends Component {
                             </div>
                           </div>
 
-                          <div className="text-center">
+                          {/* <div className="text-center">
                             <Link href="/services">
                               <a className="default-btn">Discover More</a>
                             </Link>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>

@@ -7,10 +7,12 @@ import Fail from '../../../public/images/fail.png';
 import { formatVND, formatDateTime } from '../../../utils/helpers';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getRequestFromPayment } from '../../api';
+import Navbar from "../../../components/Layouts/Navbar";
+import Footer from "../../../components/Layouts/Footer";
+import { getRequestFromPayment, getAllNodeProducts, getHeader } from '../../api';
 import TableInfo from '../components/TableInfo';
 
-export default function Complete({data}) {
+export default function Complete({ data, headers, allNodeProducts }) {
   // const [data, setData] = useState(null);
   const router = useRouter();
   const { result_code } = router.query;
@@ -153,6 +155,7 @@ export default function Complete({data}) {
         {/* <meta property="og:image" key="og-image" content={data && data.image && `${getImageUrl()}/${data.image.path}`} /> */}
         {/* <meta property="og:description" key="og-description" content={data && data.desc} /> */}
       </Head>
+      <Navbar headers={headers} />
       <div id="activation">
         <div className="main-section content-section">
           <div className="container">
@@ -177,17 +180,24 @@ export default function Complete({data}) {
           </div>
         </div>
       </div>
+      <Footer product={allNodeProducts} />
     </>
   );
 }
 
 // This function gets called at build time
 export async function getServerSideProps(context) {
-  const { reference_id } = context.query;
-  const { data } = await getRequestFromPayment(reference_id);
+  const { vnp_txn_ref } = context.query;
+  const [res, allNodeProducts, data] = await Promise.all([
+    getHeader(),
+    getAllNodeProducts(),
+    getRequestFromPayment(vnp_txn_ref)
+  ]);
   return {
     props: {
-      data: data?.data || null,
-    },
+      headers: res?.data?.data,
+      allNodeProducts: allNodeProducts?.data?.data,
+      data: data?.data?.data || null,
+    }, // will be passed to the page component as props
   };
 }

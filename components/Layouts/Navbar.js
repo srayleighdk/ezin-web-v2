@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "antd";
 import Link from "../../utils/ActiveLink";
-import useAuth from '../../src/container/auth-wrapper/auth.context';
+import useAuth from "../../src/container/auth-wrapper/auth.context";
 
 const Navbar = ({ headers, auth }) => {
   const { logout } = useAuth();
@@ -19,8 +20,6 @@ const Navbar = ({ headers, auth }) => {
       })
     );
   }
-
-  console.log("name", ellipsis(titleCase(auth?.full_name)));
 
   /**
    * If collapse is true, set collapse to false. If collapse is false, set collapse to true.
@@ -147,14 +146,23 @@ const Navbar = ({ headers, auth }) => {
                       </a>
                       <ul className="dropdown-menu navbar">
                         {auth?.full_name || auth?.username ? (
-                          <Link href="/" onClick={logout}>
-                            <a className="text-dark text-capitalize w-100">
-                              <li className="nav-item dropend cursor-pointer">
-                                Đăng xuất
-                              </li>
-                            </a>
-                          </Link>
+                          <div
+                            className="text-dark text-capitalize w-100"
+                            onClick={logout}
+                          >
+                            <li className="nav-item dropend cursor-pointer">
+                              Đăng xuất
+                            </li>
+                          </div>
                         ) : (
+                          // <Button
+                          //   type="outline"
+                          //   onClick={logout}
+                          //   key="2"
+                          //   className="text-dark"
+                          // >
+                          //   Đăng xuất
+                          // </Button>
                           <>
                             <Link href="/login">
                               <a className="text-dark text-capitalize w-100">
@@ -164,7 +172,7 @@ const Navbar = ({ headers, auth }) => {
                               </a>
                             </Link>
                             <Link href="/sign-up">
-                              <a className="text-dark text-capitalize w-100">
+                              <a className="text-dark text-capitalize">
                                 <li className="nav-item dropend cursor-pointer d-flex align-items-center">
                                   Đăng ký{" "}
                                   <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">

@@ -35,17 +35,19 @@ export default function MainBanner() {
                       Những hy sinh của ngày hôm nay sẽ được đền đáp vào ngày
                       mai.
                     </p>
-
-                    <div className="slider-btn">
-                      <Link href="/contact">
-                        <a className="default-btn white">Mua bảo hiểm ngay</a>
-                      </Link>
-
-                      <Link href="/services">
-                        <a className="default-btn active">Xem video</a>
-                      </Link>
-                    </div>
                   </div>
+                </div>
+                <div
+                  className="slider-btn position-absolute d-flex justify-content-center w-100"
+                  style={{ bottom: "8%" }}
+                >
+                  <Link href="/contact">
+                    <a className="default-btn white mx-3">Mua bảo hiểm ngay</a>
+                  </Link>
+
+                  <Link href="/services">
+                    <a className="default-btn mx-3">Xem video</a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -68,17 +70,20 @@ export default function MainBanner() {
                     <p className="text-black mb-46">
                       Hạnh phúc lớn nhất là sống hài lòng từng chút một.
                     </p>
-
-                    <div className="slider-btn">
-                      <Link href="/contact">
-                        <a className="default-btn white">Mua bảo hiểm ngay</a>
-                      </Link>
-
-                      <Link href="/services">
-                        <a className="default-btn active">Xem video</a>
-                      </Link>
-                    </div>
                   </div>
+                </div>
+
+                <div
+                  className="slider-btn position-absolute d-flex justify-content-center w-100"
+                  style={{ bottom: "8%" }}
+                >
+                  <Link href="/contact">
+                    <a className="default-btn white mx-3">Mua bảo hiểm ngay</a>
+                  </Link>
+
+                  <Link href="/services">
+                    <a className="default-btn mx-3">Xem video</a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -102,17 +107,20 @@ export default function MainBanner() {
                       Những hy sinh của ngày hôm nay sẽ được đền đáp vào ngày
                       mai.
                     </p>
-
-                    <div className="slider-btn">
-                      <Link href="/contact">
-                        <a className="default-btn white">Mua bảo hiểm ngay</a>
-                      </Link>
-
-                      <Link href="/services">
-                        <a className="default-btn active">Xem video</a>
-                      </Link>
-                    </div>
                   </div>
+                </div>
+
+                <div
+                  className="slider-btn position-absolute d-flex justify-content-center w-100"
+                  style={{ bottom: "8%" }}
+                >
+                  <Link href="/contact">
+                    <a className="default-btn white mx-3">Mua bảo hiểm ngay</a>
+                  </Link>
+
+                  <Link href="/services">
+                    <a className="default-btn mx-3">Xem video</a>
+                  </Link>
                 </div>
               </div>
             </div>
