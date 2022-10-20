@@ -4,22 +4,32 @@ import Link from "next/link";
 import Navbar from "../../../components/Layouts/Navbar";
 import Footer from "../../../components/Layouts/Footer";
 import CommentsArea from "../../../components/News/CommentsArea";
-import { getPostCategories, getNewestPost, getPostDetails, getHeader } from "../../../pages/api";
+import {
+  getPostCategories,
+  getNewestPost,
+  getPostDetails,
+  getHeader,
+} from "../../../pages/api";
 import styles from "../life.module.scss";
-import { createMarkup } from '../../../utils/auth.helper';
+import { createMarkup } from "../../../utils/auth.helper";
 import dayjs from "dayjs";
 import Head from "next/head";
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
   const id = slug[0];
-  let [res1, res2, res3, res4] = await Promise.all([getPostCategories(), getNewestPost(), getPostDetails(id), getHeader()]);
+  let [res1, res2, res3, res4] = await Promise.all([
+    getPostCategories(),
+    getNewestPost(),
+    getPostDetails(id),
+    getHeader(),
+  ]);
   return {
     props: {
       arrCats: res1?.data?.data,
       arrNewsestPost: res2?.data?.data,
       blogDetail: res3?.data?.data,
-      headers: res4?.data?.data
+      headers: res4?.data?.data,
     },
   };
 }
@@ -28,30 +38,33 @@ export default function NewsDetailsContent({
   arrCats = [],
   arrNewsestPost = [],
   blogDetail = [],
-  headers = []
+  headers = [],
 }) {
-  console.log("blogDetail", blogDetail)
+  console.log("blogDetail", blogDetail);
   return (
     <>
-      <Head><title>
-
-        {blogDetail?.post?.post_title}
-      </title></Head>
-      <Navbar headers={headers} />
+      <Head>
+        <title>{blogDetail?.post?.post_title}</title>
+      </Head>
       <section className="news-details-area ptb-100 mt-3">
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-md-12">
               <div className="blog-details-desc">
                 <div className="article-image">
-                  <img src={blogDetail?.post_thumbnail} alt="Image" className={`${styles.life_title_img}`} />
+                  <img
+                    src={blogDetail?.post_thumbnail}
+                    alt="Image"
+                    className={`${styles.life_title_img}`}
+                  />
                 </div>
 
                 <div className="article-content">
                   <div className="entry-meta">
                     <ul>
                       <li>
-                        <span>Posted On:</span> {dayjs(blogDetail?.updated_at).format("DD-MM-YYYY")}
+                        <span>Posted On:</span>{" "}
+                        {dayjs(blogDetail?.updated_at).format("DD-MM-YYYY")}
                       </li>
                       <li>
                         <span>Posted By:</span>
@@ -62,19 +75,19 @@ export default function NewsDetailsContent({
                     </ul>
                   </div>
 
-                  <h2 className="mt-3">
-                    {blogDetail?.post?.post_title}
-                  </h2>
+                  <h2 className="mt-3">{blogDetail?.post?.post_title}</h2>
 
                   <p
-                    dangerouslySetInnerHTML={createMarkup(blogDetail?.description)}
-                  >
-                  </p>
+                    dangerouslySetInnerHTML={createMarkup(
+                      blogDetail?.description
+                    )}
+                  ></p>
 
                   <p
-                    dangerouslySetInnerHTML={createMarkup(blogDetail?.post?.post_content.replace(/\n/g, ''))}
-                  >
-                  </p>
+                    dangerouslySetInnerHTML={createMarkup(
+                      blogDetail?.post?.post_content.replace(/\n/g, "")
+                    )}
+                  ></p>
                 </div>
 
                 <div className="article-footer">
@@ -139,12 +152,15 @@ export default function NewsDetailsContent({
             </div>
 
             <div className="col-lg-4 col-md-12">
-              <NewsSidebar arrCats={arrCats} arrNewsestPost={arrNewsestPost} tags={blogDetail?.taxonomies?.post_tag} />
+              <NewsSidebar
+                arrCats={arrCats}
+                arrNewsestPost={arrNewsestPost}
+                tags={blogDetail?.taxonomies?.post_tag}
+              />
             </div>
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

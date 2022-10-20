@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { Button } from 'antd';
-import Success from '../../../public/images/success.png';
-import Fail from '../../../public/images/fail.png';
-import Navbar from "../../../components/Layouts/Navbar";
-import Footer from "../../../components/Layouts/Footer";
-import { getRequestFromPayment, getAllNodeProducts, getHeader } from '../../api';
-import { formatVND, formatDateTime } from '../../../utils/helpers';
-import TableInfo from '../components/TableInfo';
-import Image from 'next/image';
-import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { Button } from "antd";
+import Success from "../../../public/images/success.png";
+import Fail from "../../../public/images/fail.png";
+import {
+  getRequestFromPayment,
+  getAllNodeProducts,
+  getHeader,
+} from "../../api";
+import { formatVND, formatDateTime } from "../../../utils/helpers";
+import TableInfo from "../components/TableInfo";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Complete({ data, headers, allNodeProducts }) {
   // const [data, setData] = useState(null);
@@ -54,17 +56,17 @@ export default function Complete({ data, headers, allNodeProducts }) {
             <TableInfo
               className="rounded"
               tableData={[
-                ['Thời gian', formatDateTime(data?.added_at)],
+                ["Thời gian", formatDateTime(data?.added_at)],
                 // ['Số đơn bảo hiểm', ''],
                 [
-                  'Tên bảo hiểm',
+                  "Tên bảo hiểm",
                   `${data?.package_id?.program_id?.product_id?.name} - ${data?.package_id?.program_id?.name} (${data?.package_id?.name})`,
                 ],
-                ['Hình thức thanh toán', 'VNPAY'],
-                ['Phí bảo hiểm', formatVND(data?.fee || data?.fee_value)],
-                ['Số thẻ', router.query.vnp_card_number],
-                ['Ngân hàng', router.query.vnp_bank_code],
-                ['Số giao dịch', router.query.vnp_bank_tran_no],
+                ["Hình thức thanh toán", "VNPAY"],
+                ["Phí bảo hiểm", formatVND(data?.fee || data?.fee_value)],
+                ["Số thẻ", router.query.vnp_card_number],
+                ["Ngân hàng", router.query.vnp_bank_code],
+                ["Số giao dịch", router.query.vnp_bank_tran_no],
               ]}
             />
             <p>
@@ -110,13 +112,13 @@ export default function Complete({ data, headers, allNodeProducts }) {
           <TableInfo
             className="rounded"
             tableData={[
-              ['Thời gian', formatDateTime(data?.added_at)],
+              ["Thời gian", formatDateTime(data?.added_at)],
               [
-                'Tên bảo hiểm',
+                "Tên bảo hiểm",
                 `${data?.package_id?.program_id?.product_id?.name} - ${data?.package_id?.program_id?.name} (${data?.package_id?.name})`,
               ],
-              ['Hình thức thanh toán', 'VNPAY'],
-              ['Phí bảo hiểm', formatVND(data?.fee || data?.fee_value)],
+              ["Hình thức thanh toán", "VNPAY"],
+              ["Phí bảo hiểm", formatVND(data?.fee || data?.fee_value)],
             ]}
           />
           <div>
@@ -150,17 +152,16 @@ export default function Complete({ data, headers, allNodeProducts }) {
         {/* <meta property="og:image" key="og-image" content={data && data.image && `${getImageUrl()}/${data.image.path}`} /> */}
         {/* <meta property="og:description" key="og-description" content={data && data.desc} /> */}
       </Head>
-      <Navbar headers={headers} />
       <div id="activation">
         <div className="main-section content-section">
           <div className="container">
             <div className="ezin-card shadow text-center">
-              {renderContent({ success: vnp_response_code == '00' })}
+              {renderContent({ success: vnp_response_code == "00" })}
             </div>
             <input
               id="conversion_status"
               type="hidden"
-              value={vnp_response_code == '00' ? '1' : '0'}
+              value={vnp_response_code == "00" ? "1" : "0"}
             />
             <input
               type="hidden"
@@ -175,7 +176,6 @@ export default function Complete({ data, headers, allNodeProducts }) {
           </div>
         </div>
       </div>
-      <Footer product={allNodeProducts} />
     </>
   );
 }
@@ -186,7 +186,7 @@ export async function getServerSideProps(context) {
   const [res, allNodeProducts, data] = await Promise.all([
     getHeader(),
     getAllNodeProducts(),
-    getRequestFromPayment(vnp_txn_ref)
+    getRequestFromPayment(vnp_txn_ref),
   ]);
   return {
     props: {

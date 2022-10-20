@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Navbar from "../components/Layouts/Navbar";
 import MainBanner from "../components/HomeFive/MainBanner";
 import NewsSlider from "../components/Common/NewsSlider";
 import Banner from "../components/Common/Banner";
@@ -15,7 +14,6 @@ import CaseStudies from "../components/HomeFive/CaseStudies";
 import Testimonials from "../components/Common/Testimonials";
 import News from "../components/Common/News";
 import { useSelector, useDispatch } from "react-redux";
-import Footer from "../components/Layouts/Footer";
 import { createStructuredSelector } from "reselect";
 import { useRouter } from "next/router";
 import {
@@ -43,16 +41,23 @@ const mapStateToProps = createStructuredSelector({
 });
 
 export async function getServerSideProps(context) {
-  const [res, allNodeProducts, homeData, newsPost, topStore, newsData, partnerData] =
-    await Promise.all([
-      getHeader(),
-      getAllNodeProducts(),
-      getHomeData(),
-      getNewestPost(),
-      getTopStore(),
-      getHotNews(),
-      getAllPartners(),
-    ]);
+  const [
+    res,
+    allNodeProducts,
+    homeData,
+    newsPost,
+    topStore,
+    newsData,
+    partnerData,
+  ] = await Promise.all([
+    getHeader(),
+    getAllNodeProducts(),
+    getHomeData(),
+    getNewestPost(),
+    getTopStore(),
+    getHotNews(),
+    getAllPartners(),
+  ]);
   return {
     props: {
       headers: res?.data?.data,
@@ -103,8 +108,6 @@ const Home = ({
           minHeight: "100vh",
         }}
       >
-        <Navbar headers={headers} auth={auth} />
-
         <MainBanner />
       </div>
 
@@ -203,8 +206,6 @@ const Home = ({
   }  
 }`}
       />
-
-      <Footer product={allNodeProducts} />
     </>
   );
 };

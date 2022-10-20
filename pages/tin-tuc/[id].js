@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import NewsSidebarNews from "../../components/News/NewsSidebarNews";
 import Link from "next/link";
-import Navbar from "../../components/Layouts/Navbar";
-import Footer from "../../components/Layouts/Footer";
 import CommentsArea from "../../components/News/CommentsArea";
 import {
   getPostCategories,
@@ -15,19 +13,22 @@ import { createMarkup } from "../../utils/auth.helper";
 import dayjs from "dayjs";
 import Head from "next/head";
 
-
 export default function Blog({
   arrCats = [],
   arrNewsestPost = [],
   blogDetail = [],
-  headers
+  headers,
 }) {
   console.log("blogDetail", blogDetail);
   return (
     <>
-      <Head><title>{blogDetail.title}</title></Head>
-      <Navbar headers={headers} />
-      <section className="news-details-area ptb-100" style={{ paddingTop: "150px" }}>
+      <Head>
+        <title>{blogDetail.title}</title>
+      </Head>
+      <section
+        className="news-details-area ptb-100"
+        style={{ paddingTop: "150px" }}
+      >
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-md-12">
@@ -140,7 +141,6 @@ export default function Blog({
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }
