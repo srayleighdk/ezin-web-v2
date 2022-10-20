@@ -146,7 +146,7 @@ export default function SignUp({ headers }) {
           </Head>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
-              <label for="phone" class="form-label">
+              <label for="phone" className="form-label">
                 Số điện thoại
               </label>
               <input
@@ -206,7 +206,7 @@ export default function SignUp({ headers }) {
               Xác nhận
             </button>
           </div>
-          <div class="text-center mt-3">
+          <div className="text-center mt-3">
             Không nhận được mã.{" "}
             {countdown === 0 ? (
               <u className="cursor-pointer pl-1" onClick={onResend}>
@@ -223,7 +223,7 @@ export default function SignUp({ headers }) {
         <>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
-              <label for="name" class="form-label">
+              <label for="name" className="form-label">
                 Họ tên
               </label>
               <input
@@ -238,7 +238,7 @@ export default function SignUp({ headers }) {
           </div>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
-              <label for="email" class="form-label">
+              <label for="email" className="form-label">
                 Email
               </label>
               <input
@@ -251,7 +251,7 @@ export default function SignUp({ headers }) {
           </div>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
-              <label for="password" class="form-label">
+              <label for="password" className="form-label">
                 Mật khẩu
               </label>
               <input
@@ -265,7 +265,7 @@ export default function SignUp({ headers }) {
           </div>
           <div className="col-md-12 col-sm-12">
             <div className="form-group">
-              <label for="confirmpassword" class="form-label">
+              <label for="confirmpassword" className="form-label">
                 Xác nhận mật khẩu
               </label>
               <input

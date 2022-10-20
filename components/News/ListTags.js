@@ -28,7 +28,7 @@ export default function ListTags({
               {idCat && (
                 <div className="my-2 text-16">
                   Tags:{" "}
-                  <span class="badge bg-primary text-16">{idCat}</span>
+                  <span className="badge bg-primary text-16">{idCat}</span>
                 </div>
               )}
               {arrBlogs?.length === 0 ? (

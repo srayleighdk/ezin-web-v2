@@ -26,6 +26,7 @@ export const getNewsByChuDe = (slug) =>
 export const getPostByTag = (id) => eZinApi.get(`post/bytag/${id}`);
 export const getNewsDetails = (id) => eZinApi.get(`${API.newsDetails}/${id}`);
 export const getNews = (query) => eZinApi.get(`${API.newsList}?${query || ""}`);
+export const getHotNews = () => eZinApi.get(`${API.newsList}/hotnews`);
 
 /***
  * KIEN THUC
@@ -172,6 +173,7 @@ export const getAccountMembers = () => eZinApi.get(`/account/get-members`);
  * EzStore
  */
 export const getTopStore = () => eZinApiNode.get(`/node/store/top`);
+export const getAllPartners = () => eZinApi.get(`/slider/key/partners`);
 
 /*
  * Place

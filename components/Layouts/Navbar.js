@@ -36,7 +36,7 @@ const Navbar = ({ headers, auth }) => {
     : "navbar-toggler navbar-toggler-right";
   return (
     <>
-      <div id="navbar" className="navbar-area fixed-top bg-white">
+      <div id="navbar" className="navbar-area">
         <nav className="navbar navbar-expand-md navbar-light">
           <div className="container">
             <Link href="/">

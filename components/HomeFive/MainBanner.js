@@ -1,132 +1,91 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
+import { Modal, Button, Checkbox } from "antd";
+// import BgBannerHeader from "../../public/images/bg-banner-header.png";
 
 export default function MainBanner() {
+  const [visibleAudio, setVisibleAudio] = useState(false);
+
   return (
-    <section className="slider-area">
-      <Swiper
-        navigation={true}
-        autoplay={{
-          delay: 6000,
-          pauseOnMouseEnter: true,
+    <section className="slider-area pb-0">
+      {/* <div
+        className="jumpx-slider-item vh-100"
+        style={{
+          backgroundImage: `url(/images/bg-banner-header.png)`,
+          minHeight: "100vh",
         }}
-        modules={[Navigation, Autoplay]}
-        className="hero-swiper"
+      > */}
+      <div className="text-center">
+        <div className="jumpx-slider-text overflow-hidden one mx-auto homepage-no-maxWidth">
+          {/* <span>IT & AI Services</span> */}
+          <h1 className="text-black mb-0 text-60">
+            Trải nghiệm cuộc sống tuyệt vời
+          </h1>
+          <p className="text-black">
+            Những hy sinh của ngày hôm nay sẽ được đền đáp vào ngày mai.
+          </p>
+        </div>
+      </div>
+      <div
+        className="jumpx-slider-item"
+        style={{
+          backgroundImage: `url(/images/banner-home.png)`,
+          height: 500,
+        }}
       >
-        <SwiperSlide>
-          <div
-            className="jumpx-slider-item vh-100"
-            style={{
-              backgroundImage: `url(/images/home-five/slider.png)`,
-              minHeight: "100vh",
-            }}
-          >
-            <div className="d-table">
-              <div className="d-table-cell">
-                <div className="container">
-                  <div className="jumpx-slider-text overflow-hidden one mx-auto homepage-no-maxWidth">
-                    {/* <span>IT & AI Services</span> */}
-                    <h1 className="text-black mb-0 text-60">
-                      Trải nghiệm cuộc sống tuyệt vời
-                    </h1>
-                    <p className="text-black mb-46">
-                      Những hy sinh của ngày hôm nay sẽ được đền đáp vào ngày
-                      mai.
-                    </p>
-                  </div>
-                </div>
-                <div
-                  className="slider-btn position-absolute d-flex justify-content-center w-100"
-                  style={{ bottom: "8%" }}
-                >
-                  <Link href="/contact">
-                    <a className="default-btn white mx-3">Mua bảo hiểm ngay</a>
-                  </Link>
+        <div className="d-table">
+          <div className="d-table-cell">
+            <div
+              className="slider-btn position-absolute d-flex justify-content-center w-100"
+              style={{ top: "0" }}
+            >
+              <Link href="/#san-pham">
+                <a className="default-btn white mx-3">Mua bảo hiểm ngay</a>
+              </Link>
 
-                  <Link href="/services">
-                    <a className="default-btn mx-3">Xem video</a>
-                  </Link>
-                </div>
-              </div>
+              <a className="default-btn bg-white text-dark d-flex mx-3 justify-content-between align-items-center px-3 py-0" style={{width: 166}} onClick={() => setVisibleAudio(true)}>
+                <div className="playVideo rounded-circle position-relative"><div className="playIcon"></div></div>
+                <div className="h-100" style={{lineHeight: 3.4}}>Xem video</div>
+              </a>
             </div>
           </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div
-            className="jumpx-slider-item vh-100"
-            style={{ backgroundImage: `url(/images/home-five/slider.png)` }}
-          >
-            <div className="d-table">
-              <div className="d-table-cell">
-                <div className="container">
-                  <div className="jumpx-slider-text overflow-hidden one mx-auto homepage-no-maxWidth">
-                    {/* <span>IT & AI Services</span> */}
-                    <h1 className="text-black mb-0 text-60">
-                      Đi bình an về hạnh phúc
-                    </h1>
-                    <p className="text-black mb-46">
-                      Hạnh phúc lớn nhất là sống hài lòng từng chút một.
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  className="slider-btn position-absolute d-flex justify-content-center w-100"
-                  style={{ bottom: "8%" }}
-                >
-                  <Link href="/contact">
-                    <a className="default-btn white mx-3">Mua bảo hiểm ngay</a>
-                  </Link>
-
-                  <Link href="/services">
-                    <a className="default-btn mx-3">Xem video</a>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div
-            className="jumpx-slider-item vh-100"
-            style={{ backgroundImage: `url(/images/home-five/slider.png)` }}
-          >
-            <div className="d-table">
-              <div className="d-table-cell">
-                <div className="container">
-                  <div className="jumpx-slider-text overflow-hidden one mx-auto homepage-no-maxWidth">
-                    {/* <span>IT & AI Services</span> */}
-                    <h1 className="text-black mb-0 text-60">
-                      Trải nghiệm cuộc sống tuyệt vời
-                    </h1>
-                    <p className="text-black mb-46">
-                      Những hy sinh của ngày hôm nay sẽ được đền đáp vào ngày
-                      mai.
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  className="slider-btn position-absolute d-flex justify-content-center w-100"
-                  style={{ bottom: "8%" }}
-                >
-                  <Link href="/contact">
-                    <a className="default-btn white mx-3">Mua bảo hiểm ngay</a>
-                  </Link>
-
-                  <Link href="/services">
-                    <a className="default-btn mx-3">Xem video</a>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-      </Swiper>
+        </div>
+      </div>
+      <Modal
+        title="Giới thiệu về Ezin"
+        visible={visibleAudio}
+        onOk={() => setVisibleAudio(false)}
+        onCancel={() => setVisibleAudio(false)}
+        okText="Đồng ý"
+        cancelText="Đóng"
+        closable={true}
+      >
+        <div
+          style={{
+            height: "auto",
+            overflow: "auto",
+            border: "2px solid #E5E7EB",
+            borderRadius: "10px",
+            wordWrap: "break-word",
+            padding: "10px",
+            textAlign: "justify",
+            fontSize: "12px",
+          }}
+        >
+          <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/6Bz_kMgu3fA?autoplay=1"
+            title="Quy tắc bảo hiểm"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </Modal>
+      {/* </div> */}
     </section>
   );
 }

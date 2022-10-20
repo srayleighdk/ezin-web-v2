@@ -51,7 +51,7 @@ export default function EzStore({ topStores }) {
         <div className="row mb-5 justify-content-center">
           <div className="col-lg-6">
             <select
-              class="form-select w-75 w-xs-100 ms-auto"
+              className="form-select w-75 w-xs-100 ms-auto"
               aria-label="Default select example"
               onClick={(e) => loadDistricts(e.target.value)}
             >
@@ -61,9 +61,9 @@ export default function EzStore({ topStores }) {
               ))}
             </select>
           </div>
-          <div className="col-lg-6">
+          {/* <div className="col-lg-6">
             <select
-              class="form-select w-75 w-xs-100 mt-xs-3 me-auto"
+              className="form-select w-75 w-xs-100 mt-xs-3 me-auto"
               aria-label="Default select example"
             >
               <option selected>Chọn chi nhánh</option>
@@ -71,7 +71,7 @@ export default function EzStore({ topStores }) {
                 <option value={item.value} key={item._id}>{item.label}</option>
               ))}
             </select>
-          </div>
+          </div> */}
         </div>
         <Swiper
           spaceBetween={25}
@@ -120,7 +120,7 @@ export default function EzStore({ topStores }) {
 
                   <ul className="d-flex">
                     <li className="pe-1">
-                      <i class="flaticon-call"></i>
+                      <i className="flaticon-call"></i>
                     </li>
                     <li>0987652718</li>
                   </ul>
@@ -138,44 +138,6 @@ export default function EzStore({ topStores }) {
               </div>
             </SwiperSlide>
           ))}
-          {/* <SwiperSlide className="slider-news">
-            <div className="single-news">
-              <div className="news-content-wrap">
-                <div className="blog-img mb-2 text-center">
-                  <Link href="/news-details">
-                    <a>
-                      <img src="/images/ezstore1.png" alt="ezstore1" />
-                    </a>
-                  </Link>
-                </div>
-
-                <div className="text-center">
-                  <Link href="/news-details">
-                    <a>
-                      <h3>EzStore Quận 1</h3>
-                    </a>
-                  </Link>
-                </div>
-
-                <ul className="d-flex">
-                  <li className="pe-1">
-                    <i class="flaticon-call"></i>
-                  </li>
-                  <li>0987652718</li>
-                </ul>
-                <ul className="d-flex">
-                  <li className="pe-1">
-                    <i className="flaticon-maps-and-flags"></i>
-                  </li>
-                  <li>124 Nguyễn Oanh, Phường 10, Quận Gò Vấp, TP HCM</li>
-                </ul>
-
-                <Link href="/services">
-                  <a className="default-btn w-100 text-center">Liên hệ</a>
-                </Link>
-              </div>
-            </div>
-          </SwiperSlide> */}
         </Swiper>
       </div>
     </div>

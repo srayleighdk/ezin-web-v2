@@ -14,16 +14,18 @@ import WhatWeOffer from "../components/HomeFive/WhatWeOffer";
 import CaseStudies from "../components/HomeFive/CaseStudies";
 import Testimonials from "../components/Common/Testimonials";
 import News from "../components/Common/News";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import Footer from "../components/Layouts/Footer";
-import { createStructuredSelector } from 'reselect';
-import { useRouter } from 'next/router';
+import { createStructuredSelector } from "reselect";
+import { useRouter } from "next/router";
 import {
   getHeader,
   getAllNodeProducts,
   getHomeData,
   getNewestPost,
   getTopStore,
+  getHotNews,
+  getAllPartners,
 } from "./api";
 import SchemaCode from "../components/schema-code";
 import {
@@ -31,7 +33,7 @@ import {
   makeSelectAuth,
   makeSelectCart,
   makeSelectCartVisible,
-} from '../src/store/selector';
+} from "../src/store/selector";
 
 const mapStateToProps = createStructuredSelector({
   auth: makeSelectAuth(),
@@ -41,13 +43,16 @@ const mapStateToProps = createStructuredSelector({
 });
 
 export async function getServerSideProps(context) {
-  const [res, allNodeProducts, homeData, newsPost, topStore] = await Promise.all([
-    getHeader(),
-    getAllNodeProducts(),
-    getHomeData(),
-    getNewestPost(),
-    getTopStore(),
-  ]);
+  const [res, allNodeProducts, homeData, newsPost, topStore, newsData, partnerData] =
+    await Promise.all([
+      getHeader(),
+      getAllNodeProducts(),
+      getHomeData(),
+      getNewestPost(),
+      getTopStore(),
+      getHotNews(),
+      getAllPartners(),
+    ]);
   return {
     props: {
       headers: res?.data?.data,
@@ -55,12 +60,22 @@ export async function getServerSideProps(context) {
       testimonials: homeData?.data?.data?.sections,
       newsPost: newsPost?.data?.data,
       topStores: topStore?.data?.data,
+      news: newsData?.data?.data,
+      partners: partnerData?.data?.data?.images,
     }, // will be passed to the page component as props
   };
 }
-const Home = ({ headers, allNodeProducts, testimonials, newsPost, topStores }) => {
+const Home = ({
+  headers,
+  allNodeProducts,
+  testimonials,
+  newsPost,
+  topStores,
+  news,
+  partners,
+}) => {
   const { auth, activationVisible } = useSelector(mapStateToProps);
-  console.log("topStores", allNodeProducts)
+  console.log("topStores", allNodeProducts);
   const router = useRouter();
   // export async function getServerSideProps(context) {
   //     const res = await getHeader();
@@ -69,21 +84,29 @@ const Home = ({ headers, allNodeProducts, testimonials, newsPost, topStores }) =
   //     }
   //   }
 
-  useEffect(() => {
-    if(router.asPath === "/#san-pham") {
-      window.scroll({
-        top: 1100,
-        left: 0,
-        behavior: 'smooth',
-      });
-    }
-  }, [router.asPath])
+  // useEffect(() => {
+  //   if (router.asPath === "/#san-pham") {
+  //     window.scroll({
+  //       top: 1100,
+  //       left: 0,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // }, [router.asPath]);
 
   return (
     <>
-      <Navbar headers={headers} auth={auth} />
+      <div
+        className="jumpx-slider-item"
+        style={{
+          backgroundImage: `url(/images/bg-banner-header.png)`,
+          minHeight: "100vh",
+        }}
+      >
+        <Navbar headers={headers} auth={auth} />
 
-      <MainBanner />
+        <MainBanner />
+      </div>
 
       <NewsSlider newsPost={newsPost} />
 
@@ -101,13 +124,13 @@ const Home = ({ headers, allNodeProducts, testimonials, newsPost, topStores }) =
 
       <CommunityEzin />
 
-      <News />
+      <News news={news || {}} />
 
       <Testimonials testimonials={testimonials.testimonials} />
 
       <CaseStudies />
 
-      <Partner />
+      <Partner partners={partners || {}} />
 
       <EzStore topStores={topStores} />
 

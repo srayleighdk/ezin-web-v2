@@ -202,7 +202,7 @@ export default function Login({ headers }) {
                 </button>
               </div>
             </div>
-            <div class="text-center mt-3">
+            <div className="text-center mt-3">
               Không nhận được mã.{" "}
               {countdown === 0 ? (
                 <u className="cursor-pointer pl-1">GỬI LẠI</u>
@@ -231,7 +231,7 @@ export default function Login({ headers }) {
           >
             <div className="col-md-12 col-sm-12">
               <div className="form-group">
-                <label for="password" class="form-label">
+                <label for="password" className="form-label">
                   Mật khẩu mới
                 </label>
                 <input
@@ -245,7 +245,7 @@ export default function Login({ headers }) {
             </div>
             <div className="col-md-12 col-sm-12">
               <div className="form-group">
-                <label for="confirmpassword" class="form-label">
+                <label for="confirmpassword" className="form-label">
                   Xác nhận mật khẩu
                 </label>
                 <input

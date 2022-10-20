@@ -3834,7 +3834,7 @@ jumpx SliderArea Style
 }
 
 .jumpx-slider-item {
-  background-position: center center;
+  /* background-position: center center; */
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -6354,4 +6354,25 @@ color: #000000;
 
 .anticon-delete:hover {
   color: #000 !important;
+}
+
+.mt-newsSlider {
+  margin-top: 166px !important;
+}
+
+.playVideo {
+  height: 45px;
+  width: 45px;
+  background-color: #FE9526;
+}
+
+.playIcon::after {
+  content: "";
+  position: absolute;
+  top: 18%;
+  left: 32%;
+  border-width: 14px 22px;
+  border-radius: 12%;
+  border-style: solid;
+  border-color: transparent transparent transparent #fff;
 }

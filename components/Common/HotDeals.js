@@ -124,11 +124,11 @@ const HotDeals = ({ allNodeProducts }) => {
                     <a className="ml-3 text-dark">-10%</a>
                   </p>
                   <div
-                    class="progress position-relative"
+                    className="progress position-relative"
                     style={{ height: 20 }}
                   >
                     <div
-                      class="progress-bar bg-warning"
+                      className="progress-bar bg-warning"
                       role="progressbar"
                       style={{ width: `${(124 / 150) * 100}%` }}
                       aria-valuenow="75"
