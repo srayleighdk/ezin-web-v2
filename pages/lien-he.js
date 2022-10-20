@@ -1,27 +1,11 @@
-import React, { Component } from 'react';
-import Navbar from '../components/Layouts/Navbar';
-import PageBanner from '../components/Common/PageBanner';
-import ContactInfo from '../components/Contact/ContactInfo';
-import ContactForm from '../components/Contact/ContactForm';
-import Footer from '../components/Layouts/Footer';
-import { getHeader } from './api';
+import React, { Component } from "react";
+import PageBanner from "../components/Common/PageBanner";
+import ContactInfo from "../components/Contact/ContactInfo";
+import ContactForm from "../components/Contact/ContactForm";
 
-export async function getStaticProps() {
-  const res = await getHeader();
-  return {
-    props: {
-      headers: res?.data?.data,
-    }
-  }
-}
-
-
-function Contact({ headers }) {
-
+function Contact() {
   return (
     <>
-      <Navbar headers={headers} />
-
       <PageBanner
         pageTitle="Hãy liên hệ với chúng tôi"
         homePageUrl="/"
@@ -32,11 +16,8 @@ function Contact({ headers }) {
       <ContactInfo />
 
       <ContactForm />
-
-      <Footer />
     </>
   );
-
 }
 
 export default Contact;
