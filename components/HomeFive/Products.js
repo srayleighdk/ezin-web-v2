@@ -5,7 +5,7 @@ import { formatVND } from "../../utils/helpers.js";
 const Products = ({ allNodeProducts }) => {
   const percentReduce = (value) => {
     return Math.round(
-      ((value.max_fee - value.min_fee_promotion) / value.max_fee) * 100
+      ((value.min_fee - value.min_fee_promotion) / value.min_fee) * 100
     );
   };
 
@@ -51,7 +51,7 @@ const Products = ({ allNodeProducts }) => {
                       </p>
                       {percentReduce(product) !== 0 && (
                         <p className="product-prize-old">
-                          {formatVND(product.max_fee)}{" "}
+                          {formatVND(product.min_fee)}{" "}
                           <a className="ml-1 text-dark">
                             {`-${percentReduce(product)}%`}
                           </a>

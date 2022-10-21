@@ -29,7 +29,7 @@ export default function MainBanner() {
         </div>
       </div>
       <div
-        className="jumpx-slider-item mt-ms-96"
+        className="jumpx-slider-item mt-ms-80"
         style={{
           backgroundImage: `url(/images/banner-home.png)`,
           maxHeight: 500,
@@ -40,7 +40,7 @@ export default function MainBanner() {
           <div className="d-table-cell">
             <div
               className="slider-btn position-absolute d-flex justify-content-center w-100 d-sm-flex flex-column px-ms-3"
-              style={{ top: "-48%" }}
+              style={{ top: "-40%" }}
             >
               <Link href="/#san-pham">
                 <a

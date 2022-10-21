@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 import Link from "next/link";
+import { Statistic } from "antd";
+const { Countdown } = Statistic;
 import { formatVND } from "../../utils/helpers";
 
 const hotDeals = [
@@ -14,23 +16,40 @@ const hotDeals = [
 
 const HotDeals = ({ allNodeProducts }) => {
   const [hotDealsKey, setHotDealsKey] = useState(1);
+  const deadline = Date.now() + 1000 * 60 * 60 * 24 * 5 + 1000 * 59;
+
+  const finish = () => {};
+
+  // const onChange = (val) => {
+  //   if (4.95 * 1000 < val && val < 5 * 1000) {
+  //   }
+  // };
   return (
     <div className="ptb-100 position-relative" style={{ padding: "30px 0" }}>
       <div className="container mb-20 mt-20 bg-deals rounded-3">
         <div className="row justify-content-between">
-          <div className="col-lg-5 col-12 d-flex justify-content-center">
+          <div className="col-lg-5 col-12 d-flex justify-content-center mt-4">
             <img
               src="/images/flash-deal.png"
               alt="flash deal"
               className="mt-3 mb-1 ms-3"
+              style={{ width: 70 }}
             />
             <div className="d-flex flex-wrap ms-4 text-white">
-              <h4 className="w-100 mb-0 align-self-end text-white">
+              <h2 className="w-100 mb-0 align-self-end text-white fw-700">
                 Giờ vàng deal sốc
-              </h4>
-              <div className="w-100 mb-0 me-3 mt-2 d-flex align-items-center">
-                Kết thúc trong <div className="ms-2 me-1 time-deal">01</div>:
-                <div className="time-deal mx-1">30</div>:
+              </h2>
+              <div className="w-100 mb-0 d-flex align-items-center">
+                Kết thúc trong{" "}
+                <div className="ms-2 me-1 time-deal">
+                  <Countdown
+                    value={deadline}
+                    format="HH"
+                    onFinish={finish}
+                    className="text-white"
+                  />
+                </div>
+                :<div className="time-deal mx-1">30</div>:
                 <div className="time-deal mx-1">09</div>
               </div>
             </div>
@@ -43,6 +62,27 @@ const HotDeals = ({ allNodeProducts }) => {
               </div>
             </div>
           </div> */}
+          <Countdown
+            title="Countdown"
+            value={deadline}
+            format="HH"
+            onFinish={finish}
+            // onChange={(e) => console.log("HH", e.target)}
+          />
+          <Countdown
+            title="Countdown"
+            value={deadline}
+            format="mm"
+            onFinish={finish}
+            // onChange={(e) => console.log("mm", e.target)}
+          />
+          <Countdown
+            title="Countdown"
+            value={deadline}
+            format="ss"
+            onFinish={finish}
+            // onChange={(e) => console.log("ss", e.target)}
+          />
           <div className="col-lg-7 col-12 d-flex justify-content-center align-items-center">
             <Swiper
               spaceBetween={25}
@@ -67,9 +107,16 @@ const HotDeals = ({ allNodeProducts }) => {
             >
               {hotDeals.map((item) => (
                 <SwiperSlide key={item.key} className="pt-2 text-center">
-                  <button className="position-relative text-center" onClick={() => setHotDealsKey(item.key)}>
+                  <button
+                    className="position-relative text-center"
+                    onClick={() => setHotDealsKey(item.key)}
+                  >
                     <p className="mb-0 text-18">Đang diễn ra</p>
-                    <p className={`text-20 text-xm-18 ${hotDealsKey === item.key && "line-footer"}`}>
+                    <p
+                      className={`text-20 text-xm-18 ${
+                        hotDealsKey === item.key && "line-footer"
+                      }`}
+                    >
                       {item.time}
                     </p>
                   </button>
