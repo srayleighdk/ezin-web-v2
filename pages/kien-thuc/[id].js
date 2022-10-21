@@ -1,21 +1,15 @@
 import React, { Component } from "react";
 import NewsSidebar from "../../components/Blogs/NewsSidebar";
 import Link from "next/link";
-import Navbar from "../../components/Layouts/Navbar";
-import Footer from "../../components/Layouts/Footer";
 import { getAllBlogCats, getBlogDetail } from "../api/index";
 import styles from "../life/life.module.scss";
 import { createMarkup } from "../../utils/auth.helper";
 import dayjs from "dayjs";
 
-export default function Blog({
-  arrCats = [],
-  blogDetail = [],
-}) {
+export default function Blog({ arrCats = [], blogDetail = [] }) {
   console.log("blogDetail", blogDetail);
   return (
     <>
-      <Navbar />
       <section className="news-details-area ptb-100">
         <div className="container">
           <div className="row">
@@ -55,7 +49,7 @@ export default function Blog({
 
                   <p
                     dangerouslySetInnerHTML={createMarkup(
-                      blogDetail?.description.replace(/\n/g, '')
+                      blogDetail?.description.replace(/\n/g, "")
                     )}
                   ></p>
                 </div>
@@ -99,24 +93,17 @@ export default function Blog({
             </div>
 
             <div className="col-lg-4 col-md-12">
-              <NewsSidebar
-                arrCats={arrCats}
-                tags={blogDetail?.tags}
-              />
+              <NewsSidebar arrCats={arrCats} tags={blogDetail?.tags} />
             </div>
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }
 
 Blog.getInitialProps = async ({ query: { id } }) => {
-  let [res1, res2] = await Promise.all([
-    getAllBlogCats(),
-    getBlogDetail(id),
-  ]);
+  let [res1, res2] = await Promise.all([getAllBlogCats(), getBlogDetail(id)]);
   return {
     arrCats: res1?.data?.data,
     blogDetail: res2?.data?.data,

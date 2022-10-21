@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import Navbar from "../components/Layouts/Navbar";
 // import PageBanner from "../components/Common/PageBanner";
-import useAuth from "../components/auth-wrapper/auth.context";
-import Footer from "../components/Layouts/Footer";
+import useAuth from "../src/container/auth-wrapper/auth.context";
 import Link from "next/link";
 import { getHeader, loginApi, getProfile } from "../pages/api";
 import { normalizePhoneNumber } from "../utils/helpers";
@@ -64,7 +62,6 @@ export default function Login({ headers }) {
       <Head>
         <title>Login</title>
       </Head>
-      <Navbar headers={headers} />
 
       <div className="user-area-all-style log-in-area ptb-100 mt-4">
         <div className="container">
@@ -155,8 +152,6 @@ export default function Login({ headers }) {
           </div>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

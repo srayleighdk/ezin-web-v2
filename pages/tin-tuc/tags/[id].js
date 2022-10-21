@@ -4,12 +4,21 @@ import Footer from "../../../components/Layouts/Footer";
 import ListTagsNews from "../../../components/News/ListTagsNews";
 import { getNews, getNewestPost, getPostCategories } from "../../../pages/api";
 
-export default function TagList({ id, arrBlogs = [], postNewest=[], arrCats=[] }) {
+export default function TagList({
+  id,
+  arrBlogs = [],
+  postNewest = [],
+  arrCats = [],
+}) {
   return (
     <>
       {/* <Navbar /> */}
-      <ListTagsNews arrBlogs={arrBlogs} arrCats={arrCats} arrNewsestPost={postNewest} idCat={id} />
-      <Footer />
+      <ListTagsNews
+        arrBlogs={arrBlogs}
+        arrCats={arrCats}
+        arrNewsestPost={postNewest}
+        idCat={id}
+      />
     </>
   );
 }

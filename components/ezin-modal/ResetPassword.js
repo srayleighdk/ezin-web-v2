@@ -1,11 +1,14 @@
-import React from 'react';
-import { Button, Input, Typography, Modal, Form, message } from 'antd';
-import { createStructuredSelector } from 'reselect';
-import { makeResetPassVisible, makeModalData } from 'store/modal/selector';
-import { useSelector, useDispatch } from '../../src/react-redux';
-import { toggleResetPass } from '../../src/store/modal/actions';
-import { resetPasswordApi } from '../../pages/api';
-import useAuth from '../../src/container/auth-wrapper/auth.context';
+import React from "react";
+import { Button, Input, Typography, Modal, Form, message } from "antd";
+import { createStructuredSelector } from "reselect";
+import {
+  makeResetPassVisible,
+  makeModalData,
+} from "../../src/store/modal/selector";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleResetPass } from "../../src/store/modal/actions";
+import { resetPasswordApi } from "../../pages/api";
+import useAuth from "../../src/container/auth-wrapper/auth.context";
 
 const mapStateToProps = createStructuredSelector({
   resetPassVisible: makeResetPassVisible(),
@@ -58,11 +61,11 @@ export default function ResetPassword() {
         <Form.Item
           name="password"
           rules={[
-            { required: true, message: 'Vui lòng nhập mật khẩu' },
+            { required: true, message: "Vui lòng nhập mật khẩu" },
             {
               pattern: new RegExp("[0-9]{6}"),
-              message: "Mật khẩu phải bao gồm 6 chữ số"
-            }
+              message: "Mật khẩu phải bao gồm 6 chữ số",
+            },
           ]}
           className="mb-3"
         >
@@ -73,27 +76,27 @@ export default function ResetPassword() {
             autoFocus={true}
             minLength={6}
             maxLength={6}
-          // iconRender={(visible) =>
-          //   visible ? <VisibleIcon /> : <InvisibleIcon />
-          // }
+            // iconRender={(visible) =>
+            //   visible ? <VisibleIcon /> : <InvisibleIcon />
+            // }
           />
         </Form.Item>
 
         <Form.Item
           name="confirm"
-          dependencies={['password']}
+          dependencies={["password"]}
           hasFeedback
           rules={[
             {
               required: true,
-              message: 'Vui lòng nhập lại mật khẩu',
+              message: "Vui lòng nhập lại mật khẩu",
             },
             ({ getFieldValue }) => ({
               validator(rule, value) {
-                if (!value || getFieldValue('password') === value) {
+                if (!value || getFieldValue("password") === value) {
                   return Promise.resolve();
                 }
-                return Promise.reject('Mật khẩu không giống nhau');
+                return Promise.reject("Mật khẩu không giống nhau");
               },
             }),
           ]}

@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import Navbar from "../../components/Layouts/Navbar";
 import PageBanner from "../../components/Common/PageBanner";
-import Footer from "../../components/Layouts/Footer";
 import { getPageContents, getHeader, getAllNodeProducts } from "../api";
 import { createMarkupNormal } from "../../utils/auth.helper";
 import Head from "next/head";
@@ -40,7 +38,6 @@ const TermsConditions = ({ data, headers, allNodeProducts }) => {
       <Head>
         <title>{data.name}</title>
       </Head>
-      <Navbar headers={headers} />
 
       <div className="text-container mt-5 ptb-100">
         <div className="container">
@@ -68,8 +65,6 @@ const TermsConditions = ({ data, headers, allNodeProducts }) => {
           )}
         </div>
       </div>
-
-      <Footer product={allNodeProducts} />
     </>
   );
 };

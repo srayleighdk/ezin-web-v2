@@ -2,15 +2,27 @@ import React from "react";
 import Navbar from "../../../components/Layouts/Navbar";
 import Footer from "../../../components/Layouts/Footer";
 import ListTags from "../../../components/News/ListTags";
-import { getPostByTag, getNewestPost, getPostCategories } from "../../../pages/api";
+import {
+  getPostByTag,
+  getNewestPost,
+  getPostCategories,
+} from "../../../pages/api";
 
-export default function TagList({ id, arrBlogs = [], postNewest=[], arrCats=[] }) {
+export default function TagList({
+  id,
+  arrBlogs = [],
+  postNewest = [],
+  arrCats = [],
+}) {
   console.log("getPostByTag", id, arrBlogs);
   return (
     <>
-      {/* <Navbar /> */}
-      <ListTags arrBlogs={arrBlogs} arrCats={arrCats} arrNewsestPost={postNewest} idCat={id} />
-      <Footer />
+      <ListTags
+        arrBlogs={arrBlogs}
+        arrCats={arrCats}
+        arrNewsestPost={postNewest}
+        idCat={id}
+      />
     </>
   );
 }

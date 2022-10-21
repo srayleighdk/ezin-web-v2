@@ -9,8 +9,6 @@ import {
   getHeader,
   getAllNodeProducts,
 } from "../api";
-import Navbar from "../../components/Layouts/Navbar";
-import Footer from "../../components/Layouts/Footer";
 import RegisterModal from "../../components/ezin-modal/RegisterModal";
 import LoginModal from "../../components/ezin-modal/LoginModal";
 // import QnA from './components/qna';
@@ -267,7 +265,6 @@ export default function HopdongPage({ headers, allNodeProducts }) {
           content={`Gói BH - ${data && data.name} | Ezin`}
         />
       </Head>
-      <Navbar headers={headers} />
       <section id="activation">
         <div className="main-section content-section ptb-100 mt-4">
           <div className="container">
@@ -297,7 +294,6 @@ export default function HopdongPage({ headers, allNodeProducts }) {
         </div>
         {auth && <LoginModal />}
       </section>
-      <Footer product={allNodeProducts} />
       {/* <RegisterModal /> */}
     </>
   );

@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { getAllNodeProducts } from "../../pages/api";
 
-const Footer = ({ product }) => {
+const Footer = () => {
+  const [product, setProduct] = useState();
   console.log("product footer", product);
   // let currentYear = new Date().getFullYear();
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const res = await getAllNodeProducts();
+      if (res?.data.success) {
+        setProduct(res?.data?.data);
+      }
+    };
+    fetchProduct();
+  }, []);
+
   return (
     <>
       <footer className="footer-top-area pt-100 pb-70">
@@ -162,12 +174,14 @@ const Footer = ({ product }) => {
                   </li>
                   <li>
                     <p>
-                      Hotline: <a
+                      Hotline:{" "}
+                      <a
                         href="tel:0909088313"
                         style={{ paddingLeft: 0, paddingRight: 6 }}
                       >
                         0909.088.313
-                      </a> / Zalo:{" "}
+                      </a>{" "}
+                      / Zalo:{" "}
                       <a
                         href="https://zalo.me/0909.088.313"
                         style={{ paddingLeft: 6 }}

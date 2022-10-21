@@ -1,9 +1,7 @@
 import React from "react";
-import Navbar from "../../components/Layouts/Navbar";
 import PageBanner from "../../components/Product/PageBanner";
 import PricingStyleOne from "../../components/Product/PricingStyleOne";
 import MoneyIcon from "../../public/images/money.svg";
-import Footer from "../../components/Layouts/Footer";
 import {
   getProduct,
   getNodePackages,
@@ -54,8 +52,6 @@ export default function Product({
   const iconsFeatures = [MoneyIcon, WorkIcon, FileIcon];
   return (
     <>
-      <Navbar headers={headers} />
-
       {/* <PageBanner
         pageTitle={product?.name}
         img={product.image.path}
@@ -239,8 +235,6 @@ export default function Product({
           </div>
         </div>
       </section>
-
-      <Footer product={allNodeProducts} />
     </>
   );
 }

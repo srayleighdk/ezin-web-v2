@@ -19,7 +19,6 @@ import {
 export async function getServerSideProps(context) {
   const id = context.query.id;
   const [res, res1, res2, res3] = await Promise.all([
-
     getHeader(),
     getNewsByChuDe(id),
     getNewestPost(),
@@ -41,12 +40,14 @@ export default function CatList({
   arrBlogs = [],
   postNewest = [],
   arrCats = [],
-  headers
+  headers,
 }) {
   console.log("CatList", id, arrBlogs, postNewest);
   return (
     <>
-      <Head><title>Chủ đề {id}</title></Head>
+      <Head>
+        <title>Chủ đề {id}</title>
+      </Head>
       <Navbar headers={headers} />
       <ListTopicNews
         arrBlogs={arrBlogs}
@@ -54,7 +55,6 @@ export default function CatList({
         arrNewsestPost={postNewest}
         idCat={id}
       />
-      <Footer />
     </>
   );
 }

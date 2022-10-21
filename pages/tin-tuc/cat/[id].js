@@ -15,13 +15,22 @@ import {
 // import { createMarkup } from "../../../utils/auth.helper";
 // import dayjs from "dayjs";
 
-export default function CatList({ id, arrBlogs = [], postNewest = [], arrCats = [], headers }) {
+export default function CatList({
+  id,
+  arrBlogs = [],
+  postNewest = [],
+  arrCats = [],
+  headers,
+}) {
   console.log("CatList", id, arrBlogs, postNewest);
   return (
     <>
-      <Navbar headers={headers} />
-      <ListNews arrBlogs={arrBlogs} arrCats={arrCats} arrNewsestPost={postNewest} idCat={id} />
-      <Footer />
+      <ListNews
+        arrBlogs={arrBlogs}
+        arrCats={arrCats}
+        arrNewsestPost={postNewest}
+        idCat={id}
+      />
     </>
   );
 }
@@ -38,6 +47,6 @@ CatList.getInitialProps = async ({ query: { id } }) => {
     arrBlogs: res1?.data?.data,
     id: id,
     postNewest: res2?.data?.data,
-    arrCats: res3?.data?.data
+    arrCats: res3?.data?.data,
   };
 };

@@ -1,26 +1,60 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "antd";
 import Link from "../../utils/ActiveLink";
+import Image from "next/image";
+import NewHeaderLogo from "../../public/images/logo.png";
 import useAuth from "../../src/container/auth-wrapper/auth.context";
+import { createStructuredSelector } from "reselect";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  makeSelectActivationVisible,
+  makeSelectAuth,
+  makeSelectCart,
+  makeSelectCartVisible,
+} from "../../src/store/selector";
+import {
+  toggleLoginModal,
+  toggleRegisterModal,
+} from "../../src/store/modal/actions";
+import { setActivationVisible } from "../../src/store/actions";
+import { getHeader } from "../../pages/api";
 
-const Navbar = ({ headers, auth }) => {
+function ellipsis(str, len) {
+  return str ? (str.length < len ? str : str.substr(0, len)) : "";
+}
+
+function titleCase(str) {
+  return (
+    str &&
+    str.toLowerCase().replace(/(^|\s)(\w)/g, function (x) {
+      return x.toUpperCase();
+    })
+  );
+}
+const mapStateToProps = createStructuredSelector({
+  auth: makeSelectAuth(),
+  cart: makeSelectCart(),
+  cartVisible: makeSelectCartVisible(),
+  activationVisible: makeSelectActivationVisible(),
+});
+
+const Navbar = () => {
   const { logout } = useAuth();
+  const { auth, activationVisible } = useSelector(mapStateToProps);
+  const [headers, setHeaders] = useState();
   const [isMounted, setIsMounted] = useState(false);
   const [display, setDisplay] = useState(false);
   const [collapsed, setCollapse] = useState(true);
 
-  function ellipsis(str, len) {
-    return str ? (str.length < len ? str : str.substr(0, len)) : "";
-  }
-  function titleCase(str) {
-    return (
-      str &&
-      str.toLowerCase().replace(/(^|\s)(\w)/g, function (x) {
-        return x.toUpperCase();
-      })
-    );
-  }
-
+  useEffect(() => {
+    const fetchHeader = async () => {
+      const res = await getHeader();
+      if (res?.data.success) {
+        setHeaders(res?.data?.data);
+      }
+    };
+    fetchHeader();
+  }, []);
   /**
    * If collapse is true, set collapse to false. If collapse is false, set collapse to true.
    */
@@ -39,10 +73,8 @@ const Navbar = ({ headers, auth }) => {
       <div id="navbar" className="navbar-area">
         <nav className="navbar navbar-expand-md navbar-light">
           <div className="container">
-            <Link href="/">
-              <a className="navbar-brand">
-                <img src="/images/logo.png" alt="logo_EZIN" />
-              </a>
+            <Link href="/" passHref>
+              <Image src={NewHeaderLogo} alt="logo-header" layout="intrinsic" />
             </Link>
 
             <button

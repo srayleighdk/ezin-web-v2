@@ -10,7 +10,7 @@ import {
   makeModalData,
 } from "../../src/store/modal/selector";
 import { useSelector, useDispatch } from "react-redux";
-import { AuthProvider } from "../../components/auth-wrapper/auth.context";
+import { AuthProvider } from "../../src/container/auth-wrapper/auth.context";
 import {
   toggleLoginModal,
   toggleRegisterModal,
