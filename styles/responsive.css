@@ -1,4 +1,36 @@
 @media only screen and (max-width: 767px) {
+  .text-ms-16 {
+    font-size: 16px;
+  }
+
+  .text-ms-34 {
+    font-size: 34px !important;
+  }
+
+  .mt-sm-0 {
+    margin-top: 0 !important;
+  }
+
+  .pb-sm-1 {
+    padding-bottom: 0.25rem !important;
+  }
+
+  .pt-sm-1 {
+    padding-top: 0.25rem !important;
+  }
+
+  .fw-ms-default {
+    font-weight: 500;
+  }
+
+  .no-border {
+    border: none !important;
+  }
+
+  .no-shadow {
+    box-shadow: none !important;
+  }
+
   .navbar-area .navbar-brand {
     padding-top: 0;
   }
@@ -14,6 +46,7 @@
     overflow-y: auto;
     max-height: 70vh;
     padding-right: 15px;
+    align-items: start !important;
   }
   .navbar-area nav .navbar-nav::-webkit-scrollbar {
     width: 12px;

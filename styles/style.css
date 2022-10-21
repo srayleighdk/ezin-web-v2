@@ -6376,3 +6376,12 @@ color: #000000;
   border-style: solid;
   border-color: transparent transparent transparent #fff;
 }
+
+/* variables */
+.mt-40 {
+  margin-top: 40px !important;
+}
+
+.lh-32 {
+  line-height: 32px;
+}

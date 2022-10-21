@@ -17,37 +17,51 @@ export default function MainBanner() {
           minHeight: "100vh",
         }}
       > */}
-      <div className="text-center">
+      <div className="text-center mt-40 pt-sm-1">
         <div className="jumpx-slider-text overflow-hidden one mx-auto homepage-no-maxWidth">
           {/* <span>IT & AI Services</span> */}
-          <h1 className="text-black mb-0 text-60">
+          <h1 className="text-black mb-0 text-60 text-ms-34 px-ms-3">
             Trải nghiệm cuộc sống tuyệt vời
           </h1>
-          <p className="text-black">
+          <p className="text-black px-ms-4 mb-3">
             Những hy sinh của ngày hôm nay sẽ được đền đáp vào ngày mai.
           </p>
         </div>
       </div>
       <div
-        className="jumpx-slider-item"
+        className="jumpx-slider-item mt-ms-96"
         style={{
           backgroundImage: `url(/images/banner-home.png)`,
-          height: 500,
+          maxHeight: 500,
+          width: "100vw"
         }}
       >
         <div className="d-table">
           <div className="d-table-cell">
             <div
-              className="slider-btn position-absolute d-flex justify-content-center w-100"
-              style={{ top: "0" }}
+              className="slider-btn position-absolute d-flex justify-content-center w-100 d-sm-flex flex-column px-ms-3"
+              style={{ top: "-48%" }}
             >
               <Link href="/#san-pham">
-                <a className="default-btn white mx-3">Mua bảo hiểm ngay</a>
+                <a
+                  className="default-btn white mx-3 text-20 text-center lh-32 align-self-center"
+                  style={{ width: 253, height: 58, borderRadius: 100 }}
+                >
+                  Mua bảo hiểm ngay
+                </a>
               </Link>
 
-              <a className="default-btn bg-white text-dark d-flex mx-3 justify-content-between align-items-center px-3 py-0" style={{width: 166}} onClick={() => setVisibleAudio(true)}>
-                <div className="playVideo rounded-circle position-relative"><div className="playIcon"></div></div>
-                <div className="h-100" style={{lineHeight: 3.4}}>Xem video</div>
+              <a
+                className="default-btn bg-transparent text-dark d-flex mx-3 justify-content-center align-items-center px-3 py-0"
+                // style={{ width: 166 }}
+                onClick={() => setVisibleAudio(true)}
+              >
+                <div className="playVideo rounded-circle position-relative me-3">
+                  <div className="playIcon"></div>
+                </div>
+                <div className="h-100 text-20 fw-600" style={{ lineHeight: 3.4 }}>
+                  Xem video
+                </div>
               </a>
             </div>
           </div>

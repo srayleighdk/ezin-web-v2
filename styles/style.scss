@@ -8591,4 +8591,10 @@ h5 {
   border: 1px solid #ccc;
 }
 
+// variables
+.fw {
+	&-600 {
+		font-weight: 600;
+	}
+}
   

@@ -6,7 +6,8 @@ export default function NewsSlider({ newsPost }) {
   console.log("newsPost", newsPost);
   return (
     <div
-      className="brand-area-two ptb-100 position-relative mt-5 mt-newsSlider"
+      className="brand-area-two ptb-100 position-relative"
+      // className="brand-area-two ptb-100 position-relative mt-newsSlider"
       style={{ padding: "30px 0"}}
     >
       <img

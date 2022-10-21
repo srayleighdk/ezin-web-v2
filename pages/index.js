@@ -80,7 +80,6 @@ const Home = ({
   partners,
 }) => {
   const { auth, activationVisible } = useSelector(mapStateToProps);
-  console.log("topStores", allNodeProducts);
   const router = useRouter();
   // export async function getServerSideProps(context) {
   //     const res = await getHeader();
@@ -102,7 +101,7 @@ const Home = ({
   return (
     <>
       <div
-        className="jumpx-slider-item"
+        className="jumpx-slider-item pt-sm-1 pb-sm-0"
         style={{
           backgroundImage: `url(/images/bg-banner-header.png)`,
           minHeight: "100vh",
