@@ -1,29 +1,31 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
+import moment from "moment";
 import Link from "next/link";
 import { Statistic } from "antd";
 const { Countdown } = Statistic;
 import { formatVND } from "../../utils/helpers";
 
-const hotDeals = [
-  { key: 1, time: "14:00 - 16:00" },
-  { key: 2, time: "17:00 - 18:00" },
-  { key: 3, time: "21:00 - 22:00" },
-  { key: 4, time: "01:00 - 02:00" },
-  { key: 5, time: "05:00 - 07:00" },
-];
-
 const HotDeals = ({ allNodeProducts }) => {
   const [hotDealsKey, setHotDealsKey] = useState(1);
-  const deadline = Date.now() + 1000 * 60 * 60 * 24 * 5 + 1000 * 59;
+  const deadline = moment() + 1000 * 60 * 60 * 24 * 5 + 1000 * 59;
+  const hotDeals = [
+    { key: 1, time: "14:00 - 16:00" },
+    { key: 2, time: "17:00 - 18:00" },
+    { key: 3, time: "21:00 - 22:00" },
+    { key: 4, time: "01:00 - 02:00" },
+    { key: 5, time: "05:00 - 07:00" },
+  ];
+  console.log("moment1", deadline)
 
   const finish = () => {};
 
-  // const onChange = (val) => {
-  //   if (4.95 * 1000 < val && val < 5 * 1000) {
-  //   }
-  // };
+  const onChange = (val) => {
+    if (4.95 * 1000 < val && val < 5 * 1000) {
+      console.log('changed!', val);
+    }
+  };
   return (
     <div className="ptb-100 position-relative" style={{ padding: "30px 0" }}>
       <div className="container mb-20 mt-20 bg-deals rounded-3">
@@ -67,22 +69,20 @@ const HotDeals = ({ allNodeProducts }) => {
             value={deadline}
             format="HH"
             onFinish={finish}
-            // onChange={(e) => console.log("HH", e.target)}
           />
           <Countdown
             title="Countdown"
             value={deadline}
-            format="mm"
+            format="HH:mm"
             onFinish={finish}
-            // onChange={(e) => console.log("mm", e.target)}
           />
           <Countdown
             title="Countdown"
             value={deadline}
             format="ss"
             onFinish={finish}
-            // onChange={(e) => console.log("ss", e.target)}
           />
+          <Countdown title="Countdown" value={Date.now() + 10 * 1000} onChange={onChange} />
           <div className="col-lg-7 col-12 d-flex justify-content-center align-items-center">
             <Swiper
               spaceBetween={25}
