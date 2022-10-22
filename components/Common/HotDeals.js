@@ -9,21 +9,20 @@ import { formatVND } from "../../utils/helpers";
 
 const HotDeals = ({ allNodeProducts }) => {
   const [hotDealsKey, setHotDealsKey] = useState(1);
-  const deadline = moment() + 1000 * 60 * 60 * 24 * 5 + 1000 * 59;
+  const deadline = moment("22-10-2022 10:00", "DD-MM-YYYY HH:mm") + 1000 * 60 * 60 * 24 * 5 + 1000 * 59;
   const hotDeals = [
-    { key: 1, time: "14:00 - 16:00" },
-    { key: 2, time: "17:00 - 18:00" },
-    { key: 3, time: "21:00 - 22:00" },
-    { key: 4, time: "01:00 - 02:00" },
-    { key: 5, time: "05:00 - 07:00" },
+    { key: 1, timeStart: moment("21-10-2022 10:00", "DD-MM-YYYY HH:mm").format("HH:mm"), timeEnd: moment("21-10-2022 10:00", "DD-MM-YYYY HH:mm").add(3, "h").format("HH:mm")},
+    { key: 2, timeStart: moment("21-10-2022 16:00", "DD-MM-YYYY HH:mm").format("HH:mm"), timeEnd: moment("21-10-2022 16:00", "DD-MM-YYYY HH:mm").add(3, "h").format("HH:mm")},
+    { key: 3, timeStart: moment("22-10-2022 11:00", "DD-MM-YYYY HH:mm").format("HH:mm"), timeEnd: moment("22-10-2022 11:00", "DD-MM-YYYY HH:mm").add(3, "h").format("HH:mm")},
   ];
-  console.log("moment1", deadline)
+  console.log("moment1", hotDeals);
+  console.log("moment3", moment('2010-10-20 10:00').isAfter('2010-10-20 08:00'));
 
   const finish = () => {};
 
   const onChange = (val) => {
     if (4.95 * 1000 < val && val < 5 * 1000) {
-      console.log('changed!', val);
+      console.log("changed!", val);
     }
   };
   return (
@@ -43,16 +42,24 @@ const HotDeals = ({ allNodeProducts }) => {
               </h2>
               <div className="w-100 mb-0 d-flex align-items-center">
                 Kết thúc trong{" "}
-                <div className="ms-2 me-1 time-deal">
-                  <Countdown
-                    value={deadline}
-                    format="HH"
-                    onFinish={finish}
-                    className="text-white"
-                  />
+                <div className="d-flex">
+                  <div className="ms-2 me-1 time-deal">
+                    <Countdown
+                      value={deadline}
+                      format="HH"
+                      onFinish={finish}
+                      className="text-white"
+                    />
+                  </div>
+                  :
+                  <div className="time-deal mx-1">
+                    {moment(deadline).format("mm")}
+                  </div>
+                  :
+                  <div className="time-deal mx-1">
+                    {moment(deadline).format("ss")}
+                  </div>
                 </div>
-                :<div className="time-deal mx-1">30</div>:
-                <div className="time-deal mx-1">09</div>
               </div>
             </div>
           </div>
@@ -64,17 +71,18 @@ const HotDeals = ({ allNodeProducts }) => {
               </div>
             </div>
           </div> */}
-          <Countdown
+          {/* <Countdown
             title="Countdown"
             value={deadline}
-            format="HH"
+            format="HH:mm:ss"
             onFinish={finish}
           />
           <Countdown
             title="Countdown"
             value={deadline}
-            format="HH:mm"
+            format="HH:mm:ss"
             onFinish={finish}
+            // className="test"
           />
           <Countdown
             title="Countdown"
@@ -82,7 +90,11 @@ const HotDeals = ({ allNodeProducts }) => {
             format="ss"
             onFinish={finish}
           />
-          <Countdown title="Countdown" value={Date.now() + 10 * 1000} onChange={onChange} />
+          <Countdown
+            title="Countdown"
+            value={Date.now() + 10 * 1000}
+            onChange={onChange}
+          /> */}
           <div className="col-lg-7 col-12 d-flex justify-content-center align-items-center">
             <Swiper
               spaceBetween={25}
@@ -113,11 +125,12 @@ const HotDeals = ({ allNodeProducts }) => {
                   >
                     <p className="mb-0 text-18">Đang diễn ra</p>
                     <p
-                      className={`text-20 text-xm-18 ${
-                        hotDealsKey === item.key && "line-footer"
-                      }`}
+                      // className={`text-20 text-xm-18 ${
+                      //   hotDealsKey === item.key && "line-footer"
+                      // }`}
+                      className={`text-20 text-xm-18`}
                     >
-                      {item.time}
+                      {`${item.timeStart} - ${item.timeEnd}`}
                     </p>
                   </button>
                 </SwiperSlide>
@@ -159,7 +172,7 @@ const HotDeals = ({ allNodeProducts }) => {
                     className="mx-auto"
                   />
                   <h3 className="mt-3 mb-0 h-56 d-flex justify-content-center align-items-center">
-                    <Link href="/service-details">
+                    <Link href="/#san-pham">
                       <a>{product.name}</a>
                     </Link>
                   </h3>

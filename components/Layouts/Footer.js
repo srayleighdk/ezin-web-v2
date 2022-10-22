@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { getAllNodeProducts } from "../../pages/api";
+import Script from "next/script";
 
 const Footer = () => {
   const [product, setProduct] = useState();
@@ -22,7 +23,7 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-6">
-              <div className="single-widget">
+              <div className="single-widget text-center">
                 <a href="/" className="logo">
                   <img src="/images/logo-2.png" alt="logo-2" />
                 </a>
@@ -34,16 +35,20 @@ const Footer = () => {
               <div className="single-widget">
                 <h3>Sản phẩm</h3>
                 <ul>
-                  {product?.map((item) => (
-                    <li key={item._id}>
-                      <Link href={`/san-pham/${item.slug}#mua-ngay`}>
-                        <a>
-                          <i className="right-icon bx bx-chevrons-right"></i>
-                          {item.name}
-                        </a>
-                      </Link>
-                    </li>
-                  ))}
+                  <div className="row">
+                    {product?.map((item) => (
+                      <div className="col-6">
+                        <li key={item._id}>
+                          <Link href={`/san-pham/${item.slug}#mua-ngay`}>
+                            <a>
+                              <i className="right-icon bx bx-chevrons-right"></i>
+                              {item.name}
+                            </a>
+                          </Link>
+                        </li>
+                      </div>
+                    ))}
+                  </div>
                 </ul>
               </div>
             </div>
@@ -53,46 +58,58 @@ const Footer = () => {
                 <h3>Liên kết nhanh</h3>
 
                 <ul>
-                  <li>
-                    <Link href="/gioi-thieu">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Về chúng tôi
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/lien-he">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Liên hệ
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tin-tuc">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Tin tức
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/kien-thuc">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Kiến thức
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/oto/demo">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Công cụ giám định xe ô tô
-                      </a>
-                    </Link>
-                  </li>
+                  <div className="row">
+                    <div className="col-6">
+                      <li>
+                        <Link href="/gioi-thieu">
+                          <a>
+                            <i className="right-icon bx bx-chevrons-right"></i>
+                            Về chúng tôi
+                          </a>
+                        </Link>
+                      </li>
+                    </div>
+                    <div className="col-6">
+                      <li>
+                        <Link href="/lien-he">
+                          <a>
+                            <i className="right-icon bx bx-chevrons-right"></i>
+                            Liên hệ
+                          </a>
+                        </Link>
+                      </li>
+                    </div>
+                    <div className="col-6">
+                      <li>
+                        <Link href="/tin-tuc">
+                          <a>
+                            <i className="right-icon bx bx-chevrons-right"></i>
+                            Tin tức
+                          </a>
+                        </Link>
+                      </li>
+                    </div>
+                    <div className="col-6">
+                      <li>
+                        <Link href="/kien-thuc">
+                          <a>
+                            <i className="right-icon bx bx-chevrons-right"></i>
+                            Kiến thức
+                          </a>
+                        </Link>
+                      </li>
+                    </div>
+                    <div className="col-6">
+                      <li>
+                        <Link href="/oto/demo">
+                          <a>
+                            <i className="right-icon bx bx-chevrons-right"></i>
+                            Công cụ giám định xe ô tô
+                          </a>
+                        </Link>
+                      </li>
+                    </div>
+                  </div>
                 </ul>
               </div>
             </div>
@@ -102,46 +119,58 @@ const Footer = () => {
                 <h3>Quy định chính sách</h3>
 
                 <ul>
-                  <li>
-                    <Link href="/p/dieu-khoan">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Điều khoản dịch vụ
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/p/chinh-sach-bao-mat">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Chính sách bảo mật
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/p/chinh-sach-thanh-toan">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Chính sách thanh toán
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/p/chinh-sach-giao-hang">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Chính sách giao hàng
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/p/chinh-sach-doi-tra">
-                      <a>
-                        <i className="right-icon bx bx-chevrons-right"></i>
-                        Chính sách đổi trả
-                      </a>
-                    </Link>
-                  </li>
+                  <div className="row">
+                    <div className="col-6">
+                      <li>
+                        <Link href="/p/dieu-khoan">
+                          <a>
+                            <i className="right-icon bx bx-chevrons-right"></i>
+                            Điều khoản dịch vụ
+                          </a>
+                        </Link>
+                      </li>
+                    </div>
+                    <div className="col-6">
+                      <li>
+                        <Link href="/p/chinh-sach-bao-mat">
+                          <a>
+                            <i className="right-icon bx bx-chevrons-right"></i>
+                            Chính sách bảo mật
+                          </a>
+                        </Link>
+                      </li>
+                    </div>
+                    <div className="col-6">
+                      <li>
+                        <Link href="/p/chinh-sach-thanh-toan">
+                          <a>
+                            <i className="right-icon bx bx-chevrons-right"></i>
+                            Chính sách thanh toán
+                          </a>
+                        </Link>
+                      </li>
+                    </div>
+                    <div className="col-6">
+                      <li>
+                        <Link href="/p/chinh-sach-giao-hang">
+                          <a>
+                            <i className="right-icon bx bx-chevrons-right"></i>
+                            Chính sách giao hàng
+                          </a>
+                        </Link>
+                      </li>
+                    </div>
+                    <div className="col-6">
+                      <li>
+                        <Link href="/p/chinh-sach-doi-tra">
+                          <a>
+                            <i className="right-icon bx bx-chevrons-right"></i>
+                            Chính sách đổi trả
+                          </a>
+                        </Link>
+                      </li>
+                    </div>
+                  </div>
                 </ul>
               </div>
             </div>
@@ -208,25 +237,41 @@ const Footer = () => {
             <div className="col-lg-3 col-md-6">
               <div className="single-widget">
                 <h3>Kết nối với chúng tôi</h3>
+                <div className="d-flex align-items-center justify-content-between me-3">
+                  <ul className="social-icon">
+                    <li>
+                      <a
+                        href="https://www.facebook.com/baohiemezin"
+                        target="_blank"
+                      >
+                        <i className="bx bxl-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.youtube.com/channel/UCAISrxMuHxjkTl3LqX1S2cQ"
+                        target="_blank"
+                      >
+                        <i className="bx bxl-youtube"></i>
+                      </a>
+                    </li>
+                  </ul>
 
-                <ul className="social-icon">
-                  <li>
+                  <div className="social-logo mt-1">
                     <a
-                      href="https://www.facebook.com/baohiemezin"
-                      target="_blank"
+                      href="//www.dmca.com/Protection/Status.aspx?ID=0c630e8e-139a-4c78-baf7-5752454eb796"
+                      title="DMCA.com Protection Status"
+                      className="dmca-badge"
                     >
-                      <i className="bx bxl-facebook"></i>
+                      {" "}
+                      <img
+                        src="https://images.dmca.com/Badges/dmca_protected_16_120.png?ID=0c630e8e-139a-4c78-baf7-5752454eb796"
+                        alt="DMCA.com Protection Status"
+                      />
                     </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.youtube.com/channel/UCAISrxMuHxjkTl3LqX1S2cQ"
-                      target="_blank"
-                    >
-                      <i className="bx bxl-youtube"></i>
-                    </a>
-                  </li>
-                </ul>
+                    <Script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></Script>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

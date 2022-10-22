@@ -15,6 +15,10 @@
         }
     }
 
+    .h-52 {
+        height: 52px;
+    }
+
     .mt-ms-80 {
         margin-top: 80px;
     }
@@ -30,6 +34,28 @@
         background: linear-gradient(270deg, #00B2FF -131.05%, #167FFC 100%);
         line-height: 18px;
         padding: 0 15px;
+        font-size: 16px !important;
+    }
+
+    .h-group {
+        height: 167px;
+    }
+
+    [class^="flaticon-"]:before, [class*=" flaticon-"]:before {
+        font-size: 20px;
+    }
+
+    .button-hidden {
+        width: 178px;
+        height: 48px;
+        border: 2px solid #DEDFE1;
+        font-size: 16px !important;
+    }
+
+    .button-show {
+        width: 240px;
+        height: 48px;
+        border: 2px solid #DEDFE1;
         font-size: 16px !important;
     }
 

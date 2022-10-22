@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import MainBanner from "../components/HomeFive/MainBanner";
 import NewsSlider from "../components/Common/NewsSlider";
 import Banner from "../components/Common/Banner";
@@ -13,6 +13,7 @@ import WhatWeOffer from "../components/HomeFive/WhatWeOffer";
 import CaseStudies from "../components/HomeFive/CaseStudies";
 import Testimonials from "../components/Common/Testimonials";
 import News from "../components/Common/News";
+import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { useRouter } from "next/router";
@@ -81,6 +82,7 @@ const Home = ({
 }) => {
   const { auth, activationVisible } = useSelector(mapStateToProps);
   const router = useRouter();
+  const [hidden, setHidden] = useState(true);
   // export async function getServerSideProps(context) {
   //     const res = await getHeader();
   //     return {
@@ -114,11 +116,11 @@ const Home = ({
 
       <Banner />
 
-      <Groups />
-
       <Products allNodeProducts={allNodeProducts} />
 
-      <HotDeals allNodeProducts={allNodeProducts} />
+      <Groups />
+
+      {/* <HotDeals allNodeProducts={allNodeProducts} /> */}
 
       <WhatWeOffer />
 
@@ -128,7 +130,35 @@ const Home = ({
 
       <News news={news} />
 
-      <Testimonials testimonials={testimonials.testimonials} />
+      {hidden ? (
+        <Testimonials testimonials={testimonials.testimonials} />
+      ) : null}
+
+      {hidden ? (
+        <div className="d-flex justify-content-center">
+          <div
+            className="my-4 text-center d-flex align-items-center justify-content-center rounded-pill button-hidden"
+            onClick={() => {
+              setHidden(false);
+            }}
+          >
+            <EyeInvisibleOutlined style={{ width: 24, marginRight: 6 }} />
+            Ẩn phần này
+          </div>
+        </div>
+      ) : (
+        <div className="d-flex justify-content-center">
+          <div
+            className="my-4 text-center d-flex align-items-center justify-content-center rounded-pill button-show"
+            onClick={() => {
+              setHidden(true);
+            }}
+          >
+            <EyeOutlined style={{ width: 24, marginRight: 6 }} />
+            Đánh giá khách hàng
+          </div>
+        </div>
+      )}
 
       <CaseStudies />
 
