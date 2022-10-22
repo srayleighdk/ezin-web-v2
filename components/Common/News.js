@@ -26,20 +26,20 @@ export default function News({ news }) {
             }}
             breakpoints={{
               0: {
-                slidesPerView: 1,
-              },
-              768: {
                 slidesPerView: 2,
               },
-              992: {
+              576: {
                 slidesPerView: 3,
+              },
+              768: {
+                slidesPerView: 4,
               },
             }}
             modules={[Navigation, Autoplay]}
             className="testimonials-slide"
           >
             {news?.map((item) => (
-              <SwiperSlide className="pt-2">
+              <SwiperSlide className="pt-2 newsSlider-item">
                 <div className="single-news">
                   <div className="blog-img">
                     <Link href={`/tin-tuc/${item?.url}`}>

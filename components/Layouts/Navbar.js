@@ -6,6 +6,7 @@ import NewHeaderLogo from "../../public/images/logo.png";
 import useAuth from "../../src/container/auth-wrapper/auth.context";
 import { createStructuredSelector } from "reselect";
 import { useSelector, useDispatch } from "react-redux";
+import { useMediaQuery } from "react-responsive";
 import {
   makeSelectActivationVisible,
   makeSelectAuth,
@@ -39,11 +40,12 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const Navbar = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const { logout } = useAuth();
   const { auth, activationVisible } = useSelector(mapStateToProps);
   const [headers, setHeaders] = useState();
   const [isMounted, setIsMounted] = useState(false);
-  const [display, setDisplay] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
   const [collapsed, setCollapse] = useState(true);
 
   useEffect(() => {
@@ -70,13 +72,10 @@ const Navbar = () => {
     : "navbar-toggler navbar-toggler-right";
   return (
     <>
-      <div id="navbar" className="navbar-area">
-        <nav className="navbar navbar-expand-md navbar-light">
+      <div id="navbar" className="navbar-area fixed-top">
+        <nav className="navbar navbar-expand-md navbar-light"
+        style={{background: "linear-gradient(180deg, #ecf8ff 0%, rgb(240 255 253) 91.31%)"}}>
           <div className="container">
-            <Link href="/" passHref>
-              <Image src={NewHeaderLogo} alt="logo-header" layout="intrinsic" />
-            </Link>
-
             <button
               onClick={toggleNavbar}
               className={classTwo}
@@ -91,6 +90,10 @@ const Navbar = () => {
               <span className="icon-bar middle-bar"></span>
               <span className="icon-bar bottom-bar"></span>
             </button>
+
+            <Link href="/" passHref>
+              <Image src={NewHeaderLogo} alt="logo-header" layout="intrinsic" />
+            </Link>
 
             <div className={classOne} id="navbarSupportedContent">
               <ul className="navbar-nav m-auto align-items-center">
@@ -165,76 +168,105 @@ const Navbar = () => {
                       </li>
                     );
                   })}
-                <div className="ms-2 others-options">
+                <div
+                  className={`${
+                    !isMobile ? "ms-2" : "text-uppercase"
+                  } others-options text-ms-16 fw-ms-default`}
+                >
                   <ul className="navbar-nav m-auto align-item-baseline">
-                    <li className="nav-item">
-                      <a className="pt-2 text-capitalize pb-3 px-3 default-btn nav-link text-black">
-                        {auth?.full_name || auth?.username
-                          ? ellipsis(
-                              titleCase(auth?.full_name || auth?.username)
-                            )
-                          : "Tài khoản"}
-                        <i className="bx bx-chevron-down"></i>
-                      </a>
-                      <ul className="dropdown-menu navbar">
-                        {auth?.full_name || auth?.username ? (
-                          <div
-                            className="text-dark text-capitalize w-100"
-                            onClick={logout}
-                          >
-                            <li className="nav-item dropend cursor-pointer">
-                              Đăng xuất
-                            </li>
-                          </div>
-                        ) : (
-                          // <Button
-                          //   type="outline"
-                          //   onClick={logout}
-                          //   key="2"
-                          //   className="text-dark"
-                          // >
-                          //   Đăng xuất
-                          // </Button>
-                          <>
-                            <Link href="/login">
-                              <a className="text-dark text-capitalize w-100">
-                                <li className="nav-item dropend cursor-pointer">
-                                  Đăng nhập
-                                </li>
-                              </a>
-                            </Link>
-                            <Link href="/sign-up">
-                              <a className="text-dark text-capitalize">
-                                <li className="nav-item dropend cursor-pointer d-flex align-items-center">
-                                  Đăng ký{" "}
-                                  <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
-                                    Nhận ngay 2000{" "}
-                                    <img
-                                      src="/images/coin.png"
-                                      alt="Coin"
-                                      className="navbar-coin"
-                                    />
-                                  </span>
-                                </li>
-                              </a>
-                            </Link>
-                            <Link href="/forgot-password">
-                              <a className="text-dark text-capitalize w-100">
-                                <li className="nav-item dropend cursor-pointer">
-                                  Quên mật khẩu
-                                </li>
-                              </a>
-                            </Link>
-                          </>
-                        )}
-                        <Link href="/tra-cuu">
-                          <a className="text-dark text-capitalize w-100">
-                            <li className="nav-item dropend cursor-pointer">
-                              Tra cứu bảo hiểm
-                            </li>
-                          </a>
-                        </Link>
-                      </ul>
+                    <li className="nav-item" onClick={() => setShowNavbar(showNavbar !== "account" ? "account" : null)}>
+                      {isMobile ? (
+                        <div className="pt-2 text-capitalize pb-1 pb-sm-1 nav-link text-black">
+                          {auth?.full_name || auth?.username
+                            ? ellipsis(
+                                titleCase(auth?.full_name || auth?.username)
+                              )
+                            : "Tài khoản"}
+                          <i className="bx bx-chevron-down"></i>
+                        </div>
+                      ) : (
+                        <a className="pt-2 text-capitalize pb-3 px-3 pb-sm-1 default-btn nav-link text-black">
+                          {auth?.full_name || auth?.username
+                            ? ellipsis(
+                                titleCase(auth?.full_name || auth?.username)
+                              )
+                            : "Tài khoản"}
+                          <i className="bx bx-chevron-down"></i>
+                        </a>
+                      )}
+                      {showNavbar === "account" && (
+                        <ul className="dropdown-menu navbar no-border pt-sm-1 no-shadow mt-sm-0">
+                          {auth?.full_name || auth?.username ? (
+                            <div
+                              className="text-dark text-capitalize w-100"
+                              onClick={logout}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Đăng xuất
+                              </li>
+                            </div>
+                          ) : (
+                            // <Button
+                            //   type="outline"
+                            //   onClick={logout}
+                            //   key="2"
+                            //   className="text-dark"
+                            // >
+                            //   Đăng xuất
+                            // </Button>
+                            <>
+                              <Link href="/login">
+                                <a
+                                  className={`text-dark text-capitalize w-100 ${
+                                    isMobile && "text-start"
+                                  }`}
+                                >
+                                  <li className="nav-item dropend cursor-pointer">
+                                    Đăng nhập
+                                  </li>
+                                </a>
+                              </Link>
+                              <Link href="/sign-up">
+                                <a className="text-dark text-capitalize">
+                                  <li className="nav-item dropend cursor-pointer d-flex align-items-center">
+                                    Đăng ký{" "}
+                                    <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
+                                      Nhận ngay 2000{" "}
+                                      <img
+                                        src="/images/coin.png"
+                                        alt="Coin"
+                                        className="navbar-coin"
+                                      />
+                                    </span>
+                                  </li>
+                                </a>
+                              </Link>
+                              <Link href="/forgot-password">
+                                <a
+                                  className={`text-dark text-capitalize w-100 ${
+                                    isMobile && "text-start"
+                                  }`}
+                                >
+                                  <li className="nav-item dropend cursor-pointer">
+                                    Quên mật khẩu
+                                  </li>
+                                </a>
+                              </Link>
+                            </>
+                          )}
+                          <Link href="/tra-cuu">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Tra cứu bảo hiểm
+                              </li>
+                            </a>
+                          </Link>
+                        </ul>
+                      )}
                     </li>
                   </ul>
                 </div>

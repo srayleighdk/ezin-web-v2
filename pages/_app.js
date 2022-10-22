@@ -1,5 +1,4 @@
 import "../styles/globals.scss";
-import "../styles/style.scss";
 import "antd/dist/antd.less";
 import "../styles/antd-custom-style.scss";
 import "../styles/antd-step.scss";
@@ -14,7 +13,9 @@ import "swiper/css";
 import "swiper/css/bundle";
 
 // Global styles
+import "../styles/style.scss";
 import "../styles/style.css";
+import "../styles/responsive.scss";
 import "../styles/responsive.css";
 
 import useConstructor from "../components/hooks/useConstructor";
