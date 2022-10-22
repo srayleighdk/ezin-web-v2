@@ -74,7 +74,6 @@ export default function Login({ headers }) {
           username: phone,
           otp: checkValidCode().code,
         });
-        console.log("res", res, phone, arrCode);
         if (res.success) {
           setMessage("");
           setStep(3);
@@ -88,7 +87,6 @@ export default function Login({ headers }) {
           username: phone,
           newpassword: formDataObj.password,
         });
-        console.log("resadsadad", res);
         if (res.success) {
           setStep(4);
           setMessage(res.msg);
@@ -273,7 +271,9 @@ export default function Login({ headers }) {
             <h1 className="form-title">{message}</h1>
           </div>
           <Link href="/">
-            <a className="default-btn w-100 text-center mt-3 rounded-pill">Về trang chủ</a>
+            <a className="default-btn w-100 text-center mt-3 rounded-pill">
+              Về trang chủ
+            </a>
           </Link>
         </>
       );

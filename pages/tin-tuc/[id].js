@@ -19,7 +19,6 @@ export default function Blog({
   blogDetail = [],
   headers,
 }) {
-  console.log("blogDetail", blogDetail);
   return (
     <>
       <Head>

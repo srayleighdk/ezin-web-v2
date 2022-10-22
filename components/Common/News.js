@@ -5,7 +5,6 @@ import { Navigation, Autoplay } from "swiper";
 import dayjs from "dayjs";
 
 export default function News({ news }) {
-  console.log("news", news);
   return (
     <section className="news-area pt-100 pb-70">
       <div className="container">

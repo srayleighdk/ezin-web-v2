@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ReactPlayer from 'react-player';
+import ReactPlayer from "react-player";
 import Link from "next/link";
 import NewsSidebar from "./NewsSidebar";
 import dayjs from "dayjs";
@@ -11,7 +11,6 @@ export default function NewsGridTwo({
   arrNewsestPost,
   idCat,
 }) {
-  console.log("res2", arrCats, arrBlogs, arrNewsestPost);
   const paginationNumber = Math.ceil(arrBlogs?.length / 6);
   const [pagiNumber, setPagiNumber] = useState(1);
   const isVideo = idCat == "video";
@@ -112,13 +111,13 @@ export default function NewsGridTwo({
                           </div>
                         </div>
                       </>
-                    )
+                    );
                   }
                 })
               )}
 
               {/* Pagination */}
-              {paginationNumber === 0 ? null :
+              {paginationNumber === 0 ? null : (
                 <div className="col-lg-12">
                   <div className="page-navigation-area">
                     <nav aria-label="Page navigation example text-center">
@@ -185,7 +184,7 @@ export default function NewsGridTwo({
                     </nav>
                   </div>
                 </div>
-              }
+              )}
             </div>
           </div>
 

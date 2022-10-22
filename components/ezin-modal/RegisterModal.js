@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Button,
   Typography,
@@ -7,22 +7,22 @@ import {
   Checkbox,
   message,
   Input,
-} from 'antd';
-import { BarcodeOutlined } from '@ant-design/icons';
-import { createStructuredSelector } from 'reselect';
-import { makeRegisterVisible } from '../../src/store/modal/selector';
-import { useSelector, useDispatch } from 'react-redux';
+} from "antd";
+import { BarcodeOutlined } from "@ant-design/icons";
+import { createStructuredSelector } from "reselect";
+import { makeRegisterVisible } from "../../src/store/modal/selector";
+import { useSelector, useDispatch } from "react-redux";
 import {
   toggleRegisterModal,
   toggleOTPModal,
   toggleForgot,
   setParentModal,
   toggleLoginModal,
-} from '../../src/store/modal/actions';
-import PhoneNumber from '../../components/PhoneNumber';
-import { registerApi } from '../../pages/api';
-import { normalizePhoneNumber } from '../../utils/helpers';
-import Link from 'next/link';
+} from "../../src/store/modal/actions";
+import PhoneNumber from "../../components/PhoneNumber";
+import { registerApi } from "../../pages/api";
+import { normalizePhoneNumber } from "../../utils/helpers";
+import Link from "next/link";
 
 const mapStateToProps = createStructuredSelector({
   registerVisible: makeRegisterVisible(),
@@ -37,11 +37,10 @@ export default function RegisterModal() {
   };
 
   const onRegister = (values) => {
-    console.log(values);
     registerApi({
       ...values,
-      username: '0' + normalizePhoneNumber(values['phoneNumber-2']),
-      legal_id: '123456',
+      username: "0" + normalizePhoneNumber(values["phoneNumber-2"]),
+      legal_id: "123456",
     })
       .then((res) => {
         // dispatch(
@@ -52,8 +51,8 @@ export default function RegisterModal() {
         if (res.success) {
           dispatch(
             toggleRegisterModal(
-              '0' + normalizePhoneNumber(values['phoneNumber-2']),
-            ),
+              "0" + normalizePhoneNumber(values["phoneNumber-2"])
+            )
           );
           message.success(res.msg);
           dispatch(toggleOTPModal());
@@ -61,7 +60,7 @@ export default function RegisterModal() {
           // message.error(res.msg);
           form.setFields([
             {
-              name: 'phoneNumber-2',
+              name: "phoneNumber-2",
               errors: [res.msg],
             },
           ]);
@@ -74,7 +73,7 @@ export default function RegisterModal() {
   };
 
   const onGetPassword = () => {
-    dispatch(setParentModal('register'));
+    dispatch(setParentModal("register"));
     dispatch(toggleRegisterModal());
     dispatch(toggleForgot());
   };
@@ -109,7 +108,7 @@ export default function RegisterModal() {
         >
           <PhoneNumber
             placeholder="Số điện thoại"
-            value={{ prefix: '+84' }}
+            value={{ prefix: "+84" }}
             prefixName="prefix-2"
             phoneName="phoneNumber-2"
             minLength={9}
@@ -122,7 +121,7 @@ export default function RegisterModal() {
             rules={[
               {
                 pattern: new RegExp(/^EZ[0-9]{10,11}$/),
-                message: 'Mã giới thiệu không hợp lệ',
+                message: "Mã giới thiệu không hợp lệ",
               },
             ]}
             className="mt-1"
@@ -140,12 +139,12 @@ export default function RegisterModal() {
             rules={[
               {
                 required: true,
-                message: 'Vui lòng đồng ý với điều khoản!',
+                message: "Vui lòng đồng ý với điều khoản!",
               },
             ]}
           >
             <Checkbox>
-              Đồng ý với{' '}
+              Đồng ý với{" "}
               <Link target="_blank" href="/p/dieu-khoan" passHref>
                 <u>điều khoản sử dụng</u>
               </Link>

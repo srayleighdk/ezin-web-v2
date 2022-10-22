@@ -9,7 +9,6 @@ import { createMarkup } from "../../../utils/auth.helper";
 import dayjs from "dayjs";
 
 export default function CatBlogs({ id, arrBlogs = [] }) {
-  console.log("CatList", id, arrBlogs);
   return (
     <>
       {/* <ListNewsLife arrBlogs={arrBlogs} arrCats={arrCats} arrNewsestPost={postNewest} idCat={id}/> */}

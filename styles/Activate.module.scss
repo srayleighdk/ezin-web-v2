@@ -1,4 +1,4 @@
-@import '~styles/mixin';
+@import "./mixin";
 .activateMobileSection {
   padding: 20px 0;
   h2 {
@@ -13,7 +13,7 @@
 .activateOption {
   margin: 5px;
   padding: 10px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 8px;
   width: 33%;
   display: flex;
@@ -22,10 +22,9 @@
   min-height: 80px;
   position: relative;
   text-align: center;
-  
 }
 .active {
-  border: 1px solid #167FFC;
+  border: 1px solid #167ffc;
 }
 .tick {
   position: absolute;
@@ -82,16 +81,15 @@
   font-size: 13px;
 }
 .cardContainer {
-  color: #FFF;
+  color: #fff;
   position: relative;
   text-align: center;
 }
 .loading {
   font-size: 30px;
   text-align: center;
-  color: #167FFC;
+  color: #167ffc;
 }
 .bg-gray {
-  background-color: #F3F4F6 !important;
+  background-color: #f3f4f6 !important;
 }
-

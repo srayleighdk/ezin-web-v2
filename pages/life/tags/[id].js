@@ -14,7 +14,6 @@ export default function TagList({
   postNewest = [],
   arrCats = [],
 }) {
-  console.log("getPostByTag", id, arrBlogs);
   return (
     <>
       <ListTags

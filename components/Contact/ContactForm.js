@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-const MySwal = withReactContent(Swal)
-import baseUrl from '../../utils/baseUrl'
+import React, { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+import baseUrl from "../../utils/baseUrl";
 
 const alertContent = () => {
   MySwal.fire({
-    title: 'Congratulations!',
-    text: 'Your message was successfully send and will back to you soon',
-    icon: 'success',
+    title: "Congratulations!",
+    text: "Your message was successfully send and will back to you soon",
+    icon: "success",
     timer: 2000,
     timerProgressBar: true,
     showConfirmButton: false,
-  })
-}
+  });
+};
 
 // Form initial state
 const INITIAL_STATE = {
@@ -22,31 +22,28 @@ const INITIAL_STATE = {
   email: "",
   number: "",
   subject: "",
-  text: ""
+  text: "",
 };
 
 const ContactForm = () => {
-
   const [contact, setContact] = useState(INITIAL_STATE);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setContact(prevState => ({ ...prevState, [name]: value }));
-    // console.log(contact)
-  }
+    setContact((prevState) => ({ ...prevState, [name]: value }));
+  };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const url = `${baseUrl}/api/contact`;
       const { name, email, number, subject, text } = contact;
       const payload = { name, email, number, subject, text };
       const response = await axios.post(url, payload);
-      console.log(response);
       setContact(INITIAL_STATE);
       alertContent();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -55,7 +52,11 @@ const ContactForm = () => {
       <div className="container">
         <div className="section-title">
           <span>Gửi Email cho chúng tôi</span>
-          <p>Bạn cần tư vấn, hỗ trợ? Hoặc có góp ý nào muốn gửi cho chúng tôi? Hãy điền thông tin bên phía dưới, đội ngũ của Ezin sẽ trả lời thông tin đến cho bạn trong thời gian sớm nhất có thể!</p>
+          <p>
+            Bạn cần tư vấn, hỗ trợ? Hoặc có góp ý nào muốn gửi cho chúng tôi?
+            Hãy điền thông tin bên phía dưới, đội ngũ của Ezin sẽ trả lời thông
+            tin đến cho bạn trong thời gian sớm nhất có thể!
+          </p>
         </div>
 
         <div className="row align-items-center">
@@ -143,16 +144,13 @@ const ContactForm = () => {
 
           <div className="col-lg-6 col-md-12">
             <div className="contact-img">
-              <img
-                src="/images/contact-img.png"
-                alt="Image"
-              />
+              <img src="/images/contact-img.png" alt="Image" />
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ContactForm;

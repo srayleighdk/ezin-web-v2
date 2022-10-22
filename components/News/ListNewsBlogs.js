@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ReactPlayer from 'react-player';
+import ReactPlayer from "react-player";
 import Link from "next/link";
 import NewsBarBlogs from "./NewsBarBlogs";
 import dayjs from "dayjs";
@@ -7,11 +7,7 @@ import styles from "../../pages/life/life.module.scss";
 import FullImage from "../FullImage";
 import { getImageUrl } from "../../utils/helpers";
 
-export default function ListNewsBlogs({
-  arrBlogs,
-  arrCats,
-}) {
-  console.log("res2", arrCats, arrBlogs);
+export default function ListNewsBlogs({ arrBlogs, arrCats }) {
   const paginationNumber = Math.ceil(arrBlogs?.length / 6);
   const [pagiNumber, setPagiNumber] = useState(1);
   let pagination = [];
@@ -51,7 +47,9 @@ export default function ListNewsBlogs({
 
                               <div className="dates">
                                 <span>
-                                  {dayjs(item.published_on).format("DD-MM-YYYY")}
+                                  {dayjs(item.published_on).format(
+                                    "DD-MM-YYYY"
+                                  )}
                                 </span>
                               </div>
                             </div>
@@ -61,9 +59,7 @@ export default function ListNewsBlogs({
                             >
                               <ul>
                                 <li>
-                                  <Link
-                                    href={`/kien-thuc/${item.slug_url}`}
-                                  >
+                                  <Link href={`/kien-thuc/${item.slug_url}`}>
                                     <a>
                                       <i className="flaticon-user"></i>{" "}
                                       {item.author[0].name}
@@ -76,9 +72,7 @@ export default function ListNewsBlogs({
                                 </li> */}
                               </ul>
 
-                              <Link
-                                href={`/kien-thuc/${item.slug_url}`}
-                              >
+                              <Link href={`/kien-thuc/${item.slug_url}`}>
                                 <a>
                                   <h3>{item.title}</h3>
                                 </a>
@@ -90,9 +84,7 @@ export default function ListNewsBlogs({
                                 {item.short_description}
                               </p>
 
-                              <Link
-                                href={`/kien-thuc/${item.slug_url}`}
-                              >
+                              <Link href={`/kien-thuc/${item.slug_url}`}>
                                 <a className="read-more">
                                   Xem thêm <i className="bx bx-plus"></i>
                                 </a>
@@ -101,13 +93,13 @@ export default function ListNewsBlogs({
                           </div>
                         </div>
                       </>
-                    )
+                    );
                   }
                 })
               )}
 
               {/* Pagination */}
-              {paginationNumber === 0 ? null :
+              {paginationNumber === 0 ? null : (
                 <div className="col-lg-12">
                   <div className="page-navigation-area">
                     <nav aria-label="Page navigation example text-center">
@@ -174,12 +166,12 @@ export default function ListNewsBlogs({
                     </nav>
                   </div>
                 </div>
-              }
+              )}
             </div>
           </div>
 
           <div className="col-lg-4 col-md-12">
-            <NewsBarBlogs arrCats={arrCats}  />
+            <NewsBarBlogs arrCats={arrCats} />
           </div>
         </div>
       </div>

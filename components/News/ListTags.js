@@ -5,13 +5,7 @@ import NewsSidebar from "./NewsSidebar";
 import dayjs from "dayjs";
 import styles from "../../pages/life/life.module.scss";
 
-export default function ListTags({
-  arrBlogs,
-  arrCats,
-  arrNewsestPost,
-  idCat,
-}) {
-  console.log("res2", arrBlogs);
+export default function ListTags({ arrBlogs, arrCats, arrNewsestPost, idCat }) {
   const paginationNumber = Math.ceil(arrBlogs?.length / 6);
   const [pagiNumber, setPagiNumber] = useState(1);
   let pagination = [];
@@ -77,7 +71,9 @@ export default function ListTags({
                             </li>
                           </ul> */}
 
-                          <Link href={`/life/p/${item.post_id}/${item.post.post_name}`}>
+                          <Link
+                            href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                          >
                             <a>
                               <h3>{item?.post?.post_title}</h3>
                             </a>
@@ -89,26 +85,30 @@ export default function ListTags({
                             {item.post.post_excerpt}
                           </p>
 
-                          <Link href={`/life/p/${item.post_id}/${item.post.post_name}`}>
+                          <Link
+                            href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                          >
                             <a className="read-more">
                               Xem thêm <i className="bx bx-plus"></i>
                             </a>
                           </Link>
                         </div>
                       </div>
-                    </div>
+                    </div>;
                   }
                 })
               )}
 
               {/* Pagination */}
-              {paginationNumber === 0 ? null :
+              {paginationNumber === 0 ? null : (
                 <div className="col-lg-12">
                   <div className="page-navigation-area">
                     <nav aria-label="Page navigation example text-center">
                       <ul className="pagination">
                         <li
-                          className={`page-item ${pagiNumber === 1 && "d-none"}`}
+                          className={`page-item ${
+                            pagiNumber === 1 && "d-none"
+                          }`}
                           onClick={() => {
                             setPagiNumber(pagiNumber - 1);
                             setTimeout(function () {
@@ -191,7 +191,7 @@ export default function ListTags({
                     </nav>
                   </div>
                 </div>
-              }
+              )}
             </div>
           </div>
 

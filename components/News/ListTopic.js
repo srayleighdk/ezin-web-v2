@@ -12,7 +12,6 @@ export default function ListTopic({
   arrNewsestPost,
   idCat,
 }) {
-  console.log("res2", arrCats, arrBlogs, arrNewsestPost);
   const paginationNumber = Math.ceil(arrBlogs?.length / 6);
   const [pagiNumber, setPagiNumber] = useState(1);
   const isVideo = idCat == "video";
@@ -23,7 +22,9 @@ export default function ListTopic({
 
   return (
     <>
-      <Head><title> Blog</title></Head>
+      <Head>
+        <title> Blog</title>
+      </Head>
       <section className="news-details-area news-right-sidebar-area my-3 mt-3">
         <div className="container">
           <div className="row">
@@ -63,7 +64,9 @@ export default function ListTopic({
 
                                 <div className="dates">
                                   <span>
-                                    {dayjs(item.publishedAt).format("DD-MM-YYYY")}
+                                    {dayjs(item.publishedAt).format(
+                                      "DD-MM-YYYY"
+                                    )}
                                   </span>
                                 </div>
                               </div>
@@ -127,16 +130,18 @@ export default function ListTopic({
                 )}
 
                 {/* Pagination */}
-                {paginationNumber === 0 ? null :
+                {paginationNumber === 0 ? null : (
                   <div className="col-lg-12">
                     <div className="page-navigation-area">
                       <nav aria-label="Page navigation example text-center">
                         <ul className="pagination">
                           <li
-                            className={`page-item ${pagiNumber === 1 && "d-none"}`}
+                            className={`page-item ${
+                              pagiNumber === 1 && "d-none"
+                            }`}
                             onClick={() => {
                               setPagiNumber(pagiNumber - 1);
-                              setTimeout(function() {
+                              setTimeout(function () {
                                 window.scroll({
                                   top: 0,
                                   left: 0,
@@ -158,7 +163,7 @@ export default function ListTopic({
                                     className="page-item active cursor-pointer"
                                     onClick={() => {
                                       setPagiNumber(item + 1);
-                                      setTimeout(function() {
+                                      setTimeout(function () {
                                         window.scroll({
                                           top: 400,
                                           left: 0,
@@ -178,7 +183,7 @@ export default function ListTopic({
                                   className="page-item cursor-pointer"
                                   onClick={() => {
                                     setPagiNumber(item + 1);
-                                    setTimeout(function() {
+                                    setTimeout(function () {
                                       window.scroll({
                                         top: 0,
                                         left: 0,
@@ -194,11 +199,12 @@ export default function ListTopic({
                           })}
 
                           <li
-                            className={`page-item ${pagiNumber === paginationNumber && "d-none"
-                              }`}
+                            className={`page-item ${
+                              pagiNumber === paginationNumber && "d-none"
+                            }`}
                             onClick={() => {
                               setPagiNumber(pagiNumber + 1);
-                              setTimeout(function() {
+                              setTimeout(function () {
                                 window.scroll({
                                   top: 0,
                                   left: 0,
@@ -215,7 +221,7 @@ export default function ListTopic({
                       </nav>
                     </div>
                   </div>
-                }
+                )}
               </div>
             </div>
 

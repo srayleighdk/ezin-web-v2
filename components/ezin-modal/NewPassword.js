@@ -1,11 +1,14 @@
-import React from 'react';
-import { Button, Input, Typography, Modal, Form, message } from 'antd';
-import { createStructuredSelector } from 'reselect';
-import { makeNewPassVisible, makeModalData } from '../../src/store/modal/selector';
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleNewPass } from '../../src/store/modal/actions';
-import { newPasswordApi } from '../../pages/api';
-import useAuth from '../../src/container/auth-wrapper/auth.context';
+import React from "react";
+import { Button, Input, Typography, Modal, Form, message } from "antd";
+import { createStructuredSelector } from "reselect";
+import {
+  makeNewPassVisible,
+  makeModalData,
+} from "../../src/store/modal/selector";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleNewPass } from "../../src/store/modal/actions";
+import { newPasswordApi } from "../../pages/api";
+import useAuth from "../../src/container/auth-wrapper/auth.context";
 
 const mapStateToProps = createStructuredSelector({
   newPassVisible: makeNewPassVisible(),
@@ -19,7 +22,6 @@ export default function NewPassword() {
   const dispatch = useDispatch();
 
   const onFinish = async (values) => {
-    // console.log('values', values);
     const res = await newPasswordApi({
       username: data.phoneNumber,
       newpassword: values.password,
@@ -28,7 +30,6 @@ export default function NewPassword() {
     });
     if (res.success) {
       message.success(res.msg);
-      // console.log('res', res)
       login({ user: res.data, token: res.token });
 
       dispatch(toggleNewPass());
@@ -58,10 +59,7 @@ export default function NewPassword() {
         <h4>Vui lòng thiết lập mật khẩu mới </h4>
       </div>
       <Form className="mt-4" onFinish={onFinish}>
-        <Form.Item
-          name="full_name"
-          className="mb-3"
-        >
+        <Form.Item name="full_name" className="mb-3">
           <Input
             size="large"
             placeholder="Vui lòng nhập họ tên"
@@ -69,10 +67,7 @@ export default function NewPassword() {
             valie=""
           />
         </Form.Item>
-        <Form.Item
-          name="email"
-          className="mb-3"
-        >
+        <Form.Item name="email" className="mb-3">
           <Input
             size="large"
             placeholder="Vui lòng nhập email (nếu có)"
@@ -82,11 +77,11 @@ export default function NewPassword() {
         <Form.Item
           name="password"
           rules={[
-            { required: true, message: 'Vui lòng nhập mật khẩu' },
+            { required: true, message: "Vui lòng nhập mật khẩu" },
             {
               pattern: new RegExp("[0-9]{6}"),
-              message: "Mật khẩu phải bao gồm 6 chữ số"
-            }
+              message: "Mật khẩu phải bao gồm 6 chữ số",
+            },
           ]}
           className="mb-3"
         >
@@ -96,27 +91,27 @@ export default function NewPassword() {
             placeholder="Thiết lập mật khẩu (6 chữ số)"
             minLength={6}
             maxLength={6}
-          // iconRender={(visible) =>
-          //   visible ? <VisibleIcon /> : <InvisibleIcon />
-          // }
+            // iconRender={(visible) =>
+            //   visible ? <VisibleIcon /> : <InvisibleIcon />
+            // }
           />
         </Form.Item>
 
         <Form.Item
           name="confirm"
-          dependencies={['password']}
+          dependencies={["password"]}
           hasFeedback
           rules={[
             {
               required: true,
-              message: 'Vui lòng nhập lại mật khẩu',
+              message: "Vui lòng nhập lại mật khẩu",
             },
             ({ getFieldValue }) => ({
               validator(rule, value) {
-                if (!value || getFieldValue('password') === value) {
+                if (!value || getFieldValue("password") === value) {
                   return Promise.resolve();
                 }
-                return Promise.reject('Mật khẩu không giống nhau');
+                return Promise.reject("Mật khẩu không giống nhau");
               },
             }),
           ]}
@@ -126,7 +121,8 @@ export default function NewPassword() {
             minLength={6}
             maxLength={6}
             placeholder="Nhập lại mật khẩu"
-            size="large" />
+            size="large"
+          />
         </Form.Item>
         <i className="pl-2 note">* Vui lòng nhập mật khẩu gồm 6 chữ số</i>
         <Button type="primary" htmlType="submit" block className="mt-2">

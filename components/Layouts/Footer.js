@@ -5,7 +5,6 @@ import Script from "next/script";
 
 const Footer = () => {
   const [product, setProduct] = useState();
-  console.log("product footer", product);
   // let currentYear = new Date().getFullYear();
   useEffect(() => {
     const fetchProduct = async () => {
