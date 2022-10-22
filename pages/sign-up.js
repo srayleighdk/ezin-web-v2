@@ -307,8 +307,6 @@ export default function SignUp({ headers }) {
 
   return (
     <>
-      <Navbar headers={headers} />
-
       <div className="user-area-all-style sign-up-area ptb-100 mt-4">
         <div className="container">
           <div className="row">
@@ -422,8 +420,6 @@ export default function SignUp({ headers }) {
           </div>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }
