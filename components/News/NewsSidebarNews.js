@@ -9,8 +9,11 @@ const titles = {
   "tai-nan": "Tai nạn",
 };
 
-export default function NewsSidebarNews({ arrCats, arrNewsestPost, tags = [] }) {
-  console.log("tintuc", arrCats, arrNewsestPost)
+export default function NewsSidebarNews({
+  arrCats,
+  arrNewsestPost,
+  tags = [],
+}) {
   return (
     <div className="widget-area" id="secondary">
       <div className="widget widget_search">

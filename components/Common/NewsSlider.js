@@ -3,11 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 
 export default function NewsSlider({ newsPost }) {
-  console.log("newsPost", newsPost);
   return (
     <div
       className="brand-area-two ptb-100 position-relative mt-5 mt-newsSlider"
-      style={{ padding: "30px 0"}}
+      style={{ padding: "30px 0" }}
     >
       <img
         src="/images/brands/arrow.png"
@@ -43,10 +42,18 @@ export default function NewsSlider({ newsPost }) {
           style={{ width: "90%" }}
           className="brand-slide text-left mr-0"
         >
-          {newsPost.map(item => (
+          {newsPost.map((item) => (
             <SwiperSlide className="slider-news" key={item._id}>
-              <a href={`/life/p/${item.post_id}/${item.post.post_name}`} target="_blank" className="d-flex align-items-center">
-                <img src={item.post_thumbnail} alt={item.post.post_name} style={{ height: 62 }} />
+              <a
+                href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                target="_blank"
+                className="d-flex align-items-center"
+              >
+                <img
+                  src={item.post_thumbnail}
+                  alt={item.post.post_name}
+                  style={{ height: 62 }}
+                />
                 <p className="text-dot-2 h-62 lh-lg ml-12">
                   {item.post.post_title}
                 </p>

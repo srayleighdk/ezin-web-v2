@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Image from "next/image";
 
 export default function Partner({ partners = {} }) {
-  console.log("partners", partners);
   return (
     <div className="brand-area">
       <div className="container my-5">

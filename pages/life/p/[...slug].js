@@ -40,7 +40,6 @@ export default function NewsDetailsContent({
   blogDetail = [],
   headers = [],
 }) {
-  console.log("blogDetail", blogDetail);
   return (
     <>
       <Head>

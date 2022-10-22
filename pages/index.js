@@ -80,7 +80,6 @@ const Home = ({
   partners,
 }) => {
   const { auth, activationVisible } = useSelector(mapStateToProps);
-  console.log("topStores", allNodeProducts);
   const router = useRouter();
   // export async function getServerSideProps(context) {
   //     const res = await getHeader();

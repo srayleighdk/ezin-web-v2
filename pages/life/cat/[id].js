@@ -24,7 +24,6 @@ export default function CatList({
   arrCats = [],
   headers = [],
 }) {
-  console.log("CatList", id, arrBlogs, postNewest);
   return (
     <>
       <Head>

@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 
 export default function CommunityEzin() {
-//   useEffect(() => {
-//     console.log("Community", screenX)
-//   }, [screenX]);
+  //   useEffect(() => {
+  //   }, [screenX]);
 
   return (
     <div className="brand-area bg-community py-3">

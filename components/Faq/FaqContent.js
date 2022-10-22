@@ -17,8 +17,6 @@ function FaqContent({ faq }) {
 
   useEffect(() => {
     const res = getFAQContent(FaqId);
-    console.log(faqContent);
-    console.log(FaqId);
   }, [FaqId]);
 
   return (

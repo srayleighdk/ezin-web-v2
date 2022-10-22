@@ -10,7 +10,6 @@ const titles = {
 };
 
 export default function NewsBarBlogs({ arrCats, tags = [] }) {
-  console.log("arrCats", arrCats)
   return (
     <div className="widget-area" id="secondary">
       <div className="widget widget_search">

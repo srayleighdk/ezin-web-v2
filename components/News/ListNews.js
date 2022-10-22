@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
-import ReactPlayer from 'react-player';
+import ReactPlayer from "react-player";
 import Link from "next/link";
 import NewsSidebarNews from "./NewsSidebarNews";
 import dayjs from "dayjs";
 import styles from "../../pages/life/life.module.scss";
 
-export default function ListNews({
-  arrBlogs,
-  arrCats,
-  arrNewsestPost,
-  idCat,
-}) {
-  console.log("res2", arrCats, arrBlogs, arrNewsestPost);
+export default function ListNews({ arrBlogs, arrCats, arrNewsestPost, idCat }) {
   const paginationNumber = Math.ceil(arrBlogs?.length / 6);
   const [pagiNumber, setPagiNumber] = useState(1);
   const isVideo = idCat == "video";
@@ -21,7 +15,10 @@ export default function ListNews({
   }
 
   return (
-    <section className="news-details-area news-right-sidebar-area ptb-100" style={{ paddingTop: "150px" }}>
+    <section
+      className="news-details-area news-right-sidebar-area ptb-100"
+      style={{ paddingTop: "150px" }}
+    >
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-md-12">
@@ -112,19 +109,21 @@ export default function ListNews({
                           </div>
                         </div>
                       </>
-                    )
+                    );
                   }
                 })
               )}
 
               {/* Pagination */}
-              {paginationNumber === 0 ? null :
+              {paginationNumber === 0 ? null : (
                 <div className="col-lg-12">
                   <div className="page-navigation-area">
                     <nav aria-label="Page navigation example text-center">
                       <ul className="pagination">
                         <li
-                          className={`page-item ${pagiNumber === 1 && "d-none"}`}
+                          className={`page-item ${
+                            pagiNumber === 1 && "d-none"
+                          }`}
                           onClick={() => {
                             setPagiNumber(pagiNumber - 1);
                             setTimeout(function () {
@@ -207,12 +206,15 @@ export default function ListNews({
                     </nav>
                   </div>
                 </div>
-              }
+              )}
             </div>
           </div>
 
           <div className="col-lg-4 col-md-12">
-            <NewsSidebarNews arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
+            <NewsSidebarNews
+              arrCats={arrCats}
+              arrNewsestPost={arrNewsestPost}
+            />
           </div>
         </div>
       </div>

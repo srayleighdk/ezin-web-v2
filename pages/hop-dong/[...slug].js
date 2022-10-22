@@ -67,11 +67,9 @@ export default function HopdongPage({ headers, allNodeProducts }) {
     getData();
   }, [id]);
 
-  // console.log('activation 0', activation)
   // useEffect(() => {
   //   if (activation.seri !== '' && activation.code !== '') {
   //     setCardInfo(activation);
-  //     console.log('activation', activation);
   //     if (activation.package_id) {
   //       if (activation?.package_id?.product_id?.qna?.length > 0) {
   //         setStep(0);
@@ -100,7 +98,6 @@ export default function HopdongPage({ headers, allNodeProducts }) {
   }, [nStep]);
 
   const nextStep = (values) => {
-    console.log("values", values);
     window.scroll({
       top: 0,
       left: 0,
@@ -115,7 +112,6 @@ export default function HopdongPage({ headers, allNodeProducts }) {
     );
   };
   const prevStep = (values) => {
-    console.log("values prev", values);
     window.scroll({
       top: 0,
       left: 0,

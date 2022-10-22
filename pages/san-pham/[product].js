@@ -47,7 +47,6 @@ export default function Product({
   headers,
   allNodeProducts,
 }) {
-  console.log("headers", product, nodePackages);
   const features = product?.features.split("\n") || [];
   const iconsFeatures = [MoneyIcon, WorkIcon, FileIcon];
   return (

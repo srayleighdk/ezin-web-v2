@@ -11,7 +11,6 @@ export default function ListTopicNews({
   arrNewsestPost,
   idCat,
 }) {
-  console.log("res2", arrCats, arrBlogs, arrNewsestPost);
   const paginationNumber = Math.ceil(arrBlogs?.length / 6);
   const [pagiNumber, setPagiNumber] = useState(1);
   const isVideo = idCat == "video";
@@ -21,7 +20,10 @@ export default function ListTopicNews({
   }
 
   return (
-    <section className="news-details-area news-right-sidebar-area my-3 " style={{ paddingTop: "150px" }}>
+    <section
+      className="news-details-area news-right-sidebar-area my-3 "
+      style={{ paddingTop: "150px" }}
+    >
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-md-12">
@@ -124,16 +126,18 @@ export default function ListTopicNews({
               )}
 
               {/* Pagination */}
-              {paginationNumber === 0 ? null :
+              {paginationNumber === 0 ? null : (
                 <div className="col-lg-12">
                   <div className="page-navigation-area">
                     <nav aria-label="Page navigation example text-center">
                       <ul className="pagination">
                         <li
-                          className={`page-item ${pagiNumber === 1 && "d-none"}`}
+                          className={`page-item ${
+                            pagiNumber === 1 && "d-none"
+                          }`}
                           onClick={() => {
                             setPagiNumber(pagiNumber - 1);
-                            setTimeout(function() {
+                            setTimeout(function () {
                               window.scroll({
                                 top: 0,
                                 left: 0,
@@ -151,11 +155,12 @@ export default function ListTopicNews({
                           if (pagiNumber === item + 1) {
                             return (
                               <>
-                                <li key={item._id}
+                                <li
+                                  key={item._id}
                                   className="page-item active cursor-pointer"
                                   onClick={() => {
                                     setPagiNumber(item + 1);
-                                    setTimeout(function() {
+                                    setTimeout(function () {
                                       window.scroll({
                                         top: 400,
                                         left: 0,
@@ -175,7 +180,7 @@ export default function ListTopicNews({
                                 className="page-item cursor-pointer"
                                 onClick={() => {
                                   setPagiNumber(item + 1);
-                                  setTimeout(function() {
+                                  setTimeout(function () {
                                     window.scroll({
                                       top: 0,
                                       left: 0,
@@ -191,11 +196,12 @@ export default function ListTopicNews({
                         })}
 
                         <li
-                          className={`page-item ${pagiNumber === paginationNumber && "d-none"
-                            }`}
+                          className={`page-item ${
+                            pagiNumber === paginationNumber && "d-none"
+                          }`}
                           onClick={() => {
                             setPagiNumber(pagiNumber + 1);
-                            setTimeout(function() {
+                            setTimeout(function () {
                               window.scroll({
                                 top: 0,
                                 left: 0,
@@ -212,12 +218,15 @@ export default function ListTopicNews({
                     </nav>
                   </div>
                 </div>
-              }
+              )}
             </div>
           </div>
 
           <div className="col-lg-4 col-md-12">
-            <NewsSidebarNews arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
+            <NewsSidebarNews
+              arrCats={arrCats}
+              arrNewsestPost={arrNewsestPost}
+            />
           </div>
         </div>
       </div>

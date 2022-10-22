@@ -41,12 +41,10 @@ export default function Login({ headers }) {
   const onLogin = (values) => {
     const formData = new FormData(values.target);
     const formDataObj = Object.fromEntries(formData.entries());
-    console.log("formDataObj", formDataObj);
     loginApi({
       username: "0" + normalizePhoneNumber(formDataObj.phone),
       password: formDataObj.password,
     }).then(({ data, token, msg, success }) => {
-      console.log("ressssss", data, token, msg, success);
       if (success) {
         // dispatch(toggleLoginModal());
         login({ user: data, token: token });

@@ -7,7 +7,6 @@ import { createMarkup } from "../../utils/auth.helper";
 import dayjs from "dayjs";
 
 export default function Blog({ arrCats = [], blogDetail = [] }) {
-  console.log("blogDetail", blogDetail);
   return (
     <>
       <section className="news-details-area ptb-100">

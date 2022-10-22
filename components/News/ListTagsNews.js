@@ -11,7 +11,6 @@ export default function ListTagsNews({
   arrNewsestPost,
   idCat,
 }) {
-  console.log("res2", arrBlogs);
   const paginationNumber = Math.ceil(arrBlogs?.length / 6);
   const [pagiNumber, setPagiNumber] = useState(1);
   let pagination = [];
@@ -77,7 +76,9 @@ export default function ListTagsNews({
                             </li>
                           </ul> */}
 
-                          <Link href={`/life/p/${item.post_id}/${item.post.post_name}`}>
+                          <Link
+                            href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                          >
                             <a>
                               <h3>{item?.post?.post_title}</h3>
                             </a>
@@ -89,26 +90,30 @@ export default function ListTagsNews({
                             {item.post.post_excerpt}
                           </p>
 
-                          <Link href={`/life/p/${item.post_id}/${item.post.post_name}`}>
+                          <Link
+                            href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                          >
                             <a className="read-more">
                               Xem thêm <i className="bx bx-plus"></i>
                             </a>
                           </Link>
                         </div>
                       </div>
-                    </div>
+                    </div>;
                   }
                 })
               )}
 
               {/* Pagination */}
-              {paginationNumber === 0 ? null :
+              {paginationNumber === 0 ? null : (
                 <div className="col-lg-12">
                   <div className="page-navigation-area">
                     <nav aria-label="Page navigation example text-center">
                       <ul className="pagination">
                         <li
-                          className={`page-item ${pagiNumber === 1 && "d-none"}`}
+                          className={`page-item ${
+                            pagiNumber === 1 && "d-none"
+                          }`}
                           onClick={() => {
                             setPagiNumber(pagiNumber - 1);
                             setTimeout(function () {
@@ -191,12 +196,15 @@ export default function ListTagsNews({
                     </nav>
                   </div>
                 </div>
-              }
+              )}
             </div>
           </div>
 
           <div className="col-lg-4 col-md-12">
-            <NewsSidebarNews arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
+            <NewsSidebarNews
+              arrCats={arrCats}
+              arrNewsestPost={arrNewsestPost}
+            />
           </div>
         </div>
       </div>

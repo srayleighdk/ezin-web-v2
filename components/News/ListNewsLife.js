@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ReactPlayer from 'react-player';
+import ReactPlayer from "react-player";
 import Link from "next/link";
 import NewsBar from "./NewsBar";
 import dayjs from "dayjs";
@@ -11,7 +11,6 @@ export default function ListNewsLife({
   arrNewsestPost,
   idCat,
 }) {
-  console.log("res2", arrCats, arrBlogs, arrNewsestPost);
   const paginationNumber = Math.ceil(arrBlogs?.length / 6);
   const [pagiNumber, setPagiNumber] = useState(1);
   const isVideo = idCat == "video";
@@ -112,19 +111,21 @@ export default function ListNewsLife({
                           </div>
                         </div>
                       </>
-                    )
+                    );
                   }
                 })
               )}
 
               {/* Pagination */}
-              {paginationNumber === 0 ? null :
+              {paginationNumber === 0 ? null : (
                 <div className="col-lg-12">
                   <div className="page-navigation-area">
                     <nav aria-label="Page navigation example text-center">
                       <ul className="pagination">
                         <li
-                          className={`page-item ${pagiNumber === 1 && "d-none"}`}
+                          className={`page-item ${
+                            pagiNumber === 1 && "d-none"
+                          }`}
                           onClick={() => {
                             setPagiNumber(pagiNumber - 1);
                             setTimeout(function () {
@@ -207,7 +208,7 @@ export default function ListNewsLife({
                     </nav>
                   </div>
                 </div>
-              }
+              )}
             </div>
           </div>
 

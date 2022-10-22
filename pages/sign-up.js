@@ -11,10 +11,7 @@ import {
   newPasswordApi,
   resendOTPApi,
 } from "../pages/api";
-import {
-  makeOTPVisible,
-  makeModalData,
-} from "../src/store/modal/selector";
+import { makeOTPVisible, makeModalData } from "../src/store/modal/selector";
 import { useSelector, useDispatch } from "react-redux";
 import { normalizePhoneNumber } from "../utils/helpers";
 import {
@@ -85,10 +82,9 @@ export default function SignUp({ headers }) {
         username: phone,
         otp: checkValidCode().code,
       });
-      console.log("res", res, phone, arrCode);
       if (res.success) {
-          setMessage("");
-          setStep(3);
+        setMessage("");
+        setStep(3);
       } else {
         setMessage("Mã OTP không hợp lệ");
         // button_ref.current.disabled = false;
@@ -107,7 +103,6 @@ export default function SignUp({ headers }) {
       setMessage("Xác nhận mật khẩu sai. Vui lòng nhập lại");
       return;
     }
-    console.log("wwwwww", formDataObj);
     const res = await newPasswordApi({
       username: phone,
       newpassword: formDataObj.password,
