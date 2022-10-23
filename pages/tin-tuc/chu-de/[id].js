@@ -47,7 +47,6 @@ export default function CatList({
       <Head>
         <title>Chủ đề {id}</title>
       </Head>
-      <Navbar headers={headers} />
       <ListTopicNews
         arrBlogs={arrBlogs}
         arrCats={arrCats}

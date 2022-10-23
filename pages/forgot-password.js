@@ -285,7 +285,6 @@ export default function Login({ headers }) {
       <Head>
         <title>Forgot Password</title>
       </Head>
-      <Navbar headers={headers} />
 
       <div className="user-area-all-style log-in-area ptb-100 mt-4">
         <div className="container">
@@ -296,8 +295,6 @@ export default function Login({ headers }) {
           </div>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }
