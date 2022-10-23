@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export default function CommunityEzin() {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   //   useEffect(() => {
   //   }, [screenX]);
 
@@ -11,31 +13,55 @@ export default function CommunityEzin() {
           <h2 className="text-white">Cộng đồng Ezin</h2>
         </div>
         <div className="row">
-          <div className="col-lg-2 text-center position-relative line-right d-flex flex-row-reverse flex-lg-column justify-content-around align-items-center">
-            <p className="text-16 mb-0 w-xs-comunity">Số Eziner được bảo vệ</p>
-            <p className="text-40 font-weight-700">7K</p>
+          <div
+            className={`col-lg-2 col-6 text-center position-relative ${
+              !isMobile && "line-right"
+            } d-flex flex-column flex-lg-column justify-content-around align-items-center`}
+          >
+            <p className={`${isMobile && "h-58"} text-16 mb-0 w-xs-comunity`}>Số Eziner được bảo vệ</p>
+            <p className={`${isMobile && "color-FFF2AB"} text-40 font-weight-700`}>7K</p>
           </div>
-          <div className="col-lg-2 text-center position-relative line-right d-flex flex-row-reverse flex-lg-column justify-content-around align-items-center">
-            <p className="text-16 mb-0 w-xs-comunity">Số EzCoin kiếm được</p>
-            <p className="text-40 font-weight-700">100M</p>
+          <div
+            className={`col-lg-2 col-6 text-center position-relative ${
+              !isMobile && "line-right"
+            } d-flex flex-column flex-lg-column justify-content-around align-items-center`}
+          >
+            <p className={`${isMobile && "h-58"} text-16 mb-0 w-xs-comunity`}>Số EzCoin kiếm được</p>
+            <p className={`${isMobile && "color-FFF2AB"} text-40 font-weight-700`}>100M</p>
           </div>
-          <div className="col-lg-2 text-center position-relative line-right d-flex flex-row-reverse flex-lg-column justify-content-around align-items-center">
-            <p className="text-16 mb-0 w-xs-comunity">Số Km an toàn</p>
-            <p className="text-40 font-weight-700">200K</p>
+          <div
+            className={`col-lg-2 col-6 text-center position-relative ${
+              !isMobile && "line-right"
+            } d-flex flex-column flex-lg-column justify-content-around align-items-center`}
+          >
+            <p className={`${isMobile && "h-58"} text-16 mb-0 w-xs-comunity`}>Số Km an toàn</p>
+            <p className={`${isMobile && "color-FFF2AB"} text-40 font-weight-700`}>200K</p>
           </div>
-          <div className="col-lg-2 text-center position-relative line-right d-flex flex-row-reverse flex-lg-column justify-content-around align-items-center">
-            <p className="text-16 mb-0 w-xs-comunity">Fan Facebook</p>
-            <p className="text-40 font-weight-700">100K</p>
+          <div
+            className={`col-lg-2 col-6 text-center position-relative ${
+              !isMobile && "line-right"
+            } d-flex flex-column flex-lg-column justify-content-around align-items-center`}
+          >
+            <p className={`${isMobile && "h-58"} text-16 mb-0 w-xs-comunity`}>Fan Facebook</p>
+            <p className={`${isMobile && "color-FFF2AB"} text-40 font-weight-700`}>100K</p>
           </div>
-          <div className="col-lg-2 text-center position-relative line-right d-flex flex-row-reverse flex-lg-column justify-content-around align-items-center">
-            <p className="text-16 mb-0 w-xs-comunity">Số EzStore</p>
-            <p className="text-40 font-weight-700">50</p>
+          <div
+            className={`col-lg-2 col-6 text-center position-relative ${
+              !isMobile && "line-right"
+            } d-flex flex-column flex-lg-column justify-content-around align-items-center`}
+          >
+            <p className={`${isMobile && "h-58"} text-16 mb-0 w-xs-comunity`}>Số EzStore</p>
+            <p className={`${isMobile && "color-FFF2AB"} text-40 font-weight-700`}>50</p>
           </div>
-          <div className="col-lg-2 text-center d-flex flex-row-reverse flex-lg-column justify-content-around align-items-center">
+          <div
+            className={`col-lg-2 col-6 text-center position-relative ${
+              !isMobile && "line-right"
+            } d-flex flex-column flex-lg-column justify-content-around align-items-center`}
+          >
             <p className="text-16 mb-0 w-xs-comunity">
               Số người nhận được quyền lợi BH
             </p>
-            <p className="text-40 font-weight-700">13K</p>
+            <p className={`${isMobile && "color-FFF2AB"} text-40 font-weight-700`}>13K</p>
           </div>
         </div>
       </div>

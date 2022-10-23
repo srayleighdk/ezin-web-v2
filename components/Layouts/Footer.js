@@ -178,7 +178,7 @@ const Footer = () => {
           <div className="row mt-4">
             <div className="col-lg-3 col-md-6 align-self-center">
               <div className="single-widget">
-                <p>CÔNG TY CỔ PHẦN EZIN VIỆT NAM</p>
+                <p className="text-20 fw-600">CÔNG TY CỔ PHẦN EZIN VIỆT NAM</p>
               </div>
             </div>
 

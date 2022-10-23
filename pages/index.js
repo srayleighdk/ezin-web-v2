@@ -82,7 +82,7 @@ const Home = ({
 }) => {
   const { auth, activationVisible } = useSelector(mapStateToProps);
   const router = useRouter();
-  const [hidden, setHidden] = useState(true);
+  const [hidden, setHidden] = useState("");
   // export async function getServerSideProps(context) {
   //     const res = await getHeader();
   //     return {
@@ -122,24 +122,16 @@ const Home = ({
 
       {/* <HotDeals allNodeProducts={allNodeProducts} /> */}
 
-      <WhatWeOffer />
-
-      <EzinCoin />
-
-      <CommunityEzin />
-
-      <News news={news} />
-
-      {hidden ? (
-        <Testimonials testimonials={testimonials.testimonials} />
+      {hidden === "why" || hidden === "" ? (
+        <WhatWeOffer />
       ) : null}
 
-      {hidden ? (
+      {hidden === "why" || hidden === "" ? (
         <div className="d-flex justify-content-center">
           <div
             className="my-4 text-center d-flex align-items-center justify-content-center rounded-pill button-hidden"
             onClick={() => {
-              setHidden(false);
+              setHidden("no-why");
             }}
           >
             <EyeInvisibleOutlined style={{ width: 24, marginRight: 6 }} />
@@ -151,7 +143,43 @@ const Home = ({
           <div
             className="my-4 text-center d-flex align-items-center justify-content-center rounded-pill button-show"
             onClick={() => {
-              setHidden(true);
+              setHidden("why");
+            }}
+          >
+            <EyeOutlined style={{ width: 24, marginRight: 6 }} />
+            Tại sao dùng Ezin
+          </div>
+        </div>
+      )}
+
+      <EzinCoin />
+
+      <CommunityEzin />
+
+      <News news={news} />
+
+      {hidden === "reviews" || hidden === "" ? (
+        <Testimonials testimonials={testimonials.testimonials} />
+      ) : null}
+
+      {hidden === "reviews" || hidden === "" ? (
+        <div className="d-flex justify-content-center">
+          <div
+            className="my-4 text-center d-flex align-items-center justify-content-center rounded-pill button-hidden"
+            onClick={() => {
+              setHidden("no-reviews");
+            }}
+          >
+            <EyeInvisibleOutlined style={{ width: 24, marginRight: 6 }} />
+            Ẩn phần này
+          </div>
+        </div>
+      ) : (
+        <div className="d-flex justify-content-center">
+          <div
+            className="my-4 text-center d-flex align-items-center justify-content-center rounded-pill button-show"
+            onClick={() => {
+              setHidden("reviews");
             }}
           >
             <EyeOutlined style={{ width: 24, marginRight: 6 }} />
