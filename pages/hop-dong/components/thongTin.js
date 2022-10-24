@@ -18,18 +18,19 @@ const mapForms = {
   'OTHER': ActivateForm,
 };
 
-const mapStateToProps = createStructuredSelector({
-  auth: makeSelectAuth(),
-});
+// const mapStateToProps = createStructuredSelector({
+//   auth: makeSelectAuth(),
+// });
 
 export default function ThongTinBH({ data, initData = [], onNext, onPrev }) {
-  const res = useSelector(mapStateToProps);
+  // const res = useSelector(mapStateToProps);
   const {user, loading} = useAuth()
+  console.log("user", auth, loading);
   const auth = user;
   const dispatch = useDispatch();
   useEffect(() => {
     if (!loading && !auth?.username) {
-      dispatch(toggleRegisterModal());
+      dispatch(toggleLoginModal());
     }
   }, [auth?.username]);
 

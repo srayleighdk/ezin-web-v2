@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import PageBanner from "../../components/Product/PageBanner";
 import PricingStyleOne from "../../components/Product/PricingStyleOne";
 import MoneyIcon from "../../public/images/money.svg";
+import { createMarkupNormal } from "../../utils/auth.helper";
+import { Modal } from "antd";
 import {
   getProduct,
   getNodePackages,
@@ -49,6 +51,14 @@ export default function Product({
 }) {
   const features = product?.features.split("\n") || [];
   const iconsFeatures = [MoneyIcon, WorkIcon, FileIcon];
+  const [ModalInfo, setModalInfo] = useState(null);
+
+  console.log("product", product);
+
+  const handleOk = () => {
+    setModalInfo(null);
+  };
+
   return (
     <>
       {/* <PageBanner
@@ -141,31 +151,38 @@ export default function Product({
           </div>
 
           <div className="row">
-            {nodePackages.map((item) => (
-              <div className="col-lg-6 col-sm-6">
-                <div className="single-offer pl-30 pr-30">
-                  <h3 className="mt-2">
-                    <Link href="/service-details">
-                      <a>Gói {item?.name}</a>
-                    </Link>
-                  </h3>
-                  <p className={`mb-0 p-2 rounded ${styles.background}`}>
-                    Tổng giá trị bảo hiểm: {item?.quyen_loi_bao_hiem}
-                  </p>
-                  <p className="mt-3 mb-0 text-primary fw-bolder">
-                    Thu phí: {formatVND(item?.gia_tien)}
-                  </p>
-                  <a className={`${styles.benefit} text-primary mb-2`} href="#">
-                    Xem quyền lợi bảo hiểm
-                  </a>
-                  <Link href={`/hop-dong/${item.package_id}/${item.name}`}>
-                    <a className="default-btn py-3 w-100 rounded-pill text-center">
-                      Mua ngay
-                    </a>
-                  </Link>
-                </div>
-              </div>
-            ))}
+            {nodePackages.map((item) => {
+              return (
+                <>
+                  <div className="col-lg-6 col-sm-6">
+                    <div className="single-offer pl-30 pr-30">
+                      <h3 className="mt-2">
+                        <Link href="/service-details">
+                          <a>Gói {item?.name}</a>
+                        </Link>
+                      </h3>
+                      <p className={`mb-0 p-2 rounded ${styles.background}`}>
+                        Tổng giá trị bảo hiểm: {item?.quyen_loi_bao_hiem}
+                      </p>
+                      <p className="mt-3 mb-0 text-primary fw-bolder">
+                        Thu phí: {formatVND(item?.gia_tien)}
+                      </p>
+                      <a
+                        className={`${styles.benefit} text-primary mb-2`}
+                        onClick={() => setModalInfo(item)}
+                      >
+                        Xem quyền lợi bảo hiểm
+                      </a>
+                      <Link href={`/hop-dong/${item.package_id}/${item.name}`}>
+                        <a className="default-btn py-3 w-100 rounded-pill text-center">
+                          Mua ngay
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </>
+              );
+            })}
           </div>
         </div>
 
@@ -184,12 +201,12 @@ export default function Product({
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-3 col-sm-6">
-              <a href={product?.link_rules}>
-                <div className="single-contact-info mb-3">
+              <div className="single-contact-info mb-3">
+                <a href={product?.link_rules}>
                   <i className="bx bx-download"></i>
                   <h3>Quy tắc bảo hiểm áp dụng</h3>
-                </div>
-              </a>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -233,6 +250,39 @@ export default function Product({
             </Link>
           </div>
         </div>
+        <Modal
+          title={`Gói ${ModalInfo?.name}`}
+          visible={ModalInfo}
+          onOk={handleOk}
+          onCancel={handleOk}
+          className={styles.modal}
+          maskStyle={{ background: "#bcbcbc100" }}
+        >
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th colSpan="2">Quyền lợi bảo hiểm</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ModalInfo?.program_id?.benefits.split("\n")?.map((e) => {
+                const str = e.split("|");
+
+                return (
+                  <tr key={e.index}>
+                    <th
+                      className="text-left"
+                      dangerouslySetInnerHTML={createMarkupNormal(str[0])}
+                    ></th>
+                    <th
+                      dangerouslySetInnerHTML={createMarkupNormal(str[1])}
+                    ></th>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </Modal>
       </section>
     </>
   );

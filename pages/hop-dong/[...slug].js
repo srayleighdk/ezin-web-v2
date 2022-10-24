@@ -261,7 +261,7 @@ export default function HopdongPage({ headers, allNodeProducts }) {
           content={`Gói BH - ${data && data.name} | Ezin`}
         />
       </Head>
-      <section id="activation">
+      <section id="activation mt-5">
         <div className="main-section content-section ptb-100 mt-4">
           <div className="container">
             <h2 className="text-center">
