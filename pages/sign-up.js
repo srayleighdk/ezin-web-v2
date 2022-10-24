@@ -82,7 +82,7 @@ export default function SignUp({ headers }) {
     try {
       const res = await verifyAccountApi({
         username: phone,
-        otp: checkValidCode().code,
+        otp: e || checkValidCode().code,
       });
       if (res.success) {
         setMessage("");
@@ -174,7 +174,12 @@ export default function SignUp({ headers }) {
             <OtpInput
               className="OTP__checkInput mx-4 mb-2 mt-2"
               value={arrCode}
-              onChange={(e) => setArrCode(e)}
+              onChange={(e) => {
+                setArrCode(e);
+                if(e.length === 4) {
+                  onFormSubmit2(e)
+                }
+              }}
               numInputs={4}
               shouldAutoFocus={true}
               // separator={<span>-</span>}
@@ -282,17 +287,6 @@ export default function SignUp({ headers }) {
               Xác nhận
             </button>
           </div>
-          {/* <div className="col-lg-6 col-12">
-            <button
-              className="default-btn btn-two"
-              onClick={() => {
-                setMessage("");
-                setStep(2);
-              }}
-            >
-              Quay lại
-            </button>
-          </div> */}
         </>
       );
     } else {
@@ -337,78 +331,6 @@ export default function SignUp({ headers }) {
                 >
                   <div className="row">
                     {render()}
-                    {/* <div className="col-md-12 col-sm-12">
-                      <div className="form-group">
-                        <input
-                          className="form-control"
-                          type="text"
-                          name="name"
-                          placeholder="Vui lòng nhập họ tên"
-                        />
-                      </div>
-                    </div> */}
-
-                    {/* <div className="col-md-12 col-sm-12">
-                      <div className="form-group">
-                        <input
-                          className="form-control"
-                          type="text"
-                          name="phone"
-                          placeholder="Vui lòng nhập số điện thoại"
-                        />
-                      </div>
-                    </div> */}
-
-                    {/* <div className="col-md-12 col-sm-12">
-                      <div className="form-group">
-                        <input
-                          className="form-control"
-                          type="email"
-                          name="email"
-                          placeholder="Vui lòng nhập email (nếu có)"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="col-md-12 col-sm-12">
-                      <div className="form-group">
-                        <input
-                          className="form-control"
-                          type="password"
-                          name="password"
-                          placeholder="Thiết lập mật khẩu (6 chữ số)"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="col-md-12 col-sm-12">
-                      <div className="form-group">
-                        <input
-                          className="form-control"
-                          type="password"
-                          name="password"
-                          placeholder="Nhập lại mật khẩu"
-                        />
-                      </div>
-                    </div> */}
-
-                    {/* <div className="d-flex justify-content-center">
-                      <OtpInput
-                        className="OTP__checkInput mx-4 mb-3"
-                        value={arrCode}
-                        onChange={(e) => setArrCode(e)}
-                        numInputs={4}
-                        shouldAutoFocus={true}
-                        // separator={<span>-</span>}
-                      />
-                    </div> */}
-
-                    {/* <div className="col-12">
-                      <button className="default-btn btn-two" type="submit">
-                        Đăng ký
-                      </button>
-                    </div> */}
-
                     <div className="col-12">
                       <p className="account-desc">
                         Bạn đã có tài khoản?
