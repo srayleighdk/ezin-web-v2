@@ -40,9 +40,11 @@ export default function LoginModal() {
   };
 
   const onLogin = (values) => {
+    const formData = new FormData(values.target);
+    const formDataObj = Object.fromEntries(formData.entries());
     loginApi({
-      ...values,
-      username: "0" + normalizePhoneNumber(values["phoneNumber-1"]),
+      username: "0" + normalizePhoneNumber(formDataObj.phone),
+      password: formDataObj.password,
     }).then(({ data, token, msg, success }) => {
       if (success) {
         message.success("Chúc mừng bạn đã đăng nhập thành công");
@@ -137,43 +139,70 @@ export default function LoginModal() {
             .
           </i>
         </p>
-        <Form
-          onFinish={onLogin}
-          form={form}
+        <form
+          method="post"
+          onSubmit={(e) => {
+            e.preventDefault();
+            onLogin(e);
+          }}
           // initialValues={
           //   data.phoneNumber
           //     ? { 'phoneNumber-1': data.phoneNumber }
           //     : { 'phoneNumber-1': '', password: '' }
           // }
         >
-          <PhoneNumber
+          {/* <PhoneNumber
             placeholder="Số điện thoại"
-            value={{ prefix: "+84" }}
-            prefixName="prefix-1"
             phoneName="phoneNumber-1"
             size="large"
-          />
+          /> */}
+
+          <div className="form-group">
+            <input
+              className="form-control"
+              type="text"
+              name="phone"
+              placeholder="Số điện thoại"
+            />
+          </div>
           {/* </Form.Item> */}
-          <Form.Item
+          {/* <Form.Item
             name="password"
             rules={[
               { required: true, message: "Mật khẩu không được để trống" },
             ]}
           >
             <Input.Password placeholder="Mật khẩu" size="large" />
-          </Form.Item>
-          <Button type="primary" block className="mb-2" htmlType="submit">
+          </Form.Item> */}
+
+          <div className="form-group mb-2">
+            <input
+              className="form-control"
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+          {/* <Button type="primary" block className="mb-2" htmlType="submit">
             Đăng nhập
-          </Button>
+          </Button> */}
+
+          <button className="default-btn btn-two w-100" type="submit">
+            Đăng nhập
+          </button>
           <p className="text-center pointer" onClick={onForget}>
             <i>
               <u>Quên mật khẩu</u>
             </i>
           </p>
-          <Button block className="mt-3" ghost onClick={onRegister}>
+          {/* <Button block className="mt-3" ghost onClick={onRegister}>
             Đăng ký
-          </Button>
-        </Form>
+          </Button> */}
+
+          <button className="default-btn btn-two w-100" onClick={onRegister}>
+            Đăng ký
+          </button>
+        </form>
       </Modal>
     </AuthProvider>
   );
