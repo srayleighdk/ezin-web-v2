@@ -34,13 +34,6 @@ import {
   makeSelectCartVisible,
 } from "../src/store/selector";
 
-const mapStateToProps = createStructuredSelector({
-  auth: makeSelectAuth(),
-  cart: makeSelectCart(),
-  cartVisible: makeSelectCartVisible(),
-  activationVisible: makeSelectActivationVisible(),
-});
-
 export async function getServerSideProps(context) {
   const [
     res,
@@ -71,6 +64,14 @@ export async function getServerSideProps(context) {
     }, // will be passed to the page component as props
   };
 }
+
+const mapStateToProps = createStructuredSelector({
+  auth: makeSelectAuth(),
+  cart: makeSelectCart(),
+  cartVisible: makeSelectCartVisible(),
+  activationVisible: makeSelectActivationVisible(),
+});
+
 const Home = ({
   headers,
   allNodeProducts,
