@@ -1,5 +1,11 @@
 @media only screen and (max-width: 767px) {
     // variable
+    .w-ms {
+        &-100 {
+            width: 100% !important;
+        }
+    }
+
     .px-ms {
         &-2 {
             padding-left: 0.5rem !important;
@@ -19,8 +25,14 @@
         height: 52px;
     }
 
-    .mt-ms-80 {
-        margin-top: 80px;
+    .mt-ms {
+        &-80 {
+            margin-top: 80px;
+        }
+
+        &-12 {
+            margin-top: 12px;
+        }
     }
 
     .pb-sm {
@@ -43,6 +55,10 @@
 
     [class^="flaticon-"]:before, [class*=" flaticon-"]:before {
         font-size: 20px;
+    }
+
+    .OTP__checkInput {
+        width: auto !important;
     }
 
     .button-hidden {

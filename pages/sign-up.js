@@ -21,6 +21,7 @@ import {
 } from "../src/store/modal/actions";
 import OtpInput from "react-otp-input";
 import { useRouter } from "next/router";
+import { useMediaQuery } from "react-responsive";
 import Head from "next/head";
 
 export async function getServerSideProps() {
@@ -36,6 +37,7 @@ const COUNTDOWN_TIME = 59;
 
 export default function SignUp({ headers }) {
   const router = useRouter();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const [arrCode, setArrCode] = useState("");
   const [message, setMessage] = useState("");
   const [step, setStep] = useState(1);
@@ -185,21 +187,23 @@ export default function SignUp({ headers }) {
           >
             {message}
           </div>
-          <div className="col-lg-6 col-12">
-            <button
-              className="default-btn btn-two"
-              onClick={() => {
-                setMessage("");
-                setStep(1);
-              }}
-            >
-              Quay lại
-            </button>
-          </div>
-          <div className="col-lg-6 col-12">
-            <button className="default-btn btn-two" type="submit">
-              Xác nhận
-            </button>
+          <div className="d-flex flex-column-reverse">
+            <div className="col-lg-6 col-12 mt-ms-12">
+              <button
+                className="default-btn btn-two"
+                onClick={() => {
+                  setMessage("");
+                  setStep(1);
+                }}
+              >
+                Quay lại
+              </button>
+            </div>
+            <div className="col-lg-6 col-12">
+              <button className="default-btn btn-two" type="submit">
+                Xác nhận
+              </button>
+            </div>
           </div>
           <div className="text-center mt-3">
             Không nhận được mã.{" "}

@@ -6950,7 +6950,7 @@ h3 {
 }
 
 .dropdown-menu.navbar {
-  width: 210px !important;
+  /* width: 210px !important; */
   left: auto !important;
   right: 0 !important;
   padding-left: 0;

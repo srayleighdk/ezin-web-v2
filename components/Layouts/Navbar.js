@@ -73,18 +73,24 @@ const Navbar = () => {
   return (
     <>
       <div id="navbar" className="navbar-area fixed-top">
-        <nav className="navbar navbar-expand-md navbar-light"
-        style={{background: "linear-gradient(180deg, #ecf8ff 0%, rgb(240 255 253) 91.31%)"}}>
-          <div className="container">
+        <nav
+          className="navbar navbar-expand-md navbar-light"
+          style={{
+            background:
+              "linear-gradient(180deg, #ecf8ff 0%, rgb(240 255 253) 91.31%)",
+          }}
+        >
+          <div className="container justify-content-start">
             <button
               onClick={toggleNavbar}
-              className={classTwo}
+              className={`${classTwo}`}
               type="button"
               data-toggle="collapse"
               data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent"
               aria-expanded="false"
               aria-label="Toggle navigation"
+              style={{ marginRight: "25%" }}
             >
               <span className="icon-bar top-bar"></span>
               <span className="icon-bar middle-bar"></span>
@@ -96,14 +102,15 @@ const Navbar = () => {
             </Link>
 
             <div className={classOne} id="navbarSupportedContent">
-              <ul className="navbar-nav m-auto align-items-center">
+              <ul className="navbar-nav m-auto align-items-center mt-4">
                 {headers &&
                   headers.map((header) => {
                     return (
-                      <li className="nav-item" key={header.key}>
+                      <li className="nav-item w-100" key={header.key}>
                         <Link href={header.link}>
                           <a
-                            className="nav-link text-black"
+                            className="nav-link text-black text-start"
+                            onClick={toggleNavbar}
                             // onClick={(e) => e.preventDefault()}
                           >
                             {header.label}
@@ -171,10 +178,17 @@ const Navbar = () => {
                 <div
                   className={`${
                     !isMobile ? "ms-2" : "text-uppercase"
-                  } others-options text-ms-16 fw-ms-default`}
+                  } others-options text-ms-16 fw-ms-default w-100`}
                 >
                   <ul className="navbar-nav m-auto align-item-baseline">
-                    <li className="nav-item" onClick={() => setShowNavbar(showNavbar !== "account" ? "account" : null)}>
+                    <li
+                      className="nav-item w-100"
+                      onClick={() =>
+                        setShowNavbar(
+                          showNavbar !== "account" ? "account" : null
+                        )
+                      }
+                    >
                       {isMobile ? (
                         <div className="pt-2 text-capitalize pb-1 pb-sm-1 nav-link text-black">
                           {auth?.full_name || auth?.username
@@ -195,31 +209,29 @@ const Navbar = () => {
                         </a>
                       )}
                       {showNavbar === "account" && (
-                        <ul className="dropdown-menu navbar no-border pt-sm-1 no-shadow mt-sm-0">
+                        <ul className="dropdown-menu navbar no-border pt-sm-1 no-shadow mt-sm-0 w-100">
                           {auth?.full_name || auth?.username ? (
                             <div
                               className="text-dark text-capitalize w-100"
-                              onClick={logout}
+                              onClick={() => {
+                                toggleNavbar();
+                                logout();
+                              }}
                             >
                               <li className="nav-item dropend cursor-pointer">
                                 Đăng xuất
                               </li>
                             </div>
                           ) : (
-                            // <Button
-                            //   type="outline"
-                            //   onClick={logout}
-                            //   key="2"
-                            //   className="text-dark"
-                            // >
-                            //   Đăng xuất
-                            // </Button>
                             <>
                               <Link href="/login">
                                 <a
                                   className={`text-dark text-capitalize w-100 ${
                                     isMobile && "text-start"
                                   }`}
+                                  onClick={() => {
+                                    toggleNavbar();
+                                  }}
                                 >
                                   <li className="nav-item dropend cursor-pointer">
                                     Đăng nhập
@@ -228,7 +240,12 @@ const Navbar = () => {
                               </Link>
                               <Link href="/sign-up">
                                 <a className="text-dark text-capitalize">
-                                  <li className="nav-item dropend cursor-pointer d-flex align-items-center">
+                                  <li
+                                    className="nav-item dropend cursor-pointer d-flex align-items-center"
+                                    onClick={() => {
+                                      toggleNavbar();
+                                    }}
+                                  >
                                     Đăng ký{" "}
                                     <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
                                       Nhận ngay 2000{" "}
@@ -246,6 +263,9 @@ const Navbar = () => {
                                   className={`text-dark text-capitalize w-100 ${
                                     isMobile && "text-start"
                                   }`}
+                                  onClick={() => {
+                                    toggleNavbar();
+                                  }}
                                 >
                                   <li className="nav-item dropend cursor-pointer">
                                     Quên mật khẩu
@@ -259,6 +279,9 @@ const Navbar = () => {
                               className={`text-dark text-capitalize w-100 ${
                                 isMobile && "text-start"
                               }`}
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
                             >
                               <li className="nav-item dropend cursor-pointer">
                                 Tra cứu bảo hiểm

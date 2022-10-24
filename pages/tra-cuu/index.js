@@ -83,7 +83,7 @@ export default function ComingSoon({ headers, allNodeProducts }) {
                 <h1 className="text-white">Tính năng sắp ra mắt</h1>
               </div>
               <Link href="/">
-                <a className="default-btn w-25 text-center rounded-pill mt-4">
+                <a className="default-btn w-25 w-ms-100 text-center rounded-pill mt-4">
                   Về trang chủ
                 </a>
               </Link>
