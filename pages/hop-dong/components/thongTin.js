@@ -23,7 +23,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 export default function ThongTinBH({ data, initData = [], onNext, onPrev }) {
-  // const res = useSelector(mapStateToProps);
+  const res = useSelector(mapStateToProps);
   const {user, loading} = useAuth()
   console.log("user", auth, loading);
   const auth = user;
