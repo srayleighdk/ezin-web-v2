@@ -63,14 +63,14 @@ const Products = ({ allNodeProducts }) => {
                       150.000 <img src="/images/coin.png" alt="Coin" />
                     </p>
                   </div>
-                  {/* <Link href={`san-pham/${product.slug}#mua-ngay`}>
+                  <Link href={`san-pham/${product.slug}#mua-ngay`}>
                     <a className="default-btn w-100 rounded-pill">Mua ngay</a>
-                  </Link> */}
-                  <Button href={`san-pham/${product.slug}#mua-ngay`}
+                  </Link>
+                  {/* <Button href={`san-pham/${product.slug}#mua-ngay`}
                     type="primary"
                     onClick={() => alert('click')}>
                     Mua ngay
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
             );
