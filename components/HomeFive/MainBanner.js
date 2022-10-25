@@ -45,14 +45,6 @@ export default function MainBanner() {
               className="slider-btn position-absolute d-flex justify-content-center w-100 d-sm-flex flex-column px-ms-3"
               style={{ top: "-40%" }}
             >
-              {/* <Link href="/#san-pham">
-                <a
-                  className="default-btn white mx-3 text-20 text-center lh-32 align-self-center"
-                  style={{ width: 253, height: 58, borderRadius: 100 }}
-                >
-                  Mua bảo hiểm ngay
-                </a>
-              </Link> */}
               <Button
                 className="mx-3 btn-buy-banner text-center shadow align-self-center"
                 onClick={() => router.push("/#san-pham")}
@@ -62,7 +54,6 @@ export default function MainBanner() {
               </Button>
 
               <Button
-                // className="mx-3 text-center shadow align-self-center"
                 className="btn-video-banner d-flex justify-content-center align-items-center text-center align-self-center"
                 onClick={() => setVisibleAudio(true)}
                 type="default"

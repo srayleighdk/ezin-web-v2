@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import Link from "next/link";
 import { formatVND } from "../../utils/helpers.js";
 import Button from "../Common/Button";
+import { useRouter } from "next/router";
 
 const Products = ({ allNodeProducts }) => {
+  const router = useRouter();
   const percentReduce = (value) => {
     return Math.round(
       ((value.min_fee - value.min_fee_promotion) / value.min_fee) * 100
@@ -63,14 +65,16 @@ const Products = ({ allNodeProducts }) => {
                       150.000 <img src="/images/coin.png" alt="Coin" />
                     </p>
                   </div>
-                  <Link href={`san-pham/${product.slug}#mua-ngay`}>
-                    <a className="default-btn w-100 rounded-pill">Mua ngay</a>
-                  </Link>
-                  {/* <Button href={`san-pham/${product.slug}#mua-ngay`}
+                  <Button
+                    href={`san-pham/${product.slug}#mua-ngay`}
                     type="primary"
-                    onClick={() => alert('click')}>
+                    onClick={() =>
+                      router.push(`san-pham/${product.slug}#mua-ngay`)
+                    }
+                    className="w-100"
+                  >
                     Mua ngay
-                  </Button> */}
+                  </Button>
                 </div>
               </div>
             );

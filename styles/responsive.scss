@@ -49,6 +49,22 @@
         font-size: 16px !important;
     }
 
+    .why-wrap-header {
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    .why-wrap-header::before {
+        background-color: transparent !important;
+        border-radius: 0 !important;
+    }
+
+    .why-heading {
+        font-size: 26px !important;
+        line-height: 34px;
+        color: #000000 !important;
+    }
+
     .h-group {
         height: 167px;
     }

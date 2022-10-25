@@ -46,7 +46,7 @@ export default function EzStore({ topStores }) {
   // };
 
   return (
-    <div className="ptb-100 position-relative" style={{ padding: "30px 0" }}>
+    <div className="ptb-100 topStore position-relative" style={{ padding: "30px 0" }}>
       <div className="container mb-20 mt-20 rounded-3">
         <div className="section-title text-40" style={{ maxWidth: 700 }}>
           <h2>

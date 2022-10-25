@@ -13,7 +13,7 @@ export default function (props) {
   } else if (props.type === "default") {
     return (
       <button
-        className={`default-btn bg-default rounded-pill shadow ${props.className}`}
+        className={`default-btn bg-default rounded-pill ${props.className}`}
         onClick={props.onClick}
       >
         {props.children}
