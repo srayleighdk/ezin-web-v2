@@ -1,4 +1,15 @@
 @media only screen and (max-width: 767px) {
+  .btn-buy-banner {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .btn-video-banner {
+    width: 206px;
+    height: 68px;
+    padding: 14px 24px;
+  }
+
   .text-ms-16 {
     font-size: 16px;
   }
@@ -159,7 +170,6 @@
   }
   .default-btn {
     padding: 14px 20px;
-    font-size: 14px;
   }
   .banner-img {
     display: none;

@@ -602,7 +602,7 @@ Video wave Style
 /*
 Default Btn Area Style
 ======================================================*/
-.default-btn {
+/* .default-btn {
   font-size: 15px;
   font-weight: 600;
   color: #ffffff;
@@ -618,7 +618,7 @@ Default Btn Area Style
   overflow: hidden;
   background-color: #1dd3f8;
   display: inline-block;
-}
+} */
 
 .default-btn::before {
   content: "";
@@ -7041,15 +7041,15 @@ h3 {
 }
 
 .playVideo {
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   background-color: #fe9526;
 }
 
 .playIcon::after {
   content: "";
   position: absolute;
-  top: 18%;
+  top: 16%;
   left: 32%;
   border-width: 14px 22px;
   border-radius: 12%;

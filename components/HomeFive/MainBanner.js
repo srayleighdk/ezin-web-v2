@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
-import { Modal, Button, Checkbox } from "antd";
+import { Modal, Checkbox } from "antd";
+import { useRouter } from "next/router";
+import Button from "../Common/Button";
 // import BgBannerHeader from "../../public/images/bg-banner-header.png";
 
 export default function MainBanner() {
+  const router = useRouter();
   const [visibleAudio, setVisibleAudio] = useState(false);
 
   return (
@@ -33,7 +36,7 @@ export default function MainBanner() {
         style={{
           backgroundImage: `url(/images/banner-home.png)`,
           maxHeight: 500,
-          width: "100vw"
+          width: "100vw",
         }}
       >
         <div className="d-table">
@@ -42,27 +45,33 @@ export default function MainBanner() {
               className="slider-btn position-absolute d-flex justify-content-center w-100 d-sm-flex flex-column px-ms-3"
               style={{ top: "-40%" }}
             >
-              <Link href="/#san-pham">
+              {/* <Link href="/#san-pham">
                 <a
                   className="default-btn white mx-3 text-20 text-center lh-32 align-self-center"
                   style={{ width: 253, height: 58, borderRadius: 100 }}
                 >
                   Mua bảo hiểm ngay
                 </a>
-              </Link>
+              </Link> */}
+              <Button
+                className="mx-3 btn-buy-banner text-center shadow align-self-center"
+                onClick={() => router.push("/#san-pham")}
+                type="primary"
+              >
+                Mua bảo hiểm ngay
+              </Button>
 
-              <a
-                className="default-btn bg-transparent text-dark d-flex mx-3 justify-content-center align-items-center px-3 py-0"
-                // style={{ width: 166 }}
+              <Button
+                // className="mx-3 text-center shadow align-self-center"
+                className="btn-video-banner d-flex justify-content-center align-items-center text-center align-self-center"
                 onClick={() => setVisibleAudio(true)}
+                type="default"
               >
                 <div className="playVideo rounded-circle position-relative me-3">
                   <div className="playIcon"></div>
                 </div>
-                <div className="h-100 text-20 fw-600" style={{ lineHeight: 3.4 }}>
-                  Xem video
-                </div>
-              </a>
+                <div className="view-video">Xem video</div>
+              </Button>
             </div>
           </div>
         </div>
