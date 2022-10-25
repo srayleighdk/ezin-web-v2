@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import MainBanner from "../components/HomeFive/MainBanner";
 import NewsSlider from "../components/Common/NewsSlider";
 import Banner from "../components/Common/Banner";
@@ -103,6 +104,10 @@ const Home = ({
 
   return (
     <>
+      <head>
+        <title>EZIN - Đi Bình An, Về Hạnh phúc</title>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <div
         className="jumpx-slider-item pt-sm-1 pb-sm-0"
         style={{
@@ -123,9 +128,7 @@ const Home = ({
 
       {/* <HotDeals allNodeProducts={allNodeProducts} /> */}
 
-      {hidden === "why" || hidden === "" ? (
-        <WhatWeOffer />
-      ) : null}
+      {hidden === "why" || hidden === "" ? <WhatWeOffer /> : null}
 
       {hidden === "why" || hidden === "" ? (
         <div className="d-flex justify-content-center">

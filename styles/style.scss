@@ -3412,7 +3412,7 @@ jumpx SliderArea Style
 			margin-bottom: 30px;
 		}
 		p {
-			color: $white-color;
+			// color: $white-color;
 			font-size: 20px;
 			margin-bottom: 45px;
 		}
@@ -5204,8 +5204,9 @@ body {
   font-family: 'Gilroy',sans-serif !important;
 }
 h1 {
-  font-size: 2.5rem !important;
-  font-weight: 700 !important;
+  font-size: 2.125rem !important;
+  font-weight: bold !important;
+  line-height: 48px !important;
 }
 
 #san-pham {
@@ -8604,5 +8605,13 @@ h5 {
 	&-700 {
 		font-weight: 700;
 	}
+}
+
+/* fix lại */
+.banner-maxim {
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 26px;
+	color: $primary-color;
 }
   

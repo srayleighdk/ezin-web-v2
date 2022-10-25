@@ -4410,7 +4410,7 @@ jumpx SliderArea Style
 }
 
 .jumpx-slider-item .jumpx-slider-text p {
-  color: #ffffff;
+  /* color: #ffffff; */
   font-size: 20px;
   margin-bottom: 45px;
 }
@@ -7077,7 +7077,7 @@ h3 {
 }
 
 .color-FFF2AB {
-  color: #FFF2AB;
+  color: #fff2ab;
 }
 
 .h-58 {

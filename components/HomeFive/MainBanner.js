@@ -20,11 +20,11 @@ export default function MainBanner() {
       <div className="text-center mt-40 pt-sm-1">
         <div className="jumpx-slider-text overflow-hidden one mx-auto homepage-no-maxWidth">
           {/* <span>IT & AI Services</span> */}
-          <h1 className="text-black mb-0 text-60 text-ms-34 px-ms-3">
+          <h1 className="text-black mb-0 px-ms-3">
             Trải nghiệm cuộc sống tuyệt vời
           </h1>
-          <p className="text-black px-ms-4 mb-3">
-            Những hy sinh của ngày hôm nay sẽ được đền đáp vào ngày mai.
+          <p className="banner-maxim text-center px-ms-4 mb-3">
+            " Những hy sinh của ngày hôm nay sẽ được đền đáp vào ngày mai. "
           </p>
         </div>
       </div>
