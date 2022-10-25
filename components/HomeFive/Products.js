@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Link from "next/link";
 import { formatVND } from "../../utils/helpers.js";
+import Button from "../Common/Button";
 
 const Products = ({ allNodeProducts }) => {
   const percentReduce = (value) => {
@@ -62,9 +63,14 @@ const Products = ({ allNodeProducts }) => {
                       150.000 <img src="/images/coin.png" alt="Coin" />
                     </p>
                   </div>
-                  <Link href={`san-pham/${product.slug}#mua-ngay`}>
+                  {/* <Link href={`san-pham/${product.slug}#mua-ngay`}>
                     <a className="default-btn w-100 rounded-pill">Mua ngay</a>
-                  </Link>
+                  </Link> */}
+                  <Button href={`san-pham/${product.slug}#mua-ngay`}
+                    type="primary"
+                    onClick={() => alert('click')}>
+                    Mua ngay
+                  </Button>
                 </div>
               </div>
             );
