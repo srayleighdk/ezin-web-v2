@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PageBanner from "../../components/Common/PageBanner";
-import FaqContent from "./content/FaqContent";
-import AskQuestionForm from "./content/AskQuestionForm";
+// import FaqContent from "./content/FaqContent";
+// import AskQuestionForm from "./content/AskQuestionForm";
 import {
   Accordion,
   AccordionItem,
@@ -115,7 +115,7 @@ export default function FAQ({ faqCat }) {
         </div>
       </div>
 
-      <AskQuestionForm />
+      {/* <AskQuestionForm /> */}
     </>
   );
 }
