@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import PageBanner from "../../components/Common/PageBanner";
-// import FaqContent from "./content/FaqContent";
-// import AskQuestionForm from "./content/AskQuestionForm";
 import {
   Accordion,
   AccordionItem,
@@ -10,26 +8,29 @@ import {
   AccordionItemButton,
 } from "react-accessible-accordion";
 import { getFAQ, getFAQContent } from "../api";
+import { createMarkupNormal } from '../../utils/auth.helper';
 
 export async function getStaticProps() {
-    const res = await getFAQ()
-    const faqCat = res?.data?.data
+  const res = await getFAQ();
+  const faqCat = res?.data?.data;
 
-    return {
-        props: {
-            faqCat,
-        },
-    }
+  return {
+    props: {
+      faqCat,
+    },
+  };
 }
 
 export default function FAQ({ faqCat }) {
   const [faqCatId, setFaqCatId] = useState(faqCat[0]?._id);
+  const [faqContent, setFaqContent] = useState(null);
   const faqCont = faqCat.filter((e) => e.is_active);
   faqCont.sort((a, b) => a.title.length - b.title.length);
 
-  useEffect(async() => {
+  useEffect(async () => {
     const res = await getFAQContent(faqCatId);
-    console.log("ressasasas", res)
+    console.log("ressasasas", res);
+    setFaqContent(res?.data?.data);
   }, [faqCatId]);
 
   return (
@@ -73,41 +74,20 @@ export default function FAQ({ faqCat }) {
                 </div>
 
                 <div className="col-8">
-                  {/* {faqContent} */}
-                  <Accordion>
-                    <AccordionItem uuid={"a"}>
-                      <AccordionItemHeading>
-                        <AccordionItemButton>
-                          What Are The Business Advisory Company?
-                        </AccordionItemButton>
-                      </AccordionItemHeading>
-                      <AccordionItemPanel>
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Fugit labore iure aspernatur at! Tenetur vero
-                          molestiae delectus nulla ipsa soluta quibusdam,
-                          repellat harum, odit facere, corporis possimus earum
-                          facilis aliquam?
-                        </p>
-                      </AccordionItemPanel>
-                    </AccordionItem>
-                    <AccordionItem uuid={"b"}>
-                      <AccordionItemHeading>
-                        <AccordionItemButton>
-                          What Are The Business Advisory Company?
-                        </AccordionItemButton>
-                      </AccordionItemHeading>
-                      <AccordionItemPanel>
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Fugit labore iure aspernatur at! Tenetur vero
-                          molestiae delectus nulla ipsa soluta quibusdam,
-                          repellat harum, odit facere, corporis possimus earum
-                          facilis aliquam?
-                        </p>
-                      </AccordionItemPanel>
-                    </AccordionItem>
-                  </Accordion>
+                  {faqContent?.map((item, index) => (
+                    <Accordion>
+                      <AccordionItem uuid={index}>
+                        <AccordionItemHeading>
+                          <AccordionItemButton>
+                            {item?.question}
+                          </AccordionItemButton>
+                        </AccordionItemHeading>
+                        <AccordionItemPanel>
+                            <p dangerouslySetInnerHTML={createMarkupNormal(e.title)}></p>
+                        </AccordionItemPanel>
+                      </AccordionItem>
+                    </Accordion>
+                  ))}
                 </div>
               </div>
             </div>
