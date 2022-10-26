@@ -1,28 +1,30 @@
 const urls = {
-    development: 'http://localhost:5050/api',
-    test: 'https://sandbox.ezin.vn/api',
-    staging: 'https://api-preprod.ezin.vn/api',
-    production: 'https://api.ezin.vn/api',
-  };
-  const tmpcodes = {
-    development: 'EZINVN01',
-    test: 'EZINVN01',
-    staging: 'EZINVN01',
-    production: 'EZINWEB1'
-  }
-  const tmpcodesToken = {
-    development: 'EZINWT01',
-    test: 'EZINWT01',
-    staging: 'EZINWEB2',
-    production: 'EZINWEB2'
-  }
-  export const baseURL = urls[process.env.NEXT_PUBLIC_APP_ENV||'development'];
-  export const secretOrKey = 'EZINWEB@123';
-  export const vnpayTmncode = tmpcodes[process.env.NEXT_PUBLIC_APP_ENV||'development'];
-  export const vnpayTmncodeToken = tmpcodesToken[process.env.NEXT_PUBLIC_APP_ENV||'development'];
-  export const slogan = 'Đi Bình An, Về Hạnh phúc';
-  export const CANONICAL_DOMAIN = 'https://ezin.vn'
-  export const schemaCodeHome = `
+  development: "http://localhost:5050/api",
+  test: "https://sandbox.ezin.vn/api",
+  staging: "https://api-preprod.ezin.vn/api",
+  production: "https://api.ezin.vn/api",
+};
+const tmpcodes = {
+  development: "EZINVN01",
+  test: "EZINVN01",
+  staging: "EZINVN01",
+  production: "EZINWEB1",
+};
+const tmpcodesToken = {
+  development: "EZINWT01",
+  test: "EZINWT01",
+  staging: "EZINWEB2",
+  production: "EZINWEB2",
+};
+export const baseURL = urls[process.env.NEXT_PUBLIC_APP_ENV || "development"];
+export const secretOrKey = "EZINWEB@123";
+export const vnpayTmncode =
+  tmpcodes[process.env.NEXT_PUBLIC_APP_ENV || "development"];
+export const vnpayTmncodeToken =
+  tmpcodesToken[process.env.NEXT_PUBLIC_APP_ENV || "development"];
+export const slogan = "Đi Bình An, Về Hạnh phúc";
+export const CANONICAL_DOMAIN = "https://ezin.vn";
+export const schemaCodeHome = `
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -89,4 +91,4 @@ const urls = {
     }  
   }
   </script>
-  `
+  `;

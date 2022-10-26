@@ -40,17 +40,17 @@ export default function Blog({ arrCats = [], blogDetail = [] }) {
 
                   <h2 className="mt-3">{blogDetail?.title}</h2>
 
-                  <p
+                  <div
                     dangerouslySetInnerHTML={createMarkup(
                       blogDetail?.short_description
                     )}
-                  ></p>
+                  ></div>
 
-                  <p
+                  <div
                     dangerouslySetInnerHTML={createMarkup(
                       blogDetail?.description.replace(/\n/g, "")
                     )}
-                  ></p>
+                  ></div>
                 </div>
 
                 <div className="article-footer">

@@ -1,6 +1,18 @@
 import eZinApi from "./axios";
 import eZinApiNode from "./axiosNode";
 import Cookies from "js-cookie";
+
+export const API = {
+  about: `/contents/key/about-us`,
+  claim: `/contents/key/boi-thuong`,
+  contact: `/contents/contactinfo`,
+  newsList: `/news`,
+  newsDetails: `/news/byurl`,
+  newsCategory: `/blog/category`,
+  newsByCategory: `/blog/blogbycat`,
+  getCardInfo: `/card/byserial`,
+  getTransactionInfo: "/request",
+};
 /***
  * HOME PAGE
  */
@@ -12,10 +24,6 @@ export const getHomeData = () => eZinApi.get(`/contents/home`);
  * NEWS (LIFE & NEWS)
  */
 
-export const API = {
-  newsList: `/news`,
-  newsDetails: `/news/byurl`,
-};
 export const getLatestPosts = (query) => eZinApi.get(`post/all?${query || ""}`);
 export const getPostCategories = () => eZinApi.get(`postcategory`);
 export const getNewestPost = () => eZinApi.get(`post/newest`);
@@ -276,3 +284,11 @@ export const createDynamicZaloPayQR = (body) =>
 export const getTransactionsInfo = () => eZinApi.get(`/request/allinfo`);
 export const getTransactionInfo = (id) =>
   eZinApi.get(`${API.getTransactionInfo}/${id}`);
+
+/***
+ * Gioi thieu API
+ */
+export const getAboutUs = () => eZinApi.get(API.about);
+export const getLeader = () => eZinApi.get(`/contents/key/lanh-dao-1`);
+export const getPartner = () => eZinApi.get(`contents/key/doi-tac-bao-hiem`);
+export const getLegal = () => eZinApi.get(`contents/key/phap-ly`);
