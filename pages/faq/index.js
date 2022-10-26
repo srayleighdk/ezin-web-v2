@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-import PageBanner from "../../components/Common/PageBanner";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemHeading,
-  AccordionItemPanel,
-  AccordionItemButton,
-} from "react-accessible-accordion";
+import { Row, Col, Menu, Collapse, Spin, Empty } from 'antd';
 import { getFAQ, getFAQContent } from "../api";
-import { createMarkupNormal } from '../../utils/auth.helper';
+import Head from 'next/head';
+import styles from '../../styles/faq.module.scss';
+import { createMarkupNormal } from "../../utils/auth.helper";
+const { Panel } = Collapse;
 
 export async function getStaticProps() {
   const res = await getFAQ();
@@ -23,79 +19,93 @@ export async function getStaticProps() {
 
 export default function FAQ({ faqCat }) {
   const [faqCatId, setFaqCatId] = useState(faqCat[0]?._id);
-  const [faqContent, setFaqContent] = useState(null);
-  const faqCont = faqCat.filter((e) => e.is_active);
-  faqCont.sort((a, b) => a.title.length - b.title.length);
+    const [faqContent, setFaqContent] = useState(null);
+    const [loading, setLoading] = useState(false);
 
-  useEffect(async () => {
-    const res = await getFAQContent(faqCatId);
-    console.log("ressasasas", res);
-    setFaqContent(res?.data?.data);
-  }, [faqCatId]);
+    useEffect(async () => {
+        setLoading(true);
+        const res = await getFAQContent(faqCatId)
+        setFaqContent(res?.data?.data)
+        setLoading(false);
+    }, [faqCatId])
+    const children = faqCat.filter(e => e.is_active).map(e => (
+        {
+            label: e.title,
+            key: e._id,
+        }
+    ))
+
+    const items = [
+        {
+            label: 'Tổng quan',
+            key: 'submenu1',
+            children
+        },
+    ];
+
+    const onClick = (e) => {
+        setFaqCatId(e.key)
+    };
 
   return (
     <>
-      <PageBanner
-        pageTitle="Frequently Asked Questions"
-        homePageUrl="/"
-        homePageText="Home"
-        activePageText="Frequently Asked Questions"
-      />
+      <Head>
+        <title key="title">{`FAQ | Ezin`}</title>
+        <meta property="og:title" key="og-title" content={`FAQ | Ezin`} />
+        <meta
+          property="og:description"
+          key="og-description"
+          content={"FAQ Ezin"}
+        />
+      </Head>
+      <div className={styles.faq}>
+        <h1 className="text-center text-primary faq__header">FAQ</h1>
 
-      {/* <FaqContent faq={faq} /> */}
-      <div className="container">
-        <div className="news-details-area">
-          <div className="widget-area" id="secondary">
-            <div className="widget widget_categories">
-              <h3 className="widget-title">Tổng Quan</h3>
-              <div className="row">
-                <div className="col-4 post-wrap">
-                  <ul>
-                    {faqCont?.map((child, index) => {
-                      return (
-                        <li
-                          key={child?._id}
-                          onClick={() => setFaqCatId(child?._id)}
+        <div className={`container bg-white`}>
+          <Row className={`${styles.faqContain}`}>
+            <Col span={6}>
+              <Menu
+                onClick={onClick}
+                className={styles.sidebar}
+                defaultSelectedKeys={[faqCatId]}
+                defaultOpenKeys={["submenu1"]}
+                mode="inline"
+                items={items}
+              />
+            </Col>
+            <Col span={18} className={`pl-5 ${styles.faqContext}`}>
+              <h2 className="faq__title">
+                {faqCat?.find((e) => e._id === faqCatId).title}
+              </h2>
+              {loading ? (
+                <Spin className="faq__loading" />
+              ) : faqContent?.length === 0 ? (
+                <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+              ) : (
+                <Collapse defaultActiveKey={["1"]}>
+                  {faqContent?.map((e) => {
+                    return (
+                      !e?.is_deleted && (
+                        <Panel
+                          header={e?.question}
+                          key={e._id}
+                          className="faq__content"
                         >
-                          <a
-                            className="btn"
-                            data-bs-toggle="collapse"
-                            href={`#multiCollapseExample${index}`}
-                            role="button"
-                            aria-expanded="false"
-                            aria-controls={`#multiCollapseExample${index}`}
-                          >
-                            {child.title}
-                          </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-
-                <div className="col-8">
-                  {faqContent?.map((item, index) => (
-                    <Accordion>
-                      <AccordionItem uuid={index}>
-                        <AccordionItemHeading>
-                          <AccordionItemButton>
-                            {item?.question}
-                          </AccordionItemButton>
-                        </AccordionItemHeading>
-                        <AccordionItemPanel>
-                            <p dangerouslySetInnerHTML={createMarkupNormal(e.title)}></p>
-                        </AccordionItemPanel>
-                      </AccordionItem>
-                    </Accordion>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+                          <p
+                            dangerouslySetInnerHTML={createMarkupNormal(
+                              e.title
+                            )}
+                          ></p>
+                        </Panel>
+                      )
+                    );
+                  })}
+                </Collapse>
+              )}
+            </Col>
+          </Row>
         </div>
       </div>
-
-      {/* <AskQuestionForm /> */}
     </>
   );
 }
