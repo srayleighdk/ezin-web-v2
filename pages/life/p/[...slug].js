@@ -76,17 +76,17 @@ export default function NewsDetailsContent({
 
                   <h2 className="mt-3">{blogDetail?.post?.post_title}</h2>
 
-                  <p
+                  <div
                     dangerouslySetInnerHTML={createMarkup(
                       blogDetail?.description
                     )}
-                  ></p>
+                  ></div>
 
-                  <p
+                  <div
                     dangerouslySetInnerHTML={createMarkup(
                       blogDetail?.post?.post_content.replace(/\n/g, "")
                     )}
-                  ></p>
+                  ></div>
                 </div>
 
                 <div className="article-footer">
