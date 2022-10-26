@@ -76,11 +76,11 @@ export default function Second({
         </Text> */}
         {QnA.map((item, index) => (
           <div className="my-4" key={item._id}>
-            <Typography.Title level={5} className="text-primary text-left">
-              <div
-                className=""
+            <Typography.Title level={5} className="text-primary text-left"
+                // className=""
                 dangerouslySetInnerHTML={createMarkupNormal(item.question)}
-              />
+                >
+              {/* /> */}
             </Typography.Title>
 
             {item.node != "" && (

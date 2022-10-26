@@ -104,10 +104,10 @@ const Home = ({
 
   return (
     <>
-      <head>
+      <Head>
         <title>EZIN - Đi Bình An, Về Hạnh phúc</title>
         <link rel="icon" href="/favicon.ico" />
-      </head>
+      </Head>
       <div
         className="jumpx-slider-item pt-sm-1 pb-sm-0"
         style={{

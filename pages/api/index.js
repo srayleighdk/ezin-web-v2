@@ -45,7 +45,7 @@ export const getNodePackages = (product_id) =>
 /*
  * FAQ
  */
-export const getFAQ = () => eZinApi.get(`faq/cat`);
+export const getFAQ = () => eZinApi.get(`/faq/cat`);
 export const getFAQContent = (catId) => eZinApi.get(`/faq/bycat/${catId}`);
 
 /*

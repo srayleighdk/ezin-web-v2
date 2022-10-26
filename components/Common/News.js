@@ -72,7 +72,7 @@ export default function News({ news }) {
                     <Link href="/news-details">
                       <a className="text-center">
                         <h3
-                          style={{ maxHeight: 42, overflow: "hidden" }}
+                          style={{ maxHeight: 52, overflow: "hidden" }}
                           className="text-dot-2"
                         >
                           {item?.title}

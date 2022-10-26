@@ -68,7 +68,6 @@ export default function EzStore({ topStores }) {
                   console.log("2")
                   const dataEzStore = topStores?.reduce((total, item) => {
                     if (item?.city?.code === e.target.value) {
-                      // console.log("dfghjk", item?.city?.code, e.target.value)
                       return total = total.concat({item});
                     }
                     return total;

@@ -3035,7 +3035,7 @@ News Area Style
 Footer Top Area Style
 ======================================================*/
 .footer-top-area {
-  background-color: #00042c;
+  background-color: #2D394B;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -3226,7 +3226,7 @@ Footer Top Area Style
 Footer Bottom Area Style
 ======================================================*/
 .footer-bottom-area {
-  background-color: #0d1240;
+  background-color: #2D394B;
   padding: 20px 0;
 }
 
@@ -7082,4 +7082,8 @@ h3 {
 
 .h-58 {
   height: 58px;
+}
+
+.color-heading-footer {
+  color: #959CA5 !important;
 }

@@ -32,7 +32,7 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6">
               <div className="single-widget">
-                <h3>Sản phẩm</h3>
+                <h3 className="color-heading-footer">Sản phẩm</h3>
                 <ul>
                   <div className="row">
                     {product?.map((item) => (
@@ -54,7 +54,7 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6">
               <div className="single-widget">
-                <h3>Liên kết nhanh</h3>
+                <h3 className="color-heading-footer">Liên kết nhanh</h3>
 
                 <ul>
                   <div className="row">
@@ -115,7 +115,7 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6">
               <div className="single-widget">
-                <h3>Quy định chính sách</h3>
+                <h3 className="color-heading-footer">Quy định chính sách</h3>
 
                 <ul>
                   <div className="row">
@@ -201,7 +201,7 @@ const Footer = () => {
                     <p>Mã số DN/MST: 0316570253</p>
                   </li>
                   <li>
-                    <p>
+                    <div className="text-white">
                       Hotline:{" "}
                       <a
                         href="tel:0909088313"
@@ -216,10 +216,10 @@ const Footer = () => {
                       >
                         0909.088.313
                       </a>
-                    </p>
+                    </div>
                   </li>
                   <li>
-                    <p>
+                    <div className="text-white">
                       Email:
                       <a
                         href="mailto:baohiem@ezin.vn"
@@ -227,7 +227,7 @@ const Footer = () => {
                       >
                         baohiem@ezin.vn
                       </a>
-                    </p>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -235,7 +235,7 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6">
               <div className="single-widget">
-                <h3>Kết nối với chúng tôi</h3>
+                <h3 className="color-heading-footer">Kết nối với chúng tôi</h3>
                 <div className="d-flex align-items-center justify-content-between me-3">
                   <ul className="social-icon">
                     <li>

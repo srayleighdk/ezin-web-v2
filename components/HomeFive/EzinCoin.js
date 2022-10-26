@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/link";
+import Button from "../Common/Button";
 
 class EzinCoin extends Component {
   render() {
@@ -59,11 +60,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Link href="/tra-cuu">
-                      <a className="default-btn white rounded-pill">
-                        Xem nhiệm vụ
-                      </a>
-                    </Link>
+                    <Button onClick={() => router.push("/tra-cuu")} type="primary" className="w-100">Xem nhiệm vụ</Button>
                   </div>
                 </div>
               </div>
@@ -108,11 +105,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Link href="/tra-cuu">
-                      <a className="default-btn white rounded-pill">
-                        Chơi ngay
-                      </a>
-                    </Link>
+                    <Button onClick={() => router.push("/tra-cuu")} type="primary" className="w-100">Chơi ngay</Button>
                   </div>
                 </div>
               </div>
@@ -160,11 +153,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Link href="/tra-cuu">
-                      <a className="default-btn white rounded-pill">
-                        Chơi ngay
-                      </a>
-                    </Link>
+                    <Button onClick={() => router.push("/tra-cuu")} type="primary" className="w-100">Chơi ngay</Button>
                   </div>
                 </div>
               </div>
@@ -209,11 +198,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Link href="/tra-cuu">
-                      <a className="default-btn white rounded-pill">
-                        Chơi ngay
-                      </a>
-                    </Link>
+                    <Button onClick={() => router.push("/tra-cuu")} type="primary" className="w-100">Chơi ngay</Button>
                   </div>
                 </div>
               </div>
@@ -261,9 +246,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Link href="/tra-cuu">
-                      <a className="default-btn white rounded-pill">Chi tiết</a>
-                    </Link>
+                    <Button onClick={() => router.push("/tra-cuu")} type="primary" className="w-100">Chi tiết</Button>
                   </div>
                 </div>
               </div>
@@ -311,9 +294,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Link href="/tra-cuu">
-                      <a className="default-btn white rounded-pill">Chi tiết</a>
-                    </Link>
+                    <Button onClick={() => router.push("/tra-cuu")} type="primary" className="w-100">Đổi quà</Button>
                   </div>
                 </div>
               </div>
