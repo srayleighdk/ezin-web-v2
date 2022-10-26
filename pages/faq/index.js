@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Menu, Collapse, Spin, Empty } from 'antd';
+import { Row, Col, Menu, Collapse, Spin, Empty } from "antd";
 import { getFAQ, getFAQContent } from "../api";
-import Head from 'next/head';
-import styles from '../../styles/faq.module.scss';
+import Head from "next/head";
+import styles from "../../styles/faq.module.scss";
 import { createMarkupNormal } from "../../utils/auth.helper";
 const { Panel } = Collapse;
 
@@ -19,33 +19,37 @@ export async function getStaticProps() {
 
 export default function FAQ({ faqCat }) {
   const [faqCatId, setFaqCatId] = useState(faqCat[0]?._id);
-    const [faqContent, setFaqContent] = useState(null);
-    const [loading, setLoading] = useState(false);
+  const [faqContent, setFaqContent] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-    useEffect(async () => {
-        setLoading(true);
-        const res = await getFAQContent(faqCatId)
-        setFaqContent(res?.data?.data)
-        setLoading(false);
-    }, [faqCatId])
-    const children = faqCat.filter(e => e.is_active).map(e => (
-        {
-            label: e.title,
-            key: e._id,
-        }
-    ))
+  useEffect(() => {
+    infoFAQContent();
+  }, [faqCatId]);
 
-    const items = [
-        {
-            label: 'Tổng quan',
-            key: 'submenu1',
-            children
-        },
-    ];
+  const infoFAQContent = async () => {
+    setLoading(true);
+    const res = await getFAQContent(faqCatId);
+    setFaqContent(res?.data?.data);
+    setLoading(false);
+  };
+  const children = faqCat
+    .filter((e) => e.is_active)
+    .map((e) => ({
+      label: e.title,
+      key: e._id,
+    }));
 
-    const onClick = (e) => {
-        setFaqCatId(e.key)
-    };
+  const items = [
+    {
+      label: "Tổng quan",
+      key: "submenu1",
+      children,
+    },
+  ];
+
+  const onClick = (e) => {
+    setFaqCatId(e.key);
+  };
 
   return (
     <>
