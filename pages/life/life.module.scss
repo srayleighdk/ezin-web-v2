@@ -1,5 +1,5 @@
 .life_title_img {
-    height: 62vh;
+    height: 334px;
     width: 100%;
 }
 
@@ -25,5 +25,9 @@
 @media (max-width: 364px) {
     .height_313 {
         height: 350px;
+    }
+
+    .life_title_img {
+        height: auto !important;
     }
 }

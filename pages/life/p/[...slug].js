@@ -62,11 +62,11 @@ export default function NewsDetailsContent({
                   <div className="entry-meta">
                     <ul>
                       <li>
-                        <span>Posted On:</span>{" "}
+                        <span>Ngày đăng:</span>{" "}
                         {dayjs(blogDetail?.updated_at).format("DD-MM-YYYY")}
                       </li>
                       <li>
-                        <span>Posted By:</span>
+                        <span>Đăng bởi:</span>
                         <Link href="#">
                           <a>{blogDetail?.post?.post_author}</a>
                         </Link>
