@@ -1,7 +1,7 @@
 // Shortcut for kich-hoat
 import React, { useState } from 'react';
 import { Modal, Row, Col, Button, Input, Radio } from 'antd';
-import { getImageUrl } from 'utils/helpers';
+import { getImageUrl } from '../../utils/helpers';
 import Link from 'next/link';
 const Step3 = ({ onNext, onPrev, data }) => {
     return (
