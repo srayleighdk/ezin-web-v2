@@ -80,7 +80,7 @@ const Footer = () => {
                     </div>
                     <div className="col-6">
                       <li>
-                        <Link href="/tin-tuc">
+                        <Link href="/tin-tuc/chu-de/tin-nong">
                           <a>
                             <i className="right-icon bx bx-chevrons-right"></i>
                             Tin tức

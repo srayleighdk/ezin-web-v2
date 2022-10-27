@@ -292,3 +292,105 @@ export const getAboutUs = () => eZinApi.get(API.about);
 export const getLeader = () => eZinApi.get(`/contents/key/lanh-dao-1`);
 export const getPartner = () => eZinApi.get(`contents/key/doi-tac-bao-hiem`);
 export const getLegal = () => eZinApi.get(`contents/key/phap-ly`);
+// AWS
+export const getAIServerStatus = () => eZinApiNode.post("/aws/status");
+export const startAIServer = (body) => eZinApiNode.post("/aws/start", body);
+export const stopAIServer = (body) => eZinApiNode.post("/aws/stop", body);
+//AI
+export const submitDamage = (body) => eZinApi.post(`/damage/answer`, body);
+export const voteDamage = (body) => eZinApi.post(`/damage/vote`, body);
+export const detectCorner = (formData) => {
+  return eZinApi({
+    url: `/damage/detect/corner`,
+    method: "post",
+    data: formData,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+
+export const detectCar = (formData) => {
+  return eZinApi({
+    url: `/damage/detect/car`,
+    method: "post",
+    data: formData,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+
+export const detectBlur = (formData) => {
+  return eZinApi({
+    url: `/damage/detect/blur`,
+    method: "post",
+    data: formData,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+export const detectVideo = (formData) => {
+  return eZinApi({
+    url: `/damage/detect/video`,
+    method: "post",
+    data: formData,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+
+export const detectDamage = (formData) => {
+  return eZinApi({
+    url: `/damage/detect/damage`,
+    method: "post",
+    data: formData,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+
+export const detectMakeModel = (formData) => {
+  return eZinApi({
+    url: `/damage/detect/make-model`,
+    method: "post",
+    data: formData,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+
+export const detectPrice = (body) => {
+  return eZinApi.post(`/damage/detect/price`, body);
+};
+export const submitAssess = (body) =>
+  eZinApi.post(`/damage/assess/create`, body);
+export const uploadAssess = (formData) => {
+  return eZinApi({
+    url: `/damage/assess/upload`,
+    method: "post",
+    data: formData,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+export const acceptImage = (body) =>
+  eZinApi.post(`/damage/assess/accept`, body);
+export const searchAssess = (body) =>
+  eZinApi.post(`/damage/assess/search`, body);
+export const processAIClassifyCar = (body) => AxiosAI.post("/carclass", body);
+export const detectPlateNumber = (formData) => {
+  return eZinApi({
+    url: `/computer-vision/ocr/submit-plate?format_type=file&get_thumb=false`,
+    method: "post",
+    data: formData,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
