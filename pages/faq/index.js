@@ -31,8 +31,6 @@ export default function FAQ({ faqCat }) {
   const [faqContent, setFaqContent] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  console.log("faq", faqCatId, faqContent)
-
   useEffect(() => {
     infoFAQContent();
   }, [faqCatId]);
@@ -90,6 +88,7 @@ export default function FAQ({ faqCat }) {
                 return total;
               }, "")}
               onChange={onChangeTab}
+              key={children.length}
             >
               {children?.map((item) => (
                 <Tabs.TabPane tab={item.label} key={item.key}>
