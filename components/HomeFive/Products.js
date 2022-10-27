@@ -61,9 +61,9 @@ const Products = ({ allNodeProducts }) => {
                         </p>
                       )}
                     </div>
-                    <p className="product-coin font-weight-700 w-50">
+                    <div className="product-coin font-weight-700 w-50">
                       150.000 <img src="/images/coin.png" alt="Coin" />
-                    </p>
+                    </div>
                   </div>
                   <Button
                     href={`san-pham/${product.slug}#mua-ngay`}
