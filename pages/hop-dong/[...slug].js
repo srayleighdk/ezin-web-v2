@@ -25,8 +25,6 @@ export async function getServerSideProps(context) {
   const { slug } = context.params;
   const id = slug[0];
   const [data] = await Promise.all([
-    getHeader(),
-    getAllNodeProducts(),
     getPackage(id),
   ]);
   return {
@@ -199,7 +197,7 @@ export default function HopdongPage() {
         <meta property="og:title" key="og-title" content={`Gói BH - ${data && data.name} | Ezin`} />
       </Head>
       <div id="activation">
-        <div className="main-section content-section">
+        <div className="main-section content-section mt-5">
           <div className="container">
             <h2 className="text-center">Bảo hiểm {data?.product_id?.name} - {data?.program_id?.name}</h2>
             <div className="step-wrapper-1">
