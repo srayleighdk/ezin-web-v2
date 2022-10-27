@@ -34,13 +34,11 @@ export default function FAQ({ faqCat }) {
   console.log("faq", faqCatId, faqContent)
 
   useEffect(() => {
-    console.log("144444")
     infoFAQContent();
   }, [faqCatId]);
 
   const infoFAQContent = async () => {
     setLoading(true);
-    console.log("77777777")
     const res = await getFAQContent(faqCatId);
     setFaqContent(res?.data?.data);
     setLoading(false);
@@ -52,7 +50,6 @@ export default function FAQ({ faqCat }) {
       label: e.title,
       key: e._id,
     }));
-
 
   const items = [
     {
