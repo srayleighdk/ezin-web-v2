@@ -69,18 +69,13 @@ export default function Second({
             tượng bảo hiểm được áp dụng:
           </Text>
         </div>
-        {/* <Text className="text-primary text-center">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim x. Có không có không
-        </Text> */}
         {QnA.map((item, index) => (
           <div className="my-4" key={item._id}>
-            <Typography.Title level={5} className="text-primary text-left"
-                // className=""
+            <Typography.Title level={5} className="text-primary text-left">
+              <div
+                className=""
                 dangerouslySetInnerHTML={createMarkupNormal(item.question)}
-                >
-              {/* /> */}
+              />
             </Typography.Title>
 
             {item.node != "" && (
