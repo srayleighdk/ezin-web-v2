@@ -26,13 +26,13 @@ export default function News({ news }) {
             }}
             breakpoints={{
               0: {
-                slidesPerView: 2,
-              },
-              576: {
-                slidesPerView: 3,
+                slidesPerView: 1,
               },
               768: {
-                slidesPerView: 4,
+                slidesPerView: 2,
+              },
+              992: {
+                slidesPerView: 3,
               },
             }}
             modules={[Navigation, Autoplay]}
