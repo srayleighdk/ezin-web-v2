@@ -10,7 +10,6 @@ export default function EzStore({ topStores }) {
   const [districts, setDistricts] = useState([]);
   const [wards, setWards] = useState([]);
   const [data, setData] = useState(topStores);
-  console.log("dadada", cities);
 
   const getInitData = async () => {
     const [res1] = await Promise.all([getCities()]);

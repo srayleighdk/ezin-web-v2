@@ -26,6 +26,7 @@ import {
   getTopStore,
   getHotNews,
   getAllPartners,
+  getFAQ
 } from "./api";
 import SchemaCode from "../components/schema-code";
 import {
@@ -44,6 +45,7 @@ export async function getServerSideProps(context) {
     topStore,
     newsData,
     partnerData,
+    faq,
   ] = await Promise.all([
     getHeader(),
     getAllNodeProducts(),
@@ -52,6 +54,7 @@ export async function getServerSideProps(context) {
     getTopStore(),
     getHotNews(),
     getAllPartners(),
+    getFAQ(),
   ]);
   return {
     props: {
@@ -62,6 +65,7 @@ export async function getServerSideProps(context) {
       topStores: topStore?.data?.data,
       news: newsData?.data?.data,
       partners: partnerData?.data?.data?.images,
+      faqCat: faq?.data?.data,
     }, // will be passed to the page component as props
   };
 }
@@ -74,33 +78,27 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const Home = ({
-  headers,
   allNodeProducts,
   testimonials,
   newsPost,
   topStores,
   news,
   partners,
+  faqCat,
 }) => {
   const { auth, activationVisible } = useSelector(mapStateToProps);
   const router = useRouter();
   const [hidden, setHidden] = useState("");
-  // export async function getServerSideProps(context) {
-  //     const res = await getHeader();
-  //     return {
-  //       props: {}, // will be passed to the page component as props
-  //     }
-  //   }
 
-  // useEffect(() => {
-  //   if (router.asPath === "/#san-pham") {
-  //     window.scroll({
-  //       top: 1100,
-  //       left: 0,
-  //       behavior: "smooth",
-  //     });
-  //   }
-  // }, [router.asPath]);
+  useEffect(() => {
+    if (router.asPath === "/#san-pham") {
+      window.scroll({
+        top: 1100,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [router.asPath]);
 
   return (
     <>
@@ -131,7 +129,7 @@ const Home = ({
 
       {/* <HotDeals allNodeProducts={allNodeProducts} /> */}
 
-      {hidden === "why" || hidden === "" ? <WhatWeOffer /> : null}
+      {hidden === "why" || hidden === "" ? <WhatWeOffer faqCat={faqCat[0]._id} /> : null}
 
       {hidden === "why" || hidden === "" ? (
         <div className="d-flex justify-content-center">

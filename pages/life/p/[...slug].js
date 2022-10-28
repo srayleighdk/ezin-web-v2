@@ -62,15 +62,15 @@ export default function NewsDetailsContent({
                   <div className="entry-meta">
                     <ul>
                       <li>
-                        <span>Posted On:</span>{" "}
+                        <span>Ngày đăng:</span>{" "}
                         {dayjs(blogDetail?.updated_at).format("DD-MM-YYYY")}
                       </li>
-                      <li>
-                        <span>Posted By:</span>
+                      {/* <li>
+                        <span>Đăng bởi:</span>
                         <Link href="#">
                           <a>{blogDetail?.post?.post_author}</a>
                         </Link>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
 
@@ -124,29 +124,6 @@ export default function NewsDetailsContent({
                     </ul>
                   </div>
                 </div>
-
-                {/* <div className="post-navigation">
-                <div className="navigation-links">
-                  <div className="nav-previous">
-                    <Link href="#">
-                      <a>
-                        <i className="bx bx-left-arrow-alt"></i> Prev Post
-                      </a>
-                    </Link>
-                  </div>
-
-                  <div className="nav-next">
-                    <Link href="#">
-                      <a>
-                        Next Post <i className="bx bx-right-arrow-alt"></i>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-              </div> */}
-
-                {/* Comments Area */}
-                {/* <CommentsArea /> */}
               </div>
             </div>
 

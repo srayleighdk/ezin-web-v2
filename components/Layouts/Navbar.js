@@ -74,7 +74,7 @@ const Navbar = () => {
     <>
       <div id="navbar" className="navbar-area fixed-top">
         <nav
-          className="navbar navbar-expand-md navbar-light"
+          className="navbar navbar-expand-md navbar-light py-2"
           style={{
             background:
               "linear-gradient(180deg, #ecf8ff 0%, rgb(240 255 253) 91.31%)",
@@ -102,11 +102,11 @@ const Navbar = () => {
             </Link>
 
             <div className={classOne} id="navbarSupportedContent">
-              <ul className="navbar-nav m-auto align-items-center mt-4">
+              <ul className={`navbar-nav m-auto align-items-center ${isMobile && "mt-4"}`}>
                 {headers &&
                   headers.map((header) => {
                     return (
-                      <li className="nav-item w-100" key={header.key}>
+                      <li className={`nav-item ${isMobile && "w-100"}`} key={header.key}>
                         <Link href={header.link}>
                           <a
                             className="nav-link text-black text-start"

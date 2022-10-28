@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   Accordion,
@@ -8,9 +8,22 @@ import {
   AccordionItemButton,
 } from "react-accessible-accordion";
 import { useMediaQuery } from "react-responsive";
+import { getFAQContent } from "../../pages/api";
+import { createMarkupNormal } from "../../utils/auth.helper";
 
-export default function WhatWeOffer() {
+export default function WhatWeOffer({ faqCat }) {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const [faqContent, setFaqContent] = useState(null);
+  console.log("faqContent", faqContent);
+
+  useEffect(() => {
+    infoFAQContent();
+  }, [faqCat]);
+
+  const infoFAQContent = async () => {
+    const res = await getFAQContent(faqCat);
+    setFaqContent(res?.data?.data);
+  };
   const openTabSection = (evt, tabNmae) => {
     let i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabs_item");
@@ -47,7 +60,11 @@ export default function WhatWeOffer() {
                   // onClick={(e) => openTabSection(e, "tab1")}
                 >
                   <div className="industries-img left-img">
-                    <img src="/images/why1.png" alt="why1" />
+                    <img
+                      src="/images/why1.png"
+                      className="why-img mt-3"
+                      alt="why1"
+                    />
                   </div>
                   <span className="py-0 px-0">
                     <h3 className="why-heading">Quyền lợi</h3>
@@ -113,7 +130,11 @@ export default function WhatWeOffer() {
                   className="mt-3 why-wrap-header"
                 >
                   <div className="industries-img left-img">
-                    <img src="/images/why2.png" alt="why2" />
+                    <img
+                      src="/images/why2.png"
+                      className="why-img mt-3"
+                      alt="why2"
+                    />
                   </div>
                   <span className="py-0 px-0">
                     <h3 className="why-heading">Ezin Lifestyle</h3>
@@ -162,7 +183,11 @@ export default function WhatWeOffer() {
                   className="mt-3 why-wrap-header"
                 >
                   <div className="industries-img left-img">
-                    <img src="/images/why3.png" alt="why3" />
+                    <img
+                      src="/images/why3.png"
+                      className="why-img mt-3"
+                      alt="why3"
+                    />
                   </div>
                   <span className="py-0 px-0">
                     <h3 className="why-heading">FAQ</h3>
@@ -178,105 +203,25 @@ export default function WhatWeOffer() {
                             <div className="row">
                               <div className="col-lg-12">
                                 <div className="faq-accordion">
-                                  <Accordion preExpanded={["a"]}>
-                                    <AccordionItem uuid="a">
-                                      <AccordionItemHeading>
-                                        <AccordionItemButton>
-                                          Ezin là gì?
-                                        </AccordionItemButton>
-                                      </AccordionItemHeading>
+                                  <Accordion >
+                                    {faqContent?.map((item, index) => (
+                                      <AccordionItem uuid={index}>
+                                        <AccordionItemHeading>
+                                          <AccordionItemButton>
+                                            {item?.question}
+                                          </AccordionItemButton>
+                                        </AccordionItemHeading>
 
-                                      <AccordionItemPanel>
-                                        <p>
-                                          Ezin là cách viết tắt của cụm từ Easy
-                                          Insurance- bảo hiểm thật dễ dàng. Đây
-                                          cũng là tôn chỉ của chúng tôi, những
-                                          người sáng lập nên Ezin. Chúng tôi
-                                          muốn tạo ra những sản phẩm bảo hiểm
-                                          thật dễ hiểu, mang lại những quyền lợi
-                                          thiết thực nhất để bảo vệ bạn và những
-                                          người thân yêu của bạn với mức chi phí
-                                          dễ tiếp cận nhất.
-                                        </p>
-                                      </AccordionItemPanel>
-                                    </AccordionItem>
-
-                                    <AccordionItem uuid="b">
-                                      <AccordionItemHeading>
-                                        <AccordionItemButton>
-                                          Bảo hiểm Ezin có gì khác biệt?
-                                        </AccordionItemButton>
-                                      </AccordionItemHeading>
-
-                                      <AccordionItemPanel>
-                                        <p>
-                                          Lorem ipsum dolor sit amet,
-                                          consectetur adipiscing elit, sed do
-                                          eiusmod tempor incididunt ut labore et
-                                          dolore magna aliqua. Quis ipsum
-                                          suspendisse ultrices gravida. Risus
-                                          commodo viverra maecenas accumsan
-                                          lacus vel facilisis.
-                                        </p>
-                                      </AccordionItemPanel>
-                                    </AccordionItem>
-
-                                    <AccordionItem uuid="c">
-                                      <AccordionItemHeading>
-                                        <AccordionItemButton>
-                                          Claim như thế nào?
-                                        </AccordionItemButton>
-                                      </AccordionItemHeading>
-                                      <AccordionItemPanel>
-                                        <p>
-                                          Lorem ipsum dolor sit amet,
-                                          consectetur adipiscing elit, sed do
-                                          eiusmod tempor incididunt ut labore et
-                                          dolore magna aliqua. Quis ipsum
-                                          suspendisse ultrices gravida. Risus
-                                          commodo viverra maecenas accumsan
-                                          lacus vel facilisis.
-                                        </p>
-                                      </AccordionItemPanel>
-                                    </AccordionItem>
-
-                                    <AccordionItem uuid="d">
-                                      <AccordionItemHeading>
-                                        <AccordionItemButton>
-                                          Kích hoạt ra sao?
-                                        </AccordionItemButton>
-                                      </AccordionItemHeading>
-                                      <AccordionItemPanel>
-                                        <p>
-                                          Lorem ipsum dolor sit amet,
-                                          consectetur adipiscing elit, sed do
-                                          eiusmod tempor incididunt ut labore et
-                                          dolore magna aliqua. Quis ipsum
-                                          suspendisse ultrices gravida. Risus
-                                          commodo viverra maecenas accumsan
-                                          lacus vel facilisis.
-                                        </p>
-                                      </AccordionItemPanel>
-                                    </AccordionItem>
-
-                                    <AccordionItem uuid="e">
-                                      <AccordionItemHeading>
-                                        <AccordionItemButton>
-                                          AI Hoạt động như thế nào?
-                                        </AccordionItemButton>
-                                      </AccordionItemHeading>
-                                      <AccordionItemPanel>
-                                        <p>
-                                          Lorem ipsum dolor sit amet,
-                                          consectetur adipiscing elit, sed do
-                                          eiusmod tempor incididunt ut labore et
-                                          dolore magna aliqua. Quis ipsum
-                                          suspendisse ultrices gravida. Risus
-                                          commodo viverra maecenas accumsan
-                                          lacus vel facilisis.
-                                        </p>
-                                      </AccordionItemPanel>
-                                    </AccordionItem>
+                                        <AccordionItemPanel>
+                                          <p
+                                            dangerouslySetInnerHTML={createMarkupNormal(
+                                              item.title
+                                            )}
+                                            className="text-start"
+                                          ></p>
+                                        </AccordionItemPanel>
+                                      </AccordionItem>
+                                    ))}
                                   </Accordion>
                                 </div>
                               </div>

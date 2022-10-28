@@ -466,7 +466,7 @@ export default function ActivateFormAuto({ data, initData, onNext }) {
                     key={index}
                     type="primary"
                     className={`text-11 text-white mr-1 mt-1 ${
-                      index == currentName ? "bg-primary" : "bg-dark"
+                      index == currentName ? "bg-primary" : "bg-gray"
                     }`}
                     onClick={() => onSelectUser(index + 1)}
                   >

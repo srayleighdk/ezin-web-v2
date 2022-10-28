@@ -32,12 +32,12 @@ const Products = ({ allNodeProducts }) => {
               <div className="col-lg-4 col-sm-6" key={product._id}>
                 <div
                   className="single-offer pl-30 pr-30 text-center"
-                  style={{ height: 618 }}
+                  // style={{ height: 618 }}
                 >
                   <img
                     src={product.thumbnail}
                     alt={product.name}
-                    className="mx-auto"
+                    className="mx-auto product-img"
                   />
                   <h3 className="mt-3">
                     <Link href={`san-pham/${product.slug}#mua-ngay`}>

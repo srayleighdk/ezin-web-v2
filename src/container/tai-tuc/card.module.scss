@@ -1,0 +1,51 @@
+@import './variables';
+.card {
+    position: relative;
+}
+.productName {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    color: #FFF;
+    font-size: 14px;
+    transform: translate(-50%, 0%);
+    text-align: center;
+}
+.fullName {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    color: #FFF;
+    font-size: 14px;
+    max-width: 120px;
+}
+.expired {
+    position: absolute;
+    bottom: 35px;
+    left: 20px;
+    color: #FFF;
+    font-size: 12px;
+}
+.license {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    color: #FFF;
+    font-size: 12px;
+}
+.button {
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+}
+.PVIID {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    font-size: 14px;
+    transform: translate(-50%, 0%);
+}
+.PVIID a {
+    color: $button-color;
+    cursor: pointer;
+}

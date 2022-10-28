@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 // import './style.scss';
-import Header from "./Navbar";
-import Footer from "./Footer";
+import Navbar from '../Layouts/Navbar';
+import Footer from '../Layouts/Footer';
 // import LoginModal from 'components/ezin-modal/LoginModal';
 // import RegisterModal from 'components/ezin-modal/RegisterModal';
 // import OTPModal from 'components/ezin-modal/OTPModal';
@@ -9,30 +9,18 @@ import Footer from "./Footer";
 // import NewPassword from 'components/ezin-modal/NewPassword';
 // import ResetPassword from 'components/ezin-modal/ResetPassword';
 // import TransactionInfoModal from 'components/ezin-modal/TransactionInfoModal';
-import Head from "next/head";
-import Script from "next/script";
-import dynamic from "next/dynamic";
-const LoginModal = dynamic(() =>
-  import("../../components/ezin-modal/LoginModal")
-);
-const RegisterModal = dynamic(() =>
-  import("../../components/ezin-modal/RegisterModal")
-);
-const OTPModal = dynamic(() => import("../../components/ezin-modal/OTPModal"));
-const ForgotPassModal = dynamic(() =>
-  import("../../components/ezin-modal/ForgotPassModal")
-);
-const NewPassword = dynamic(() =>
-  import("../../components/ezin-modal/NewPassword")
-);
-const ResetPassword = dynamic(() =>
-  import("../../components/ezin-modal/ResetPassword")
-);
-const TransactionInfoModal = dynamic(() =>
-  import("../../components/ezin-modal/TransactionInfoModal")
-);
+import Head from 'next/head';
+import Script from 'next/script';
+import dynamic from 'next/dynamic';
+const LoginModal = dynamic(() => import('../ezin-modal/LoginModal'))
+const RegisterModal = dynamic(() => import('../ezin-modal/RegisterModal'))
+const OTPModal = dynamic(() => import('../ezin-modal/OTPModal'))
+const ForgotPassModal = dynamic(() => import('../ezin-modal/ForgotPassModal'))
+const NewPassword = dynamic(() => import('../ezin-modal/NewPassword'))
+const ResetPassword = dynamic(() => import('../ezin-modal/ResetPassword'))
+const TransactionInfoModal = dynamic(() => import('../ezin-modal/TransactionInfoModal'))
 import { useRouter } from "next/router";
-import { CANONICAL_DOMAIN } from "../../utils/config";
+import { CANONICAL_DOMAIN } from '../../utils/config';
 
 export default function Layout({ children }) {
   const router = useRouter();
@@ -40,32 +28,14 @@ export default function Layout({ children }) {
   return (
     <>
       <Head>
-        <meta
-          name="dmca-site-verification"
-          content="WGlQaWl2UWZWb2xiR2VTcUxqT3RGZz090"
-        />
+        <meta name='dmca-site-verification' content='WGlQaWl2UWZWb2xiR2VTcUxqT3RGZz090' />
         <meta httpEquiv="content-language" content="vi-VN" />
-        <meta
-          property="og:title"
-          key="og-title"
-          content="Ezin - Đi Bình An, Về Hạnh phúc"
-        />
-        <meta
-          property="og:image"
-          key="og-image"
-          content="https://api.ezin.vn/public/files/2021/12/54FA2CC66FB257F_ezin-slogan.jpg"
-        />
-        <meta
-          property="og:description"
-          key="og-description"
-          content="Bảo vệ bạn và những người thân yêu chưa bao giờ dễ dàng đến thế!"
-        />
+        <meta property="og:title" key="og-title" content="Ezin - Đi Bình An, Về Hạnh phúc" />
+        <meta property="og:image" key="og-image" content="https://api.ezin.vn/public/files/2021/12/54FA2CC66FB257F_ezin-slogan.jpg" />
+        <meta property="og:description" key="og-description" content="Bảo vệ bạn và những người thân yêu chưa bao giờ dễ dàng đến thế!" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonical} />
-        <meta
-          name="keywords"
-          content={`ezin;ezin insurtech;bảo hiểm số;bảo hiểm cá nhân;sống an toàn;hạnh phúc;bình an`}
-        />
+        <meta name="keywords" content={`ezin;ezin insurtech;bảo hiểm số;bảo hiểm cá nhân;sống an toàn;hạnh phúc;bình an`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <link rel="canonical" href={canonical} />
@@ -92,7 +62,7 @@ export default function Layout({ children }) {
                 m=e.createElement(a);m.async=!0;m.src=t;
                 p=e.getElementsByTagName(a)[0];p.parentNode.insertBefore(m,p);
                 })(window,document,'script','https://u.heatmap.it/log.js');
-                  `,
+                  `
           }}
         ></script>
         <script
@@ -109,15 +79,13 @@ export default function Layout({ children }) {
         ></script>
       </Head>
       <div id="app">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
+        <div dangerouslySetInnerHTML={{
+          __html: `
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-536K9S8"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-        `,
-          }}
+        `}}
         />
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
@@ -153,8 +121,8 @@ export default function Layout({ children }) {
           {`AT.init({"campaign_id": 1730, "is_reoccur": 1,"is_lastclick": 1, "cookie_duration": 30}); AT.track();`}
         </Script>
 
-        <Header />
-        <div className="main-section flex-1 mt-3">
+        <Navbar />
+        <div className="main-section flex-1">
           <div className="content">{children}</div>
         </div>
         <Footer />
@@ -165,7 +133,9 @@ export default function Layout({ children }) {
         <NewPassword />
         <ResetPassword />
         <TransactionInfoModal />
+
       </div>
+
     </>
   );
 }

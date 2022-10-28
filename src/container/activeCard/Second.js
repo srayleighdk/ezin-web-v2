@@ -1,7 +1,8 @@
-import { Button, Modal, Radio, Typography } from "antd";
+import { Modal, Radio, Typography } from "antd";
 import React, { useMemo, useState } from "react";
 import { createMarkupNormal } from "../../../utils/auth.helper";
 import { useRouter } from "next/router";
+import Button from "../../../components/Common/Button";
 
 const { Text, Title } = Typography;
 
@@ -69,18 +70,13 @@ export default function Second({
             tượng bảo hiểm được áp dụng:
           </Text>
         </div>
-        {/* <Text className="text-primary text-center">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim x. Có không có không
-        </Text> */}
         {QnA.map((item, index) => (
           <div className="my-4" key={item._id}>
-            <Typography.Title level={5} className="text-primary text-left"
-                // className=""
+            <Typography.Title level={5} className="text-primary text-left">
+              <div
+                className=""
                 dangerouslySetInnerHTML={createMarkupNormal(item.question)}
-                >
-              {/* /> */}
+              />
             </Typography.Title>
 
             {item.node != "" && (
@@ -104,18 +100,31 @@ export default function Second({
       </div>
       <div className="my-4 d-flex justify-content-around pt-3">
         {btnBack === 1 ? (
+          // <Button
+          //   type="second"
+          //   onClick={onPrev}
+          //   style={{ width: "42%", paddingTop: "1rem", paddingBottom: "2rem" }}
+          // >
+          //   Trở về
+          // </Button>
           <Button
-            type="second"
+            // className="mx-3 btn-buy-banner text-center shadow align-self-center"
             onClick={onPrev}
-            style={{ width: "42%", paddingTop: "1rem", paddingBottom: "2rem" }}
+            type="primary"
           >
             Trở về
           </Button>
         ) : (
+          // <Button
+          //   type="default"
+          //   onClick={() => route.push("/#san-pham")}
+          //   style={{ width: "42%", paddingTop: "1rem", paddingBottom: "2rem" }}
+          // >
+          //   Về trang sản phẩm
+          // </Button>
           <Button
-            type="default"
             onClick={() => route.push("/#san-pham")}
-            style={{ width: "42%", paddingTop: "1rem", paddingBottom: "2rem" }}
+            type="primary"
           >
             Về trang sản phẩm
           </Button>
@@ -127,12 +136,19 @@ export default function Second({
         >
           Trở về
         </Button> */}
-        <Button
+        {/* <Button
           type="primary"
           onClick={() => onNextStep(submitData)}
           style={{ width: "42%", paddingTop: "1rem", paddingBottom: "2rem" }}
         >
           Tiếp tục
+        </Button> */}
+        <Button
+          // className="mx-3 btn-buy-banner text-center shadow align-self-center"
+          onClick={() => onNextStep(submitData)}
+          type="primary"
+        >
+          Mua bảo hiểm ngay
         </Button>
       </div>
     </div>

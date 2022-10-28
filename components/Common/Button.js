@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "antd";
 
 export default function (props) {
   if (props.type === "primary") {
@@ -6,6 +7,7 @@ export default function (props) {
       <button
         className={`default-btn rounded-pill shadow ${props.className}`}
         onClick={props.onClick}
+        {...props}
       >
         {props.children}
       </button>
@@ -15,15 +17,29 @@ export default function (props) {
       <button
         className={`default-btn bg-default rounded-pill ${props.className}`}
         onClick={props.onClick}
+        {...props}
       >
         {props.children}
       </button>
     );
-  } else {
+  } 
+  // else if (props.type === "antd") {
+  //   return (
+  //     <Button
+  //       className={`${props.className}`}
+  //       onClick={props.onClick}
+  //       {...props}
+  //     >
+  //       {props.children}
+  //     </Button>
+  //   );
+  // } 
+  else {
     return (
       <button
         className={`default-btn rounded-pill shadow ${props.className}`}
         onClick={props.onClick}
+        {...props}
       >
         {props.children}
       </button>
