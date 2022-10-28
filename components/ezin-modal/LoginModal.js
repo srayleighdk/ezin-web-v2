@@ -105,68 +105,68 @@ export default function LoginModal() {
   };
 
   return (
-    <AuthProvider>
-      <Modal
-        visible={loginVisible}
-        onCancel={closeLogin}
-        className="p-5"
-        style={{ marginTop: 90 }}
-        footer={null}
-        centered
-        width={420}
-        destroyOnClose
-        maskClosable={false}
+    // <AuthProvider>
+    <Modal
+      visible={loginVisible}
+      onCancel={closeLogin}
+      className="p-5"
+      style={{ marginTop: 90 }}
+      footer={null}
+      centered
+      width={420}
+      destroyOnClose
+      maskClosable={false}
+    >
+      <Typography.Title level={3} className="text-primary text-center">
+        ĐĂNG NHẬP
+      </Typography.Title>
+      <p className="text-center text-sm mb-2">
+        <i>
+          Sử dụng tài khoản Ezin để lưu trữ và tra cứu đơn bảo hiểm theo cách dễ
+          dàng nhất!
+        </i>
+      </p>
+      <p className="text-center text-sm">
+        <i>
+          Nếu bạn chưa có tài khoản vui lòng nhấn nút{" "}
+          <a
+            href="#"
+            onClick={onRegister}
+            className="text-deco-underline text-secondary"
+          >
+            Đăng ký
+          </a>
+          .
+        </i>
+      </p>
+      <form
+        method="post"
+        onSubmit={(e) => {
+          e.preventDefault();
+          onLogin(e);
+        }}
+        // initialValues={
+        //   data.phoneNumber
+        //     ? { 'phoneNumber-1': data.phoneNumber }
+        //     : { 'phoneNumber-1': '', password: '' }
+        // }
       >
-        <Typography.Title level={3} className="text-primary text-center">
-          ĐĂNG NHẬP
-        </Typography.Title>
-        <p className="text-center text-sm mb-2">
-          <i>
-            Sử dụng tài khoản Ezin để lưu trữ và tra cứu đơn bảo hiểm theo cách
-            dễ dàng nhất!
-          </i>
-        </p>
-        <p className="text-center text-sm">
-          <i>
-            Nếu bạn chưa có tài khoản vui lòng nhấn nút{" "}
-            <a
-              href="#"
-              onClick={onRegister}
-              className="text-deco-underline text-secondary"
-            >
-              Đăng ký
-            </a>
-            .
-          </i>
-        </p>
-        <form
-          method="post"
-          onSubmit={(e) => {
-            e.preventDefault();
-            onLogin(e);
-          }}
-          // initialValues={
-          //   data.phoneNumber
-          //     ? { 'phoneNumber-1': data.phoneNumber }
-          //     : { 'phoneNumber-1': '', password: '' }
-          // }
-        >
-          {/* <PhoneNumber
+        {/* <PhoneNumber
             placeholder="Số điện thoại"
             phoneName="phoneNumber-1"
             size="large"
           /> */}
 
-          <div className="form-group">
-            <input
-              className="form-control"
-              type="text"
-              name="phone"
-              placeholder="Số điện thoại"
-            />
-          </div>
-          {/* </Form.Item> */}
-          {/* <Form.Item
+        <div className="form-group">
+          <input
+            className="form-control"
+            type="text"
+            name="phone"
+            placeholder="Số điện thoại"
+          />
+        </div>
+        {/* </Form.Item> */}
+        {/* <Form.Item
             name="password"
             rules={[
               { required: true, message: "Mật khẩu không được để trống" },
@@ -175,35 +175,35 @@ export default function LoginModal() {
             <Input.Password placeholder="Mật khẩu" size="large" />
           </Form.Item> */}
 
-          <div className="form-group mb-2">
-            <input
-              className="form-control"
-              type="password"
-              name="password"
-              placeholder="Password"
-            />
-          </div>
-          {/* <Button type="primary" block className="mb-2" htmlType="submit">
+        <div className="form-group mb-2">
+          <input
+            className="form-control"
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
+        </div>
+        {/* <Button type="primary" block className="mb-2" htmlType="submit">
             Đăng nhập
           </Button> */}
 
-          <button className="default-btn btn-two w-100" type="submit">
-            Đăng nhập
-          </button>
-          <p className="text-center pointer" onClick={onForget}>
-            <i>
-              <u>Quên mật khẩu</u>
-            </i>
-          </p>
-          {/* <Button block className="mt-3" ghost onClick={onRegister}>
+        <button className="default-btn btn-two w-100" type="submit">
+          Đăng nhập
+        </button>
+        <p className="text-center pointer" onClick={onForget}>
+          <i>
+            <u>Quên mật khẩu</u>
+          </i>
+        </p>
+        {/* <Button block className="mt-3" ghost onClick={onRegister}>
             Đăng ký
           </Button> */}
 
-          <button className="default-btn btn-two w-100" onClick={onRegister}>
-            Đăng ký
-          </button>
-        </form>
-      </Modal>
-    </AuthProvider>
+        <button className="default-btn btn-two w-100" onClick={onRegister}>
+          Đăng ký
+        </button>
+      </form>
+    </Modal>
+    // {/* </AuthProvider> */}
   );
 }

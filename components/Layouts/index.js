@@ -11,26 +11,26 @@ import Footer from "./Footer";
 // import TransactionInfoModal from 'components/ezin-modal/TransactionInfoModal';
 import Head from "next/head";
 import Script from "next/script";
-// import dynamic from "next/dynamic";
-// const LoginModal = dynamic(() =>
-//   import("../../components/ezin-modal/LoginModal")
-// );
-// const RegisterModal = dynamic(() =>
-//   import("../../components/ezin-modal/RegisterModal")
-// );
-// const OTPModal = dynamic(() => import("../../components/ezin-modal/OTPModal"));
-// const ForgotPassModal = dynamic(() =>
-//   import("../../components/ezin-modal/ForgotPassModal")
-// );
-// const NewPassword = dynamic(() =>
-//   import("../../components/ezin-modal/NewPassword")
-// );
-// const ResetPassword = dynamic(() =>
-//   import("../../components/ezin-modal/ResetPassword")
-// );
-// const TransactionInfoModal = dynamic(() =>
-//   import("../../components/ezin-modal/TransactionInfoModal")
-// );
+import dynamic from "next/dynamic";
+const LoginModal = dynamic(() =>
+  import("../../components/ezin-modal/LoginModal")
+);
+const RegisterModal = dynamic(() =>
+  import("../../components/ezin-modal/RegisterModal")
+);
+const OTPModal = dynamic(() => import("../../components/ezin-modal/OTPModal"));
+const ForgotPassModal = dynamic(() =>
+  import("../../components/ezin-modal/ForgotPassModal")
+);
+const NewPassword = dynamic(() =>
+  import("../../components/ezin-modal/NewPassword")
+);
+const ResetPassword = dynamic(() =>
+  import("../../components/ezin-modal/ResetPassword")
+);
+const TransactionInfoModal = dynamic(() =>
+  import("../../components/ezin-modal/TransactionInfoModal")
+);
 import { useRouter } from "next/router";
 import { CANONICAL_DOMAIN } from "../../utils/config";
 
@@ -158,13 +158,13 @@ export default function Layout({ children }) {
           <div className="content">{children}</div>
         </div>
         <Footer />
-        {/* <LoginModal />
+        <LoginModal />
         <RegisterModal />
         <OTPModal />
         <ForgotPassModal />
         <NewPassword />
         <ResetPassword />
-        <TransactionInfoModal /> */}
+        <TransactionInfoModal />
       </div>
     </>
   );
