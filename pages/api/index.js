@@ -257,6 +257,39 @@ export const detectVehicleRegistration = (formData, detectType) => {
   });
 };
 
+export const detectDamage1 = (formData) => {
+  return eZinApi({
+    url: `/damage/detect/method1`,
+    method: 'post',
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+}
+
+export const detectDamage2 = (formData) => {
+  return eZinApi({
+    url: `/damage/detect/method2`,
+    method: 'post',
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+}
+
+export const detectDamage3 = (formData) => {
+  return eZinApi({
+    url: `/damage/detect/method3`,
+    method: 'post',
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+}
+
 /***
  * Payment
  */
