@@ -370,7 +370,7 @@ export default function ActivateForm({ data, initData, onNext, onPrev }) {
               <Button
                 type="primary"
                 className={`text-11 text-white mr-1 mt-1 ${
-                  index == currentName ? "bg-primary" : "bg-dark"
+                  index == currentName ? "bg-primary" : "bg-gray"
                 }`}
                 onClick={() => onSelectUser(index + 1)}
                 key={index}
