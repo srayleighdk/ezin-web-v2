@@ -154,7 +154,7 @@ export default function Layout({ children }) {
         </Script>
 
         <Header />
-        <div className="main-section flex-1">
+        <div className="main-section flex-1 ptb-100 mt-5">
           <div className="content">{children}</div>
         </div>
         <Footer />
