@@ -5,7 +5,7 @@ import Head from "next/head";
 import { InboxOutlined } from "@ant-design/icons";
 import { submitDamage } from "../../api";
 import { useRouter } from "next/router";
-import baseURL from "../../../utils/baseUrl";
+import {baseURL} from "../../../utils/baseUrl";
 
 const { Dragger } = Upload;
 
