@@ -108,7 +108,6 @@ const Home = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
       <div
         className="jumpx-slider-item pt-sm-1 pb-sm-0"
         style={{

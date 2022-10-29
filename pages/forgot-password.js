@@ -167,7 +167,12 @@ export default function Login({ headers }) {
               <OtpInput
                 className="OTP__checkInput mx-4 mb-2 mt-2"
                 value={arrCode}
-                onChange={(e) => setArrCode(e)}
+                onChange={(e) => {
+                  setArrCode(e);
+                  if(e.length === 4) {
+                    onFinish(e)
+                  }
+                }}
                 numInputs={4}
                 shouldAutoFocus={true}
                 // separator={<span>-</span>}
@@ -184,6 +189,11 @@ export default function Login({ headers }) {
             </div>
             <div className="row">
               <div className="col-lg-6 col-12">
+                <button className="default-btn btn-two" type="submit">
+                  Xác nhận
+                </button>
+              </div>
+              <div className="col-lg-6 col-12 mt-2">
                 <button
                   className="default-btn btn-two"
                   onClick={() => {
@@ -192,11 +202,6 @@ export default function Login({ headers }) {
                   }}
                 >
                   Quay lại
-                </button>
-              </div>
-              <div className="col-lg-6 col-12">
-                <button className="default-btn btn-two" type="submit">
-                  Xác nhận
                 </button>
               </div>
             </div>

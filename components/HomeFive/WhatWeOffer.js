@@ -52,12 +52,11 @@ export default function WhatWeOffer({ faqCat }) {
 
         <div className="tab industries-list-tab">
           <div className="row align-items-center">
-            <div className="col-lg-3">
               {/* Tabs navs */}
               <ul className="tabs">
                 <li
-                  className="current why-wrap-header"
-                  // onClick={(e) => openTabSection(e, "tab1")}
+                  className="col-lg-3"
+                // onClick={(e) => openTabSection(e, "tab1")}
                 >
                   <div className="industries-img left-img">
                     <img
@@ -66,12 +65,12 @@ export default function WhatWeOffer({ faqCat }) {
                       alt="why1"
                     />
                   </div>
-                  <span className="py-0 px-0">
-                    <h3 className="why-heading">Quyền lợi</h3>
-                  </span>
                 </li>
 
                 <div className="col-lg-9">
+                  <span className="py-0 px-0">
+                    <h3 className="why-heading">Quyền lợi</h3>
+                  </span>
                   <div className="tab_content">
                     <div id="tab1" className="tabs_item">
                       <div className="row align-items-center">
@@ -127,7 +126,7 @@ export default function WhatWeOffer({ faqCat }) {
 
                 <li
                   // onClick={(e) => openTabSection(e, "tab2")}
-                  className="mt-3 why-wrap-header"
+                  className={`mt-3 why-wrap-header d-flex`}
                 >
                   <div className="industries-img left-img">
                     <img
@@ -203,7 +202,7 @@ export default function WhatWeOffer({ faqCat }) {
                             <div className="row">
                               <div className="col-lg-12">
                                 <div className="faq-accordion">
-                                  <Accordion >
+                                  <Accordion>
                                     {faqContent?.map((item, index) => (
                                       <AccordionItem uuid={index}>
                                         <AccordionItemHeading>
@@ -239,7 +238,6 @@ export default function WhatWeOffer({ faqCat }) {
                   </div>
                 </div>
               </ul>
-            </div>
 
             {/* <div className="col-lg-9">
                 <div className="tab_content">

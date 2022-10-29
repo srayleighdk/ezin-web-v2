@@ -5,9 +5,11 @@ import { Navigation, Autoplay } from "swiper";
 import { Modal, Checkbox } from "antd";
 import { useRouter } from "next/router";
 import Button from "../Common/Button";
+import { useMediaQuery } from "react-responsive";
 // import BgBannerHeader from "../../public/images/bg-banner-header.png";
 
 export default function MainBanner() {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const router = useRouter();
   const [visibleAudio, setVisibleAudio] = useState(false);
 
@@ -35,18 +37,16 @@ export default function MainBanner() {
         className="jumpx-slider-item mt-ms-80"
         style={{
           backgroundImage: `url(/images/banner-home.png)`,
-          maxHeight: 500,
           width: "100vw",
         }}
       >
         <div className="d-table">
           <div className="d-table-cell">
             <div
-              className="slider-btn position-absolute d-flex justify-content-center w-100 d-sm-flex flex-column px-ms-3"
-              style={{ top: "-40%" }}
+              className={`slider-btn position-absolute d-flex justify-content-center w-100 d-sm-flex ${isMobile ? "flex-column" : "flex-row"} px-ms-3`}
             >
               <Button
-                className="mx-3 btn-buy-banner text-center shadow align-self-center"
+                className={`mx-3 ${!isMobile && "w-25"} btn-buy-banner text-center shadow align-self-center`}
                 onClick={() => router.push("/#san-pham")}
                 type="primary"
               >

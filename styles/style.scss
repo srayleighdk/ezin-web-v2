@@ -1889,8 +1889,8 @@ Industries Area Style
 
 			li {
 				position: relative;
-				background-color: $white-color;
-				box-shadow: $box-shadow;
+				// background-color: $white-color;
+				// box-shadow: $box-shadow;
 				border-radius: 60px 0 0 60px;
 				transition: $transition;
 				overflow: hidden;
@@ -1916,7 +1916,7 @@ Industries Area Style
 					left: 0;
 					width: 0;
 					height: 100%;
-					background-color: $main-color;
+					// background-color: transparent;
 					z-index: -1;
 					border-radius: 60px 0 0 60px;
 					transition: $transition;
@@ -8671,4 +8671,12 @@ h5 {
 
 .topStore {
 	background-color: #F2F8FF;
+}
+
+.slider-btn {
+	top: 0;
+}
+
+.jumpx-slider-item {
+	max-height: 466px;
 }

@@ -73,6 +73,15 @@
         color: #000000 !important;
     }
 
+    .slider-btn {
+        top: -40%;
+    }
+
+    .group-icons {
+        top: 16%;
+        left: 16%;
+    }
+
     .accordion__button:before {
         margin-bottom: 2px;
     }
@@ -566,6 +575,7 @@
     }
     .jumpx-slider-item {
         height: 100%;
+        max-height: 500px;
         padding-top: 115px;
         padding-bottom: 100px;
     }

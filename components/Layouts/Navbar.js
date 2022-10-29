@@ -102,11 +102,13 @@ const Navbar = () => {
             </Link>
 
             <div className={classOne} id="navbarSupportedContent">
-              <ul className={`navbar-nav m-auto align-items-center ${isMobile && "mt-4"}`}>
+              {/* <ul className={`navbar-nav m-auto align-items-center ${isMobile && "mt-4"}`}> */}
+              <ul className={`navbar-nav m-auto align-items-center`}>
                 {headers &&
                   headers.map((header) => {
                     return (
-                      <li className={`nav-item ${isMobile && "w-100"}`} key={header.key}>
+                      // <li className={`nav-item ${isMobile && "w-100"}`} key={header.key}>
+                      <li className={`nav-item`} key={header.key}>
                         <Link href={header.link}>
                           <a
                             className="nav-link text-black text-start"
@@ -177,8 +179,8 @@ const Navbar = () => {
                   })}
                 <div
                   className={`${
-                    !isMobile ? "ms-2" : "text-uppercase"
-                  } others-options text-ms-16 fw-ms-default w-100`}
+                    !isMobile ? "ms-2" : "text-uppercase w-100"
+                  } others-options text-ms-16 fw-ms-default`}
                 >
                   <ul className="navbar-nav m-auto align-item-baseline">
                     <li

@@ -7,7 +7,6 @@ export default function (props) {
       <button
         className={`default-btn rounded-pill shadow ${props.className}`}
         onClick={props.onClick}
-        {...props}
       >
         {props.children}
       </button>

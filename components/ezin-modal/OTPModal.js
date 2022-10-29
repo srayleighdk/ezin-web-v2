@@ -151,55 +151,6 @@ export default function OTPModal() {
       </div>
       <Form className="form-otp mt-4 text-center" onFinish={onFinish}>
         <div className={isMobile ? "input-container-mobile" : "input-container"}>
-          {/* <Input
-            value={code_1}
-             pattern="[0-9]*" inputMode="numeric"
-            onChange={(ev) => onChange('code_1', ev.target.value)}
-            onFocus={(ev) => {
-              ev.target.select();
-            }}
-            ref={code_1_ref}
-            size="large"
-            autoFocus={true}
-            maxlength={1}
-          
-          />
-          <Input
-            value={code_2}
-             pattern="[0-9]" inputMode="numeric"
-            onChange={(ev) => onChange('code_2', ev.target.value)}
-            onFocus={(ev) => {
-              ev.target.select();
-            }}
-            ref={code_2_ref}
-            size="large"
-            maxlength={1}
-          />
-          <Input
-            value={code_3}
-             pattern="[0-9]" inputMode="numeric"
-            onChange={(ev) => onChange('code_3', ev.target.value)}
-            onFocus={(ev) => {
-              ev.target.select();
-            }}
-            ref={code_3_ref}
-            size="large"
-            maxlength={1}
-          />
-          <Input
-            value={code_4}
-             pattern="[0-9]" inputMode="numeric"
-            onChange={(ev) => onChange('code_4', ev.target.value)}
-            // onKeyDown={onKeyDown}
-            // onKeyUp={onKeyUp}
-            ref={code_4_ref}
-            onFocus={(ev) => {
-              ev.target.select();
-            }}
-            size="large"
-            maxlength={1}
-          /> */}
-
           <OtpInput
             className="OTP__checkInput"
             value={arrCode}
