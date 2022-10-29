@@ -52,11 +52,12 @@ export default function WhatWeOffer({ faqCat }) {
 
         <div className="tab industries-list-tab">
           <div className="row align-items-center">
-              {/* Tabs navs */}
-              <ul className="tabs">
+            {/* Tabs navs */}
+            <ul className={`tabs`}>
+              <div className={`${!isMobile && "d-flex"}`}>
                 <li
                   className="col-lg-3"
-                // onClick={(e) => openTabSection(e, "tab1")}
+                  // onClick={(e) => openTabSection(e, "tab1")}
                 >
                   <div className="industries-img left-img">
                     <img
@@ -123,10 +124,12 @@ export default function WhatWeOffer({ faqCat }) {
                     </div>
                   </div>
                 </div>
+              </div>
 
+              <div className={`${!isMobile && "d-flex"}`}>
                 <li
                   // onClick={(e) => openTabSection(e, "tab2")}
-                  className={`mt-3 why-wrap-header d-flex`}
+                  className={`col-lg-3 mt-3 why-wrap-header d-flex`}
                 >
                   <div className="industries-img left-img">
                     <img
@@ -135,12 +138,12 @@ export default function WhatWeOffer({ faqCat }) {
                       alt="why2"
                     />
                   </div>
-                  <span className="py-0 px-0">
-                    <h3 className="why-heading">Ezin Lifestyle</h3>
-                  </span>
                 </li>
 
                 <div className="col-lg-9">
+                  <span className="py-0 px-0">
+                    <h3 className="why-heading">Ezin Lifestyle</h3>
+                  </span>
                   <div className="tab_content">
                     <div id="tab2" className="tabs_item">
                       <div className="row align-items-center">
@@ -176,10 +179,12 @@ export default function WhatWeOffer({ faqCat }) {
                     </div>
                   </div>
                 </div>
+              </div>
 
+              <div className={`${!isMobile && "d-flex"}`}>
                 <li
                   // onClick={(e) => openTabSection(e, "tab3")}
-                  className="mt-3 why-wrap-header"
+                  className="col-lg-3 mt-3 why-wrap-header"
                 >
                   <div className="industries-img left-img">
                     <img
@@ -188,12 +193,12 @@ export default function WhatWeOffer({ faqCat }) {
                       alt="why3"
                     />
                   </div>
-                  <span className="py-0 px-0">
-                    <h3 className="why-heading">FAQ</h3>
-                  </span>
                 </li>
 
                 <div className="col-lg-9">
+                  <span className="py-0 px-0">
+                    <h3 className="why-heading">FAQ</h3>
+                  </span>
                   <div className="tab_content">
                     <div id="tab3" className="tabs_item">
                       <div className="row  align-items-center">
@@ -237,7 +242,8 @@ export default function WhatWeOffer({ faqCat }) {
                     </div>
                   </div>
                 </div>
-              </ul>
+              </div>
+            </ul>
 
             {/* <div className="col-lg-9">
                 <div className="tab_content">
