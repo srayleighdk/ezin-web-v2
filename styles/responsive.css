@@ -433,7 +433,7 @@
     padding-bottom: 100px;
   }
   .page-title-area {
-    padding-top: 150px;
+    /* padding-top: 150px; */
     padding-bottom: 100px;
   }
   .page-navigation-area {
@@ -1476,7 +1476,7 @@
     margin: 0 5px;
   }
   .page-title-area {
-    padding-top: 150px;
+    /* padding-top: 150px; */
     padding-bottom: 100px;
   }
   .page-navigation-area {
