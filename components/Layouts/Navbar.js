@@ -111,7 +111,7 @@ const Navbar = () => {
                       <li className={`nav-item`} key={header.key}>
                         <Link href={header.link}>
                           <a
-                            className="nav-link text-black text-start"
+                            className={`nav-link text-black text-start ${header.label === "Ezin Life" && "mb-1"}`}
                             onClick={toggleNavbar}
                             // onClick={(e) => e.preventDefault()}
                           >
