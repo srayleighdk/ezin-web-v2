@@ -273,7 +273,7 @@ export default function EzStore({ topStores }) {
             {topStores?.map((item) => (
               <SwiperSlide className="slider-news me-2" key={item._id}>
                 <div className="single-news">
-                  <div className="news-content-wrap" style={{ height: 412 }}>
+                  <div className="news-content-wrap">
                     <div
                       className="blog-img mb-2 text-center"
                       style={{ height: 100 }}
@@ -294,7 +294,7 @@ export default function EzStore({ topStores }) {
                     <div className="text-center">
                       <Link href="/news-details">
                         <a>
-                          <h3 className="h-52">EzStore {item?.district?.name}</h3>
+                          <h3 className="EzStore-district">EzStore {item?.district?.name}</h3>
                         </a>
                       </Link>
                     </div>

@@ -44,7 +44,7 @@ export default function NewsSlider({ newsPost }) {
               768: {
                 slidesPerView: 4,
               },
-              // 992: {
+              // 920: {
               //     slidesPerView: 5,
               // },
             }}

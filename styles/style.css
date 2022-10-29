@@ -2760,7 +2760,7 @@ Industries Area Style
 .industries-area .industries-list-tab .tabs li i {
   position: absolute;
   left: 30px;
-  top: 32px;
+  top: 20%;
   font-size: 40px;
   color: #1dd3f8;
   line-height: 1;
@@ -6726,8 +6726,8 @@ h3 {
   padding-top: 34px;
 }
 
-.h3-margin-bt {
-  margin-bottom: 2rem;
+.studies-title {
+  margin-bottom: 24px;
 }
 /* new Ezin v2 */
 /* tuan */
@@ -6922,7 +6922,7 @@ h3 {
 .line-right::after {
   content: "";
   position: absolute;
-  top: 40%;
+  top: 34%;
   right: -4px;
   width: 2px;
   height: 50px;
@@ -7089,4 +7089,12 @@ h3 {
 
 .color-heading-footer {
   color: #959CA5 !important;
+}
+
+.studies-wrap {
+  min-height: 48px;
+}
+
+.EzStore-district {
+  height: 52px;
 }

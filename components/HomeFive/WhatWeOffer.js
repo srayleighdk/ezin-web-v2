@@ -56,7 +56,7 @@ export default function WhatWeOffer({ faqCat }) {
             <ul className={`tabs`}>
               <div className={`${!isMobile && "d-flex"}`}>
                 <li
-                  className="col-lg-3"
+                  className="col-lg-6"
                   // onClick={(e) => openTabSection(e, "tab1")}
                 >
                   <div className="industries-img left-img">
@@ -68,17 +68,17 @@ export default function WhatWeOffer({ faqCat }) {
                   </div>
                 </li>
 
-                <div className="col-lg-9">
+                <div className="col-lg-6 px-3">
                   <span className="py-0 px-0">
                     <h3 className="why-heading">Quyền lợi</h3>
                   </span>
                   <div className="tab_content">
                     <div id="tab1" className="tabs_item">
                       <div className="row align-items-center">
-                        <div className="col-lg-6">
+                        <div className="col-lg-12">
                           <div className="industries-content text-center text-40">
                             <div className="row">
-                              <div className="col-lg-6 col-sm-6">
+                              <div className="col-lg-12 col-sm-6">
                                 <ul className="industries-item">
                                   <li>
                                     <i className="flaticon-checked"></i>
@@ -96,7 +96,7 @@ export default function WhatWeOffer({ faqCat }) {
                               </div>
 
                               <div
-                                className={`col-lg-6 col-sm-6 ${
+                                className={`col-lg-12 col-sm-6 ${
                                   isMobile && "mt-4"
                                 }`}
                               >
@@ -112,12 +112,6 @@ export default function WhatWeOffer({ faqCat }) {
                                 </ul>
                               </div>
                             </div>
-
-                            {/* <div className="text-center">
-                            <Link href="/services">
-                              <a className="default-btn">Discover More</a>
-                            </Link>
-                          </div> */}
                           </div>
                         </div>
                       </div>
@@ -126,12 +120,12 @@ export default function WhatWeOffer({ faqCat }) {
                 </div>
               </div>
 
-              <div className={`${!isMobile && "d-flex"}`}>
+              <div className={`mt-3 ${!isMobile && "d-flex flex-row-reverse"}`}>
                 <li
                   // onClick={(e) => openTabSection(e, "tab2")}
-                  className={`col-lg-3 mt-3 why-wrap-header d-flex`}
+                  className={`col-lg-6 mt-3 why-wrap-header d-flex ${!isMobile && "justify-content-center"}`}
                 >
-                  <div className="industries-img left-img">
+                  <div className={`industries-img left-img`}>
                     <img
                       src="/images/why2.png"
                       className="why-img mt-3"
@@ -140,14 +134,14 @@ export default function WhatWeOffer({ faqCat }) {
                   </div>
                 </li>
 
-                <div className="col-lg-9">
+                <div className="col-lg-6 px-3">
                   <span className="py-0 px-0">
                     <h3 className="why-heading">Ezin Lifestyle</h3>
                   </span>
                   <div className="tab_content">
                     <div id="tab2" className="tabs_item">
                       <div className="row align-items-center">
-                        <div className="col-lg-6">
+                        <div className="col-lg-12">
                           <div className="industries-content text-center text-40">
                             <div className="row">
                               <div className="col-lg-12 col-sm-12">
@@ -167,12 +161,6 @@ export default function WhatWeOffer({ faqCat }) {
                                 </ul>
                               </div>
                             </div>
-
-                            {/* <div className="text-center">
-                            <Link href="/services">
-                              <a className="default-btn">Discover More</a>
-                            </Link>
-                          </div> */}
                           </div>
                         </div>
                       </div>
@@ -184,7 +172,7 @@ export default function WhatWeOffer({ faqCat }) {
               <div className={`${!isMobile && "d-flex"}`}>
                 <li
                   // onClick={(e) => openTabSection(e, "tab3")}
-                  className="col-lg-3 mt-3 why-wrap-header"
+                  className="col-lg-6 mt-3 why-wrap-header"
                 >
                   <div className="industries-img left-img">
                     <img
@@ -195,14 +183,14 @@ export default function WhatWeOffer({ faqCat }) {
                   </div>
                 </li>
 
-                <div className="col-lg-9">
+                <div className="col-lg-6 px-3">
                   <span className="py-0 px-0">
                     <h3 className="why-heading">FAQ</h3>
                   </span>
                   <div className="tab_content">
                     <div id="tab3" className="tabs_item">
-                      <div className="row  align-items-center">
-                        <div className="col-lg-6">
+                      <div className="row align-items-center">
+                        <div className="col-lg-12">
                           <div className="industries-content text-center text-40">
                             <div className="row">
                               <div className="col-lg-12">
@@ -230,12 +218,6 @@ export default function WhatWeOffer({ faqCat }) {
                                 </div>
                               </div>
                             </div>
-
-                            {/* <div className="text-center">
-                            <Link href="/services">
-                              <a className="default-btn">Discover More</a>
-                            </Link>
-                          </div> */}
                           </div>
                         </div>
                       </div>
@@ -244,209 +226,6 @@ export default function WhatWeOffer({ faqCat }) {
                 </div>
               </div>
             </ul>
-
-            {/* <div className="col-lg-9">
-                <div className="tab_content">
-                  <div id="tab1" className="tabs_item">
-                    <div className="row align-items-center">
-                      <div className="col-lg-6">
-                        <div className="industries-img left-img">
-                          <img src="/images/why1.png" alt="why1" />
-                        </div>
-                      </div>
-
-                      <div className="col-lg-6">
-                        <div className="industries-content text-center text-40">
-                          <h3>Quyền lợi</h3>
-                          <div className="row">
-                            <div className="col-lg-6 col-sm-6">
-                              <ul className="industries-item">
-                                <li>
-                                  <i className="flaticon-checked"></i>
-                                  Hoàn toàn điện tử - không giấy tờ
-                                </li>
-                                <li>
-                                  <i className="flaticon-checked"></i>
-                                  Cam kết hỗ trợ tới 100 triệu
-                                </li>
-                                <li>
-                                  <i className="flaticon-checked"></i>
-                                  Chăm sóc khách hàng 5 sao
-                                </li>
-                              </ul>
-                            </div>
-
-                            <div className="col-lg-6 col-sm-6">
-                              <ul className="industries-item">
-                                <li>
-                                  <i className="flaticon-checked"></i>
-                                  Đòi bồi thường trực tuyến
-                                </li>
-                                <li>
-                                  <i className="flaticon-checked"></i>
-                                  Mua bảo hiểm trong 5 phút
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div id="tab2" className="tabs_item">
-                    <div className="row align-items-center">
-                      <div className="col-lg-6">
-                        <div className="industries-img right-img">
-                          <img src="/images/why2.png" alt="why2" />
-                        </div>
-                      </div>
-                      <div className="col-lg-6">
-                        <div className="industries-content text-center text-40">
-                          <h3>Ezin Lifestyle</h3>
-                          <div className="row">
-                            <div className="col-lg-12 col-sm-12">
-                              <ul className="industries-item">
-                                <li>
-                                  <i className="flaticon-checked"></i>
-                                  Sống an toàn
-                                </li>
-                                <li>
-                                  <i className="flaticon-checked"></i>
-                                  Sống lành mạnh
-                                </li>
-                                <li>
-                                  <i className="flaticon-checked"></i>
-                                  Sống đẹp
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div id="tab3" className="tabs_item">
-                    <div className="row  align-items-center">
-                      <div className="col-lg-6">
-                        <div className="industries-img left-img">
-                          <img src="/images/why3.png" alt="why3" />
-                        </div>
-                      </div>
-
-                      <div className="col-lg-6">
-                        <div className="industries-content text-center text-40">
-                          <h3>FAQ</h3>
-
-                          <div className="row">
-                            <div className="col-lg-12">
-                              <div className="faq-accordion">
-                                <Accordion preExpanded={["a"]}>
-                                  <AccordionItem uuid="a">
-                                    <AccordionItemHeading>
-                                      <AccordionItemButton>
-                                        Ezin là gì?
-                                      </AccordionItemButton>
-                                    </AccordionItemHeading>
-
-                                    <AccordionItemPanel>
-                                      <p>
-                                        Ezin là cách viết tắt của cụm từ Easy
-                                        Insurance- bảo hiểm thật dễ dàng. Đây
-                                        cũng là tôn chỉ của chúng tôi, những
-                                        người sáng lập nên Ezin. Chúng tôi muốn
-                                        tạo ra những sản phẩm bảo hiểm thật dễ
-                                        hiểu, mang lại những quyền lợi thiết
-                                        thực nhất để bảo vệ bạn và những người
-                                        thân yêu của bạn với mức chi phí dễ tiếp
-                                        cận nhất.
-                                      </p>
-                                    </AccordionItemPanel>
-                                  </AccordionItem>
-
-                                  <AccordionItem uuid="b">
-                                    <AccordionItemHeading>
-                                      <AccordionItemButton>
-                                        Bảo hiểm Ezin có gì khác biệt?
-                                      </AccordionItemButton>
-                                    </AccordionItemHeading>
-
-                                    <AccordionItemPanel>
-                                      <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Quis ipsum suspendisse ultrices
-                                        gravida. Risus commodo viverra maecenas
-                                        accumsan lacus vel facilisis.
-                                      </p>
-                                    </AccordionItemPanel>
-                                  </AccordionItem>
-
-                                  <AccordionItem uuid="c">
-                                    <AccordionItemHeading>
-                                      <AccordionItemButton>
-                                        Claim như thế nào?
-                                      </AccordionItemButton>
-                                    </AccordionItemHeading>
-                                    <AccordionItemPanel>
-                                      <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Quis ipsum suspendisse ultrices
-                                        gravida. Risus commodo viverra maecenas
-                                        accumsan lacus vel facilisis.
-                                      </p>
-                                    </AccordionItemPanel>
-                                  </AccordionItem>
-
-                                  <AccordionItem uuid="d">
-                                    <AccordionItemHeading>
-                                      <AccordionItemButton>
-                                        Kích hoạt ra sao?
-                                      </AccordionItemButton>
-                                    </AccordionItemHeading>
-                                    <AccordionItemPanel>
-                                      <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Quis ipsum suspendisse ultrices
-                                        gravida. Risus commodo viverra maecenas
-                                        accumsan lacus vel facilisis.
-                                      </p>
-                                    </AccordionItemPanel>
-                                  </AccordionItem>
-
-                                  <AccordionItem uuid="e">
-                                    <AccordionItemHeading>
-                                      <AccordionItemButton>
-                                        AI Hoạt động như thế nào?
-                                      </AccordionItemButton>
-                                    </AccordionItemHeading>
-                                    <AccordionItemPanel>
-                                      <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Quis ipsum suspendisse ultrices
-                                        gravida. Risus commodo viverra maecenas
-                                        accumsan lacus vel facilisis.
-                                      </p>
-                                    </AccordionItemPanel>
-                                  </AccordionItem>
-                                </Accordion>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
           </div>
         </div>
       </div>
