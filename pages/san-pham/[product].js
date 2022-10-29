@@ -54,8 +54,6 @@ export default function Product({
   const iconsFeatures = [MoneyIcon, WorkIcon, FileIcon];
   const [ModalInfo, setModalInfo] = useState(null);
 
-  console.log("product", product);
-
   const handleOk = () => {
     setModalInfo(null);
   };
