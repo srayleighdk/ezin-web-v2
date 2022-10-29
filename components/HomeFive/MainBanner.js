@@ -48,7 +48,7 @@ export default function MainBanner() {
               <Button
                 className={`mx-3 ${!isMobile && "w-25"} btn-buy-banner text-center shadow align-self-center`}
                 onClick={() => router.push("/#san-pham")}
-                type="primary"
+                types="primary"
               >
                 Mua bảo hiểm ngay
               </Button>
@@ -56,7 +56,7 @@ export default function MainBanner() {
               <Button
                 className="btn-video-banner d-flex justify-content-center align-items-center text-center align-self-center"
                 onClick={() => setVisibleAudio(true)}
-                type="default"
+                types="default"
               >
                 <div className="playVideo rounded-circle position-relative me-3">
                   <div className="playIcon"></div>

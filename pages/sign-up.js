@@ -23,6 +23,7 @@ import OtpInput from "react-otp-input";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 import Head from "next/head";
+import Button from "../components/Common/Button";
 
 export async function getServerSideProps() {
   const res = await getHeader();
@@ -176,8 +177,8 @@ export default function SignUp({ headers }) {
               value={arrCode}
               onChange={(e) => {
                 setArrCode(e);
-                if(e.length === 4) {
-                  onFormSubmit2(e)
+                if (e.length === 4) {
+                  onFormSubmit2(e);
                 }
               }}
               numInputs={4}
@@ -194,7 +195,7 @@ export default function SignUp({ headers }) {
           </div>
           <div className="d-flex flex-column-reverse">
             <div className="col-lg-6 col-12 mt-ms-12">
-              <button
+              {/* <button
                 className="default-btn btn-two"
                 onClick={() => {
                   setMessage("");
@@ -202,18 +203,31 @@ export default function SignUp({ headers }) {
                 }}
               >
                 Quay lại
-              </button>
+              </button> */}
+              <Button
+                className="default-btn btn-two p-3"
+                types="default"
+                onClick={() => {
+                  setMessage("");
+                  setStep(1);
+                }}
+              >
+                Quay lại
+              </Button>
             </div>
             <div className="col-lg-6 col-12">
-              <button className="default-btn btn-two" type="submit">
+              <Button className="default-btn btn-two p-3" types="primary" type="submit">
                 Xác nhận
-              </button>
+              </Button>
             </div>
           </div>
           <div className="text-center mt-3">
             Không nhận được mã.{" "}
             {countdown === 0 ? (
-              <u className="cursor-pointer pl-1" onClick={onResend}>
+              <u className="cursor-pointer pl-1" onClick={() => {
+                setMessage("");
+                onResend();
+                }}>
                 GỬI LẠI
               </u>
             ) : (

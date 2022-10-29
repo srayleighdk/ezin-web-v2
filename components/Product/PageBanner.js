@@ -4,7 +4,6 @@ import { getImageUrl } from "../../utils/helpers";
 import { useMediaQuery } from "react-responsive";
 
 export default function PageBanner(props) {
-    const isMobile = useMediaQuery({ maxWidth: 767 });
   let { pageTitle, img, name, homePageUrl, homePageText, activePageText } = props;
 
   return (

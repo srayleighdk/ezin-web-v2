@@ -71,8 +71,8 @@ export default function Product({
 
       <PageBanner
         pageTitle={product?.name}
-        img={product.image.path}
-        name={product.name}
+        img={product?.image?.path}
+        name={product?.name}
         homePageUrl="#"
         // homePageText="Home"
         // activePageText="Contact Style Two"
