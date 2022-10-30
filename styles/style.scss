@@ -91,6 +91,13 @@ $black-color: #000000;
 $box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
 $transition: all 0.6s ease;
 $border-radius: 4px;
+$button-color: #167ffc;
+$shadow-layer: #4DC15D;
+$active-color: #167FFC;
+$primary-color: #167FFC;
+$secondary-color: #4DC15D; 
+$bg-color: #f5eff7;
+$text-color: #000;
 
 body {
 	padding: 0;
@@ -821,7 +828,7 @@ jumpx Nav Area Style
 						weight: 500;
 					}
 					color: $white-color;
-					text-transform: uppercase;
+					// text-transform: uppercase;
 					padding: {
 						left: 0;
 						right: 0;
@@ -1084,6 +1091,11 @@ jumpx Nav Area Style
 		}
 	}
 
+	nav.height {
+		height: 100vh;
+		background-color: #ffffff !important;
+	}
+
 	.dropdown-toggle {
 		&::after {
 			display: none;
@@ -1105,9 +1117,14 @@ jumpx Nav Area Style
 
 	&.is-sticky {
 		nav {
-			background-color: $black-color;
+			background: linear-gradient(180deg, #ecf8ff 0%, rgb(240 255 253) 91.31%);
 			padding-top: 15px;
 			padding-bottom: 15px;
+		}
+	}
+	&.is-sticky {
+		nav.height {
+			background: #ffffff;
 		}
 	}
 }
@@ -1115,7 +1132,7 @@ jumpx Nav Area Style
 // Navbar toggler 
 .navbar-toggler {
     border: none;
-    background: #eee !important;
+    // background: #eee !important;
     padding: 10px;
     border-radius: 0;
 
@@ -2226,6 +2243,16 @@ Footer Top Area Style
 			background-color: $white-color;
 		}
 	}
+	
+	h3.navbar {
+		font-weight: 700;
+		margin-bottom: 8px;
+		font-size: 16px;
+		color: #000000 !important;
+		line-height: 24px;
+		border-bottom: 2px solid #D9D9D9;
+	}
+
 	ul {
 		list-style-type: none;
 		padding: 0;
@@ -5206,7 +5233,7 @@ body {
 h1 {
   font-size: 2.125rem !important;
   font-weight: bold !important;
-  line-height: 48px !important;
+  line-height: 48px;
 }
 
 #san-pham {
@@ -8612,7 +8639,10 @@ h5 {
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 26px;
-	color: $primary-color;
+}
+
+.banner-header {
+	line-height: 42px;
 }
 
 .default-btn {
@@ -8661,6 +8691,7 @@ h5 {
 	width: 206px;
 	height: 68px;
 	padding: 14px 24px;
+	border: none !important;
 }
 
 .view-video {
@@ -8709,4 +8740,29 @@ h5 {
     background-size: cover;
     min-width: 100%;
     position: relative;
+}
+
+.navbar-search {
+	font-size: 24px;
+}
+
+.navbar-childItem {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.navbar-childItem:hover {
+	color: $active-color;
+	border-left: 3px solid $active-color;
+	padding-left: 0.5rem;
+	background: linear-gradient(90deg, #E1EFFF 0%, rgba(225, 239, 255, 0) 121.16%);
+}
+
+.nav-btn {
+	width: 100% !important;
+}
+.background-secondary {
+	background-color: $secondary-color;
+	border: none;
 }

@@ -25,7 +25,7 @@ export default function MainBanner() {
       <div className="text-center mt-40 pt-sm-1">
         <div className="jumpx-slider-text overflow-hidden one mx-auto homepage-no-maxWidth">
           {/* <span>IT & AI Services</span> */}
-          <h1 className="text-black mb-0 px-ms-3">
+          <h1 className="text-black mb-0 px-ms-3 banner-header">
             Trải nghiệm cuộc sống tuyệt vời
           </h1>
           <p className="banner-maxim text-center px-ms-4 mb-3">
