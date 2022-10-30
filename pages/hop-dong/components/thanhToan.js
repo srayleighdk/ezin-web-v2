@@ -1,4 +1,5 @@
 import { Button, Col, Input, message, Radio, Row } from 'antd';
+import ButtonEzin from "../../../components/Common/Button";
 import React, { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import TableInfo from './TableInfo';
@@ -451,12 +452,12 @@ function ThanhToan({ data, onPrev, requestId, submitData }) {
         <div key={1}>
             <Row gutter={[16, 8]}>
                 <Col lg={12} sm={24} md={24} xs={24} >
-                    <Button type="secondary" onClick={() => onAddCard('01')} className="w-100 text-left">
+                    <Button types="secondary" onClick={() => onAddCard('01')} className="w-100 text-left">
                         + Thêm thẻ ATM nội địa
                     </Button>
                 </Col>
                 <Col lg={12} sm={24} md={24} xs={24} >
-                    <Button type="secondary" onClick={() => onAddCard('02')} className="w-100 text-left">
+                    <Button types="secondary" onClick={() => onAddCard('02')} className="w-100 text-left">
                         + Thêm thẻ tín dụng/thẻ ghi nợ
                     </Button>
                 </Col>
@@ -465,39 +466,40 @@ function ThanhToan({ data, onPrev, requestId, submitData }) {
         <hr />
         <div>
             <div>
-                <Button
-                    type="primary"
-                    className="p-button w-100 mt-2"
+                <ButtonEzin
+                    types="primary"
+                    className="p-button btn-full-width mt-2"
                     onClick={() => {
                         createPayment();
                     }}
                     disabled={false}
                 >
                     Xác nhận
-                </Button>
+                </ButtonEzin>
             </div>
             <div>
-                <Button
-                    type="default"
-                    className="p-button w-100 mt-2"
+                <ButtonEzin
+                    types="default"
+                    className="p-button btn-full-width mt-2"
                     onClick={() => onPrev(submitData)}
                 >
                     Quay về
-                </Button>
+                </ButtonEzin>
             </div>
         </div>
         {popup && (
             <div style={{ position: 'fixed', top: '0', left: '0', width: '100vw', height: '100vh', paddingTop: '212px' }}>
                 <div className="" style={{ width: '300px', height: '180px', position: 'absolute', top: 'calc((100vh - 180px) / 2)', left: 'calc((100vw - 300px) / 2)', alignItems: 'center', backgroundColor: '#d9d9d9', borderRadius: '6px', border: '1px solid #d9d9d9' }}>
                     <p style={{ fontSize: '16px', color: 'black' }}>QR code của bạn đã hết hạn. Vui lòng lấy mã mới.</p>
-                    <Button
-                        className="mt-2 ml-auto pl-0 pr-0" type="primary" style={{ width: '60px', height: '40px', textAlign: 'center', position: 'absolute', bottom: '6px', right: '6px' }}
+                    <ButtonEzin
+                        types="primary"
+                        className="mt-2 ml-auto pl-0 pr-0" style={{ width: '60px', height: '40px', textAlign: 'center', position: 'absolute', bottom: '6px', right: '6px' }}
                         onClick={() => {
                             setPopup(false);
                         }}
                     >
                         OK
-                    </Button>
+                    </ButtonEzin>
                 </div>
             </div>
         )

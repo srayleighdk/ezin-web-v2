@@ -2,7 +2,7 @@ import { Modal, Radio, Typography } from "antd";
 import React, { useMemo, useState } from "react";
 import { createMarkupNormal } from "../../../utils/auth.helper";
 import { useRouter } from "next/router";
-import Button from "../../../components/Common/Button";
+import ButtonEzin from "../../../components/Common/Button";
 
 const { Text, Title } = Typography;
 
@@ -107,13 +107,13 @@ export default function Second({
           // >
           //   Trở về
           // </Button>
-          <Button
+          <ButtonEzin
             // className="mx-3 btn-buy-banner text-center shadow align-self-center"
             onClick={onPrev}
-            type="primary"
+            types="default"
           >
             Trở về
-          </Button>
+          </ButtonEzin>
         ) : (
           // <Button
           //   type="default"
@@ -122,12 +122,12 @@ export default function Second({
           // >
           //   Về trang sản phẩm
           // </Button>
-          <Button
+          <ButtonEzin
             onClick={() => route.push("/#san-pham")}
-            type="primary"
+            types="primary"
           >
             Về trang sản phẩm
-          </Button>
+          </ButtonEzin>
         )}
         {/* <Button
           type="second"
@@ -143,13 +143,13 @@ export default function Second({
         >
           Tiếp tục
         </Button> */}
-        <Button
+        <ButtonEzin
           // className="mx-3 btn-buy-banner text-center shadow align-self-center"
           onClick={() => onNextStep(submitData)}
-          type="primary"
+          types="primary"
         >
           Mua bảo hiểm ngay
-        </Button>
+        </ButtonEzin>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import Button from "../Common/Button";
+import ButtonEzin from "../Common/Button";
 
 class EzinCoin extends Component {
   render() {
@@ -60,7 +60,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Button onClick={() => router.push("/tra-cuu")} type="primary" className="w-100">Xem nhiệm vụ</Button>
+                    <ButtonEzin onClick={() => router.push("/tra-cuu")} types="primary" className="btn-full-width">Xem nhiệm vụ</ButtonEzin>
                   </div>
                 </div>
               </div>
@@ -105,7 +105,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Button onClick={() => router.push("/tra-cuu")} type="primary" className="w-100">Chơi ngay</Button>
+                    <ButtonEzin onClick={() => router.push("/tra-cuu")} types="primary" className="btn-full-width">Chơi ngay</ButtonEzin>
                   </div>
                 </div>
               </div>
@@ -153,7 +153,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Button onClick={() => router.push("/tra-cuu")} type="primary" className="w-100">Chơi ngay</Button>
+                    <ButtonEzin onClick={() => router.push("/tra-cuu")} types="primary" className="btn-full-width">Chơi ngay</ButtonEzin>
                   </div>
                 </div>
               </div>
@@ -198,7 +198,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Button onClick={() => router.push("/tra-cuu")} type="primary" className="w-100">Chơi ngay</Button>
+                    <ButtonEzin onClick={() => router.push("/tra-cuu")} types="primary" className="btn-full-width">Chơi ngay</ButtonEzin>
                   </div>
                 </div>
               </div>
@@ -246,7 +246,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Button onClick={() => router.push("/tra-cuu")} type="primary" className="w-100">Chi tiết</Button>
+                    <ButtonEzin onClick={() => router.push("/tra-cuu")} types="primary" className="btn-full-width">Chi tiết</ButtonEzin>
                   </div>
                 </div>
               </div>
@@ -294,7 +294,7 @@ class EzinCoin extends Component {
                   </p>
 
                   <div className="slider-btn d-flex justify-content-center">
-                    <Button onClick={() => router.push("/tra-cuu")} type="primary" className="w-100">Đổi quà</Button>
+                    <ButtonEzin onClick={() => router.push("/tra-cuu")} types="primary" className="btn-full-width">Đổi quà</ButtonEzin>
                   </div>
                 </div>
               </div>

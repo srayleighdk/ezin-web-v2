@@ -1,4 +1,5 @@
 import { Button, Col, Form, Row, message, Upload } from "antd";
+import ButtonEzin from "../../../components/Common/Button";
 import React, { useState, useEffect } from "react";
 import { formatVND, validateDOB } from "../../../utils/helpers";
 import Field from "../../../src/container/activeCard/Field";
@@ -499,22 +500,22 @@ export default function ActivateForm({ data, initData, onNext, onPrev }) {
               Ezin tài trợ chỉ còn: {formatVND(data?.promotion_fee)}
             </div>
           )}
-          <Button
-            type="primary"
+          <ButtonEzin
+            types="primary"
             className="p-button w-100"
             htmlType="submit"
             id="btn-next-step2"
           >
             Tiếp tục
-          </Button>
+          </ButtonEzin>
           {type === 0 ? (
-            <Button
-              type="default"
+            <ButtonEzin
+              types="default"
               className="p-button w-100 mt-2"
               onClick={() => onPrev(initData)}
             >
               Quay về
-            </Button>
+            </ButtonEzin>
           ) : null}
         </div>
       </Form>

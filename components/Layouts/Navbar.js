@@ -6,7 +6,7 @@ import {
   RightOutlined,
   LeftOutlined,
 } from "@ant-design/icons";
-import Button from "../Common/Button";
+import ButtonEzin from "../Common/Button";
 import Link from "../../utils/ActiveLink";
 import Image from "next/image";
 import NewHeaderLogo from "../../public/images/logo.png";
@@ -150,12 +150,14 @@ const Navbar = () => {
 
             {collapsed && (
               <div className="d-flex justify-content-between align-items-center">
-                <SearchOutlined className="navbar-search" />
+                {/* <SearchOutlined className="navbar-search" /> */}
+                {auth?.full_name || auth?.username ? 
                 <Avatar
                   size="small"
                   className="bg-dark ms-3"
                   icon={<UserOutlined />}
                 />
+                : null}
               </div>
             )}
 
@@ -224,7 +226,22 @@ const Navbar = () => {
                           </li>
                         </a>
                       </Link>
-                      <Button
+                      <Link href="/">
+                        <a
+                          className={`text-dark text-capitalize w-100 ${
+                            isMobile && "text-start"
+                          }`}
+                          onClick={() => {
+                            toggleNavbar();
+                            logout();
+                          }}
+                        >
+                          <li className="nav-item dropend cursor-pointer">
+                            Đăng xuất
+                          </li>
+                        </a>
+                      </Link>
+                      <ButtonEzin
                         types="secondary"
                         className="nav-btn mt-3"
                         onClick={() => {
@@ -233,8 +250,8 @@ const Navbar = () => {
                         }}
                       >
                         Kích hoạt
-                      </Button>
-                      <Button
+                      </ButtonEzin>
+                      <ButtonEzin
                         types="primary"
                         className="nav-btn mt-2"
                         onClick={() => {
@@ -243,7 +260,7 @@ const Navbar = () => {
                         }}
                       >
                         Download
-                      </Button>
+                      </ButtonEzin>
                     </>
                   ) : (
                     <>

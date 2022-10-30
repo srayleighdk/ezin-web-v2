@@ -1,4 +1,5 @@
 import { Button, Col, Form, Row, message, Upload, Radio } from "antd";
+import ButtonEzin from "../../../components/Common/Button";
 import React, { useState, useEffect } from "react";
 import { formatVND, validateDOB } from "../../../utils/helpers";
 import Field from "../../../src/container/activeCard/Field";
@@ -785,14 +786,14 @@ export default function ActivateFormAuto({ data, initData, onNext }) {
               Ezin tài trợ chỉ còn: {formatVND(data?.promotion_fee)}
             </div>
           )}
-          <Button
-            type="primary"
-            className="p-button w-100"
+          <ButtonEzin
+            types="primary"
+            className="p-button btn-full-width"
             htmlType="submit"
             id="btn-next-step2"
           >
             Tiếp tục
-          </Button>
+          </ButtonEzin>
         </div>
       </Form>
       <DatePicker

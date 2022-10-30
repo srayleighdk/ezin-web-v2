@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getHeader, loginApi, getProfile } from "../pages/api";
 import { normalizePhoneNumber } from "../utils/helpers";
 import { setAuth } from "../src/store/actions";
+import ButtonEzin from "../components/Common/Button";
 // import { setAuth } from '../src/store/modal/actions';
 // import { createStructuredSelector } from 'reselect';
 // import { makeLoginVisible, makeModalData } from '../components/store/modal/selector';
@@ -130,9 +131,9 @@ export default function Login({ headers }) {
                     </div>
 
                     <div className="col-12 mt-3">
-                      <button className="default-btn btn-two" type="submit">
+                      <ButtonEzin className="btn-full-width" types="primary">
                         Đăng nhập
-                      </button>
+                      </ButtonEzin>
                     </div>
 
                     <div className="col-12">

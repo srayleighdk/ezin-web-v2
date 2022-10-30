@@ -4,6 +4,7 @@ import { Navigation, Autoplay } from "swiper";
 import Link from "next/link";
 import { getDistricts, getWards, getCities } from "../../pages/api";
 import { getImageUrl } from "../../utils/helpers";
+import ButtonEzin from "./Button";
 
 export default function EzStore({ topStores }) {
   const [cities, setCities] = useState([]);
@@ -45,7 +46,10 @@ export default function EzStore({ topStores }) {
   // };
 
   return (
-    <div className="ptb-100 topStore position-relative" style={{ padding: "30px 0" }}>
+    <div
+      className="ptb-100 topStore position-relative"
+      style={{ padding: "30px 0" }}
+    >
       <div className="container mb-20 mt-20 rounded-3">
         <div className="section-title text-40" style={{ maxWidth: 700 }}>
           <h2>
@@ -59,19 +63,19 @@ export default function EzStore({ topStores }) {
               className="form-select w-75 w-xs-100 ms-auto"
               aria-label="Default select example"
               onClick={(e) => {
-                console.log("afsdfasfdas", e.target.value)
+                console.log("afsdfasfdas", e.target.value);
                 if (e.target.value === "Chọn tỉnh/ thành phố") {
-                  console.log("1")
+                  console.log("1");
                   setData(topStores);
                 } else {
-                  console.log("2")
+                  console.log("2");
                   const dataEzStore = topStores?.reduce((total, item) => {
                     if (item?.city?.code === e.target.value) {
-                      return total = total.concat({item});
+                      return (total = total.concat({ item }));
                     }
                     return total;
                   }, []);
-                  console.log("value", dataEzStore)
+                  console.log("value", dataEzStore);
                   setData(dataEzStore);
                 }
                 // loadDistricts(e.target.value);
@@ -85,243 +89,87 @@ export default function EzStore({ topStores }) {
               ))}
             </select>
           </div>
-          {/* <div className="col-lg-6">
-            <select
-              className="form-select w-75 w-xs-100 mt-xs-3 me-auto"
-              aria-label="Default select example"
-            >
-              <option selected>Chọn chi nhánh</option>
-              {districts?.map(item => (
-                <option value={item.value} key={item._id}>{item.label}</option>
-              ))}
-            </select>
-          </div> */}
         </div>
-        {/* {data.length <= 3 ? (
-          <Swiper
-            spaceBetween={25}
-            navigation={true}
-            autoplay={{
-              delay: 1000,
-              pauseOnMouseEnter: true,
-            }}
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-              },
-              576: {
-                slidesPerView: 2,
-              },
-              768: {
-                slidesPerView: 3,
-              },
-            }}
-            modules={[Navigation, Autoplay]}
-            style={{ width: "90%" }}
-            className="brand-slide text-left"
-          >
-            {topStores?.map((item) => (
-              <SwiperSlide key={item._id}>
-                <div className="single-news">
-                  <div className="news-content-wrap" style={{ height: 382 }}>
-                    <div
-                      className="blog-img mb-2 text-center"
-                      style={{ height: 100 }}
-                    >
-                      <Link href="/news-details">
-                        <a>
-                          <img
-                            src={getImageUrl(item?.agency_id?.avatar?.path)}
-                            alt={`EzStore ${
-                              item?.district?.name ? item?.district?.name : ""
-                            }`}
-                            className="w-50"
-                          />
-                        </a>
-                      </Link>
-                    </div>
-
-                    <div className="text-center">
-                      <Link href="/news-details">
-                        <a>
-                          <h3>EzStore {item?.district?.name}</h3>
-                        </a>
-                      </Link>
-                    </div>
-
-                    <ul className="d-flex">
-                      <li className="pe-1">
-                        <i className="flaticon-call"></i>
-                      </li>
-                      <li>0987652718</li>
-                    </ul>
-                    <ul className="d-flex">
-                      <li className="pe-1">
-                        <i className="flaticon-maps-and-flags"></i>
-                      </li>
-                      <li style={{ height: 100 }}>
-                        {item?.ward?.path_with_type}
-                      </li>
-                    </ul>
-
-                    <Link href="/tra-cuu">
-                      <a className="default-btn w-100 text-center">Liên hệ</a>
-                    </Link>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : (
-          <Swiper
-            spaceBetween={25}
-            navigation={true}
-            autoplay={{
-              delay: 1000,
-              pauseOnMouseEnter: true,
-            }}
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-              },
-              576: {
-                slidesPerView: 2,
-              },
-              768: {
-                slidesPerView: 3,
-              },
-            }}
-            modules={[Navigation, Autoplay]}
-            style={{ width: "90%" }}
-            className="brand-slide text-left"
-          >
-            {topStores?.map((item) => (
-              <SwiperSlide className="slider-news" key={item._id}>
-                <div className="single-news">
-                  <div className="news-content-wrap" style={{ height: 382 }}>
-                    <div
-                      className="blog-img mb-2 text-center"
-                      style={{ height: 100 }}
-                    >
-                      <Link href="/news-details">
-                        <a>
-                          <img
-                            src={getImageUrl(item?.agency_id?.avatar?.path)}
-                            alt={`EzStore ${
-                              item?.district?.name ? item?.district?.name : ""
-                            }`}
-                            className="w-50"
-                          />
-                        </a>
-                      </Link>
-                    </div>
-
-                    <div className="text-center">
-                      <Link href="/news-details">
-                        <a>
-                          <h3>EzStore {item?.district?.name}</h3>
-                        </a>
-                      </Link>
-                    </div>
-
-                    <ul className="d-flex">
-                      <li className="pe-1">
-                        <i className="flaticon-call"></i>
-                      </li>
-                      <li>0987652718</li>
-                    </ul>
-                    <ul className="d-flex">
-                      <li className="pe-1">
-                        <i className="flaticon-maps-and-flags"></i>
-                      </li>
-                      <li style={{ height: 100 }}>
-                        {item?.ward?.path_with_type}
-                      </li>
-                    </ul>
-
-                    <Link href="/tra-cuu">
-                      <a className="default-btn w-100 text-center">Liên hệ</a>
-                    </Link>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )} */}
         <Swiper
-            spaceBetween={25}
-            navigation={true}
-            autoplay={{
-              delay: 1000,
-              pauseOnMouseEnter: true,
-            }}
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-              },
-              576: {
-                slidesPerView: 2,
-              },
-              768: {
-                slidesPerView: 3,
-              },
-            }}
-            modules={[Navigation, Autoplay]}
-            style={{ width: "90%" }}
-            className="brand-slide text-left"
-          >
-            {topStores?.map((item) => (
-              <SwiperSlide className="slider-news me-2" key={item._id}>
-                <div className="single-news">
-                  <div className="news-content-wrap">
-                    <div
-                      className="blog-img mb-2 text-center"
-                      style={{ height: 100 }}
-                    >
-                      <Link href="/tra-cuu">
-                        <a>
-                          <img
-                            src={getImageUrl(item?.agency_id?.avatar?.path)}
-                            alt={`EzStore ${
-                              item?.district?.name ? item?.district?.name : ""
-                            }`}
-                            className="w-50"
-                          />
-                        </a>
-                      </Link>
-                    </div>
-
-                    <div className="text-center">
-                      <Link href="/news-details">
-                        <a>
-                          <h3 className="EzStore-district">EzStore {item?.district?.name}</h3>
-                        </a>
-                      </Link>
-                    </div>
-
-                    <ul className="d-flex">
-                      <li className="pe-1">
-                        <i className="flaticon-call"></i>
-                      </li>
-                      <li>0987652718</li>
-                    </ul>
-                    <ul className="d-flex">
-                      <li className="pe-1">
-                        <i className="flaticon-maps-and-flags"></i>
-                      </li>
-                      <li style={{ height: 100 }}>
-                        {item?.ward?.path_with_type}
-                      </li>
-                    </ul>
-
+          spaceBetween={25}
+          navigation={true}
+          autoplay={{
+            delay: 1000,
+            pauseOnMouseEnter: true,
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            // 576: {
+            //   slidesPerView: 2,
+            // },
+            // 768: {
+            //   slidesPerView: 3,
+            // },
+          }}
+          modules={[Navigation, Autoplay]}
+          style={{ width: "90%" }}
+          className="brand-slide text-left"
+        >
+          {topStores?.map((item) => (
+            <SwiperSlide className="slider-news me-2" key={item._id}>
+              <div className="single-news">
+                <div className="news-content-wrap">
+                  <div
+                    className="blog-img mb-2 text-center"
+                    style={{ height: 100 }}
+                  >
                     <Link href="/tra-cuu">
-                      <a className="default-btn w-100 text-center">Liên hệ</a>
+                      <a>
+                        <img
+                          src={getImageUrl(item?.agency_id?.avatar?.path)}
+                          alt={`EzStore ${
+                            item?.district?.name ? item?.district?.name : ""
+                          }`}
+                          className="w-50"
+                        />
+                      </a>
                     </Link>
                   </div>
+
+                  <div className="text-center">
+                    <Link href="/news-details">
+                      <a>
+                        <h3 className="EzStore-district">
+                          EzStore {item?.district?.name}
+                        </h3>
+                      </a>
+                    </Link>
+                  </div>
+
+                  <ul className="d-flex">
+                    <li className="pe-1">
+                      <i className="flaticon-call"></i>
+                    </li>
+                    <li>0987652718</li>
+                  </ul>
+                  <ul className="d-flex">
+                    <li className="pe-1">
+                      <i className="flaticon-maps-and-flags"></i>
+                    </li>
+                    <li style={{ height: 100 }}>
+                      {item?.ward?.path_with_type}
+                    </li>
+                  </ul>
+
+                  <ButtonEzin
+                    types="primary"
+                    onClick={() => router.push("/tra-cuu")}
+                    className="default-btn btn-width-normal text-center"
+                  >
+                    Liên hệ
+                  </ButtonEzin>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ import {
   AccordionItemPanel,
   AccordionItemButton,
 } from "react-accessible-accordion";
-import Button from "../../components/Common/Button";
+import ButtonEzin from "../../components/Common/Button";
 
 export async function getServerSideProps(context) {
   const { product: slug } = context.params;
@@ -247,13 +247,13 @@ export default function Product({
                 Tham gia ngay
               </a>
             </Link> */}
-            <Button
+            <ButtonEzin
                 className="mx-3 btn-buy-banner text-center shadow align-self-center mt-4"
                 onClick={() => router.push("#")}
-                type="primary"
+                types="primary"
               >
                 Mua ngay
-              </Button>
+              </ButtonEzin>
           </div>
         </div>
         <Modal

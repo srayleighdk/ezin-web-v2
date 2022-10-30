@@ -12,6 +12,7 @@ import {
 } from "./api";
 import OtpInput from "react-otp-input";
 import Head from "next/head";
+import ButtonEzin from "../components/Common/Button";
 
 export async function getServerSideProps() {
   const res = await getHeader();
@@ -130,9 +131,9 @@ export default function Login({ headers }) {
               </div>
 
               <div className="col-12">
-                <button className="default-btn btn-two" type="submit">
+                <ButtonEzin className="default-btn btn-two btn-full-width" types="primary" type="submit">
                   Lấy lại mật khẩu
-                </button>
+                </ButtonEzin>
               </div>
 
               <div className="col-12">
@@ -189,20 +190,21 @@ export default function Login({ headers }) {
             </div>
             <div className="row">
               <div className="col-lg-6 col-12">
-                <button className="default-btn btn-two" type="submit">
+                <ButtonEzin className="default-btn btn-two btn-full-width" types="primary" type="submit">
                   Xác nhận
-                </button>
+                </ButtonEzin>
               </div>
               <div className="col-lg-6 col-12 mt-2">
-                <button
-                  className="default-btn btn-two"
+                <ButtonEzin
+                  className="default-btn btn-two btn-full-width"
+                  types="default"
                   onClick={() => {
                     setMessage("");
                     setStep(1);
                   }}
                 >
                   Quay lại
-                </button>
+                </ButtonEzin>
               </div>
             </div>
             <div className="text-center mt-3">
@@ -262,9 +264,9 @@ export default function Login({ headers }) {
             </div>
             <div className="text-center text-danger mb-2">{message}</div>
             <div className="col-12">
-              <button className="w-100 default-btn btn-two" type="submit">
+              <ButtonEzin className="w-100 default-btn btn-two btn-full-width" types="primary" type="submit">
                 Xác nhận
-              </button>
+              </ButtonEzin>
             </div>
           </form>
         </>

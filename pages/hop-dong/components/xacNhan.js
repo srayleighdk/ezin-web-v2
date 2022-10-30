@@ -235,8 +235,8 @@ export default function XacNhan({ data, onSubmit, onPrev, submitData }) {
         ) : null}
         <div>
           <Button
-            type="primary"
-            className="p-button w-100 mt-2"
+            types="primary"
+            className="p-button w-100 mt-2 btn-full-width"
             onClick={onSubmit}
             disabled={!tos}
             id="btn-next-step3"
@@ -246,8 +246,8 @@ export default function XacNhan({ data, onSubmit, onPrev, submitData }) {
         </div>
         <div>
           <Button
-            type="default"
-            className="p-button w-100 mt-2"
+            types="default"
+            className="p-button w-100 mt-2 btn-full-width"
             onClick={() => onPrev(submitData)}
             // disabled={loading}
           >

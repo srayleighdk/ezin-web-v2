@@ -23,7 +23,7 @@ import OtpInput from "react-otp-input";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 import Head from "next/head";
-import Button from "../components/Common/Button";
+import ButtonEzin from "../components/Common/Button";
 
 export async function getServerSideProps() {
   const res = await getHeader();
@@ -159,9 +159,9 @@ export default function SignUp({ headers }) {
             </div>
           </div>
           <div className="col-12">
-            <button className="w-100 default-btn btn-two" type="submit">
+            <ButtonEzin className="btn-full-width default-btn btn-two" types="primary" type="submit">
               Đăng ký
-            </button>
+            </ButtonEzin>
           </div>
         </>
       );
@@ -204,7 +204,7 @@ export default function SignUp({ headers }) {
               >
                 Quay lại
               </button> */}
-              <Button
+              <ButtonEzin
                 className="default-btn btn-two p-3"
                 types="default"
                 onClick={() => {
@@ -213,12 +213,12 @@ export default function SignUp({ headers }) {
                 }}
               >
                 Quay lại
-              </Button>
+              </ButtonEzin>
             </div>
             <div className="col-lg-6 col-12">
-              <Button className="default-btn btn-two p-3" types="primary" type="submit">
+              <ButtonEzin className="default-btn btn-two p-3 btn-full-width" types="primary" type="submit">
                 Xác nhận
-              </Button>
+              </ButtonEzin>
             </div>
           </div>
           <div className="text-center mt-3">
@@ -297,9 +297,9 @@ export default function SignUp({ headers }) {
           </div>
           <div className="text-center text-danger mb-2">{message}</div>
           <div className="col-12">
-            <button className="w-100 default-btn btn-two" type="submit">
+            <ButtonEzin className="w-100 default-btn btn-two btn-full-width" types="primary" type="submit">
               Xác nhận
-            </button>
+            </ButtonEzin>
           </div>
         </>
       );
@@ -308,7 +308,7 @@ export default function SignUp({ headers }) {
         <>
           <div className="text-center mb-3">{message}</div>
           <div className="col-12">
-            <button className="w-100 default-btn btn-two" type="submit">
+            <button className="w-100 default-btn btn-two btn-full-width" types="primary" type="submit">
               Đến trang chủ
             </button>
           </div>

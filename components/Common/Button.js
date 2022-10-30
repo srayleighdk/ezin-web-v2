@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "antd";
 
-export default function (props) {
+export default function ButtonEzin(props) {
   if (props.types === "primary") {
     return (
       <button

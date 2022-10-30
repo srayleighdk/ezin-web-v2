@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import { useMediaQuery } from "react-responsive";
+import ButtonEzin from "../Common/Button";
 
 export default function CaseStudies() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -40,10 +41,20 @@ export default function CaseStudies() {
               </div>
 
               <div className="py-4 d-flex flex-column align-items-center">
-                <h3 className={`studies-title text-center ${!isMobile && "studies-wrap"}`}>Kiến thức</h3>
-                <Link href="/tra-cuu">
-                  <a className="default-btn w-75 text-center">Liên hệ</a>
-                </Link>
+                <h3
+                  className={`studies-title text-center ${
+                    !isMobile && "studies-wrap"
+                  }`}
+                >
+                  Kiến thức
+                </h3>
+                <ButtonEzin
+                  types="primary"
+                  onClick={() => router.push("/tra-cuu")}
+                  className="default-btn btn-width-normal text-center"
+                >
+                  Liên hệ
+                </ButtonEzin>
               </div>
             </div>
           </div>
@@ -66,10 +77,20 @@ export default function CaseStudies() {
               </div>
 
               <div className="py-4 d-flex flex-column align-items-center">
-                <h3 className={`studies-title text-center ${!isMobile && "studies-wrap"}`}>Kinh nghiệm</h3>
-                <Link href="/tra-cuu">
-                  <a className="default-btn w-75 text-center">Liên hệ</a>
-                </Link>
+                <h3
+                  className={`studies-title text-center ${
+                    !isMobile && "studies-wrap"
+                  }`}
+                >
+                  Kinh nghiệm
+                </h3>
+                <ButtonEzin
+                  types="primary"
+                  onClick={() => router.push("/tra-cuu")}
+                  className="default-btn btn-width-normal text-center"
+                >
+                  Liên hệ
+                </ButtonEzin>
               </div>
             </div>
           </div>
@@ -92,12 +113,20 @@ export default function CaseStudies() {
               </div>
 
               <div className="py-4 d-flex flex-column align-items-center">
-                <h3 className={`studies-title text-center ${!isMobile && "studies-wrap"}`}>
+                <h3
+                  className={`studies-title text-center ${
+                    !isMobile && "studies-wrap"
+                  }`}
+                >
                   Tư vấn đòi quyền lợi bảo hiểm
                 </h3>
-                <Link href="/tra-cuu">
-                  <a className="default-btn w-75 text-center">Liên hệ</a>
-                </Link>
+                <ButtonEzin
+                  types="primary"
+                  onClick={() => router.push("/tra-cuu")}
+                  className="default-btn btn-width-normal text-center"
+                >
+                  Liên hệ
+                </ButtonEzin>
               </div>
             </div>
           </div>
@@ -124,12 +153,20 @@ export default function CaseStudies() {
               </div>
 
               <div className="py-4 d-flex flex-column align-items-center">
-                <h3 className={`studies-title text-center ${!isMobile && "studies-wrap"}`}>
+                <h3
+                  className={`studies-title text-center ${
+                    !isMobile && "studies-wrap"
+                  }`}
+                >
                   Quản lý bảo hiểm giùm bạn
                 </h3>
-                <Link href="/tra-cuu">
-                  <a className="default-btn w-75 text-center">Liên hệ</a>
-                </Link>
+                <ButtonEzin
+                  types="primary"
+                  onClick={() => router.push("/tra-cuu")}
+                  className="default-btn btn-width-normal text-center"
+                >
+                  Liên hệ
+                </ButtonEzin>
               </div>
             </div>
           </div>

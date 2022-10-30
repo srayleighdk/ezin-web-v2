@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 import { Modal, Checkbox } from "antd";
 import { useRouter } from "next/router";
-import Button from "../Common/Button";
+import ButtonEzin from "../Common/Button";
 import { useMediaQuery } from "react-responsive";
 // import BgBannerHeader from "../../public/images/bg-banner-header.png";
 
@@ -45,15 +45,15 @@ export default function MainBanner() {
             <div
               className={`slider-btn position-absolute d-flex justify-content-center w-100 d-sm-flex ${isMobile ? "flex-column" : "flex-row"} px-ms-3`}
             >
-              <Button
+              <ButtonEzin
                 className={`mx-3 ${!isMobile && "w-25"} btn-buy-banner text-center shadow align-self-center`}
                 onClick={() => router.push("/#san-pham")}
                 types="primary"
               >
                 Mua bảo hiểm ngay
-              </Button>
+              </ButtonEzin>
 
-              <Button
+              <ButtonEzin
                 className="btn-video-banner d-flex justify-content-center align-items-center text-center align-self-center"
                 onClick={() => setVisibleAudio(true)}
                 types="default"
@@ -62,7 +62,7 @@ export default function MainBanner() {
                   <div className="playIcon"></div>
                 </div>
                 <div className="view-video">Xem video</div>
-              </Button>
+              </ButtonEzin>
             </div>
           </div>
         </div>

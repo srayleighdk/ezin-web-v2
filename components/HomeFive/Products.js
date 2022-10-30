@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Link from "next/link";
 import { formatVND } from "../../utils/helpers.js";
-import Button from "../Common/Button";
+import ButtonEzin from "../Common/Button";
 import { useRouter } from "next/router";
 
 const Products = ({ allNodeProducts }) => {
@@ -65,16 +65,16 @@ const Products = ({ allNodeProducts }) => {
                       150.000 <img src="/images/coin.png" alt="Coin" />
                     </div>
                   </div>
-                  <Button
+                  <ButtonEzin
                     href={`san-pham/${product.slug}#mua-ngay`}
-                    type="primary"
+                    types="primary"
                     onClick={() =>
                       router.push(`san-pham/${product.slug}#mua-ngay`)
                     }
-                    className="w-100"
+                    className="btn-full-width"
                   >
                     Mua ngay
-                  </Button>
+                  </ButtonEzin>
                 </div>
               </div>
             );
