@@ -206,7 +206,7 @@ const Navbar = () => {
                             className="nav-btn mt-2"
                             onClick={() => {
                               toggleNavbar();
-                              // router.push("/kich-hoat-the");
+                              router.push("https://onelink.to/27s8vu");
                             }}
                           >
                             Download
@@ -291,7 +291,7 @@ const Navbar = () => {
                             className="nav-btn mt-2"
                             onClick={() => {
                               toggleNavbar();
-                              // router.push("/kich-hoat-the");
+                              router.push("https://onelink.to/27s8vu");
                             }}
                           >
                             Download
@@ -367,7 +367,7 @@ const Navbar = () => {
                             className="nav-btn mt-2"
                             onClick={() => {
                               toggleNavbar();
-                              // router.push("/kich-hoat-the");
+                              router.push("https://onelink.to/27s8vu");
                             }}
                           >
                             Download
@@ -452,7 +452,7 @@ const Navbar = () => {
                             className="nav-btn mt-2"
                             onClick={() => {
                               toggleNavbar();
-                              // router.push("/kich-hoat-the");
+                              router.push("https://onelink.to/27s8vu");
                             }}
                           >
                             Download
@@ -680,6 +680,7 @@ const Navbar = () => {
                   <ButtonEzin
                     types="primary"
                     className="ms-2 px-4 py-2 btn-nav-web"
+                    onClick={() => router.push("https://onelink.to/27s8vu")}
                   >
                     Download
                   </ButtonEzin>
