@@ -161,7 +161,7 @@ export default function EzStore({ topStores }) {
                   <ButtonEzin
                     types="primary"
                     onClick={() => router.push("/tra-cuu")}
-                    className="default-btn btn-width-normal text-center"
+                    className="default-btn btn-full-width text-center"
                   >
                     Liên hệ
                   </ButtonEzin>

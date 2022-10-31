@@ -4,9 +4,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import { useMediaQuery } from "react-responsive";
 import ButtonEzin from "../Common/Button";
+import { useRouter } from "next/router";
 
 export default function CaseStudies() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const router = useRouter();
 
   return (
     <section
