@@ -564,12 +564,12 @@ const Navbar = () => {
           </nav>
         ) : (
           <nav
-            className={`navbar navbar-expand-md navbar-light py-2 ${
+            className={`navbar navbar-expand-md navbar-light w-100 py-2 ${
               !collapsed && "align-items-start"
             }`}
           >
             <div
-              className={`d-flex align-items-center justify-content-between px-3`}
+              className={`d-flex align-items-center justify-content-between w-100 px-3`}
             >
               <button
                 onClick={toggleNavbar}
@@ -670,7 +670,7 @@ const Navbar = () => {
                       );
                     })}
                 </ul>
-                <ul className="navbar-nav m-auto align-items-center">
+                <ul className="navbar-nav  align-items-center">
                   <ButtonEzin
                     types="secondary"
                     className="px-4 py-2 btn-nav-web"
@@ -699,14 +699,14 @@ const Navbar = () => {
                       >
                         <Avatar
                           size="small"
-                          className="bg-dark ms-3"
+                          className="bg-dark avater-icon ms-3"
                           icon={<UserOutlined />}
                           onClick={() => {
                             toggleNavbar();
                             setUserInfo(!userInfo);
                           }}
                         />
-                        <a className="pt-1 text-capitalize px-1 pb-sm-1 default-btn nav-link-ez text-black">
+                        <a className="pt-1 text-capitalize px-1 d-flex w-100 pb-sm-1 default-btn nav-link-ez text-black">
                           {auth?.full_name || auth?.username
                             ? ellipsis(
                                 titleCase(auth?.full_name || auth?.username)
@@ -715,7 +715,7 @@ const Navbar = () => {
                           <i className="bx bx-chevron-down"></i>
                         </a>
                         {showNavbar === "account" && (
-                          <ul className="dropdown-menu navbar no-border pt-sm-1 no-shadow mt-sm-0 w-100">
+                          <ul className="dropdown-menu navbar no-border pt-sm-1 no-shadow mt-sm-0 navbar-userInfo">
                             {auth?.full_name || auth?.username ? (
                               <div
                                 className="text-dark text-capitalize w-100"

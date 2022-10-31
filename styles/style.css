@@ -7147,8 +7147,17 @@ h3 {
   font-size: 14px;
   line-height: 20px;
   box-shadow: none !important;
+  width: 60% !important;
 }
 
-.group-btn {
-  left: 30%;
+.avater-icon {
+  width: 34px;
+}
+
+.brand-area-two-web {
+  margin-top: -7px;
+}
+
+.navbar-userInfo {
+  width: 150% !important;
 }

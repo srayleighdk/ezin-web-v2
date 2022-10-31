@@ -14,7 +14,7 @@ export default function NewsSlider({ newsPost }) {
         </div>
       )}
       <div
-        className="brand-area-two ptb-100 position-relative"
+        className={`brand-area-two ptb-100 position-relative ${!isMobile && "brand-area-two-web"}`}
         // className="brand-area-two ptb-100 position-relative mt-newsSlider"
         style={{ padding: "20px 0" }}
       >
