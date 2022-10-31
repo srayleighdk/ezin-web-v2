@@ -11,6 +11,7 @@ import Link from "../../utils/ActiveLink";
 import Image from "next/image";
 import NewHeaderLogo from "../../public/images/logo.png";
 import useAuth from "../../src/container/auth-wrapper/auth.context";
+import ContactIMG from "../../public/images/menu/Subtract.png";
 import { createStructuredSelector } from "reselect";
 import { useSelector, useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
@@ -806,6 +807,19 @@ const Navbar = () => {
           </nav>
         )}
       </div>
+
+      {/* <div className="menu-wrap">
+        <div>thêm</div>
+        <div className="menu-circle rounded-circle contact">
+          <Image
+            // onClick={toggleNavbar}
+            className="contact-icon"
+            src={ContactIMG}
+            alt="logo-contact"
+            layout="intrinsic"
+          />
+        </div>
+      </div> */}
     </>
   );
 };
