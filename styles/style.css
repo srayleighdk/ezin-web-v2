@@ -1851,6 +1851,10 @@ jumpx Nav Area Style
   border-radius: 0;
 }
 
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
 .navbar-toggler .icon-bar {
   width: 28px;
   -webkit-transition: all 0.3s;

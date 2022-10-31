@@ -54,8 +54,9 @@ const Navbar = () => {
   const { auth, activationVisible } = useSelector(mapStateToProps);
   const [headers, setHeaders] = useState();
   const [childItem, setChildItem] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(false);
+  // const [isMounted, setIsMounted] = useState(false);
+  // const [showNavbar, setShowNavbar] = useState(false);
+  const [userInfo, setUserInfo] = useState(false);
   const [vehicle, setVehicle] = useState([]);
   const [personal, setPersonal] = useState([]);
   const [collapsed, setCollapse] = useState(true);
@@ -93,6 +94,9 @@ const Navbar = () => {
    * If collapse is true, set collapse to false. If collapse is false, set collapse to true.
    */
   const toggleNavbar = (value) => {
+    if (userInfo) {
+      setUserInfo(false);
+    }
     if (value === "Sản phẩm") {
       setChildItem(true);
     } else {
@@ -151,13 +155,15 @@ const Navbar = () => {
             {collapsed && (
               <div className="d-flex justify-content-between align-items-center">
                 {/* <SearchOutlined className="navbar-search" /> */}
-                {auth?.full_name || auth?.username ? 
                 <Avatar
                   size="small"
                   className="bg-dark ms-3"
                   icon={<UserOutlined />}
+                  onClick={() => {
+                    toggleNavbar();
+                    setUserInfo(!userInfo);
+                  }}
                 />
-                : null}
               </div>
             )}
 
@@ -166,172 +172,297 @@ const Navbar = () => {
               id="navbarSupportedContent"
             >
               {/* <ul className={`navbar-nav m-auto align-items-center ${isMobile && "mt-4"}`}> */}
-              <ul className={`navbar-nav m-auto align-items-center mt-3 h-100`}>
-                {isMobile ? (
-                  auth?.full_name || auth?.username ? (
-                    <>
-                      {headers &&
-                        headers.map((header) => {
-                          return (
-                            // <li className={`nav-item ${isMobile && "w-100"}`} key={header.key}>
-                            <li className={`nav-item w-100`} key={header.key}>
-                              <Link href={header.link}>
-                                <a
-                                  className={`nav-link text-black text-start ${
-                                    header.label === "Ezin Life" && "mb-1"
-                                  } d-flex align-items-center justify-content-between`}
-                                  onClick={() => {
-                                    if (header.label === "Sản phẩm") {
-                                      toggleNavbar("Sản phẩm");
-                                    } else {
-                                      toggleNavbar();
-                                    }
-                                  }}
-                                  // onClick={(e) => e.preventDefault()}
-                                >
-                                  {header.label}
-                                  {header.label === "Sản phẩm" && (
-                                    <RightOutlined />
-                                  )}{" "}
-                                </a>
-                              </Link>
+              {userInfo ? (
+                <ul
+                  className={`navbar-nav m-auto align-items-center mt-3 h-100`}
+                >
+                  {isMobile ? (
+                    auth?.full_name || auth?.username ? (
+                      <>
+                        <Link href="#">
+                          <a
+                            className={`text-dark text-capitalize w-100 ${
+                              isMobile && "text-start"
+                            }`}
+                            onClick={() => {
+                              toggleNavbar();
+                              logout();
+                            }}
+                          >
+                            <li className="nav-item dropend cursor-pointer">
+                              Đăng xuất
                             </li>
-                          );
-                        })}
-                      {/* <Link href="/login">
-                        <a
-                          className={`text-dark text-capitalize w-100 ${
-                            isMobile && "text-start"
-                          }`}
+                          </a>
+                        </Link>
+                        <ButtonEzin
+                          types="secondary"
+                          className="nav-btn mt-3"
                           onClick={() => {
                             toggleNavbar();
+                            router.push("/kich-hoat-the");
                           }}
                         >
-                          <li className="nav-item dropend cursor-pointer">
-                            Trở thành đối tác
-                          </li>
-                        </a>
-                      </Link> */}
-                      <Link href="https://store.ezin.vn/">
-                        <a
-                          className={`text-dark text-capitalize w-100 ${
-                            isMobile && "text-start"
-                          }`}
+                          Kích hoạt
+                        </ButtonEzin>
+                        <ButtonEzin
+                          types="primary"
+                          className="nav-btn mt-2"
                           onClick={() => {
                             toggleNavbar();
+                            // router.push("/kich-hoat-the");
                           }}
                         >
-                          <li className="nav-item dropend cursor-pointer">
-                            Trở thành EzStore
-                          </li>
-                        </a>
-                      </Link>
-                      <Link href="/">
-                        <a
-                          className={`text-dark text-capitalize w-100 ${
-                            isMobile && "text-start"
-                          }`}
-                          onClick={() => {
-                            toggleNavbar();
-                            logout();
-                          }}
-                        >
-                          <li className="nav-item dropend cursor-pointer">
-                            Đăng xuất
-                          </li>
-                        </a>
-                      </Link>
-                      <ButtonEzin
-                        types="secondary"
-                        className="nav-btn mt-3"
-                        onClick={() => {
-                          toggleNavbar();
-                          router.push("/kich-hoat-the");
-                        }}
-                      >
-                        Kích hoạt
-                      </ButtonEzin>
-                      <ButtonEzin
-                        types="primary"
-                        className="nav-btn mt-2"
-                        onClick={() => {
-                          toggleNavbar();
-                          // router.push("/kich-hoat-the");
-                        }}
-                      >
-                        Download
-                      </ButtonEzin>
-                    </>
-                  ) : (
-                    <>
-                      <Link href="/login">
-                        <a
-                          className={`text-dark text-capitalize w-100 ${
-                            isMobile && "text-start"
-                          }`}
-                          onClick={() => {
-                            toggleNavbar();
-                          }}
-                        >
-                          <li className="nav-item dropend cursor-pointer">
-                            Đăng nhập
-                          </li>
-                        </a>
-                      </Link>
-                      <Link href="/sign-up">
-                        <a className="text-dark text-capitalize w-100">
-                          <li
-                            className="nav-item dropend cursor-pointer d-flex align-items-center justify-content-between"
+                          Download
+                        </ButtonEzin>
+                      </>
+                    ) : (
+                      <>
+                        <Link href="/login">
+                          <a
+                            className={`text-dark text-capitalize w-100 ${
+                              isMobile && "text-start"
+                            }`}
                             onClick={() => {
                               toggleNavbar();
                             }}
                           >
-                            Đăng ký{" "}
-                            <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
-                              Nhận ngay 2000{" "}
-                              <img
-                                src="/images/coin.png"
-                                alt="Coin"
-                                className="navbar-coin"
-                              />
-                            </span>
-                          </li>
-                        </a>
-                      </Link>
-                      <Link href="/forgot-password">
-                        <a
-                          className={`text-dark text-capitalize w-100 ${
-                            isMobile && "text-start"
-                          }`}
+                            <li className="nav-item dropend cursor-pointer">
+                              Đăng nhập
+                            </li>
+                          </a>
+                        </Link>
+                        <Link href="/sign-up">
+                          <a className="text-dark text-capitalize w-100">
+                            <li
+                              className="nav-item dropend cursor-pointer d-flex align-items-center justify-content-between"
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              Đăng ký{" "}
+                              <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
+                                Nhận ngay 2000{" "}
+                                <img
+                                  src="/images/coin.png"
+                                  alt="Coin"
+                                  className="navbar-coin"
+                                />
+                              </span>
+                            </li>
+                          </a>
+                        </Link>
+                        <Link href="/forgot-password">
+                          <a
+                            className={`text-dark text-capitalize w-100 ${
+                              isMobile && "text-start"
+                            }`}
+                            onClick={() => {
+                              toggleNavbar();
+                            }}
+                          >
+                            <li className="nav-item dropend cursor-pointer">
+                              Quên mật khẩu
+                            </li>
+                          </a>
+                        </Link>
+                        <Link href="/tra-cuu">
+                          <a
+                            className={`text-dark text-capitalize w-100 ${
+                              isMobile && "text-start"
+                            }`}
+                            onClick={() => {
+                              toggleNavbar();
+                            }}
+                          >
+                            <li className="nav-item dropend cursor-pointer">
+                              Tra cứu bảo hiểm 11111
+                            </li>
+                          </a>
+                        </Link>
+                        <ButtonEzin
+                          types="secondary"
+                          className="nav-btn mt-3"
                           onClick={() => {
                             toggleNavbar();
+                            router.push("/kich-hoat-the");
                           }}
                         >
-                          <li className="nav-item dropend cursor-pointer">
-                            Quên mật khẩu
-                          </li>
-                        </a>
-                      </Link>
-                      <Link href="/tra-cuu">
-                        <a
-                          className={`text-dark text-capitalize w-100 ${
-                            isMobile && "text-start"
-                          }`}
+                          Kích hoạt
+                        </ButtonEzin>
+                        <ButtonEzin
+                          types="primary"
+                          className="nav-btn mt-2"
                           onClick={() => {
                             toggleNavbar();
+                            // router.push("/kich-hoat-the");
                           }}
                         >
-                          <li className="nav-item dropend cursor-pointer">
-                            Tra cứu bảo hiểm
-                          </li>
-                        </a>
-                      </Link>
-                    </>
-                  )
-                ) : null}
-              </ul>
-              {childItem && (
+                          Download
+                        </ButtonEzin>
+                      </>
+                    )
+                  ) : null}
+                </ul>
+              ) : (
                 <ul
+                  className={`navbar-nav m-auto align-items-center mt-3 h-100`}
+                >
+                  {isMobile ? (
+                    auth?.full_name || auth?.username ? (
+                      <>
+                        {headers &&
+                          headers.map((header) => {
+                            return (
+                              // <li className={`nav-item ${isMobile && "w-100"}`} key={header.key}>
+                              <li className={`nav-item w-100`} key={header.key}>
+                                <Link href={header.link}>
+                                  <a
+                                    className={`nav-link text-black text-start ${
+                                      header.label === "Ezin Life" && "mb-1"
+                                    } d-flex align-items-center justify-content-between`}
+                                    onClick={() => {
+                                      if (header.label === "Sản phẩm") {
+                                        toggleNavbar("Sản phẩm");
+                                      } else {
+                                        toggleNavbar();
+                                      }
+                                    }}
+                                    // onClick={(e) => e.preventDefault()}
+                                  >
+                                    {header.label}
+                                    {header.label === "Sản phẩm" && (
+                                      <RightOutlined />
+                                    )}{" "}
+                                  </a>
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        <Link href="https://store.ezin.vn/">
+                          <a
+                            className={`text-dark text-capitalize w-100 ${
+                              isMobile && "text-start"
+                            }`}
+                            onClick={() => {
+                              toggleNavbar();
+                            }}
+                          >
+                            <li className="nav-item dropend cursor-pointer">
+                              Trở thành EzStore
+                            </li>
+                          </a>
+                        </Link>
+                        <ButtonEzin
+                          types="secondary"
+                          className="nav-btn mt-3"
+                          onClick={() => {
+                            toggleNavbar();
+                            router.push("/kich-hoat-the");
+                          }}
+                        >
+                          Kích hoạt
+                        </ButtonEzin>
+                        <ButtonEzin
+                          types="primary"
+                          className="nav-btn mt-2"
+                          onClick={() => {
+                            toggleNavbar();
+                            // router.push("/kich-hoat-the");
+                          }}
+                        >
+                          Download
+                        </ButtonEzin>
+                      </>
+                    ) : (
+                      <>
+                        <Link href="/login">
+                          <a
+                            className={`text-dark text-capitalize w-100 ${
+                              isMobile && "text-start"
+                            }`}
+                            onClick={() => {
+                              toggleNavbar();
+                            }}
+                          >
+                            <li className="nav-item dropend cursor-pointer">
+                              Đăng nhập
+                            </li>
+                          </a>
+                        </Link>
+                        <Link href="/sign-up">
+                          <a className="text-dark text-capitalize w-100">
+                            <li
+                              className="nav-item dropend cursor-pointer d-flex align-items-center justify-content-between"
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              Đăng ký{" "}
+                              <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
+                                Nhận ngay 2000{" "}
+                                <img
+                                  src="/images/coin.png"
+                                  alt="Coin"
+                                  className="navbar-coin"
+                                />
+                              </span>
+                            </li>
+                          </a>
+                        </Link>
+                        <Link href="/forgot-password">
+                          <a
+                            className={`text-dark text-capitalize w-100 ${
+                              isMobile && "text-start"
+                            }`}
+                            onClick={() => {
+                              toggleNavbar();
+                            }}
+                          >
+                            <li className="nav-item dropend cursor-pointer">
+                              Quên mật khẩu
+                            </li>
+                          </a>
+                        </Link>
+                        <Link href="/tra-cuu">
+                          <a
+                            className={`text-dark text-capitalize w-100 ${
+                              isMobile && "text-start"
+                            }`}
+                            onClick={() => {
+                              toggleNavbar();
+                            }}
+                          >
+                            <li className="nav-item dropend cursor-pointer">
+                              Tra cứu bảo hiểm
+                            </li>
+                          </a>
+                        </Link>
+                        <ButtonEzin
+                          types="secondary"
+                          className="nav-btn mt-3"
+                          onClick={() => {
+                            toggleNavbar();
+                            router.push("/kich-hoat-the");
+                          }}
+                        >
+                          Kích hoạt
+                        </ButtonEzin>
+                        <ButtonEzin
+                          types="primary"
+                          className="nav-btn mt-2"
+                          onClick={() => {
+                            toggleNavbar();
+                            // router.push("/kich-hoat-the");
+                          }}
+                        >
+                          Download
+                        </ButtonEzin>
+                      </>
+                    )
+                  ) : null}
+                </ul>
+              )}
+                {childItem && (  <ul
                   className={`product-item w-100 h-100 navbar-nav m-auto align-items-center mt-3`}
                 >
                   <div
@@ -394,34 +525,9 @@ const Navbar = () => {
                           ))}
                         </ul>
                       </div>
-
-                      {/* <div className="single-widget">
-                        <h3 className="navbar mt-2">Doanh nghiệp</h3>
-                        <ul>
-                          <div className="">
-                            <div className="">
-                              <Link href="#">
-                                <a
-                                  className={`text-dark text-capitalize navbar-childItem w-100 ${
-                                    isMobile && "text-start"
-                                  }`}
-                                  onClick={() => {
-                                    toggleNavbar();
-                                  }}
-                                >
-                                  <li className="nav-item dropend cursor-pointer">
-                                    Hạnh phúc 365
-                                  </li>
-                                </a>
-                              </Link>
-                            </div>
-                          </div>
-                        </ul>
-                      </div> */}
                     </div>
                   </>
-                </ul>
-              )}
+                </ul>)}
             </div>
           </div>
         </nav>
