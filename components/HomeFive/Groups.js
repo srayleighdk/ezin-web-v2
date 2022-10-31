@@ -22,7 +22,7 @@ export default function WhyChooseUs() {
                   />
                 </div>
                 <p className="group-title font-weight-500 text-18 w-75 ms-2 h-100 d-flex align-items-center">
-                  Dành cho Doanh nghiệp.
+                  Doanh nghiệp.
                 </p>
               </div>
             </div>
