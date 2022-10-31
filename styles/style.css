@@ -6816,7 +6816,12 @@ h3 {
   color: #000000 !important;
 }
 
-.nav-link:hover {
+.nav-link-ez {
+  background-color: transparent;
+  border: none;
+}
+
+.nav-link-ez:hover {
   color: #167ffc !important;
 }
 
@@ -7135,4 +7140,15 @@ h3 {
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
+}
+
+.btn-nav-web {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  box-shadow: none !important;
+}
+
+.group-btn {
+  left: 30%;
 }
