@@ -62,8 +62,6 @@ const Navbar = () => {
   const [personal, setPersonal] = useState([]);
   const [collapsed, setCollapse] = useState(true);
 
-  console.log("product", vehicle, personal);
-
   useEffect(() => {
     let elementId = document.getElementById("navbar");
     document.addEventListener("scroll", () => {

@@ -35,3 +35,6 @@ yarn.lock
 .vercel
 .idea/
 .env
+
+#eslint
+.eslintrc.js
