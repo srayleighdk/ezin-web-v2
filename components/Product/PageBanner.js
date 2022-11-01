@@ -13,7 +13,7 @@ export default function PageBanner(props) {
       <div className="container">
         <div
           className={`page-title-content banner-img ${isMobile && "mobile"}`}
-          style={{ backgroundImage: `url(${getImageUrl(img)})` }}
+          style={{ backgroundImage: `url(${getImageUrl()}/${img})` }}
         >
           {/* <img src={getImageUrl(img)} alt={name} style={{width: "100%"}} /> */}
           <h2 className="product-banner w-100 text-center">{pageTitle}</h2>
