@@ -74,13 +74,16 @@ export default function Third({ onPrevStep, onNextStep, cardInfo }) {
     getInitData();
   }, []);
 
-  useEffect(async() => {
-    if(cardInfo) {
-      const resDistricts = await getDistricts(cardInfo.city);
-      const resWards = await getWards(cardInfo.district);
-      setDistricts(resDistricts?.data?.data?.map(e => ({ label: e.name_with_type, value: e.code })))
-      setWards(resWards?.data?.data?.map(e => ({ label: e.name_with_type, value: e.code })))
+  useEffect(() => {
+    const getDataCardInfo = async () => {
+      if(cardInfo) {
+        const resDistricts = await getDistricts(cardInfo.city);
+        const resWards = await getWards(cardInfo.district);
+        setDistricts(resDistricts?.data?.data?.map(e => ({ label: e.name_with_type, value: e.code })))
+        setWards(resWards?.data?.data?.map(e => ({ label: e.name_with_type, value: e.code })))
+      }
     }
+    getDataCardInfo();
   }, [cardInfo])
 
   const loadDistricts = async (value, clear = false) => {

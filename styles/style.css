@@ -335,16 +335,22 @@ Go Top Style
 .scroll-to-top .top {
   position: fixed;
   cursor: pointer;
-  bottom: 15px;
-  right: 15px;
-  background-color: #212121;
+  bottom: 2%;
+  right: 2%;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.15);
   z-index: 4;
-  width: 40px;
+  width: 50px;
   text-align: center;
-  height: 42px;
-  line-height: 42px;
+  height: 50px;
+  line-height: 48px;
   -webkit-transition: 0.9s;
   transition: 0.9s;
+}
+
+.menu-scroll-arrowtop {
+  width: 100%;
+  height: 56%;
 }
 
 .scroll-to-top .top i {
@@ -375,17 +381,17 @@ Go Top Style
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-color: #1dd3f8;
+  /* background-color: #1dd3f8; */
   opacity: 0;
   visibility: hidden;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-.scroll-to-top .top:hover {
+/* .scroll-to-top .top:hover {
   color: #ffffff;
   background-color: #1dd3f8;
-}
+} */
 
 .scroll-to-top .top:hover::before {
   opacity: 1;
@@ -7160,11 +7166,4 @@ h3 {
 
 .navbar-userInfo {
   width: 150% !important;
-}
-
-.menu-wrap {
-  position: fixed;
-  bottom: 2%;
-  right: 1%;
-  z-index: 10;
 }
