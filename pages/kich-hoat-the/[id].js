@@ -1,14 +1,13 @@
 // Shortcut for kich-hoat
-import React from 'react';
-import Axios from 'axios';
-import Activation from '../kich-hoat-voucher';
-import { baseURL } from '../../utils/config';
-import { setActivation } from '../../src/store/actions';
-import { useDispatch } from 'react-redux';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-import { getImageUrl } from '../../utils/helpers';
-import ActivateMobile from '../../components/ActiveMobile/ActiveMobile';
+import React from "react";
+import Axios from "axios";
+import { baseURL } from "../../utils/config";
+import { setActivation } from "../../src/store/actions";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+import Head from "next/head";
+import { getImageUrl } from "../../utils/helpers";
+import ActivateMobile from "../../components/ActiveMobile/ActiveMobile";
 
 const KichHoat = (props) => {
   const router = useRouter();
@@ -64,33 +63,47 @@ const KichHoat = (props) => {
           <meta
             property="og:description"
             key="og-description"
-            content={'Kích hoạt bảo hiểm'}
+            content={"Kích hoạt bảo hiểm"}
           />
         </Head>
       )}
 
-      <ActivateMobile title={'Kích hoạt thẻ'} desc={''} quote={''} id={id} />
-      <div className="service-card">
-        <div>
-          <i>
-            Nếu bạn vẫn không thể kích hoạt thẻ, vui lòng xem video hướng dẫn
-            dưới đây:
-          </i>{' '}
-        </div>
-        <div className="container" id="videos">
-          <div className="video-container">
-            {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/5BdiwJxTU9E?rel=0&autoplay=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/Lax3BiQqVrQ?rel=0&autoplay=0"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+      <section
+        className="pricing-area pt-100 pb-70"
+        style={{ paddingTop: "150px" }}
+      >
+        <div className="container">
+          <div id="activation">
+            <ActivateMobile
+              title={"Kích-hoạt-thẻ"}
+              desc={""}
+              quote={""}
+              id={id}
+            />
+            <div className="service-card">
+              <div>
+                <p>
+                  Nếu bạn vẫn không thể kích hoạt thẻ, vui lòng xem video hướng
+                  dẫn dưới đây:
+                </p>{" "}
+              </div>
+              <div className="container" id="videos">
+                <div className="video-container">
+                  {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/5BdiwJxTU9E?rel=0&autoplay=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/Lax3BiQqVrQ?rel=0&autoplay=0"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   ) : (
     <>
@@ -124,7 +137,7 @@ const KichHoat = (props) => {
           <meta
             property="og:description"
             key="og-description"
-            content={'Kích hoạt bảo hiểm'}
+            content={"Kích hoạt bảo hiểm"}
           />
         </Head>
       )}
