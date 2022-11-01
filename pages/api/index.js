@@ -55,10 +55,6 @@ export const getNodePackages = (product_id) =>
  */
 export const getFAQ = () => eZinApi.get(`/faq/cat`);
 export const getFAQContent = (catId) => eZinApi.get(`/faq/bycat/${catId}`);
-
-/*
- * FAQ
- */
 export const registerApi = ({ username, password, legal_id, referal_link }) =>
   new Promise((resolve, reject) => {
     eZinApi
@@ -214,6 +210,22 @@ export const getCardInfo = ({ seri, code }) =>
         reject(err);
       });
   });
+
+export const getVehicleModels = (parent_code) => eZinApi.get(`/vehicle-model/${parent_code}`);
+export const getVehicleBrands = (category) => eZinApi.get(`/vehicle-brand?category=${category}`);
+export const activeCard = (
+  body = {
+    phone: '',
+    email: '',
+    full_name: '',
+    legal_id: '',
+    dob: '',
+    address: '',
+    serial: '',
+    code: '',
+    valid_from: '',
+  },
+) => eZinApi.post(`/request/activate`, body);
 
 /***
  * Products
