@@ -27,10 +27,12 @@ export default function FAQ({ faqCat }) {
   const faqCont = faqCat.filter((e) => e.is_active);
   faqCont.sort((a, b) => a.title.length - b.title.length);
 
-  useEffect(async () => {
-    const res = await getFAQContent(faqCatId);
-    console.log("ressasasas", res);
-    setFaqContent(res?.data?.data);
+  useEffect(() => {
+    const faqContent = async () => {
+      const res = await getFAQContent(faqCatId);
+      setFaqContent(res?.data?.data);
+    }
+    faqContent();
   }, [faqCatId]);
 
   return (

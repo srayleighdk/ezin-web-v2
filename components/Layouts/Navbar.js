@@ -809,7 +809,15 @@ const Navbar = () => {
       </div>
 
       {/* <div className="menu-wrap">
-        <div>thêm</div>
+        <div className="menu-circle mb-2 rounded-circle contact">
+          <Image
+            // onClick={toggleNavbar}
+            className="contact-icon"
+            src={ContactIMG}
+            alt="logo-contact"
+            layout="intrinsic"
+          />
+        </div>
         <div className="menu-circle rounded-circle contact">
           <Image
             // onClick={toggleNavbar}

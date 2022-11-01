@@ -263,9 +263,9 @@ Go Top Style
 	.top {
 		position: fixed;
 		cursor: pointer;
-		bottom: 15px;
+		bottom: 0;
 		right: 15px;
-		background-color: $heading-color;
+		background-color: #ffffff;
 		z-index: 4;
 		width: 40px;
 		text-align: center;
@@ -297,14 +297,14 @@ Go Top Style
 			width: 100%;
 			height: 100%;
 			z-index: -1;
-			background-color: $main-color;
+			// background-color: $main-color;
 			opacity: 0;
 			visibility: hidden;
 			transition: 0.5s;
 		}
 		&:hover {
-			color: $white-color;
-			background-color: $main-color;
+			// color: $white-color;
+			// background-color: $main-color;
 			&::before {
 				opacity: 1;
 				visibility: visible;
@@ -8779,15 +8779,94 @@ h5 {
 	width: 72.17px;
 	height: 72.17px;
 	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
-	// position: relative;
+	position: relative;
 
 	&.contact {
 		background: linear-gradient(180deg, #4DBFFF 0%, #167FFC 100%);
-
-		.contact-icon {
+		
+		span:first-child{
 			position: absolute;
-			top: 50% !important;
-			left: 50% !important;
+			width: 50% !important;
+			height: 50% !important;
+			top: 28%;
+			left: 24%;
 		}
+	}
+
+	&.event {
+		background: linear-gradient(180deg, #FFB84D 0%, #FC8416 100%);
+
+		span:first-child{
+			position: absolute;
+			width: 50% !important;
+			height: 50% !important;
+			top: 24%;
+			left: 24%;
+		}
+	}
+}
+
+.menu-wrap {
+	position: fixed;
+	bottom: 15%;
+	right: 1.2%;
+	z-index: 10;
+
+	&.mobile {
+		bottom: 1.2%;
+	}
+
+	&.menuItem {
+		z-index: 9999999999999999;
+
+		.bg-white {
+			margin-right: 1%;
+		}
+		
+		.menu-circle {
+			&.event {
+				background: #787878;
+				box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+				bottom: 0%;
+			}
+		}
+
+		.border {
+			border-radius: 10px;
+		}
+
+		.hotline {
+			font-weight: 700;
+		}
+	}
+}
+
+.menuItem-wrap {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: #000000;
+	opacity: 0.5;
+	z-index: 9999999;
+}
+
+.item-wrap {
+	width: 90px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-bottom: 1px solid #E2E2E2;
+	padding-top: 6px;
+	padding-bottom: 6px;
+
+	&.no-line {
+		border-bottom: none;
+	}
+
+	&:nth-child(2) {
+		font-size: 13px;
+		line-height: 20px;
 	}
 }

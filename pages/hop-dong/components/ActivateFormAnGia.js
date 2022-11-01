@@ -79,24 +79,27 @@ export default function ActivateForm({ data, initData, onNext }) {
     loadListName();
   }, [data?._id]);
 
-  useEffect(async () => {
-    if (initData) {
-      const resDistricts1 = await getDistricts(initData?.city_ben);
-      const resWards1 = await getWards(initData?.district_ben);
-      // console.log('resWards1', resWards1)
-      setDistricts1(
-        resDistricts1?.data?.data?.map((e) => ({
-          label: e.name_with_type,
-          value: e.code,
-        }))
-      );
-      setWards1(
-        resWards1?.data?.data?.map((e) => ({
-          label: e.name_with_type,
-          value: e.code,
-        }))
-      );
+  useEffect(() => {
+    const getDistricCity = async () => {
+      if (initData) {
+        const resDistricts1 = await getDistricts(initData?.city_ben);
+        const resWards1 = await getWards(initData?.district_ben);
+        // console.log('resWards1', resWards1)
+        setDistricts1(
+          resDistricts1?.data?.data?.map((e) => ({
+            label: e.name_with_type,
+            value: e.code,
+          }))
+        );
+        setWards1(
+          resWards1?.data?.data?.map((e) => ({
+            label: e.name_with_type,
+            value: e.code,
+          }))
+        );
+      }
     }
+    getDistricCity();
   }, [initData]);
 
   useEffect(() => {

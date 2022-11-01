@@ -32,6 +32,7 @@ import eZinApi from "./api/axios";
 import eZinApiNode from "./api/axiosNode";
 import { useEffect, useState } from "react";
 import { getLayout } from "../components/Layouts";
+import MenuScroll from "../components/menu-scroll";
 
 const initialState = {};
 const store = configureStores(initialState);
@@ -54,7 +55,8 @@ export default function MyApp({ Component, pageProps }) {
         {getLayout(<Component {...pageProps} />)}
         {/* <Component {...pageProps} /> */}
         {/* Go Top Button */}
-        <GoTop scrollStepInPx="100" delayInMs="10.50" />
+        {/* <GoTop scrollStepInPx="100" delayInMs="10.50" /> */}
+        <MenuScroll />
       </AuthProvider>
     </Provider>
   );
