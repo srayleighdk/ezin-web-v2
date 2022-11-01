@@ -17,6 +17,8 @@ import Family from "../../public/images/menu/family.png";
 export default function MenuScroll() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const [menuItem, setMenuItem] = useState(false);
+  const [typeMenu, setTypeMenu] = useState("");
+
   return (
     <>
       {!isMobile ? (
@@ -67,7 +69,10 @@ export default function MenuScroll() {
             <div className="menu-wrap mobile">
               <div
                 className="menu-circle rounded-circle event"
-                onClick={() => setMenuItem(!menuItem)}
+                onClick={() => {
+                  setTypeMenu("baohiem");
+                  setMenuItem(!menuItem);
+                }}
               >
                 <Image
                   // onClick={toggleNavbar}
@@ -79,7 +84,10 @@ export default function MenuScroll() {
               </div>
               <div
                 className="menu-circle rounded-circle mt-2 contact"
-                onClick={() => setMenuItem(!menuItem)}
+                onClick={() => {
+                  setTypeMenu("lienhe");
+                  setMenuItem(!menuItem);
+                }}
               >
                 <Image
                   // onClick={toggleNavbar}
@@ -95,62 +103,157 @@ export default function MenuScroll() {
           {menuItem && (
             <>
               <div className="menuItem-wrap"></div>
-              <div className="menu-wrap menuItem d-flex flex-column align-items-center">
-                <div className="bg-white border">
-                  <div className="item-wrap" onClick={() => setMenuItem(!menuItem)}>
-                    <Image
-                      // onClick={toggleNavbar}
-                      className="contact-icon"
-                      src={HotDeal}
-                      alt="logo-contact"
-                      layout="intrinsic"
-                    />
-                    <div className="text-danger hotline">HOT DEAL!</div>
+              {typeMenu === "baohiem" ? (
+                <div className="menu-wrap menuItem d-flex flex-column align-items-center">
+                  <div className="bg-white border">
+                    <div
+                      className="item-wrap"
+                      onClick={() => setMenuItem(!menuItem)}
+                    >
+                      <Image
+                        // onClick={toggleNavbar}
+                        className="contact-icon"
+                        src={HotDeal}
+                        alt="logo-contact"
+                        layout="intrinsic"
+                      />
+                      <div className="text-danger hotline">HOT DEAL!</div>
+                    </div>
+                    <div
+                      className="item-wrap"
+                      onClick={() => setMenuItem(!menuItem)}
+                    >
+                      <Image
+                        // onClick={toggleNavbar}
+                        className="contact-icon"
+                        src={Oto}
+                        alt="logo-contact"
+                        layout="intrinsic"
+                      />
+                      <div className="pt-1">BH Ôtô</div>
+                    </div>
+                    <div
+                      className="item-wrap"
+                      onClick={() => setMenuItem(!menuItem)}
+                    >
+                      <Image
+                        // onClick={toggleNavbar}
+                        className="contact-icon"
+                        src={Moto}
+                        alt="logo-contact"
+                        layout="intrinsic"
+                      />
+                      <div className="pt-1">BH Xe máy</div>
+                    </div>
+                    <div
+                      className="item-wrap"
+                      onClick={() => setMenuItem(!menuItem)}
+                    >
+                      <Image
+                        // onClick={toggleNavbar}
+                        className="contact-icon"
+                        src={Family}
+                        alt="logo-contact"
+                        layout="intrinsic"
+                      />
+                      <div className="pt-1">BH Gia đình</div>
+                    </div>
+                    <div
+                      className="item-wrap no-line"
+                      onClick={() => {
+                        window.scrollTo({
+                          top: 0,
+                          behavior: "smooth",
+                        });
+                        setMenuItem(!menuItem);
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-chevron-up"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
+                        />
+                      </svg>
+                      <div className="pt-1">Đầu trang</div>
+                    </div>
                   </div>
-                  <div className="item-wrap" onClick={() => setMenuItem(!menuItem)}>
+                  <div
+                    className="menu-circle rounded-circle event mt-3"
+                    onClick={() => setMenuItem(!menuItem)}
+                  >
                     <Image
                       // onClick={toggleNavbar}
                       className="contact-icon"
-                      src={Oto}
+                      src={MenuScrollClose}
                       alt="logo-contact"
                       layout="intrinsic"
                     />
-                    <div className="pt-1">BH Ôtô</div>
-                  </div>
-                  <div className="item-wrap" onClick={() => setMenuItem(!menuItem)}>
-                    <Image
-                      // onClick={toggleNavbar}
-                      className="contact-icon"
-                      src={Moto}
-                      alt="logo-contact"
-                      layout="intrinsic"
-                    />
-                    <div className="pt-1">BH Xe máy</div>
-                  </div>
-                  <div className="item-wrap no-line" onClick={() => setMenuItem(!menuItem)}>
-                    <Image
-                      // onClick={toggleNavbar}
-                      className="contact-icon"
-                      src={Family}
-                      alt="logo-contact"
-                      layout="intrinsic"
-                    />
-                    <div className="pt-1">BH Gia đình</div>
                   </div>
                 </div>
-                <div
-                  className="menu-circle rounded-circle event mt-3"
-                  onClick={() => setMenuItem(!menuItem)}
-                >
-                  <Image
-                    // onClick={toggleNavbar}
-                    className="contact-icon"
-                    src={MenuScrollClose}
-                    alt="logo-contact"
-                    layout="intrinsic"
-                  />
+              ) : (
+                <div className="menu-wrap menuItem d-flex flex-column align-items-center">
+                  <div className="border contact">
+                    <div className="d-flex flex-column align-items-center">
+                      <a
+                        rel="noreferrer"
+                        target="_blank"
+                        href={contactInfo && contactInfo.zalo_chat}
+                        className="zalo-logo"
+                      >
+                        <Image
+                          width="50"
+                          height={50}
+                          src={zaloChatIcon}
+                          alt="zalo"
+                        />
+                      </a>
+                      <a
+                        rel="noreferrer"
+                        target="_blank"
+                        href={contactInfo && contactInfo.facebook_chat}
+                        className="fb-logo"
+                      >
+                        <Image
+                          width="50"
+                          height={50}
+                          src={fbChatIcon}
+                          alt="Facebook"
+                        />
+                      </a>
+                      <a
+                        href={`tel:${contactInfo && contactInfo.phone.trim()}`}
+                        className="call-logo"
+                      >
+                        <Image
+                          width="50"
+                          height={50}
+                          src={supportIcon}
+                          alt="Liên hệ"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <div
+                    className="menu-circle rounded-circle event mt-3"
+                    onClick={() => setMenuItem(!menuItem)}
+                  >
+                    <Image
+                      // onClick={toggleNavbar}
+                      className="contact-icon"
+                      src={MenuScrollClose}
+                      alt="logo-contact"
+                      layout="intrinsic"
+                    />
+                  </div>
                 </div>
-              </div>
+              )}
             </>
           )}
         </>

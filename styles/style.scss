@@ -8740,6 +8740,10 @@ h5 {
     background-size: cover;
     min-width: 100%;
     position: relative;
+
+	&.mobile {
+		height: 200px;
+	}
 }
 
 .navbar-search {
@@ -8833,6 +8837,10 @@ h5 {
 
 		.border {
 			border-radius: 10px;
+
+			&.contact {
+				border: none !important;
+			}
 		}
 
 		.hotline {

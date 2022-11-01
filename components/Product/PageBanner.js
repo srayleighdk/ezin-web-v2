@@ -4,13 +4,15 @@ import { getImageUrl } from "../../utils/helpers";
 import { useMediaQuery } from "react-responsive";
 
 export default function PageBanner(props) {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  console.log("props", props)
   let { pageTitle, img, name, homePageUrl, homePageText, activePageText } = props;
 
   return (
     <div className="page-title-area item-bg1 bg-white pb-0 mt-5">
       <div className="container">
         <div
-          className={`page-title-content banner-img`}
+          className={`page-title-content banner-img ${isMobile && "mobile"}`}
           style={{ backgroundImage: `url(${getImageUrl(img)})` }}
         >
           {/* <img src={getImageUrl(img)} alt={name} style={{width: "100%"}} /> */}
@@ -25,6 +27,15 @@ export default function PageBanner(props) {
           </ul>
         </div>
       </div>
+
+      {/* <style jsx>
+        {`
+        .banner-img {
+
+        }
+        
+        `}
+      </style> */}
     </div>
   );
 }
