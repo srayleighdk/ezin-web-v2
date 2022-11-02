@@ -43,16 +43,34 @@ export default function HopdongPage() {
   const router = useRouter();
   const id = router?.query?.slug?.[0];
   const type = router?.query?.slug?.[1].indexOf('EVA');
-  // const [nStep, setStep] = useState(0);
-  const [requestId, setRequestId] = useState(null);
+  const requestID = router?.query?.requestId || null;
+  const [requestId, setRequestId] = useState(requestID);
   const [submitData, setSubmitData] = useState(null);
   const [cardInfo, setCardInfo] = useState({});
-  // const { activation } = useSelector(mapStateToProps);
   const [data, setData] = useState(null);
   const nStep = Number(router?.query?.step) || 0;
 
   const getData = async () => {
     const res = await getPackage(id);
+    if(requestID) {
+      const res1 = await getTransactionInfo(requestID);
+      console.log("res1", res1);
+      setSubmitData({
+        address: res1?.data?.data?.address,
+        city: res1?.data?.data?.city,
+        district: res1?.data?.data?.district,
+        email: res1?.data?.data?.email,
+        full_name: res1?.data?.data?.full_name,
+        legal_id: res1?.data?.data?.legal_id,
+        sex: res1?.data?.data?.sex,
+        ward: res1?.data?.data?.ward,
+        phone: res1?.data?.data?.phone?.replace('+84', '0'),
+        dob: moment(res1?.data?.data?.dob, 'DDMMYYYY').format("DD/MM/YYYY"),
+        valid_from: moment(res1?.data?.data?.valid_from),
+        total: res1?.data?.data?.total,
+        discount: res1?.data?.data?.discount
+      })
+    }
     setData({
       ...res?.data?.data
     });
