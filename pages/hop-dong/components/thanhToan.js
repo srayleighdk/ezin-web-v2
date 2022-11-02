@@ -468,7 +468,7 @@ function ThanhToan({ data, onPrev, requestId, submitData }) {
             <div>
                 <ButtonEzin
                     types="primary"
-                    className="p-button btn-full-width mt-2"
+                    className="btn-full-width mt-2"
                     onClick={() => {
                         createPayment();
                     }}
@@ -480,7 +480,7 @@ function ThanhToan({ data, onPrev, requestId, submitData }) {
             <div>
                 <ButtonEzin
                     types="default"
-                    className="p-button btn-full-width mt-2"
+                    className="btn-full-width mt-2"
                     onClick={() => onPrev(submitData)}
                 >
                     Quay về

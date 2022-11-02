@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Button } from "antd";
+import ButtonEzin from "../../../components/Common/Button";
 import Success from "../../../public/images/success.png";
 import Fail from "../../../public/images/fail.png";
 import { formatVND, formatDateTime } from "../../../utils/helpers";
@@ -82,14 +83,14 @@ export default function Complete({ data }) {
             </p>
             <div>
               <div className="mt-1">
-                <Button type="primary" className="w-100">
+                <ButtonEzin types="primary" className="btn-full-width">
                   <Link href="/profile/transaction">Hợp đồng của tôi</Link>
-                </Button>
+                </ButtonEzin>
               </div>
               <div className="mt-1">
-                <Button type="default" className="w-100">
+                <ButtonEzin types="default" className="btn-full-width">
                   <Link href="/">Về trang chủ</Link>
-                </Button>
+                </ButtonEzin>
               </div>
             </div>
           </div>
@@ -130,18 +131,18 @@ export default function Complete({ data }) {
           />
           <div>
             <div className="mt-1">
-              <Button type="primary" className="w-100">
+              <ButtonEzin types="primary" className="btn-full-width">
                 <Link
                   href={`/hop-dong/${data?.package_id?.package_id}/${data?.package_id?.name}`}
                 >
                   Thanh toán lại
                 </Link>
-              </Button>
+              </ButtonEzin>
             </div>
             <div className="mt-1">
-              <Button type="default" className="w-100">
+              <ButtonEzin types="default" className="btn-full-width">
                 <Link href="/">Về trang chủ</Link>
-              </Button>
+              </ButtonEzin>
             </div>
           </div>
         </div>

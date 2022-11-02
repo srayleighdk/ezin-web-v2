@@ -19,6 +19,7 @@ import {
   getDistricts,
 } from "../../../pages/api";
 import React, { useEffect, useState, useRef } from "react";
+import ButtonEzin from "../../../components/Common/Button";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import DatePicker from "react-mobile-datepicker";
 import { useMediaQuery } from "react-responsive";
@@ -648,7 +649,7 @@ export default function ThirdMOTO({ onPrevStep, onNextStep, cardInfo }) {
                 <Button
                   type="primary"
                   className={`text-11 text-white mr-1 mt-1 ${
-                    index == currentName ? "bg-primary" : "bg-dark"
+                    index == currentName ? "bg-primary" : "bg-gray"
                   }`}
                   onClick={() => onSelectUser(index + 1)}
                 >
@@ -774,27 +775,27 @@ export default function ThirdMOTO({ onPrevStep, onNextStep, cardInfo }) {
           </Row>
         </div>
         <div className="my-4 d-flex justify-content-around">
-          <Button
-            type="second"
+          <ButtonEzin
+            types="default"
             onClick={() => {
               onPrev(form.getFieldsValue());
             }}
-            style={{ width: "42%", paddingTop: "1rem", paddingBottom: "2rem" }}
+            className="btn-kichhoat"
           >
             Trở về
-          </Button>
-          <Button
-            type="primary"
+          </ButtonEzin>
+          <ButtonEzin
+            types="primary"
             htmlType="submit"
-            style={{ width: "42%", paddingTop: "1rem", paddingBottom: "2rem" }}
+            className="btn-kichhoat"
           >
             Tiếp tục
-          </Button>
+          </ButtonEzin>
         </div>
         <div className="text-center">
-          <Button type="danger" htmlType="button" onClick={onReset}>
+          <ButtonEzin types="default" className="bg-danger btn-kichhoat" htmlType="button" onClick={onReset}>
             Làm lại
-          </Button>
+          </ButtonEzin>
         </div>
       </Form>
       <DatePicker

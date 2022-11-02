@@ -6,6 +6,7 @@ export default function ButtonEzin(props) {
     return (
       <button
         className={`default-btn w-auto rounded-pill shadow ${props.className}`}
+        style={props.style}
         onClick={props.onClick}
       >
         {props.children}
@@ -15,6 +16,7 @@ export default function ButtonEzin(props) {
     return (
       <button
         className={`default-btn bg-default rounded-pill ${props.className}`}
+        style={props.style}
         onClick={props.onClick}
       >
         {props.children}

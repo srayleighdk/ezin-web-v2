@@ -502,7 +502,7 @@ export default function ActivateForm({ data, initData, onNext, onPrev }) {
           )}
           <ButtonEzin
             types="primary"
-            className="p-button w-100"
+            className="w-100"
             htmlType="submit"
             id="btn-next-step2"
           >
@@ -511,7 +511,7 @@ export default function ActivateForm({ data, initData, onNext, onPrev }) {
           {type === 0 ? (
             <ButtonEzin
               types="default"
-              className="p-button w-100 mt-2"
+              className="w-100 mt-2"
               onClick={() => onPrev(initData)}
             >
               Quay về
