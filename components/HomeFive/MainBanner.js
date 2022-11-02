@@ -43,7 +43,8 @@ export default function MainBanner() {
         <div className="d-table">
           <div className="d-table-cell">
             <div
-              className={`slider-btn position-absolute d-flex justify-content-center w-100 d-sm-flex ${isMobile ? "flex-column" : "flex-row group-btn"} px-ms-3`}
+              className={`
+               slider-btn position-absolute d-flex justify-content-center w-100 d-sm-flex px-ms-3 flex-column flex-md-column flex-xl-row`}
             >
               <ButtonEzin
                 className={`mx-3 btn-buy-banner text-center shadow align-self-center`}
