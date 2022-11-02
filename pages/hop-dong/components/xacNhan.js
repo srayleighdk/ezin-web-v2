@@ -8,6 +8,7 @@ import {
   CaretUpOutlined,
   CaretDownOutlined,
 } from "@ant-design/icons";
+import ButtonEzin from "../../../components/Common/Button";
 
 export default function XacNhan({ data, onSubmit, onPrev, submitData }) {
   const [tos, setTos] = useState(true);
@@ -234,25 +235,25 @@ export default function XacNhan({ data, onSubmit, onPrev, submitData }) {
           </Modal>
         ) : null}
         <div>
-          <Button
+          <ButtonEzin
             types="primary"
-            className="p-button w-100 mt-2 btn-full-width"
+            className="w-100 mt-2 btn-full-width"
             onClick={onSubmit}
             disabled={!tos}
             id="btn-next-step3"
           >
             Thanh toán
-          </Button>
+          </ButtonEzin>
         </div>
         <div>
-          <Button
+          <ButtonEzin
             types="default"
-            className="p-button w-100 mt-2 btn-full-width"
+            className="w-100 mt-2 btn-full-width"
             onClick={() => onPrev(submitData)}
             // disabled={loading}
           >
             Quay về
-          </Button>
+          </ButtonEzin>
         </div>
       </div>
     </div>

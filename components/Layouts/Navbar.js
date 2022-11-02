@@ -706,7 +706,7 @@ const Navbar = () => {
                             setUserInfo(!userInfo);
                           }}
                         />
-                        <a className="pt-1 text-capitalize px-1 d-flex w-100 pb-sm-1 default-btn nav-link-ez text-black">
+                        <a className="pt-1 text-capitalize px-1 d-flex w-100 pb-sm-1 default-btn nav-link-ez text-dot-1 text-black">
                           {auth?.full_name || auth?.username
                             ? ellipsis(
                                 titleCase(auth?.full_name || auth?.username)

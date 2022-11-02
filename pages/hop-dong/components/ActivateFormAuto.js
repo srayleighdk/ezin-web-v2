@@ -788,7 +788,7 @@ export default function ActivateFormAuto({ data, initData, onNext }) {
           )}
           <ButtonEzin
             types="primary"
-            className="p-button btn-full-width"
+            className="btn-full-width"
             htmlType="submit"
             id="btn-next-step2"
           >

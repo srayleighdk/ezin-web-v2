@@ -60,22 +60,11 @@ export default function Product({
 
   return (
     <>
-      {/* <PageBanner
-        pageTitle={product?.name}
-        img={product.image.path}
-        name={product.name}
-        //   homePageUrl="/"
-        //   homePageText="TNDS"
-        //   activePageText="Xe máy"
-      /> */}
-
       <PageBanner
         pageTitle={product?.name}
         img={product?.image?.path}
         name={product?.name}
         homePageUrl="#"
-        // homePageText="Home"
-        // activePageText="Contact Style Two"
       />
 
       <section className="team-area mt-4 pb-70">
@@ -241,12 +230,6 @@ export default function Product({
                 </div>
               </div>
             </div>
-
-            {/* <Link href="/about-1">
-              <a className="default-btn mt-4 w-25 rounded-pill text-center">
-                Tham gia ngay
-              </a>
-            </Link> */}
             <ButtonEzin
                 className="mx-3 btn-buy-banner text-center shadow align-self-center mt-4"
                 onClick={() => router.push("#")}

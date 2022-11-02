@@ -18,6 +18,7 @@ import { makeSelectActivation } from '../src/store/selector';
 import { secretOrKey } from '../utils/config';
 import { useSelector } from 'react-redux';
 import { makeSelectAuth } from '../src/store/selector';
+import { useMediaQuery } from 'react-responsive';
 
 const { Step } = Steps;
 
@@ -34,6 +35,7 @@ const mapStateToProps = createStructuredSelector({
 
 const Activation = () => {
   const route = useRouter();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const [nStep, setStep] = useState(0);
   const [cardInfo, setCardInfo] = useState({});
   const { activation } = useSelector(mapStateToProps);
@@ -232,8 +234,8 @@ const Activation = () => {
         <meta property="og:description" key="og-description" content={`Kích hoạt thẻ bảo hiểm | Ezin`} />
       </Head>
       <div id="activation">
-        <div className="main-section content-section">
-          <div className="container">
+        <div className="main-section content-section ptb-100">
+          <div className={`container ${isMobile && "mt-5"}`}>
             <div className="wrap-steps">
               <Steps current={nStep}>
                 <Step title="Thông tin thẻ" />

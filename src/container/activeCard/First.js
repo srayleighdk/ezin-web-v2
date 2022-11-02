@@ -5,8 +5,10 @@ import { normalizeTotalFee } from '../../../utils/helpers';
 import { createStructuredSelector } from 'reselect';
 import { useSelector } from 'react-redux';
 import { makeSelectAuth } from '../../store/selector';
+import ButtonEzin from "../../../components/Common/Button";
 // import MaskedInput from 'antd-mask-input';
 import InputMask from 'react-input-mask';
+import { useMediaQuery } from 'react-responsive';
 
 
 const { Text, Title } = Typography;
@@ -33,6 +35,7 @@ const mapStateToProps = createStructuredSelector({
 const SERI_LEN = 12;
 const CODE_LEN = 8;
 export default function First({ onNextStep, card }) {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const inputSeri = useRef(null);
   const inputCode = useRef(null);
   const [loading, setLoading] = useState(false);
@@ -390,9 +393,9 @@ export default function First({ onNextStep, card }) {
         </div>
 
         <div className="py-4 text-center" ref={buttonNext}>
-          <Button type="primary" className="p-button" onClick={onNext} disabled={loading} >
+          <ButtonEzin types="primary" className={`p-button ${isMobile && "px-3 py-3 btn-full-width"}`} onClick={onNext} disabled={loading} >
             {cardInfo.package_id && cardInfo.status == 1 ? 'Tiếp tục' : 'Kiểm tra'}
-          </Button>
+          </ButtonEzin>
         </div>
         <div className="mb-1"><i>Nếu bạn vẫn không thể kích hoạt thẻ, vui lòng xem video hướng dẫn dưới đây:</i>
         </div>

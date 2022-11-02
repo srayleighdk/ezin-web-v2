@@ -6825,6 +6825,8 @@ h3 {
 .nav-link-ez {
   background-color: transparent;
   border: none;
+  height: 36px;
+  overflow: hidden;
 }
 
 .nav-link-ez:hover {
@@ -6837,6 +6839,12 @@ h3 {
 
 .slider-news {
   width: 252px !important;
+}
+
+.text-dot-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
 .text-dot-2 {

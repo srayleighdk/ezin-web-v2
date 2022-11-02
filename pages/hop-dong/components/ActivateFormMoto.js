@@ -622,7 +622,7 @@ export default function ActivateFormMoto({ data, initData, onNext }) {
           )}
           <ButtonEzin
             types="primary"
-            className="p-button w-100 btn-full-width"
+            className="mt-3 w-100 btn-full-width"
             htmlType="submit"
             id="btn-next-step2"
           >

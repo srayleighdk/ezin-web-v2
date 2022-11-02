@@ -6,6 +6,7 @@ import wardData from '../../resource/ward.json';
 import { normalizeTotalFee, getDistrictData } from '../../../utils/helpers';
 import { FastBackwardOutlined } from '@ant-design/icons';
 import moment from 'moment';
+import ButtonEzin from '../../../components/Common/Button';
 // import Modal from 'antd/lib/modal/Modal';
 
 const { Text, Title } = Typography;
@@ -288,22 +289,22 @@ export default function Fourth({ onPrevStep, onSubmit, cardInfo }) {
           </Row>
         </div>
         <div className="my-4 d-flex justify-content-around">
-          <Button
-            type="second"
+          <ButtonEzin
+            types="default"
             onClick={onPrev}
-            style={{ width: '42%', paddingTop: '1rem', paddingBottom: '2rem' }}
+            className="btn-kichhoat"
           >
             Trở về
-          </Button>
-          <Button
-            type="primary"
+          </ButtonEzin>
+          <ButtonEzin
+            types="primary"
             onClick={onNext}
             htmlType="submit"
-            style={{ width: '42%', paddingTop: '1rem', paddingBottom: '2rem' }}
+            className="btn-kichhoat"
             ref={button_ref}
           >
             Tiếp tục
-          </Button>
+          </ButtonEzin>
         </div>
       </Form>
     </div>

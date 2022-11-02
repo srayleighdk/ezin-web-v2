@@ -35,8 +35,7 @@ function KichHoatThe() {
         />
       </Head>
       <section
-        className="pricing-area pt-100 pb-70"
-        style={{ paddingTop: "150px" }}
+        className="pricing-area pt-100 mt-3 pb-70"
       >
         <div className="container">
           <div id="activation">

@@ -13,6 +13,9 @@ import { useDispatch } from "react-redux";
 import Image from "next/image";
 import { SyncOutlined } from "@ant-design/icons";
 import styles from "../../styles/Activate.module.scss";
+import { useMediaQuery } from "react-responsive";
+import ButtonEzin from "../Common/Button";
+
 const Tick = () => {
   return (
     <div className="tick">
@@ -22,6 +25,7 @@ const Tick = () => {
 };
 export default function ActivateMobile({ id, type = 0 }) {
   const inputCode = useRef(null);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const [activeType, setActiveType] = useState(type);
   const [newShortId, setNewShortId] = useState("");
   const [voucherV2, setVoucherV2] = useState("");
@@ -117,7 +121,7 @@ export default function ActivateMobile({ id, type = 0 }) {
       className={`${styles["bg-gray"]} section ${styles.activateMobileSection}`}
     >
       <div className="container d-flex justify-content-center">
-        <div className={`service-card shadow ${styles.activateContainer}`}>
+        <div className={`service-card shadow ${styles.activateContainer} ${isMobile && "p-2 w-100"}`}>
           <h2>CHỌN LOẠI THẺ</h2>
           <div className="flex flex-row justify-content-around full-w">
             <div
@@ -297,9 +301,9 @@ export default function ActivateMobile({ id, type = 0 }) {
                 </div>
               </div>
               <div className="full-w my-1">
-                <button className="full-w btn btn-secondary" onClick={onSubmit}>
+                <ButtonEzin className="full-w btn btn-secondary" tyles="primary" onClick={onSubmit}>
                   Kích hoạt ngay
-                </button>
+                </ButtonEzin>
               </div>
             </>
           )}
