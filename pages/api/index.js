@@ -49,6 +49,7 @@ export const getBlogDetail = (slug) => eZinApi.get(`/blog/blog/${slug}`);
 export const getProduct = (slug) => eZinApi.get(`/product/slug/${slug}`);
 export const getNodePackages = (product_id) =>
   eZinApiNode.get(`/node/packages?product_id=${product_id}`);
+export const getOrderNumber = (id) => eZinApi.get(`/request/getorder/${id}`);
 
 /*
  * FAQ
@@ -327,6 +328,7 @@ export const createDynamicZaloPayQR = (body) =>
  *
  */
 export const getTransactionsInfo = () => eZinApi.get(`/request/allinfo`);
+export const getTransactions = (id) => eZinApi.get(`/request/complete/${id}`);
 export const getTransactionInfo = (id) =>
   eZinApi.get(`${API.getTransactionInfo}/${id}`);
 export const getExpiresRequest = () => eZinApi.get('/request/expires');
