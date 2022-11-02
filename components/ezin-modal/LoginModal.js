@@ -180,7 +180,7 @@ export default function LoginModal() {
             className="form-control"
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="Mật khẩu"
           />
         </div>
         {/* <Button type="primary" block className="mb-2" htmlType="submit">
