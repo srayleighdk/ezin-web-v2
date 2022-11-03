@@ -1,14 +1,19 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 import { getImageUrl } from "../../utils/helpers.js";
+import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
+import ButtonEzin from "./Button.js";
 
 const Testimonials = ({ testimonials }) => {
+  const [hidden, setHidden] = useState("");
+
   return (
-    <section className="brand-area bg-community ptb-100">
+    <section className="brand-area ptb-100 pb-3">
+      {hidden === "reviews" || hidden === "" ? (
       <div className="container">
         <div className="section-title">
-          <h2 className="text-white">
+          <h2 className="title">
             Dịch vụ <span>khách hàng 5 sao</span>{" "}
           </h2>
           <p>
@@ -95,15 +100,38 @@ const Testimonials = ({ testimonials }) => {
               );
             })}
         </Swiper>
-      </div>
-      {/* <div className="offer-shape">
-        <img src="/images/shape/services-shape/1.png" alt="services-shape1" />
-        <img src="/images/shape/services-shape/2.png" alt="services-shape2" />
-        <img src="/images/shape/services-shape/3.png" alt="services-shape3" />
-        <img src="/images/shape/services-shape/4.png" alt="services-shape4" />
-        <img src="/images/shape/services-shape/5.png" alt="services-shape5" />
-        <img src="/images/shape/services-shape/6.png" alt="services-shape6" />
-      </div> */}
+      </div>)
+      : null }
+      {hidden === "reviews" || hidden === "" ? (
+        <div className="d-flex ps-5 cursor-pointer justify-content-start mt-4">
+          <div
+            className="my-4 text-center d-flex align-items-center justify-content-center rounded-pill button-hidden"
+            onClick={() => {
+              setHidden("no-why");
+              window.scroll({
+                top: 2600,
+                left: 0,
+                behavior: "smooth",
+              });
+            }}
+          >
+            <EyeInvisibleOutlined style={{ width: 24, marginRight: 6 }} />
+            Ẩn phần này
+          </div>
+        </div>
+      ) : (
+        <div className="d-flex cursor-pointer justify-content-center">
+          <div
+            className="my-4 text-center d-flex align-items-center justify-content-center rounded-pill button-show"
+            onClick={() => {
+              setHidden("why");
+            }}
+          >
+            <EyeOutlined style={{ width: 24, marginRight: 6 }} />
+            Đánh giá khách hàng
+          </div>
+        </div>
+      )}
     </section>
   );
 };

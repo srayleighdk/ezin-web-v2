@@ -2704,9 +2704,9 @@ Industries Area Style
   /* font-family: "Dosis", sans-serif; */
   font-family: "Inter", sans-serif;
   margin-bottom: 15px;
-  -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-  background-color: #ffffff;
+  /* -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05); */
+  /* box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05); */
+  /* background-color: #ffffff; */
   position: relative;
   padding-left: 40px;
   padding-top: 12px;
@@ -3092,7 +3092,7 @@ Footer Top Area Style
   margin-bottom: 25px;
   font-size: 25px;
   position: relative;
-  border-bottom: 2px solid #060c4a;
+  /* border-bottom: 2px solid #060c4a; */
   padding-bottom: 10px;
 }
 
@@ -3107,7 +3107,7 @@ Footer Top Area Style
   line-height: 24px;
 }
 
-.single-widget h3::before {
+/* .single-widget h3::before {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -3115,7 +3115,7 @@ Footer Top Area Style
   width: 50px;
   height: 2px;
   background-color: #ffffff;
-}
+} */
 
 .single-widget h3.navbar::before {
   content: "";
@@ -4112,9 +4112,9 @@ FAQ CSS
 .faq-accordion .accordion .accordion__button {
   border-radius: 5px;
   display: block;
-  -webkit-box-shadow: 2px 8px 20px 0 rgba(25, 42, 70, 0.13) !important;
+  /* -webkit-box-shadow: 2px 8px 20px 0 rgba(25, 42, 70, 0.13) !important;
   box-shadow: 2px 8px 20px 0 rgba(25, 42, 70, 0.13) !important;
-  background: #ffffff;
+  background: #ffffff; */
   padding: 20px 25px;
   color: #212121;
   text-decoration: none;
@@ -4582,7 +4582,7 @@ Coming Soon Area Style
   position: relative;
   height: 100vh;
   z-index: 1;
-  background-color: #00095e;
+  background-color: #67C8FF;
 }
 
 .coming-soon-area .coming-soon-content {
@@ -7169,7 +7169,7 @@ h3 {
 }
 
 .brand-area-two-web {
-  margin-top: -7px;
+  margin-top: 152px;
 }
 
 .navbar-userInfo {

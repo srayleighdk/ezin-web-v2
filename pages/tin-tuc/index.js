@@ -32,7 +32,7 @@ function TinTuc({ arrBlogs = [] }) {
       <Tabs
         defaultActiveKey={id}
         onChange={onChangeTab}
-        className="custom-tabar"
+        className="custom-tabar ptb-100 pb-0"
       >
         <TabPane tab="Tin nóng" key="tin-nong"></TabPane>
         <TabPane tab="COVID" key="covid"></TabPane>

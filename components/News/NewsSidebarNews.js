@@ -16,7 +16,7 @@ export default function NewsSidebarNews({
 }) {
   return (
     <div className="widget-area" id="secondary">
-      <div className="widget widget_search">
+      {/* <div className="widget widget_search">
         <h3 className="widget-title">Tìm kiếm</h3>
 
         <div className="post-wrap">
@@ -34,7 +34,7 @@ export default function NewsSidebarNews({
             </button>
           </form>
         </div>
-      </div>
+      </div> */}
 
       <div className="widget widget-posts-thumb">
         <h3 className="widget-title">Bài viết mới nhất</h3>

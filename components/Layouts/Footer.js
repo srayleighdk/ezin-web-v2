@@ -18,7 +18,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="footer-top-area pt-100 pb-70">
+      <footer className="footer-top-area pt-100">
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-6">
@@ -32,17 +32,14 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6">
               <div className="single-widget">
-                <h3 className="color-heading-footer">Sản phẩm</h3>
+                <h3 className="color-heading-footer text-14 mb-1">Sản phẩm</h3>
                 <ul>
                   <div className="row">
                     {product?.map((item) => (
-                      <div className="col-6">
+                      <div className="col-6 col-md-12">
                         <li key={item._id}>
                           <Link href={`/san-pham/${item.slug}#mua-ngay`}>
-                            <a>
-                              <i className="right-icon bx bx-chevrons-right"></i>
-                              {item.name}
-                            </a>
+                            <a className="text-14 ps-0">{item.name}</a>
                           </Link>
                         </li>
                       </div>
@@ -54,55 +51,44 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6">
               <div className="single-widget">
-                <h3 className="color-heading-footer">Liên kết nhanh</h3>
+                <h3 className="color-heading-footer text-14 mb-1">
+                  Liên kết nhanh
+                </h3>
 
                 <ul>
                   <div className="row">
-                    <div className="col-6">
+                    <div className="col-6 col-md-12">
                       <li>
                         <Link href="/gioi-thieu">
-                          <a>
-                            <i className="right-icon bx bx-chevrons-right"></i>
-                            Về chúng tôi
-                          </a>
+                          <a className="text-14 ps-0">Về chúng tôi</a>
                         </Link>
                       </li>
                     </div>
-                    <div className="col-6">
+                    <div className="col-6 col-md-12">
                       <li>
                         <Link href="/lien-he">
-                          <a>
-                            <i className="right-icon bx bx-chevrons-right"></i>
-                            Liên hệ
-                          </a>
+                          <a className="text-14 ps-0">Liên hệ</a>
                         </Link>
                       </li>
                     </div>
-                    <div className="col-6">
+                    <div className="col-6 col-md-12">
                       <li>
                         <Link href="/tin-tuc/chu-de/tin-nong">
-                          <a>
-                            <i className="right-icon bx bx-chevrons-right"></i>
-                            Tin tức
-                          </a>
+                          <a className="text-14 ps-0">Tin tức</a>
                         </Link>
                       </li>
                     </div>
-                    <div className="col-6">
+                    <div className="col-6 col-md-12">
                       <li>
                         <Link href="/kien-thuc">
-                          <a>
-                            <i className="right-icon bx bx-chevrons-right"></i>
-                            Kiến thức
-                          </a>
+                          <a className="text-14 ps-0">Kiến thức</a>
                         </Link>
                       </li>
                     </div>
-                    <div className="col-6">
+                    <div className="col-6 col-md-12">
                       <li>
                         <Link href="/oto/demo">
-                          <a>
-                            <i className="right-icon bx bx-chevrons-right"></i>
+                          <a className="text-14 ps-0">
                             Công cụ giám định xe ô tô
                           </a>
                         </Link>
@@ -115,57 +101,44 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6">
               <div className="single-widget">
-                <h3 className="color-heading-footer">Quy định chính sách</h3>
+                <h3 className="color-heading-footer text-14 mb-1">
+                  Quy định chính sách
+                </h3>
 
                 <ul>
                   <div className="row">
-                    <div className="col-6">
+                    <div className="col-6 col-md-12">
                       <li>
                         <Link href="/p/dieu-khoan">
-                          <a>
-                            <i className="right-icon bx bx-chevrons-right"></i>
-                            Điều khoản dịch vụ
-                          </a>
+                          <a className="text-14 ps-0">Điều khoản dịch vụ</a>
                         </Link>
                       </li>
                     </div>
-                    <div className="col-6">
+                    <div className="col-6 col-md-12">
                       <li>
                         <Link href="/p/chinh-sach-bao-mat">
-                          <a>
-                            <i className="right-icon bx bx-chevrons-right"></i>
-                            Chính sách bảo mật
-                          </a>
+                          <a className="text-14 ps-0">Chính sách bảo mật</a>
                         </Link>
                       </li>
                     </div>
-                    <div className="col-6">
+                    <div className="col-6 col-md-12">
                       <li>
                         <Link href="/p/chinh-sach-thanh-toan">
-                          <a>
-                            <i className="right-icon bx bx-chevrons-right"></i>
-                            Chính sách thanh toán
-                          </a>
+                          <a className="text-14 ps-0">Chính sách thanh toán</a>
                         </Link>
                       </li>
                     </div>
-                    <div className="col-6">
+                    <div className="col-6 col-md-12">
                       <li>
                         <Link href="/p/chinh-sach-giao-hang">
-                          <a>
-                            <i className="right-icon bx bx-chevrons-right"></i>
-                            Chính sách giao hàng
-                          </a>
+                          <a className="text-14 ps-0">Chính sách giao hàng</a>
                         </Link>
                       </li>
                     </div>
-                    <div className="col-6">
+                    <div className="col-6 col-md-12">
                       <li>
                         <Link href="/p/chinh-sach-doi-tra">
-                          <a>
-                            <i className="right-icon bx bx-chevrons-right"></i>
-                            Chính sách đổi trả
-                          </a>
+                          <a className="text-14 ps-0">Chính sách đổi trả</a>
                         </Link>
                       </li>
                     </div>
@@ -178,34 +151,40 @@ const Footer = () => {
           <div className="row mt-4">
             <div className="col-lg-3 col-md-6 align-self-center">
               <div className="single-widget">
-                <p className="text-20 fw-600">CÔNG TY CỔ PHẦN EZIN VIỆT NAM</p>
+                {/* <p className="text-20 fw-600">CÔNG TY CỔ PHẦN EZIN VIỆT NAM</p> */}
               </div>
             </div>
 
             <div className="col-lg-6 col-md-6">
               <div className="single-widget">
+                <div className="single-widget">
+                  <p className="text-14 fw-600">
+                    CÔNG TY CỔ PHẦN EZIN VIỆT NAM
+                  </p>
+                </div>
                 <ul>
                   <li>
-                    <p>
+                    <p className="text-14 mb-1">
                       Địa chỉ DKKD: Số 3/40, Thích Quảng Đức, P.3, Q.Phú Nhuận,
                       TP.HCM, Việt Nam
                     </p>
                   </li>
                   <li>
-                    <p>
+                    <p className="text-14  mb-1">
                       Văn phòng: Toà nhà Petro Viet Nam, Số 1 Lê Duẩn, Bến Nghé,
                       Quận 1, TP.HCM, Việt Nam
                     </p>
                   </li>
                   <li>
-                    <p>Mã số DN/MST: 0316570253</p>
+                    <p className="text-14  mb-1">Mã số DN/MST: 0316570253</p>
                   </li>
                   <li>
-                    <div className="text-white">
+                    <div className="text-white text-14  mb-1">
                       Hotline:{" "}
                       <a
                         href="tel:0909088313"
                         style={{ paddingLeft: 0, paddingRight: 6 }}
+                        className="text-14"
                       >
                         0909.088.313
                       </a>{" "}
@@ -213,17 +192,19 @@ const Footer = () => {
                       <a
                         href="https://zalo.me/0909.088.313"
                         style={{ paddingLeft: 6 }}
+                        className="text-14"
                       >
                         0909.088.313
                       </a>
                     </div>
                   </li>
                   <li>
-                    <div className="text-white">
+                    <div className="text-white text-14">
                       Email:
                       <a
                         href="mailto:baohiem@ezin.vn"
                         style={{ paddingLeft: 6 }}
+                        className="text-14"
                       >
                         baohiem@ezin.vn
                       </a>
@@ -235,7 +216,7 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6">
               <div className="single-widget">
-                <h3 className="color-heading-footer">Kết nối với chúng tôi</h3>
+                <h3 className="color-heading-footer text-14 mb-1">Kết nối với chúng tôi</h3>
                 <div className="d-flex align-items-center justify-content-between me-3">
                   <ul className="social-icon">
                     <li>

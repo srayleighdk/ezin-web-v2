@@ -4,20 +4,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 import dayjs from "dayjs";
 import ButtonEzin from "./Button";
+import { useRouter } from "next/router";
 
 export default function News({ news }) {
+  const router = useRouter();
+  const firstNews = news?.[0];
+  const lasttNews = news?.slice(1);
+  console.log("lasttNews", news, lasttNews);
+
   return (
     <section className="news-area pt-100 pb-70">
       <div className="container">
         <div className="section-title text-40">
-          {/* <span>Latest News</span> */}
           <h2 className="color-primary">
             Câu Chuyện <span>Eziner</span>{" "}
           </h2>
-          {/* <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut ipsum fugit temporibus possimus itaque accusamus voluptatibus dignissimos nobis eaque.</p> */}
         </div>
 
-        <div className="row">
+        <div className="row d-md-none">
           <Swiper
             spaceBetween={25}
             navigation={false}
@@ -110,6 +114,74 @@ export default function News({ news }) {
             >
               xem thêm
             </ButtonEzin>
+          </div>
+        </div>
+
+        <div className="row news-web">
+          <div
+            className="col-lg-8 col-md-12"
+            onClick={() => router.push(`/tin-tuc/${firstNews?.url}`)}
+          >
+            <div className="news-main single-news mb-0 bg-white">
+              <div className="blog-img">
+                <Link href={`/tin-tuc/${firstNews?.url}`}>
+                  <a>
+                    <img
+                      src={firstNews?.img_hor}
+                      alt="new-hot"
+                      className="img"
+                    />
+                  </a>
+                </Link>
+
+                <div className="dates">
+                  <span style={{ fontFamily: "Inter" }}>
+                    {dayjs(firstNews?.publishedAt).format("DD-MM-YYYY")}
+                  </span>
+                </div>
+              </div>
+              <div className="wrap-title">
+                <div className="title text-dot-2">{firstNews?.title}</div>
+                <div className="description text-dot-4">
+                  {firstNews?.description} {firstNews?.description}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4 col-md-12">
+            <div className="widget-area h-100" id="secondary">
+              <div className="widget widget-posts-thumb h-100">
+                <div className="news-list">
+                  {lasttNews?.map((item) => (
+                    <article className="item">
+                      <Link href={`/tin-tuc/${item?.url}`}>
+                        <a>
+                          <img
+                            src={item?.img_hor}
+                            alt={item?.title}
+                            className="img"
+                          />
+                        </a>
+                      </Link>
+
+                      <div className="info">
+                        <div className="title usmall">
+                          <Link href={`/tin-tuc/${item?.url}`}>
+                            <a className="text-black">{item?.title}</a>
+                          </Link>
+                        </div>
+                      </div>
+
+                      <div className="clear"></div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-5 text-center">
+            <ButtonEzin types="default" className="btn-news" onClick={() => router.push("/tin-tuc")}>Xem thêm</ButtonEzin>
           </div>
         </div>
       </div>

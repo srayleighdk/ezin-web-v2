@@ -3,6 +3,7 @@ import Head from "next/head";
 import MainBanner from "../components/HomeFive/MainBanner";
 import NewsSlider from "../components/Common/NewsSlider";
 import Banner from "../components/Common/Banner";
+import Recommend from "../components/Recommend";
 import HotDeals from "../components/Common/HotDeals";
 import EzStore from "../components/Common/EzStore";
 import Partner from "../components/HomeFive/Partner";
@@ -127,34 +128,7 @@ const Home = ({
       <Groups />
 
       {/* <HotDeals allNodeProducts={allNodeProducts} /> */}
-
-      {hidden === "why" || hidden === "" ? <WhatWeOffer faqCat={faqCat[0]._id} /> : null}
-
-      {hidden === "why" || hidden === "" ? (
-        <div className="d-flex justify-content-center">
-          <div
-            className="my-4 text-center d-flex align-items-center justify-content-center rounded-pill button-hidden"
-            onClick={() => {
-              setHidden("no-why");
-            }}
-          >
-            <EyeInvisibleOutlined style={{ width: 24, marginRight: 6 }} />
-            Ẩn phần này
-          </div>
-        </div>
-      ) : (
-        <div className="d-flex justify-content-center">
-          <div
-            className="my-4 text-center d-flex align-items-center justify-content-center rounded-pill button-show"
-            onClick={() => {
-              setHidden("why");
-            }}
-          >
-            <EyeOutlined style={{ width: 24, marginRight: 6 }} />
-            Tại sao dùng Ezin
-          </div>
-        </div>
-      )}
+      <WhatWeOffer faqCat={faqCat[0]._id} />
 
       <EzinCoin />
 
@@ -162,39 +136,13 @@ const Home = ({
 
       <News news={news} />
 
-      {hidden === "reviews" || hidden === "" ? (
-        <Testimonials testimonials={testimonials.testimonials} />
-      ) : null}
-
-      {hidden === "reviews" || hidden === "" ? (
-        <div className="d-flex justify-content-center">
-          <div
-            className="my-4 text-center d-flex align-items-center justify-content-center rounded-pill button-hidden"
-            onClick={() => {
-              setHidden("no-reviews");
-            }}
-          >
-            <EyeInvisibleOutlined style={{ width: 24, marginRight: 6 }} />
-            Ẩn phần này
-          </div>
-        </div>
-      ) : (
-        <div className="d-flex justify-content-center">
-          <div
-            className="my-4 text-center d-flex align-items-center justify-content-center rounded-pill button-show"
-            onClick={() => {
-              setHidden("reviews");
-            }}
-          >
-            <EyeOutlined style={{ width: 24, marginRight: 6 }} />
-            Đánh giá khách hàng
-          </div>
-        </div>
-      )}
+      <Testimonials testimonials={testimonials.testimonials} />
 
       <CaseStudies />
 
       <Partner partners={partners} />
+
+      <Recommend />
 
       <EzStore topStores={topStores} />
 

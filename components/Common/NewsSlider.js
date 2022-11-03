@@ -8,13 +8,14 @@ export default function NewsSlider({ newsPost }) {
 
   return (
     <>
-      {isMobile && (
-        <div className="header-newsSlider fw-700 text-16 d-flex align-items-center text-white">
-          Tin tức mới nhất
-        </div>
-      )}
+      <div className="header-newsSlider d-md-none fw-700 text-16 d-flex align-items-center text-white">
+        Tin tức mới nhất
+      </div>
+
       <div
-        className={`brand-area-two ptb-100 position-relative ${!isMobile && "brand-area-two-web"}`}
+        className={`brand-area-two ptb-100 position-relative ${
+          !isMobile && "brand-area-two-web"
+        }`}
         // className="brand-area-two ptb-100 position-relative mt-newsSlider"
         style={{ padding: "20px 0" }}
       >
