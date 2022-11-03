@@ -7175,3 +7175,21 @@ h3 {
 .navbar-userInfo {
   width: 150% !important;
 }
+
+.process .ant-steps-item-title{
+  color: #000000 !important;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+}
+.process .ant-steps-item-description {
+  padding-bottom: 50px !important;
+}
+
+.bg-process {
+  background: #F5FAFF;
+}
+
+.btn-process {
+  color: #167FFC;
+}

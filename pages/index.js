@@ -6,6 +6,7 @@ import Banner from "../components/Common/Banner";
 import Recommend from "../components/Recommend";
 import HotDeals from "../components/Common/HotDeals";
 import EzStore from "../components/Common/EzStore";
+import Compensation from "../components/CompensationProcess";
 import Partner from "../components/HomeFive/Partner";
 import CommunityEzin from "../components/HomeFive/CommunityEzin";
 import Groups from "../components/HomeFive/Groups";
@@ -125,9 +126,12 @@ const Home = ({
 
       <Products allNodeProducts={allNodeProducts} />
 
+      <Compensation />
+
       <Groups />
 
       {/* <HotDeals allNodeProducts={allNodeProducts} /> */}
+
       <WhatWeOffer faqCat={faqCat[0]._id} />
 
       <EzinCoin />
