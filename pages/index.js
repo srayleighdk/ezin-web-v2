@@ -90,15 +90,15 @@ const Home = ({
   const router = useRouter();
   const [hidden, setHidden] = useState("");
 
-  useEffect(() => {
-    if (router.asPath === "/#san-pham") {
-      window.scroll({
-        top: 1100,
-        left: 0,
-        behavior: "smooth",
-      });
-    }
-  }, [router.asPath]);
+  // useEffect(() => {
+  //   if (router.asPath === "/#san-pham") {
+  //     window.scroll({
+  //       top: 1100,
+  //       left: 0,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // }, [router.asPath]);
 
   return (
     <>
