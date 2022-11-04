@@ -65,7 +65,7 @@ const Navbar = () => {
   useEffect(() => {
     let elementId = document.getElementById("navbar");
     document.addEventListener("scroll", () => {
-      if (window.scrollY > 170) {
+      if (window.scrollY > 0) {
         elementId.classList.add("is-sticky");
       } else {
         elementId.classList.remove("is-sticky");
