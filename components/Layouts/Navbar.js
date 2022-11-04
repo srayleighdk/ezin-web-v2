@@ -283,10 +283,14 @@ const Navbar = () => {
                             className="nav-btn mt-3"
                             onClick={() => {
                               toggleNavbar();
-                              router.push("/kich-hoat-the");
+                              // router.push('/kich-hoat-the');
                             }}
                           >
-                            Kích hoạt
+                            <Link href="/kich-hoat-the">
+                              <a>
+                                  Kích hoạt
+                              </a>
+                            </Link>
                           </ButtonEzin>
                           <ButtonEzin
                             types="primary"

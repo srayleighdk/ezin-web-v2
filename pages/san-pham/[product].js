@@ -132,7 +132,7 @@ export default function Product({
         </div>
       </section>
 
-      <section className="offer-area pt-100 pb-70">
+      <section id="mua-ngay" className="offer-area pt-100 pb-70">
         <div className="container">
           <div className="section-title">
             <h2>CÁC GÓI QUYỀN LỢI</h2>

@@ -13,8 +13,10 @@ import HotDeal from "../../public/images/menu/hotdeal.png";
 import Oto from "../../public/images/menu/car-menu.png";
 import Moto from "../../public/images/menu/moto.png";
 import Family from "../../public/images/menu/family.png";
+import { useRouter } from "next/router";
 
 export default function MenuScroll() {
+  const router = useRouter();
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const [menuItem, setMenuItem] = useState(false);
   const [typeMenu, setTypeMenu] = useState("");
@@ -121,7 +123,10 @@ export default function MenuScroll() {
                     </div>
                     <div
                       className="item-wrap"
-                      onClick={() => setMenuItem(!menuItem)}
+                      onClick={() => {
+                        setMenuItem(!menuItem);
+                        router.push('/san-pham/oto#mua-ngay')
+                      }}
                     >
                       <Image
                         // onClick={toggleNavbar}
@@ -134,7 +139,10 @@ export default function MenuScroll() {
                     </div>
                     <div
                       className="item-wrap"
-                      onClick={() => setMenuItem(!menuItem)}
+                      onClick={() => {
+                        setMenuItem(!menuItem);
+                        router.push('/san-pham/tnds#mua-ngay')
+                      }}
                     >
                       <Image
                         // onClick={toggleNavbar}
@@ -147,7 +155,10 @@ export default function MenuScroll() {
                     </div>
                     <div
                       className="item-wrap"
-                      onClick={() => setMenuItem(!menuItem)}
+                      onClick={() => {
+                        setMenuItem(!menuItem);
+                        router.push('/san-pham/an-gia#mua-ngay')
+                      }}
                     >
                       <Image
                         // onClick={toggleNavbar}
