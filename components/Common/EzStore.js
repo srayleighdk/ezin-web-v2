@@ -113,7 +113,7 @@ export default function EzStore({ topStores }) {
           className="brand-slide text-left"
         >
           {topStores?.map((item) => (
-            <SwiperSlide className="slider-news me-2" key={item._id}>
+            <SwiperSlide className="slider-news me-4" key={item._id}>
               <div className="single-news">
                 <div className="news-content-wrap">
                   <div

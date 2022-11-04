@@ -141,7 +141,10 @@ const Navbar = () => {
 
               <Link href="/" passHref>
                 <Image
-                  onClick={toggleNavbar}
+                  onClick={() => {
+                    setChildItem(false);
+                    setCollapse(true);
+                  }}
                   src={NewHeaderLogo}
                   alt="logo-header"
                   layout="intrinsic"
@@ -587,7 +590,10 @@ const Navbar = () => {
 
               <Link href="/" passHref>
                 <Image
-                  onClick={toggleNavbar}
+                  onClick={() => {
+                    setChildItem(false);
+                    setCollapse(true);
+                  }}
                   src={NewHeaderLogo}
                   alt="logo-header"
                   layout="intrinsic"

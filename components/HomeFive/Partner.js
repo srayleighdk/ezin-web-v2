@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function Partner({ partners = {} }) {
+  const router = useRouter();
   return (
     <div className="brand-area">
       <div className="container my-5">
@@ -37,6 +39,46 @@ export default function Partner({ partners = {} }) {
               </a> */}
             </div>
           ))}
+        </div>
+        <div className="row partner">
+          <div className="col-6" onClick={() => router.push('/tra-cuu')}>
+            <div className="bussiness">
+              <div className="position-relative">
+                <img
+                  src="/images/circle1.png"
+                  alt="circle"
+                  className="circle"
+                />
+                <img
+                  src="/images/bussiness.png"
+                  alt="kinh doanh"
+                  className="icon"
+                />
+              </div>
+              <div className="title">
+                Kinh doanh bảo hiểm tích hợp cho Website và App
+              </div>
+            </div>
+          </div>
+          <div className="col-6" onClick={() => router.push('/tra-cuu')}>
+            <div className="bussiness invest">
+              <div className="position-relative">
+                <img
+                  src="/images/circle4.png"
+                  alt="circle"
+                  className="circle"
+                />
+                <img
+                  src="/images/invest.png"
+                  alt="Đầu tư"
+                  className="icon"
+                />
+              </div>
+              <div className="title">
+                Đầu tư Zone Startups
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

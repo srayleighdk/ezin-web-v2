@@ -222,6 +222,45 @@
         }
     }
 
+    .news-web,
+    .community-web,
+    .recommend {
+        display: none;
+    }
+
+    .partner {
+        margin-top: 12px;
+
+        .bussiness {
+            height: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            flex-direction: column;
+
+            .title {
+                height: 100px;
+                width: auto;
+                font-size: 18px;
+                line-height: 26px;
+                margin-top: 12px;
+                text-align: center;
+                line-height: 26px !important;
+            }
+        }
+
+        &.invest {
+            .title {
+                height: 100px;
+                width: auto;
+                font-size: 18px;
+                line-height: 26px;
+                margin-top: 12px;
+                text-align: center;
+                line-height: 26px !important;
+            }
+        }
+    }
+
     .ptb-100 {
         padding-top: 50px;
         padding-bottom: 50px;
