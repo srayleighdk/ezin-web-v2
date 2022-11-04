@@ -6,6 +6,7 @@ import Banner from "../components/Common/Banner";
 import Recommend from "../components/Recommend";
 import HotDeals from "../components/Common/HotDeals";
 import EzStore from "../components/Common/EzStore";
+import ProcessBuy from "../components/Common/ProcessBuy";
 import Compensation from "../components/CompensationProcess";
 import Partner from "../components/HomeFive/Partner";
 import CommunityEzin from "../components/HomeFive/CommunityEzin";
@@ -126,9 +127,11 @@ const Home = ({
 
       <Products allNodeProducts={allNodeProducts} />
 
-      <Compensation />
-
       <Groups />
+
+      <ProcessBuy />
+
+      <Compensation />
 
       {/* <HotDeals allNodeProducts={allNodeProducts} /> */}
 

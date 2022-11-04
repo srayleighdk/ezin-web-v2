@@ -9,7 +9,7 @@ const Testimonials = ({ testimonials }) => {
   const [hidden, setHidden] = useState("");
 
   return (
-    <section className="brand-area ptb-100 pb-3">
+    <section id="indemnify" className="brand-area ptb-100 pb-3">
       {hidden === "reviews" || hidden === "" ? (
       <div className="container">
         <div className="section-title">

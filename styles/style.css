@@ -7190,6 +7190,11 @@ h3 {
   background: #F5FAFF;
 }
 
-.btn-process {
+.btn-process,
+.btn-process:hover {
   color: #167FFC;
+}
+
+.padding-btn {
+  padding: 12px 32px;
 }
