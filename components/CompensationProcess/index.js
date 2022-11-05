@@ -9,7 +9,7 @@ export default function Compensation() {
   const [current, setCurrent] = useState(0);
 
   return (
-    <section className="bg-process">
+    <section className="bg-process process-main">
       <div className="container process py-4">
         <div className="text-center">
           <h3 className="title">

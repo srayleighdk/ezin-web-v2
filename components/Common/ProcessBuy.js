@@ -4,7 +4,7 @@ import ButtonEzin from "./Button";
 export default function ProcessBuy() {
     const router = useRouter();
   return (
-    <div className="processbuy d-flex align-items-center">
+    <section className="processbuy">
       <div className="container">
         <img
           src="/images/processBuy.png"
@@ -84,6 +84,6 @@ export default function ProcessBuy() {
           <ButtonEzin types="secondary" onClick={() => router.push("/#san-pham")}>Mua bảo hiểm ngay</ButtonEzin>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

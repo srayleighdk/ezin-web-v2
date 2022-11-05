@@ -8736,7 +8736,7 @@ h5 {
 	width: 206px;
 	height: 68px;
 	padding: 0;
-	// padding: 14px 24px;
+	padding: 14px 0px !important;
 	border: none !important;
 }
 
@@ -9127,6 +9127,8 @@ h5 {
 }
 
 .processbuy {
+	display: flex;
+	align-items: center;
 	background: linear-gradient(105.92deg, #1268CD 15.1%, #34A0DC 100%);
 	height: 577px;
 	position: relative;
