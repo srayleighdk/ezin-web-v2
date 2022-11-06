@@ -20,7 +20,7 @@ export default function ListNewsLife({
   }
 
   return (
-    <section className="news-details-area news-right-sidebar-area ptb-100 mt-3">
+    <section className="news-details-area news-right-sidebar-area ptb-100 mt-3 pt-5">
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-md-12">

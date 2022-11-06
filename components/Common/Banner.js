@@ -9,7 +9,7 @@ class Banner extends Component {
       <div className="ptb-100 position-relative" style={{ padding: "30px 0" }}>
         {/* <img src="/images/brands/arrow.png" alt="Image" className="home-brand-arrow" />
                 <h4 className="home-brand-title font-weight-700 color-white">Tin tức mới nhất</h4> */}
-        <div className="container mb-20 mt-20">
+        <div className="container mb-20 mt-20 position-relative">
           <Swiper
             spaceBetween={25}
             navigation={true}
@@ -33,7 +33,7 @@ class Banner extends Component {
             }}
             modules={[Navigation, Autoplay]}
             style={{ width: "90%" }}
-            className="brand-slide text-left"
+            className="brand-slide text-left position-unset"
           >
             <SwiperSlide className="slider-news">
               <Link href="tra-cuu">

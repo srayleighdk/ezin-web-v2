@@ -14,7 +14,7 @@ export default function ListTags({ arrBlogs, arrCats, arrNewsestPost, idCat }) {
   }
 
   return (
-    <section className="news-details-area news-right-sidebar-area my-3 mt-3">
+    <section className="news-details-area news-right-sidebar-area my-3 mt-3 pt-4">
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-md-12">

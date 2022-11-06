@@ -50,7 +50,7 @@ export default function EzStore({ topStores }) {
       className="ptb-100 topStore position-relative"
       style={{ padding: "30px 0" }}
     >
-      <div className="container mb-20 mt-20 rounded-3">
+      <div className="container mb-20 mt-20 rounded-3 position-relative">
         <div className="section-title text-40" style={{ maxWidth: 700 }}>
           <h2>
             <span className=" color-primary">EzStore</span> bán bảo hiểm cực dễ
@@ -110,7 +110,7 @@ export default function EzStore({ topStores }) {
           }}
           modules={[Navigation, Autoplay]}
           style={{ width: "90%" }}
-          className="brand-slide text-left"
+          className="brand-slide text-left position-unset"
         >
           {topStores?.map((item) => (
             <SwiperSlide className="slider-news me-4" key={item._id}>

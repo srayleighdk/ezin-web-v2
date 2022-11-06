@@ -25,7 +25,7 @@ export default function ListTopic({
       <Head>
         <title> Blog</title>
       </Head>
-      <section className="news-details-area news-right-sidebar-area my-3 mt-3">
+      <section className="news-details-area news-right-sidebar-area my-3 mt-3 pt-5">
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-md-12">

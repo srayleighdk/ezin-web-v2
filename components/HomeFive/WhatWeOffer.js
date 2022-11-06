@@ -12,6 +12,7 @@ import { useMediaQuery } from "react-responsive";
 import { getFAQContent } from "../../pages/api";
 import { createMarkupNormal } from "../../utils/auth.helper";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
+import ContentFAQ from "../Faq";
 const { Panel } = Collapse;
 
 export default function WhatWeOffer({ faqCat }) {
@@ -291,7 +292,7 @@ export default function WhatWeOffer({ faqCat }) {
                               <div className="row">
                                 <div className="col-lg-12">
                                   <div className="faq-accordion">
-                                    <Collapse
+                                    {/* <Collapse
                                       defaultActiveKey={["1"]}
                                       accordion
                                       expandIconPosition="end"
@@ -310,7 +311,8 @@ export default function WhatWeOffer({ faqCat }) {
                                           ></p>
                                         </Panel>
                                       ))}
-                                    </Collapse>
+                                    </Collapse> */}
+                                    <ContentFAQ faqContent={faqContent} classnamePanel="home_faq" />
                                   </div>
                                 </div>
                               </div>

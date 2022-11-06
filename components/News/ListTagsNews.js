@@ -19,7 +19,7 @@ export default function ListTagsNews({
   }
 
   return (
-    <section className="news-details-area news-right-sidebar-area my-3 ">
+    <section className="news-details-area news-right-sidebar-area my-3 pt-5">
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-md-12">

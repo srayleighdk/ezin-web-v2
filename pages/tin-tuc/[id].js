@@ -25,8 +25,7 @@ export default function Blog({
         <title>{blogDetail.title}</title>
       </Head>
       <section
-        className="news-details-area ptb-100"
-        style={{ paddingTop: "150px" }}
+        className="news-details-area ptb-100 mt-5 pt-5"
       >
         <div className="container">
           <div className="row">

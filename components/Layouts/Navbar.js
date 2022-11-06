@@ -193,6 +193,34 @@ const Navbar = () => {
                               </li>
                             </a>
                           </Link>
+                          <Link href="/forgot-password">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Quên mật khẩu
+                              </li>
+                            </a>
+                          </Link>
+                          <Link href="/tra-cuu">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Tra cứu bảo hiểm
+                              </li>
+                            </a>
+                          </Link>
                           <ButtonEzin
                             types="secondary"
                             className="nav-btn mt-3"
@@ -274,7 +302,7 @@ const Navbar = () => {
                               }}
                             >
                               <li className="nav-item dropend cursor-pointer">
-                                Tra cứu bảo hiểm 11111
+                                Tra cứu bảo hiểm
                               </li>
                             </a>
                           </Link>
@@ -287,9 +315,7 @@ const Navbar = () => {
                             }}
                           >
                             <Link href="/kich-hoat-the">
-                              <a>
-                                  Kích hoạt
-                              </a>
+                              <a>Kích hoạt</a>
                             </Link>
                           </ButtonEzin>
                           <ButtonEzin
@@ -381,6 +407,37 @@ const Navbar = () => {
                         </>
                       ) : (
                         <>
+                          {headers &&
+                            headers.map((header) => {
+                              return (
+                                // <li className={`nav-item ${isMobile && "w-100"}`} key={header.key}>
+                                <li
+                                  className={`nav-item w-100`}
+                                  key={header.key}
+                                >
+                                  <Link href={header.link}>
+                                    <a
+                                      className={`nav-link text-black text-start ${
+                                        header.label === "Ezin Life" && "mb-1"
+                                      } d-flex align-items-center justify-content-between`}
+                                      onClick={() => {
+                                        if (header.label === "Sản phẩm") {
+                                          toggleNavbar("Sản phẩm");
+                                        } else {
+                                          toggleNavbar();
+                                        }
+                                      }}
+                                      // onClick={(e) => e.preventDefault()}
+                                    >
+                                      {header.label}
+                                      {header.label === "Sản phẩm" && (
+                                        <RightOutlined />
+                                      )}{" "}
+                                    </a>
+                                  </Link>
+                                </li>
+                              );
+                            })}
                           <Link href="/login">
                             <a
                               className={`text-dark text-capitalize w-100 ${
@@ -415,7 +472,7 @@ const Navbar = () => {
                               </li>
                             </a>
                           </Link>
-                          <Link href="/forgot-password">
+                          {/* <Link href="/forgot-password">
                             <a
                               className={`text-dark text-capitalize w-100 ${
                                 isMobile && "text-start"
@@ -428,8 +485,8 @@ const Navbar = () => {
                                 Quên mật khẩu
                               </li>
                             </a>
-                          </Link>
-                          <Link href="/tra-cuu">
+                          </Link> */}
+                          {/* <Link href="/tra-cuu">
                             <a
                               className={`text-dark text-capitalize w-100 ${
                                 isMobile && "text-start"
@@ -439,10 +496,10 @@ const Navbar = () => {
                               }}
                             >
                               <li className="nav-item dropend cursor-pointer">
-                                Tra cứu bảo hiểm
+                                Tra cứu bảo hiểm 22222
                               </li>
                             </a>
-                          </Link>
+                          </Link> */}
                           <ButtonEzin
                             types="secondary"
                             className="nav-btn mt-3"

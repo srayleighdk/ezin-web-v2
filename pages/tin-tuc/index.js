@@ -1,16 +1,17 @@
 import React from "react";
 import Head from "next/head";
-import { getNewsByChuDe } from "../../pages/api";
+import { getNewestPost, getNewsByChuDe, getPostCategories } from "../../pages/api";
 import { useRouter } from "next/router";
 import { Tabs } from "antd";
 import ListNews from "../../components/News/ListNews";
 
 const { TabPane } = Tabs;
 const id = "tin-nong";
-function TinTuc({ arrBlogs = [] }) {
+function TinTuc({ arrBlogs = [], postNewest = [], arrCats = [] }) {
   const router = useRouter();
 
   const onChangeTab = (slug) => {
+    console.log("slug", slug);
     if (slug == "tin-nong") {
       router.replace(`/tin-tuc`);
     } else {
@@ -40,7 +41,7 @@ function TinTuc({ arrBlogs = [] }) {
         <TabPane tab="Tai nạn" key="tai-nan"></TabPane>
       </Tabs>
       <div className="container blog-container">
-        <ListNews blogs={arrBlogs} />
+        <ListNews blogs={arrBlogs} postNewest={postNewest} arrCats={arrCats} />
       </div>
     </div>
   );
@@ -48,10 +49,16 @@ function TinTuc({ arrBlogs = [] }) {
 
 // This function gets called at build time
 export async function getServerSideProps() {
-  let res = await getNewsByChuDe("tin-nong");
+  let [res, res2, res3] = await Promise.all([
+    getNewsByChuDe("tin-nong"),
+    getNewestPost(),
+    getPostCategories(),
+  ]);
   return {
     props: {
       arrBlogs: res?.data?.data,
+      postNewest: res2?.data?.data,
+      arrCats: res3?.data?.data,
     },
   };
 }

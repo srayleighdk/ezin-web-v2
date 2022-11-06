@@ -534,7 +534,7 @@ Default Btn Area Style
 		}
 	}
 	&:hover {
-		color: $white-color;
+		color: #000000;
 		transition: $transition;
 		&::before {
 			left: 200px;
@@ -3197,8 +3197,8 @@ FAQ CSS
 				font-size: 18px;
 				line-height: 30px;
 				text-align: start;
-				padding-left: 24px;
-				padding-right: 26px;
+				// padding-left: 24px;
+				// padding-right: 26px;
 			}
 
 			.ant-collapse-arrow {
@@ -5273,7 +5273,7 @@ Service Details Area Style
 @import "./antd-custom-style.scss";
 // fix scroll to id element height
 body {
-  font-family: 'Gilroy',sans-serif !important;
+  font-family: 'Inter',sans-serif !important;
 }
 h1 {
   font-size: 2.125rem !important;
@@ -6073,6 +6073,7 @@ h1 {
 }
 
 .custom-tabar {
+	display: none;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.24);
   background-color: white;
 
@@ -8744,7 +8745,7 @@ h5 {
 	font-weight: 600;
 	font-size: 20px;
 	line-height: 32px;
-	width: 102px;
+	width: auto;
 	height: 32px;
 }
 
@@ -9191,5 +9192,23 @@ h5 {
 
 	.btn-process-buy {
 		margin-top: 50px;
+	}
+}
+
+.faq__header-item {
+	.ant-collapse-header {
+		padding: 9px 24px !important;
+
+		.ant-collapse-header-text {
+			color: #000000 !important;
+			font-weight: 700;
+			font-size: 16px !important;
+		}
+	}
+}
+
+.home_faq {
+	.ant-collapse-header {
+		padding: 6px 40px 6px 24px !important;
 	}
 }

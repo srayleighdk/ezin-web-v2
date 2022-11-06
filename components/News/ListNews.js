@@ -5,8 +5,9 @@ import NewsSidebarNews from "./NewsSidebarNews";
 import dayjs from "dayjs";
 import styles from "../../pages/life/life.module.scss";
 
-export default function ListNews({ arrBlogs, arrCats, arrNewsestPost, idCat }) {
-  const paginationNumber = Math.ceil(arrBlogs?.length / 6);
+export default function ListNews({ blogs, arrCats, postNewest, idCat }) {
+  console.log("blogs", blogs)
+  const paginationNumber = Math.ceil(blogs?.length / 6);
   const [pagiNumber, setPagiNumber] = useState(1);
   const isVideo = idCat == "video";
   let pagination = [];
@@ -17,7 +18,6 @@ export default function ListNews({ arrBlogs, arrCats, arrNewsestPost, idCat }) {
   return (
     <section
       className="news-details-area news-right-sidebar-area ptb-100"
-      style={{ paddingTop: "150px" }}
     >
       <div className="container">
         <div className="row">
@@ -29,13 +29,13 @@ export default function ListNews({ arrBlogs, arrCats, arrNewsestPost, idCat }) {
                   <span className="badge bg-primary text-16">{idCat}</span>
                 </div>
               )}
-              {arrBlogs?.length === 0 ? (
+              {blogs?.length === 0 ? (
                 <h4 className="text-center" style={{ paddingTop: "50px" }}>
                   Hiện Ezin chưa có bài viết chủ đề này, vui lòng quay lại sau
                   nhé!
                 </h4>
               ) : (
-                arrBlogs?.map((item, index) => {
+                blogs?.map((item, index) => {
                   if (
                     index >= (pagiNumber - 1) * 6 &&
                     index <= pagiNumber * 6 - 1
@@ -46,11 +46,11 @@ export default function ListNews({ arrBlogs, arrCats, arrNewsestPost, idCat }) {
                           <div className="single-news">
                             <div className="blog-img">
                               <Link
-                                href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                                href={`/tin-tuc/${item.url}`}
                               >
                                 <a>
                                   <img
-                                    src={item.post_thumbnail}
+                                    src={item.img_hor}
                                     style={{ height: 240 }}
                                     alt="Image"
                                   />
@@ -59,7 +59,7 @@ export default function ListNews({ arrBlogs, arrCats, arrNewsestPost, idCat }) {
 
                               <div className="dates">
                                 <span>
-                                  {dayjs(item.updated_at).format("DD-MM-YYYY")}
+                                  {dayjs(item.publishedAt).format("DD-MM-YYYY")}
                                 </span>
                               </div>
                             </div>
@@ -67,10 +67,10 @@ export default function ListNews({ arrBlogs, arrCats, arrNewsestPost, idCat }) {
                             <div
                               className={`news-content-wrap ${styles.height_313}`}
                             >
-                              <ul>
+                              {/* <ul>
                                 <li>
                                   <Link
-                                    href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                                    href={`/tin-tuc/${item.url}`}
                                   >
                                     <a>
                                       <i className="flaticon-user"></i>{" "}
@@ -82,24 +82,24 @@ export default function ListNews({ arrBlogs, arrCats, arrNewsestPost, idCat }) {
                                   <i className="flaticon-conversation"></i>{" "}
                                   {item.post.comment_count} Bình luận
                                 </li>
-                              </ul>
+                              </ul> */}
 
                               <Link
-                                href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                                href={`/tin-tuc/${item.url}`}
                               >
                                 <a>
-                                  <h3>{item.post.post_title}</h3>
+                                  <h3>{item.title}</h3>
                                 </a>
                               </Link>
 
                               <p
                                 className={`${styles.post_description} text-dot-4`}
                               >
-                                {item.post.post_excerpt}
+                                {item.description}
                               </p>
 
                               <Link
-                                href={`/life/p/${item.post_id}/${item.post.post_name}`}
+                                href={`/tin-tuc/${item.url}`}
                               >
                                 <a className="read-more">
                                   Xem thêm <i className="bx bx-plus"></i>
@@ -213,7 +213,7 @@ export default function ListNews({ arrBlogs, arrCats, arrNewsestPost, idCat }) {
           <div className="col-lg-4 col-md-12">
             <NewsSidebarNews
               arrCats={arrCats}
-              arrNewsestPost={arrNewsestPost}
+              postNewest={postNewest}
             />
           </div>
         </div>

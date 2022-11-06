@@ -21,8 +21,7 @@ export default function ListTopicNews({
 
   return (
     <section
-      className="news-details-area news-right-sidebar-area my-3 "
-      style={{ paddingTop: "150px" }}
+      className="news-details-area news-right-sidebar-area my-3 pt-5"
     >
       <div className="container">
         <div className="row">
