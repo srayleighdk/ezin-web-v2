@@ -5,8 +5,10 @@ import Link from "next/link";
 import { getDistricts, getWards, getCities } from "../../pages/api";
 import { getImageUrl } from "../../utils/helpers";
 import ButtonEzin from "./Button";
+import { useRouter } from "next/router";
 
 export default function EzStore({ topStores }) {
+  const router = useRouter();
   const [cities, setCities] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [wards, setWards] = useState([]);
@@ -120,7 +122,7 @@ export default function EzStore({ topStores }) {
                     className="blog-img mb-2 text-center"
                     style={{ height: 100 }}
                   >
-                    <Link href="/tra-cuu">
+                    <Link href="https://store.ezin.vn/">
                       <a>
                         <img
                           src={getImageUrl(item?.agency_id?.avatar?.path)}
@@ -160,7 +162,7 @@ export default function EzStore({ topStores }) {
 
                   <ButtonEzin
                     types="primary"
-                    onClick={() => router.push("/tra-cuu")}
+                    onClick={() => router.push("https://store.ezin.vn/")}
                     className="default-btn btn-full-width text-center"
                   >
                     Liên hệ

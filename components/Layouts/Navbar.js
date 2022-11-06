@@ -311,12 +311,10 @@ const Navbar = () => {
                             className="nav-btn mt-3"
                             onClick={() => {
                               toggleNavbar();
-                              // router.push('/kich-hoat-the');
+                              router.push('/kich-hoat-the');
                             }}
                           >
-                            <Link href="/kich-hoat-the">
-                              <a>Kích hoạt</a>
-                            </Link>
+                              Kích hoạt
                           </ButtonEzin>
                           <ButtonEzin
                             types="primary"
@@ -740,6 +738,10 @@ const Navbar = () => {
                   <ButtonEzin
                     types="secondary"
                     className="px-4 py-2 btn-nav-web"
+                    onClick={() => {
+                      toggleNavbar();
+                      router.push("/kich-hoat-the");
+                    }}
                   >
                     Kích hoạt
                   </ButtonEzin>

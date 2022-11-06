@@ -131,7 +131,7 @@ export default function CommunityEzin() {
           </div>
         </div>
         <div className="row mt-5 community-web">
-          <div className="col-4" onClick={() => router.push('/tra-cuu')}>
+          <div className="col-4 cursor-pointer" onClick={() => router.push('/tra-cuu')}>
             <div className="d-flex justify-content-between align-items-center bg-white community rounded">
               <div className="community-circle rounded-circle ms-2 position-relative">
                 <img src="/images/affiliate-community.png" className="icon" />
@@ -139,7 +139,7 @@ export default function CommunityEzin() {
               <div className="community-title me-3">Cộng đồng kiếm tiền online affiliate</div>
             </div>
           </div>
-          <div className="col-4" onClick={() => router.push('/tra-cuu')}>
+          <div className="col-4 cursor-pointer" onClick={() => router.push('/tra-cuu')}>
             <div className="d-flex justify-content-between align-items-center bg-white community rounded">
               <div className="community-circle publisher rounded-circle ms-2 position-relative">
                 <img src="/images/leadership.png" className="icon" />
@@ -147,7 +147,7 @@ export default function CommunityEzin() {
               <div className="community-title me-3">Cộng đồng publisher</div>
             </div>
           </div>
-          <div className="col-4" onClick={() => router.push('/tra-cuu')}>
+          <div className="col-4 cursor-pointer" onClick={() => router.push('/tra-cuu')}>
             <div className="d-flex justify-content-between align-items-center bg-white community rounded">
               <div className="community-circle ezstore rounded-circle ms-2 position-relative">
                 <img src="/images/facebook.png" className="icon" />

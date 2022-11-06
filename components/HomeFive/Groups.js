@@ -1,7 +1,9 @@
+import { useRouter } from "next/router";
 import React, { Component } from "react";
 import { useMediaQuery } from "react-responsive";
 
 export default function WhyChooseUs() {
+  const router = useRouter();
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   return (
@@ -10,9 +12,14 @@ export default function WhyChooseUs() {
         <div className="container">
           <div className="d-flex row align-items-center justify-content-between flex-sm-row flex-wrap">
             <div
-              className="col-lg-3 col-sm-6 col-6 h-group my-2 fluid d-flex text-center px-0 justify-content-between rounded"
+              className="col-lg-3 col-sm-6 col-6 h-group my-2 fluid d-flex text-center px-0 justify-content-between rounded cursor-pointer"
+              onClick={() => router.push("/tra-cuu")}
             >
-              <div className={`m-2 ${isMobile ? "flex-column pt-3" : "flex-row py-3 ps-3 pe-2"} w-100 group-wrap align-items-center`}>
+              <div
+                className={`m-2 ${
+                  isMobile ? "flex-column pt-3" : "flex-row py-3 ps-3 pe-2"
+                } w-100 group-wrap align-items-center`}
+              >
                 <div className="position-relative">
                   <img src="/images/circle1.png" alt="circle" />
                   <img
@@ -27,8 +34,15 @@ export default function WhyChooseUs() {
               </div>
             </div>
 
-            <div className="col-lg-3 col-sm-6 col-6 h-group my-2 d-flex text-center px-0 justify-content-between rounded">
-              <div className={`m-2 ${isMobile ? "flex-column pt-3" : "flex-row py-3 ps-3 pe-2"} w-100 group-wrap align-items-center`}>
+            <div
+              className="col-lg-3 col-sm-6 col-6 h-group my-2 d-flex text-center px-0 justify-content-between rounded cursor-pointer"
+              onClick={() => router.push("/tra-cuu")}
+            >
+              <div
+                className={`m-2 ${
+                  isMobile ? "flex-column pt-3" : "flex-row py-3 ps-3 pe-2"
+                } w-100 group-wrap align-items-center`}
+              >
                 <div className="position-relative">
                   <img src="/images/circle2.png" alt="circle" />
                   <img
@@ -43,8 +57,15 @@ export default function WhyChooseUs() {
               </div>
             </div>
 
-            <div className="col-lg-3 col-sm-6 col-6 h-group my-2 position-relative d-flex text-center px-0 justify-content-between rounded">
-              <div className={`m-2 ${isMobile ? "flex-column pt-3" : "flex-row py-3 ps-3 pe-2"} w-100 group-wrap align-items-center`}>
+            <div
+              className="col-lg-3 col-sm-6 col-6 h-group my-2 position-relative d-flex text-center px-0 justify-content-between rounded cursor-pointer"
+              onClick={() => router.push("/tra-cuu")}
+            >
+              <div
+                className={`m-2 ${
+                  isMobile ? "flex-column pt-3" : "flex-row py-3 ps-3 pe-2"
+                } w-100 group-wrap align-items-center`}
+              >
                 <div className="position-relative">
                   <img src="/images/circle3.png" alt="circle" />
                   <img
@@ -59,8 +80,15 @@ export default function WhyChooseUs() {
               </div>
             </div>
 
-            <div className="col-lg-3 col-sm-6 col-6 h-group my-2 position-relative d-flex text-center px-0 justify-content-between rounded">
-              <div className={`m-2 ${isMobile ? "flex-column pt-3" : "flex-row py-3 ps-3 pe-2"} w-100 group-wrap align-items-center`}>
+            <div
+              className="col-lg-3 col-sm-6 col-6 h-group my-2 position-relative d-flex text-center px-0 justify-content-between rounded cursor-pointer"
+              onClick={() => router.push("/tra-cuu")}
+            >
+              <div
+                className={`m-2 ${
+                  isMobile ? "flex-column pt-3" : "flex-row py-3 ps-3 pe-2"
+                } w-100 group-wrap align-items-center`}
+              >
                 <div className="position-relative">
                   <img src="/images/circle4.png" alt="circle" />
                   <img

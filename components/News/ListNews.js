@@ -214,6 +214,7 @@ export default function ListNews({ blogs, arrCats, postNewest, idCat }) {
             <NewsSidebarNews
               arrCats={arrCats}
               postNewest={postNewest}
+              arrNewsestPost={postNewest}
             />
           </div>
         </div>
