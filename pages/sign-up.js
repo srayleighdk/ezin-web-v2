@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Layouts/Navbar";
 import PageBanner from "../components/Common/PageBanner";
 import Footer from "../components/Layouts/Footer";
@@ -11,6 +11,7 @@ import {
   newPasswordApi,
   resendOTPApi,
 } from "../pages/api";
+import { Input } from "antd";
 import { makeOTPVisible, makeModalData } from "../src/store/modal/selector";
 import { useSelector, useDispatch } from "react-redux";
 import { normalizePhoneNumber } from "../utils/helpers";
@@ -37,6 +38,7 @@ export async function getServerSideProps() {
 const COUNTDOWN_TIME = 59;
 
 export default function SignUp({ headers }) {
+  const otpRef = useRef(null);
   const router = useRouter();
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const [arrCode, setArrCode] = useState("");
@@ -90,6 +92,7 @@ export default function SignUp({ headers }) {
         setStep(3);
       } else {
         setMessage("Mã OTP không hợp lệ");
+        // setArrCode("");
         // button_ref.current.disabled = false;
         // message.error(res.msg);
       }
@@ -133,6 +136,29 @@ export default function SignUp({ headers }) {
     } catch (err) {
       console.log(err);
     }
+
+    // try {
+    //   setArrCode("");
+    //   otpRef.current.input.focus();
+
+    //   const res = await resendOTPApi({ username: submitData?.username });
+    //   if (res.success) {
+    //     message.success(res.msg);
+    //     setCountdown(COUNTDOWN_TIME);
+    //     setMessage(`Mã OTP đã được gửi đến số điện thoại ${phone}`);
+    //   } else {
+    //     message.error(res.msg);
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    // }
+  };
+
+  const onOTPChange = (e) => {
+    setArrCode(otpRef.current.input.value);
+    if (otpRef.current.input.value.length === 4) {
+      onFormSubmit2(otpRef.current.input.value);
+    }
   };
 
   const render = () => {
@@ -159,7 +185,11 @@ export default function SignUp({ headers }) {
             </div>
           </div>
           <div className="col-12">
-            <ButtonEzin className="btn-full-width default-btn btn-two" types="primary" type="submit">
+            <ButtonEzin
+              className="btn-full-width default-btn btn-two"
+              types="primary"
+              type="submit"
+            >
               Đăng ký
             </ButtonEzin>
           </div>
@@ -171,7 +201,7 @@ export default function SignUp({ headers }) {
           <div className="text-center mb-3">
             Mã xác thực đã được gửi vào số điện thoại {phone}
           </div>
-          <div className="d-flex justify-content-center">
+          {/* <div className="d-flex justify-content-center">
             <OtpInput
               className="OTP__checkInput mx-4 mb-2 mt-2"
               value={arrCode}
@@ -185,6 +215,25 @@ export default function SignUp({ headers }) {
               shouldAutoFocus={true}
               // separator={<span>-</span>}
             />
+          </div> */}
+          <div className="flex justify-center">
+            <div className="input-container">
+              <Input
+                className="OTP_input"
+                maxLength={4}
+                onChange={onOTPChange}
+                ref={otpRef}
+                value={arrCode}
+                autoFocus
+                inputMode="numeric"
+              />
+              <div size="large" className="OTP_linebottom">
+                <div className="OTP_line_item line-1 bg-black"></div>
+                <div className="OTP_line_item line-2 bg-black"></div>
+                <div className="OTP_line_item line-3 bg-black"></div>
+                <div className="OTP_line_item line-4 bg-black"></div>
+              </div>
+            </div>
           </div>
           <div
             className={`${
@@ -193,19 +242,10 @@ export default function SignUp({ headers }) {
           >
             {message}
           </div>
-          <div className="d-flex flex-column-reverse">
-            <div className="col-lg-6 col-12 mt-ms-12">
-              {/* <button
-                className="default-btn btn-two"
-                onClick={() => {
-                  setMessage("");
-                  setStep(1);
-                }}
-              >
-                Quay lại
-              </button> */}
+          <div className="d-flex sign-up-gruop-btn justify-content-between">
+            <div className="col-lg-5 col-12 mt-ms-12">
               <ButtonEzin
-                className="default-btn btn-two p-3"
+                className="default-btn btn-two p-3 btn-full-width"
                 types="default"
                 onClick={() => {
                   setMessage("");
@@ -215,8 +255,12 @@ export default function SignUp({ headers }) {
                 Quay lại
               </ButtonEzin>
             </div>
-            <div className="col-lg-6 col-12">
-              <ButtonEzin className="default-btn btn-two p-3 btn-full-width" types="primary" type="submit">
+            <div className="col-lg-5 col-12">
+              <ButtonEzin
+                className="default-btn btn-two p-3 btn-full-width"
+                types="primary"
+                type="submit"
+              >
                 Xác nhận
               </ButtonEzin>
             </div>
@@ -224,10 +268,13 @@ export default function SignUp({ headers }) {
           <div className="text-center mt-3">
             Không nhận được mã.{" "}
             {countdown === 0 ? (
-              <u className="cursor-pointer pl-1" onClick={() => {
-                setMessage("");
-                onResend();
-                }}>
+              <u
+                className="cursor-pointer pl-1"
+                onClick={() => {
+                  setMessage("");
+                  onResend();
+                }}
+              >
                 GỬI LẠI
               </u>
             ) : (
@@ -297,7 +344,11 @@ export default function SignUp({ headers }) {
           </div>
           <div className="text-center text-danger mb-2">{message}</div>
           <div className="col-12">
-            <ButtonEzin className="w-100 default-btn btn-two btn-full-width" types="primary" type="submit">
+            <ButtonEzin
+              className="w-100 default-btn btn-two btn-full-width"
+              types="primary"
+              type="submit"
+            >
               Xác nhận
             </ButtonEzin>
           </div>
@@ -308,7 +359,11 @@ export default function SignUp({ headers }) {
         <>
           <div className="text-center mb-3">{message}</div>
           <div className="col-12">
-            <button className="w-100 default-btn btn-two btn-full-width" types="primary" type="submit">
+            <button
+              className="w-100 default-btn btn-two btn-full-width"
+              types="primary"
+              type="submit"
+            >
               Đến trang chủ
             </button>
           </div>

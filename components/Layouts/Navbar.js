@@ -178,6 +178,36 @@ const Navbar = () => {
                     {isMobile ? (
                       auth?.full_name || auth?.username ? (
                         <>
+                          {/* <li className="d-flex">
+                            <Avatar
+                              size="small"
+                              className="bg-dark me-2"
+                              icon={<UserOutlined />}
+                            />
+                            <p className="">
+                              {auth?.full_name || auth?.username}
+                            </p>
+                          </li> */}
+                          <Link href="#">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                                logout();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer d-flex">
+                                <Avatar
+                                  size="small"
+                                  className="bg-dark me-2"
+                                  icon={<UserOutlined />}
+                                />
+                                {auth?.full_name || auth?.username}
+                              </li>
+                            </a>
+                          </Link>
                           <Link href="#">
                             <a
                               className={`text-dark text-capitalize w-100 ${
@@ -311,10 +341,10 @@ const Navbar = () => {
                             className="nav-btn mt-3"
                             onClick={() => {
                               toggleNavbar();
-                              router.push('/kich-hoat-the');
+                              router.push("/kich-hoat-the");
                             }}
                           >
-                              Kích hoạt
+                            Kích hoạt
                           </ButtonEzin>
                           <ButtonEzin
                             types="primary"

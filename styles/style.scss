@@ -9220,3 +9220,106 @@ h5 {
 .hopdong-info {
 	margin-top: 64px;
 }
+
+// OTP
+.input-container {
+    width: 285px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    
+    .ant-input {
+    //   padding-left: 17px !important;
+    }
+    .ant-input:focus {
+      box-shadow: none;
+    }
+
+    @media (max-width: 480px) {
+      .ant-input {
+        // padding-left: 15px !important;
+      }
+      .OTP_input {
+        letter-spacing: 54px !important;
+        // padding-left: 65px !important;
+        // padding-right: 65px !important;
+      }
+
+	  .OTP_linebottom {
+		.OTP_line_item {
+			&.line-2 {
+				margin-right: 2%;
+			}
+			&.line-3 {
+				margin-right: 2%;
+			}
+			&.line-4 {
+				margin-right: 4%;
+			}
+		}
+	  }
+    }
+
+	@media (min-width: 481px) {
+		.OTP_linebottom {
+			.OTP_line_item {
+				&.line-2 {
+					margin-right: 2%;
+				}
+				&.line-3 {
+					margin-right: 2%;
+				}
+			}
+		}
+	}
+
+    .OTP_input {
+      letter-spacing: 58px;
+      height: 50px;
+      font-size: 30px;
+      border: none;
+	  box-shadow: none;
+      // width: 300px !important;
+      // padding-left: 160px;
+      // padding-right: 160px;
+    }
+
+    .OTP__checkInput {
+      justify-content: center;
+    }
+
+    .ant-input {
+      place-self: center;
+      font-weight: bold;
+    }
+  }
+
+  .input-container-mobile {
+    display: flex;
+    justify-content: center;
+
+    .OTP__checkInput {
+      justify-content: center;
+    }
+  }
+  .OTP_linebottom {
+    display: flex;
+    // padding-left: 137px;
+    // padding-right: 137px;
+    width: 100%;
+    margin-bottom: 10px;
+    justify-content: space-between;
+	padding: 0 11px;
+
+	.OTP_line_item {
+		background-color: #000000;
+		width: 32px;
+		height: 5px;
+	}
+}
+
+.sign-up-gruop-btn {
+	flex-direction: row-reverse;
+}
