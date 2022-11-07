@@ -1,5 +1,6 @@
 import moment from 'moment';
 var validator = require('validator');
+const path = require('path');
 
 export const formatNumber = (num) =>
 num ? num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'): '0';
@@ -15,8 +16,12 @@ export const normalizePhoneNumber = (phoneNumber) => {
 export const numberInputCallback = (ev) =>
   ev.target.value.replace(/[^0-9.]+/g, '');
 
-
-export const getImageUrl = (path = '') => {
+export const encodeImageURL = (imageUrl) => {
+  const basename = path.basename(imageUrl);
+  const dirname = path.dirname(imageUrl)
+  return `${dirname}/${encodeURIComponent(basename)}`;
+}
+export const getImageUrl = (imageUrl = '') => {
   const urls = {
     development: 'http://localhost:5050',
     test: 'https://sandbox.ezin.vn',
@@ -24,8 +29,8 @@ export const getImageUrl = (path = '') => {
     production: 'https://api.ezin.vn',
   };
   let url = urls[process.env.NEXT_PUBLIC_APP_ENV];
-  if (path) {
-    url += '/' + path;
+  if (imageUrl) {
+    url += '/' + encodeImageURL(imageUrl);
   }
   return url;
 };

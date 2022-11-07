@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PageBanner from "../../components/Product/PageBanner";
-import PricingStyleOne from "../../components/Product/PricingStyleOne";
 import MoneyIcon from "../../public/images/money.svg";
 import { createMarkupNormal } from "../../utils/auth.helper";
 import { Modal } from "antd";
@@ -17,13 +16,6 @@ import { createMarkup } from "../../utils/auth.helper";
 import styles from "./product.module.scss";
 import Link from "next/link";
 import { formatVND } from "../../utils/helpers";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemHeading,
-  AccordionItemPanel,
-  AccordionItemButton,
-} from "react-accessible-accordion";
 import ButtonEzin from "../../components/Common/Button";
 import ContentFAQ from "../../components/Faq";
 import Head from "next/head";
