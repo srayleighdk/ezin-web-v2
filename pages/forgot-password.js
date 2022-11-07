@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Layouts/Navbar";
 import Footer from "../components/Layouts/Footer";
 import { Input, Select, Form } from "antd";
@@ -30,6 +30,7 @@ export async function getServerSideProps() {
 const COUNTDOWN_TIME = 59;
 
 export default function Login({ headers }) {
+  const otpRef = useRef(null);
   const [step, setStep] = useState(1);
   const [arrCode, setArrCode] = useState("");
   const [message, setMessage] = useState("");
@@ -73,12 +74,13 @@ export default function Login({ headers }) {
       } else if (step === 2) {
         const res = await verifyAccountApi({
           username: phone,
-          otp: checkValidCode().code,
+          otp: values,
         });
         if (res.success) {
           setMessage("");
           setStep(3);
         } else {
+          setArrCode("");
           setMessage("Mã OTP không hợp lệ");
           // button_ref.current.disabled = false;
           // message.error(res.msg);
@@ -131,7 +133,11 @@ export default function Login({ headers }) {
               </div>
 
               <div className="col-12">
-                <ButtonEzin className="default-btn btn-two btn-full-width" types="primary" type="submit">
+                <ButtonEzin
+                  className="default-btn btn-two btn-full-width"
+                  types="primary"
+                  type="submit"
+                >
                   Lấy lại mật khẩu
                 </ButtonEzin>
               </div>
@@ -164,7 +170,7 @@ export default function Login({ headers }) {
             <div className="text-center mb-3">
               Mã xác thực đã được gửi vào số điện thoại {phone}
             </div>
-            <div className="d-flex justify-content-center">
+            {/* <div className="d-flex justify-content-center">
               <OtpInput
                 className="OTP__checkInput mx-4 mb-2 mt-2"
                 value={arrCode}
@@ -178,6 +184,30 @@ export default function Login({ headers }) {
                 shouldAutoFocus={true}
                 // separator={<span>-</span>}
               />
+            </div> */}
+            <div className="flex justify-center">
+              <div className="input-container">
+                <Input
+                  className="OTP_input"
+                  maxLength={4}
+                  onChange={(e) => {
+                    setArrCode(e.target.value);
+                    if(e.target.value.length === 4) {
+                      onFinish(e.target.value)
+                    }
+                  }}
+                  ref={otpRef}
+                  value={arrCode}
+                  autoFocus
+                  inputMode="numeric"
+                />
+                <div size="large" className="OTP_linebottom">
+                  <div className="OTP_line_item line-1 bg-black"></div>
+                  <div className="OTP_line_item line-2 bg-black"></div>
+                  <div className="OTP_line_item line-3 bg-black"></div>
+                  <div className="OTP_line_item line-4 bg-black"></div>
+                </div>
+              </div>
             </div>
             <div
               className={`${
@@ -190,7 +220,11 @@ export default function Login({ headers }) {
             </div>
             <div className="row">
               <div className="col-lg-6 col-12">
-                <ButtonEzin className="default-btn btn-two btn-full-width" types="primary" type="submit">
+                <ButtonEzin
+                  className="default-btn btn-two btn-full-width"
+                  types="primary"
+                  type="submit"
+                >
                   Xác nhận
                 </ButtonEzin>
               </div>
@@ -264,7 +298,11 @@ export default function Login({ headers }) {
             </div>
             <div className="text-center text-danger mb-2">{message}</div>
             <div className="col-12">
-              <ButtonEzin className="w-100 default-btn btn-two btn-full-width" types="primary" type="submit">
+              <ButtonEzin
+                className="w-100 default-btn btn-two btn-full-width"
+                types="primary"
+                type="submit"
+              >
                 Xác nhận
               </ButtonEzin>
             </div>

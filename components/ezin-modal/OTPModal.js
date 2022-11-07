@@ -1,19 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Button, Input, Typography, Modal, Form, message } from 'antd';
-import { createStructuredSelector } from 'reselect';
-import { makeOTPVisible, makeModalData } from '../../src/store/modal/selector';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useRef, useEffect } from "react";
+import { Button, Input, Typography, Modal, Form, message } from "antd";
+import { createStructuredSelector } from "reselect";
+import { makeOTPVisible, makeModalData } from "../../src/store/modal/selector";
+import { useSelector, useDispatch } from "react-redux";
 import {
   toggleOTPModal,
   toggleNewPass,
   toggleResetPass,
-} from '../../src/store/modal/actions';
+} from "../../src/store/modal/actions";
 // import './otp.scss';
-import { resendOTPApi, verifyAccountApi } from '../../pages/api';
-import { useMediaQuery } from 'react-responsive';
-import OtpInput from 'react-otp-input';
-import AuthCode from 'react-auth-code-input';
-import ButtonEzin from '../Common/Button';
+import { resendOTPApi, verifyAccountApi } from "../../pages/api";
+import { useMediaQuery } from "react-responsive";
+import OtpInput from "react-otp-input";
+import AuthCode from "react-auth-code-input";
+import ButtonEzin from "../Common/Button";
 
 const mapStateToProps = createStructuredSelector({
   otpVisible: makeOTPVisible(),
@@ -23,21 +23,22 @@ const mapStateToProps = createStructuredSelector({
 const COUNTDOWN_TIME = 59;
 
 export default function OTPModal() {
+  const otpRef = useRef(null);
   const { otpVisible, data } = useSelector(mapStateToProps);
-  const [arrCode, setArrCode] = useState('');
+  const [arrCode, setArrCode] = useState("");
   // const code_1_ref = useRef(null);
   // const code_2_ref = useRef(null);
   // const code_3_ref = useRef(null);
   // const code_4_ref = useRef(null);
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const button_ref = useRef(null);
+  // const button_ref = useRef(null);
   const [countdown, setCountdown] = useState(COUNTDOWN_TIME);
 
   const { code_1, code_2, code_3, code_4 } = arrCode;
 
   useEffect(() => {
     setCountdown(COUNTDOWN_TIME);
-    setArrCode('');
+    setArrCode("");
   }, [otpVisible]);
 
   useEffect(() => {
@@ -53,23 +54,11 @@ export default function OTPModal() {
   };
 
   const onChange = (e) => {
-    console.log('e', e)
-    setArrCode(e);
-    // if (value.length <= 1) {
-    //   setArrState({ ...arrCode, [refName]: value });
-    // }
-    // if (value.length === 1) {
-    //   if (refName === 'code_1') {
-    //     code_2_ref.current.focus();
-    //     code_2_ref.current.select();
-    //   } else if (refName === 'code_2') {
-    //     code_3_ref.current.focus();
-    //     code_3_ref.current.select();
-    //   } else if (refName === 'code_3') {
-    //     code_4_ref.current.focus();
-    //     code_4_ref.current.select();
-    //   }
-    // }
+    console.log("e", e.target.value);
+    setArrCode(e.target.value);
+    if (otpRef.current.input.value.length === 4) {
+      onFinish();
+    }
   };
 
   // const onKeyDown = (ev) => {
@@ -109,7 +98,7 @@ export default function OTPModal() {
 
   const onFinish = async () => {
     try {
-      button_ref.current.disabled = true;
+      // button_ref.current.disabled = true;
       const res = await verifyAccountApi({
         username: data.phoneNumber,
         otp: checkValidCode().code,
@@ -125,11 +114,12 @@ export default function OTPModal() {
           dispatch(toggleResetPass());
         }
       } else {
-        button_ref.current.disabled = false;
+        // button_ref.current.disabled = false;
+        setArrCode("");
         message.error(res.msg);
       }
     } catch (err) {
-      button_ref.current.disabled = false;
+      // button_ref.current.disabled = false;
       console.log(err);
     }
   };
@@ -151,21 +141,42 @@ export default function OTPModal() {
         <h4>Mã xác thực đã được gửi vào số điện thoại {data.phoneNumber}</h4>
       </div>
       <Form className="form-otp mt-4 text-center" onFinish={onFinish}>
-        <div className={isMobile ? "input-container-mobile" : "input-container"}>
-          <OtpInput
+        <div
+          className={isMobile ? "input-container-mobile" : "input-container"}
+        >
+          {/* <OtpInput
             className="OTP__checkInput"
             value={arrCode}
             onChange={onChange}
             numInputs={4}
             shouldAutoFocus={true}
             // separator={<span>-</span>}
-          />
+          /> */}
+          <div className="flex justify-center">
+            <div className="input-container">
+              <Input
+                className="OTP_input"
+                maxLength={4}
+                onChange={onChange}
+                ref={otpRef}
+                value={arrCode}
+                autoFocus
+                inputMode="numeric"
+              />
+              <div size="large" className="OTP_linebottom">
+                <div className="OTP_line_item line-1 bg-black"></div>
+                <div className="OTP_line_item line-2 bg-black"></div>
+                <div className="OTP_line_item line-3 bg-black"></div>
+                <div className="OTP_line_item line-4 bg-black"></div>
+              </div>
+            </div>
+          </div>
         </div>
         {/* <p className="mt-1">
           <i style={{ color: 'red' }}>Mã OTP không hợp lệ</i>
         </p> */}
         <p className="mt-2">
-          Không nhận được mã.{' '}
+          Không nhận được mã.{" "}
           {countdown === 0 ? (
             <u className="pointer" onClick={onResend}>
               GỬI LẠI
@@ -180,7 +191,7 @@ export default function OTPModal() {
           block
           className="mt-2 btn-full-width"
           disabled={!checkValidCode().isValid}
-          ref={button_ref}
+          // ref={button_ref}
         >
           Xác nhận
         </ButtonEzin>

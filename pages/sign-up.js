@@ -92,7 +92,7 @@ export default function SignUp({ headers }) {
         setStep(3);
       } else {
         setMessage("Mã OTP không hợp lệ");
-        // setArrCode("");
+        setArrCode("");
         // button_ref.current.disabled = false;
         // message.error(res.msg);
       }
