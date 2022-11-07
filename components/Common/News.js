@@ -10,7 +10,6 @@ export default function News({ news }) {
   const router = useRouter();
   const firstNews = news?.[0];
   const lasttNews = news?.slice(1);
-  console.log("lasttNews", news, lasttNews);
 
   return (
     <section className="news-area pt-100 pb-70">
