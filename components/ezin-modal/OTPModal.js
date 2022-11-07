@@ -13,6 +13,7 @@ import { resendOTPApi, verifyAccountApi } from '../../pages/api';
 import { useMediaQuery } from 'react-responsive';
 import OtpInput from 'react-otp-input';
 import AuthCode from 'react-auth-code-input';
+import ButtonEzin from '../Common/Button';
 
 const mapStateToProps = createStructuredSelector({
   otpVisible: makeOTPVisible(),
@@ -173,16 +174,16 @@ export default function OTPModal() {
             `(${countdown})`
           )}
         </p>
-        <Button
-          type="primary"
+        <ButtonEzin
+          types="primary"
           htmlType="submit"
           block
-          className="mt-2"
+          className="mt-2 btn-full-width"
           disabled={!checkValidCode().isValid}
           ref={button_ref}
         >
           Xác nhận
-        </Button>
+        </ButtonEzin>
       </Form>
     </Modal>
   );

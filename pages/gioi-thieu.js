@@ -49,8 +49,8 @@ export default function About({ aboutUs, leader, partner, legal }) {
           content={"Giới thiệu Ezin"}
         />
       </Head>
-      <div className="about-us-page" style={{ marginTop: "62px" }}>
-        <Tabs defaultActiveKey="1" onChange={onChange} className="custom-tabar">
+      <div className="about-us-page" >
+        <Tabs defaultActiveKey="1" onChange={onChange} className="custom-tabar about-us">
           <TabPane tab="VỀ CHÚNG TÔI" key="1">
             <div className="main-section content-section content-about-us">
               <div className="container">

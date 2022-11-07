@@ -598,7 +598,7 @@ export default function DemoPage({ initServerStatus }) {
           content={`ezin;ezin insurtech;bảo hiểm số;bảo hiểm cá nhân;sống an toàn;hạnh phúc;bình an`}
         />
       </Head>
-      <div className="main" id="demo">
+      <div className="main mt-5" id="demo">
         {auth?.username && WHITELIST_PHONES.includes(auth?.username) && (
           <Space direction="vertical">
             <div>

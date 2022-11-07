@@ -225,6 +225,10 @@
     .custom-tabar {
         padding-top: 72px !important;
         display: block;
+
+        &.about-us {
+            padding-top: 0px !important;
+        }
     }
 
     .news-web,

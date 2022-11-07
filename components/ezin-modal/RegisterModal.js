@@ -23,6 +23,7 @@ import PhoneNumber from "../../components/PhoneNumber";
 import { registerApi } from "../../pages/api";
 import { normalizePhoneNumber } from "../../utils/helpers";
 import Link from "next/link";
+import ButtonEzin from "../Common/Button";
 
 const mapStateToProps = createStructuredSelector({
   registerVisible: makeRegisterVisible(),
@@ -150,21 +151,21 @@ export default function RegisterModal() {
               </Link>
             </Checkbox>
           </Form.Item>
-          <Button
+          <ButtonEzin
             block
             htmlType="submit"
-            className="mt-1"
-            type="primary"
-            style={{ height: 40 }}
+            className="mt-1 btn-full-width"
+            types="primary"
+            // style={{ height: 40 }}
           >
             Đăng ký
-          </Button>
+          </ButtonEzin>
           <div className="text-center mt-4 pointer">
             <u onClick={onGetPassword}>Lấy lại mật khẩu</u>
           </div>
-          <Button block className="mt-3" ghost onClick={onLogin}>
+          <ButtonEzin block className="mt-3 btn-full-width" types="default" onClick={onLogin}>
             Đăng nhập
-          </Button>
+          </ButtonEzin>
         </Form>
       </div>
     </Modal>

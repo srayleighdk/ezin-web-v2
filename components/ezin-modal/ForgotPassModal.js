@@ -12,6 +12,7 @@ import {
 // import './otp.scss';
 import PhoneNumber from '../../components/PhoneNumber';
 import { forgetPasswordApi } from '../../pages/api';
+import ButtonEzin from '../Common/Button';
 
 const mapStateToProps = createStructuredSelector({
   forgotVisible: makeForgotVisible(),
@@ -87,9 +88,9 @@ export default function ForgotPassModal() {
           Vui lòng nhập chính xác số điện thoại đã đăng ký, mật khẩu sẽ được gửi
           về số điện thoại này.
         </h4>
-        <Button type="primary" block className="mb-2 mt-5" htmlType="submit">
+        <ButtonEzin types="primary" block className="mb-2 mt-5 btn-full-width" htmlType="submit">
           Lấy lại mật khẩu
-        </Button>
+        </ButtonEzin>
       </Form>
     </Modal>
   );

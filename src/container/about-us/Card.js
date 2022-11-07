@@ -4,6 +4,7 @@ import React from "react";
 // import LinesEllipsis from 'react-lines-ellipsis';
 import { createMarkup } from "../../../utils/auth.helper";
 import FullImage from "../../../components/FullImage";
+import { useMediaQuery } from "react-responsive";
 
 export default function Card({
   img,
@@ -11,8 +12,9 @@ export default function Card({
   metaTitle = "",
   metaDesc = "",
 }) {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   return (
-    <div className="d-flex">
+    <div className={`d-flex ${isMobile && "flex-column"}`}>
       <div className="card-img flex-1">
         <FullImage src={img} alt={metaDesc} layout="fill" />
         <Typography.Title align="center" level={4}>
@@ -22,7 +24,7 @@ export default function Card({
           <i>{metaDesc}</i>
         </p>
       </div>
-      <div className="card card-content shadow">
+      <div className={`card card-content shadow`}>
         <div dangerouslySetInnerHTML={createMarkup(description)} />
       </div>
       {/* 

@@ -215,7 +215,7 @@ export default function HopdongPage() {
         <meta property="og:title" key="og-title" content={`Gói BH - ${data && data.name} | Ezin`} />
       </Head>
       <div id="activation">
-        <div className="main-section content-section mt-5">
+        <div className="main-section content-section hopdong-info">
           <div className="container">
             <h2 className="text-center">Bảo hiểm {data?.product_id?.name} - {data?.program_id?.name}</h2>
             <div className="step-wrapper-1">

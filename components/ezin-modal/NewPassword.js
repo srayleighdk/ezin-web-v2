@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleNewPass } from "../../src/store/modal/actions";
 import { newPasswordApi } from "../../pages/api";
 import useAuth from "../../src/container/auth-wrapper/auth.context";
+import ButtonEzin from "../Common/Button";
 
 const mapStateToProps = createStructuredSelector({
   newPassVisible: makeNewPassVisible(),
@@ -125,9 +126,9 @@ export default function NewPassword() {
           />
         </Form.Item>
         <i className="pl-2 note">* Vui lòng nhập mật khẩu gồm 6 chữ số</i>
-        <Button type="primary" htmlType="submit" block className="mt-2">
+        <ButtonEzin types="primary" htmlType="submit" block className="mt-2 btn-full-width">
           Xác nhận
-        </Button>
+        </ButtonEzin>
       </Form>
     </Modal>
   );

@@ -23,6 +23,7 @@ import { useRouter } from "next/router";
 const { confirm } = Modal;
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import moment from "moment";
+import ButtonEzin from "../Common/Button";
 
 const mapStateToProps = createStructuredSelector({
   loginVisible: makeLoginVisible(),
@@ -109,7 +110,7 @@ export default function LoginModal() {
     <Modal
       visible={loginVisible}
       onCancel={closeLogin}
-      className="p-5"
+      // className="p-5"
       style={{ marginTop: 90 }}
       footer={null}
       centered
@@ -157,7 +158,7 @@ export default function LoginModal() {
             size="large"
           /> */}
 
-        <div className="form-group">
+        <div className="form-group mb-2">
           <input
             className="form-control"
             type="text"
@@ -175,7 +176,7 @@ export default function LoginModal() {
             <Input.Password placeholder="Mật khẩu" size="large" />
           </Form.Item> */}
 
-        <div className="form-group mb-2">
+        <div className="form-group mb-3">
           <input
             className="form-control"
             type="password"
@@ -187,9 +188,9 @@ export default function LoginModal() {
             Đăng nhập
           </Button> */}
 
-        <button className="default-btn btn-two w-100" type="submit">
+        <ButtonEzin className="default-btn btn-two btn-full-width" types="primary" type="submit">
           Đăng nhập
-        </button>
+        </ButtonEzin>
         <p className="text-center pointer" onClick={onForget}>
           <i>
             <u>Quên mật khẩu</u>
@@ -199,9 +200,9 @@ export default function LoginModal() {
             Đăng ký
           </Button> */}
 
-        <button className="default-btn btn-two w-100" onClick={onRegister}>
+        <ButtonEzin className="default-btn btn-two btn-full-width" types="primary" onClick={onRegister}>
           Đăng ký
-        </button>
+        </ButtonEzin>
       </form>
     </Modal>
     // {/* </AuthProvider> */}

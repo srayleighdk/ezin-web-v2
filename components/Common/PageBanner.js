@@ -7,7 +7,7 @@ class PageBanner extends Component {
         let { pageTitle, homePageUrl, homePageText, activePageText } = this.props;
 
         return (
-            <div className="page-title-area item-bg1">
+            <div className="page-title-area item-bg1 pt-5">
                 <div className="container">
                     <div className="page-title-content">
                         <h2>{pageTitle}</h2>

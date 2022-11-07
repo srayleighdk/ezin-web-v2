@@ -25,6 +25,8 @@ import {
   AccordionItemButton,
 } from "react-accessible-accordion";
 import ButtonEzin from "../../components/Common/Button";
+import ContentFAQ from "../../components/Faq";
+import Head from "next/head";
 
 export async function getServerSideProps(context) {
   const { product: slug } = context.params;
@@ -60,6 +62,9 @@ export default function Product({
 
   return (
     <>
+      <Head>
+        <title>{product?.name}</title>
+      </Head>
       <PageBanner
         pageTitle={product?.name}
         img={product?.image?.path}
@@ -212,7 +217,7 @@ export default function Product({
             <div className="row">
               <div className="col-lg-12">
                 <div className="faq-accordion">
-                  <Accordion preExpanded={["a"]}>
+                  {/* <Accordion preExpanded={["a"]}>
                     {product?.faq?.map((item, index) => (
                       <AccordionItem>
                         <AccordionItemHeading>
@@ -226,17 +231,21 @@ export default function Product({
                         </AccordionItemPanel>
                       </AccordionItem>
                     ))}
-                  </Accordion>
+                  </Accordion> */}
+                  <ContentFAQ
+                    faqContent={product?.faq}
+                    classnamePanel="home_faq"
+                  />
                 </div>
               </div>
             </div>
             <ButtonEzin
-                className="mx-3 btn-buy-banner text-center shadow align-self-center mt-4"
-                onClick={() => router.push("#")}
-                types="primary"
-              >
-                Mua ngay
-              </ButtonEzin>
+              className="mx-3 btn-buy-banner text-center shadow align-self-center mt-4"
+              onClick={() => router.push("#")}
+              types="primary"
+            >
+              Mua ngay
+            </ButtonEzin>
           </div>
         </div>
         <Modal
