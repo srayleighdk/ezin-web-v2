@@ -7019,9 +7019,10 @@ h3 {
 }
 
 .product-banner {
+  color: #ffffff !important;
   position: absolute;
   top: 50%;
-  left: 0;
+  right: 0;
 }
 
 .pt-banner {

@@ -110,7 +110,10 @@ export default function MenuScroll() {
                   <div className="bg-white border">
                     <div
                       className="item-wrap"
-                      onClick={() => setMenuItem(!menuItem)}
+                      onClick={() => {
+                        router.push("/tra-cuu")
+                        setMenuItem(!menuItem);
+                      }}
                     >
                       <Image
                         // onClick={toggleNavbar}
@@ -125,7 +128,7 @@ export default function MenuScroll() {
                       className="item-wrap"
                       onClick={() => {
                         setMenuItem(!menuItem);
-                        router.push('/san-pham/oto#mua-ngay')
+                        router.push("/san-pham/oto#mua-ngay");
                       }}
                     >
                       <Image
@@ -141,7 +144,7 @@ export default function MenuScroll() {
                       className="item-wrap"
                       onClick={() => {
                         setMenuItem(!menuItem);
-                        router.push('/san-pham/tnds#mua-ngay')
+                        router.push("/san-pham/tnds#mua-ngay");
                       }}
                     >
                       <Image
@@ -157,7 +160,7 @@ export default function MenuScroll() {
                       className="item-wrap"
                       onClick={() => {
                         setMenuItem(!menuItem);
-                        router.push('/san-pham/an-gia#mua-ngay')
+                        router.push("/san-pham/an-gia#mua-ngay");
                       }}
                     >
                       <Image

@@ -23,7 +23,7 @@ export const encodeImageURL = (imageUrl) => {
 }
 export const getImageUrl = (imageUrl = '') => {
   const urls = {
-    development: 'http://localhost:5050',
+    development: 'https://sandbox.ezin.vn',
     test: 'https://sandbox.ezin.vn',
     staging: 'https://sandbox.ezin.vn',
     production: 'https://api.ezin.vn',

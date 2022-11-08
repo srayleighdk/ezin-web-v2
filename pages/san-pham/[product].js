@@ -52,6 +52,7 @@ export default function Product({
     setModalInfo(null);
   };
 
+
   return (
     <>
       <Head>
