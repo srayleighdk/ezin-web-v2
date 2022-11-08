@@ -1,37 +1,48 @@
 import React from "react";
-import Navbar from "../../components/Layouts/Navbar";
 import PageBanner from "../../components/Common/PageBanner";
-import NewsGridTwo from "../../components/News/NewsGridTwo";
-import Footer from "../../components/Layouts/Footer";
-import { getPostCategories, getLatestPosts, getNewestPost } from "../../pages/api";
+import ListNewsLife from "../../components/News/ListNewsLife";
+import {
+  getPostCategories,
+  getLatestPosts,
+  getNewestPost,
+  getHeader,
+} from "../../pages/api";
+import Head from "next/head";
 
 export async function getServerSideProps() {
-  let [res1, res2, res3] = await Promise.all([getLatestPosts(), getPostCategories(), getNewestPost()]);
+  let [res1, res2, res3, res4] = await Promise.all([
+    getLatestPosts(),
+    getPostCategories(),
+    getNewestPost(),
+    getHeader(),
+  ]);
   return {
     props: {
       arrBlogs: res1?.data?.data,
       arrCats: res2?.data?.data,
-      arrNewsestPost: res3?.data?.data
+      arrNewsestPost: res3?.data?.data,
+      headers: res4?.data?.data,
     },
   };
 }
 
-export default function Life({ arrBlogs = [], arrCats = [], arrNewsestPost = [] }) {
-    console.log("res1", arrCats, arrNewsestPost);
+export default function Life({
+  arrBlogs = [],
+  arrCats = [],
+  arrNewsestPost = [],
+  headers = [],
+}) {
   return (
     <>
-      <Navbar />
+      <Head>
+        <title>Life</title>
+      </Head>
 
-      <PageBanner
-        pageTitle="News Right Sidebar"
-        homePageUrl="/"
-        homePageText="Home"
-        activePageText="News Right Sidebar"
+      <ListNewsLife
+        arrBlogs={arrBlogs}
+        arrCats={arrCats}
+        arrNewsestPost={arrNewsestPost}
       />
-
-      <NewsGridTwo arrBlogs={arrBlogs} arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
-
-      <Footer />
     </>
   );
 }

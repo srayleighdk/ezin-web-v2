@@ -1,15 +1,35 @@
 import React, { Component } from "react";
 import NewsSidebar from "../../../components/News/NewsSidebar";
 import Link from "next/link";
+import Navbar from "../../../components/Layouts/Navbar";
+import Footer from "../../../components/Layouts/Footer";
 import CommentsArea from "../../../components/News/CommentsArea";
-import { getPostCategories, getNewestPost } from "../../../pages/api";
+import {
+  getPostCategories,
+  getNewestPost,
+  getPostDetails,
+  getHeader,
+} from "../../../pages/api";
+import styles from "../life.module.scss";
+import { createMarkup } from "../../../utils/auth.helper";
+import dayjs from "dayjs";
+import Head from "next/head";
 
-export async function getServerSideProps() {
-  let [res1, res2] = await Promise.all([getPostCategories(), getNewestPost()]);
+export async function getServerSideProps(context) {
+  const { slug } = context.params;
+  const id = slug[0];
+  let [res1, res2, res3, res4] = await Promise.all([
+    getPostCategories(),
+    getNewestPost(),
+    getPostDetails(id),
+    getHeader(),
+  ]);
   return {
     props: {
       arrCats: res1?.data?.data,
       arrNewsestPost: res2?.data?.data,
+      blogDetail: res3?.data?.data,
+      headers: res4?.data?.data,
     },
   };
 }
@@ -17,159 +37,106 @@ export async function getServerSideProps() {
 export default function NewsDetailsContent({
   arrCats = [],
   arrNewsestPost = [],
+  blogDetail = [],
+  headers = [],
 }) {
   return (
-    <section className="news-details-area ptb-100">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-8 col-md-12">
-            <div className="blog-details-desc">
-              <div className="article-image">
-                <img src="/images/blog-details/blog-details.jpg" alt="Image" />
-              </div>
-
-              <div className="article-content">
-                <div className="entry-meta">
-                  <ul>
-                    <li>
-                      <span>Posted On:</span> February 20 , 2020
-                    </li>
-                    <li>
-                      <span>Posted By:</span>
-                      <Link href="#">
-                        <a>John Anderson</a>
-                      </Link>
-                    </li>
-                  </ul>
+    <>
+      <Head>
+        <title>{blogDetail?.post?.post_title}</title>
+      </Head>
+      <section className="news-details-area ptb-100 mt-3">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 col-md-12">
+              <div className="blog-details-desc">
+                <div className="article-image">
+                  <img
+                    src={blogDetail?.post_thumbnail}
+                    alt="Image"
+                    className={`${styles.life_title_img}`}
+                  />
                 </div>
 
-                <h3>
-                  Web development the best work in the future for the world
-                </h3>
+                <div className="article-content">
+                  <div className="entry-meta">
+                    <ul>
+                      <li>
+                        <span>Ngày đăng:</span>{" "}
+                        {dayjs(blogDetail?.updated_at).format("DD-MM-YYYY")}
+                      </li>
+                      {/* <li>
+                        <span>Đăng bởi:</span>
+                        <Link href="#">
+                          <a>{blogDetail?.post?.post_author}</a>
+                        </Link>
+                      </li> */}
+                    </ul>
+                  </div>
 
-                <p>
-                  Quuntur magni dolores eos qui ratione voluptatem sequi
-                  nesciunt. Neque porro quia non numquam eius modi tempora
-                  incidunt ut labore et dolore magnam dolor sit, consectetur.
-                </p>
+                  <h2 className="mt-3">{blogDetail?.post?.post_title}</h2>
 
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in sed quia non numquam eius modi
-                  tempora incidunt ut labore et dolore magnam aliquam quaerat.
-                </p>
+                  <div
+                    dangerouslySetInnerHTML={createMarkup(
+                      blogDetail?.description
+                    )}
+                  ></div>
 
-                <blockquote className="flaticon-quote">
-                  <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellendus aliquid praesentium eveniet illum asperiores,
-                    quidem, ipsum voluptatum numquam ducimus nisi exercitationem
-                    dolorum facilis.
-                  </p>
-                </blockquote>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in sed quia non numquam eius modi
-                  tempora incidunt ut labore et dolore magnam aliquam quaerat.
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in sed quia non numquam eius modi
-                  tempora incidunt ut labore et dolore magnam aliquam quaerat.
-                </p>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in sed quia non numquam eius modi
-                  tempora incidunt ut labore et dolore magnam aliquam quaerat.
-                </p>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in sed quia non numquam.
-                </p>
-              </div>
-
-              <div className="article-footer">
-                <div className="article-tags">
-                  <span>
-                    <i className="bx bx-share-alt"></i>
-                  </span>
-                  <Link href="#">
-                    <a>Share</a>
-                  </Link>
+                  <div
+                    dangerouslySetInnerHTML={createMarkup(
+                      blogDetail?.post?.post_content.replace(/\n/g, "")
+                    )}
+                  ></div>
                 </div>
 
-                <div className="article-share">
-                  <ul className="social">
-                    <li>
-                      <a href="https://www.facebook.com/" target="_blank">
-                        <i className="bx bxl-facebook"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.twitter.com/" target="_blank">
-                        <i className="bx bxl-twitter"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/" target="_blank">
-                        <i className="bx bxl-linkedin"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.pinterest.com/" target="_blank">
-                        <i className="bx bxl-pinterest-alt"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="post-navigation">
-                <div className="navigation-links">
-                  <div className="nav-previous">
+                <div className="article-footer">
+                  <div className="article-tags">
+                    <span>
+                      <i className="bx bx-share-alt"></i>
+                    </span>
                     <Link href="#">
-                      <a>
-                        <i className="bx bx-left-arrow-alt"></i> Prev Post
-                      </a>
+                      <a>Share</a>
                     </Link>
                   </div>
 
-                  <div className="nav-next">
-                    <Link href="#">
-                      <a>
-                        Next Post <i className="bx bx-right-arrow-alt"></i>
-                      </a>
-                    </Link>
+                  <div className="article-share">
+                    <ul className="social">
+                      <li>
+                        <a href="https://www.facebook.com/" target="_blank">
+                          <i className="bx bxl-facebook"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.twitter.com/" target="_blank">
+                          <i className="bx bxl-twitter"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.linkedin.com/" target="_blank">
+                          <i className="bx bxl-linkedin"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.pinterest.com/" target="_blank">
+                          <i className="bx bxl-pinterest-alt"></i>
+                        </a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Comments Area */}
-              <CommentsArea />
+            <div className="col-lg-4 col-md-12">
+              <NewsSidebar
+                arrCats={arrCats}
+                arrNewsestPost={arrNewsestPost}
+                tags={blogDetail?.taxonomies?.post_tag}
+              />
             </div>
           </div>
-
-          <div className="col-lg-4 col-md-12">
-            <NewsSidebar arrCats={arrCats} arrNewsestPost={arrNewsestPost} />
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

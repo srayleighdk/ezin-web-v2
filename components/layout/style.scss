@@ -1,0 +1,13 @@
+.main-section {
+  // display: flex;
+  min-height: calc(100vh - 288px);
+
+  &.content-about-us {
+    min-height: calc(100vh - 270px);
+  }
+
+}
+
+.content {
+  flex: 1;
+}

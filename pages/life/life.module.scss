@@ -1,0 +1,36 @@
+.life_title_img {
+    height: auto;
+    width: 100%;
+}
+
+.height_313 {
+    height: 313px;
+}
+
+.height_42 {
+    height: 42px;
+}
+
+.post_description {
+    height: 108px;
+    overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+    .life_title_img {
+        height: 334px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .height_313 {
+        height: 375px;
+    }
+}
+
+@media (max-width: 364px) {
+    .height_313 {
+        height: 350px;
+    }
+}

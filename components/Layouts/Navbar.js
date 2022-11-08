@@ -1,466 +1,932 @@
-import React, { Component, useEffect, useState } from 'react';
-import Link from '../../utils/ActiveLink';
+import React, { useEffect, useState } from "react";
+import { Avatar } from "antd";
+import {
+  UserOutlined,
+  SearchOutlined,
+  RightOutlined,
+  LeftOutlined,
+} from "@ant-design/icons";
+import ButtonEzin from "../Common/Button";
+import Link from "../../utils/ActiveLink";
+import Image from "next/image";
+import NewHeaderLogo from "../../public/images/logo.png";
+import useAuth from "../../src/container/auth-wrapper/auth.context";
+import ContactIMG from "../../public/images/menu/Subtract.png";
+import { createStructuredSelector } from "reselect";
+import { useSelector, useDispatch } from "react-redux";
+import { useMediaQuery } from "react-responsive";
+import {
+  makeSelectActivationVisible,
+  makeSelectAuth,
+  makeSelectCart,
+  makeSelectCartVisible,
+} from "../../src/store/selector";
+import {
+  toggleLoginModal,
+  toggleRegisterModal,
+} from "../../src/store/modal/actions";
+import { setActivationVisible } from "../../src/store/actions";
+import { getAllNodeProducts, getHeader } from "../../pages/api";
+import { useRouter } from "next/router";
 
-const  Navbar = ({headers}) => {
-    const [isMounted, setIsMounted] = useState(false);
-    const [display, setDisplay] = useState(false);
-    const [collapsed, setCollapse] = useState(true);
-    
-/**
- * If collapse is true, set collapse to false. If collapse is false, set collapse to true.
- */
-    const toggleNavbar = () => {
-        setCollapse(!collapse);
-    }
-
-    useEffect(() => {
-        let elementId = document.getElementById("navbar");
-        document.addEventListener("scroll", () => {
-            if (window.scrollY > 170) {
-                elementId.classList.add("is-sticky");
-            } else {
-                elementId.classList.remove("is-sticky");
-            }
-        });
-
-        return function cleanup() {
-            setIsMounted(false);
-        }
-
-    }, [])
-
-    const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
-    const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
-
-    return (
-      <>
-      <div id="navbar" className="navbar-area fixed-top">
-          <nav className="navbar navbar-expand-md navbar-light">
-              <div className="container">
-                  <Link href="/">
-                      <a className="navbar-brand">
-                          <img src="/images/logo.png" alt="logo" />
-                      </a>
-                  </Link>
-
-                  <button 
-                      onClick={toggleNavbar} 
-                      className={classTwo}
-                      type="button" 
-                      data-toggle="collapse" 
-                      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-                      aria-expanded="false" 
-                      aria-label="Toggle navigation"
-                  >
-                      <span className="icon-bar top-bar"></span>
-                      <span className="icon-bar middle-bar"></span>
-                      <span className="icon-bar bottom-bar"></span>
-                  </button>
-
-                  <div className={classOne} id="navbarSupportedContent">
-                      <ul className="navbar-nav m-auto align-item-baseline">
-                        {headers.map((header) => {
-                            return (
-                                <li className="nav-item">
-                              <Link href={header.link} key={header.key}>
-                                  <a className="nav-link text-black" onClick={e => e.preventDefault()}>
-                                      {header.label} 
-                                      {/* <i className='bx bx-chevron-down'></i> */}
-                                  </a>
-                              </Link>
-
-                              {/* <ul className="dropdown-menu">
-                                  <li className="nav-item">
-                                      <Link href="/" activeClassName="active">
-                                          <a className="nav-link">Home One</a>
-                                      </Link>
-                                  </li>
-
-                                  <li className="nav-item">
-                                      <Link href="/index-2" activeClassName="active">
-                                          <a className="nav-link">Home Two</a>
-                                      </Link>
-                                  </li>
-
-                                  <li className="nav-item">
-                                      <Link href="/index-3" activeClassName="active">
-                                          <a className="nav-link">Home Three</a>
-                                      </Link>
-                                  </li>
-
-                                  <li className="nav-item">
-                                      <Link href="/index-4" activeClassName="active">
-                                          <a className="nav-link">Home Four</a>
-                                      </Link>
-                                  </li>
-                                  
-                                  <li className="nav-item">
-                                      <Link href="/index-5" activeClassName="active">
-                                          <a className="nav-link">Home Five</a>
-                                      </Link>
-                                  </li>
-                              </ul> */}
-                          </li>
-                            )
-                        }) }
-                          
-                      </ul>
-
-                      <div className="others-options">
-                          <Link href="/login">
-                              <a className="default-btn">
-                                  Log In <i className="bx bx-log-in-circle"></i>
-                              </a>
-                          </Link>
-                      </div>
-                  </div>
-              </div>
-          </nav>
-      </div>
-  </>
-        )
-            
+function ellipsis(str, len) {
+  return str ? (str.length < len ? str : str.substr(0, len)) : "";
 }
 
-// class Navbar extends Component {
-//     _isMounted = false;
-//     state = {
-//         display: false,
-//         collapsed: true
-//     };
-//     toggleNavbar = () => {
-//         this.setState({
-//             collapsed: !this.state.collapsed,
-//         });
-//     }
-//     componentDidMount() {
-//         let elementId = document.getElementById("navbar");
-//         document.addEventListener("scroll", () => {
-//             if (window.scrollY > 170) {
-//                 elementId.classList.add("is-sticky");
-//             } else {
-//                 elementId.classList.remove("is-sticky");
-//             }
-//         });
-//     }
-//     componentWillUnmount() {
-//         this._isMounted = false;
-//     }
+function titleCase(str) {
+  return (
+    str &&
+    str.toLowerCase().replace(/(^|\s)(\w)/g, function (x) {
+      return x.toUpperCase();
+    })
+  );
+}
+const mapStateToProps = createStructuredSelector({
+  auth: makeSelectAuth(),
+  cart: makeSelectCart(),
+  cartVisible: makeSelectCartVisible(),
+  activationVisible: makeSelectActivationVisible(),
+});
 
-//     render() {
-//         const { collapsed } = this.state;
-//         const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
-//         const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
-//         return (
-            // <>
-            //     <div id="navbar" className="navbar-area fixed-top">
-            //         <nav className="navbar navbar-expand-md navbar-light">
-            //             <div className="container">
-            //                 <Link href="/">
-            //                     <a className="navbar-brand">
-            //                         <img src="/images/logo.png" alt="logo" />
-            //                     </a>
-            //                 </Link>
+const Navbar = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const router = useRouter();
+  const { logout } = useAuth();
+  const { auth, activationVisible } = useSelector(mapStateToProps);
+  const [headers, setHeaders] = useState();
+  const [childItem, setChildItem] = useState(false);
+  // const [isMounted, setIsMounted] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
+  const [userInfo, setUserInfo] = useState(false);
+  const [vehicle, setVehicle] = useState([]);
+  const [personal, setPersonal] = useState([]);
+  const [collapsed, setCollapse] = useState(true);
 
-            //                 <button 
-            //                     onClick={this.toggleNavbar} 
-            //                     className={classTwo}
-            //                     type="button" 
-            //                     data-toggle="collapse" 
-            //                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-            //                     aria-expanded="false" 
-            //                     aria-label="Toggle navigation"
-            //                 >
-            //                     <span className="icon-bar top-bar"></span>
-            //                     <span className="icon-bar middle-bar"></span>
-            //                     <span className="icon-bar bottom-bar"></span>
-            //                 </button>
+  useEffect(() => {
+    let elementId = document.getElementById("navbar");
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > 0) {
+        elementId.classList.add("is-sticky");
+      } else {
+        elementId.classList.remove("is-sticky");
+      }
+    });
+  });
 
-            //                 <div className={classOne} id="navbarSupportedContent">
-            //                     <ul className="navbar-nav m-auto align-item-baseline">
-            //                         <li className="nav-item">
-            //                             <Link href="#">
-            //                                 <a className="nav-link text-black" onClick={e => e.preventDefault()}>
-            //                                     Trang chủ 
-            //                                     {/* <i className='bx bx-chevron-down'></i> */}
-            //                                 </a>
-            //                             </Link>
+  useEffect(() => {
+    const fetchHeader = async () => {
+      const [res, res1] = await Promise.all([
+        getHeader(),
+        getAllNodeProducts(),
+      ]);
+      if (res?.data.success) {
+        setHeaders(res?.data?.data);
+      }
+      if (res1?.data?.data) {
+        setVehicle(res1?.data?.data?.slice(0, 2));
+        setPersonal(res1?.data?.data?.slice(2));
+      }
+    };
+    fetchHeader();
+  }, []);
+  /**
+   * If collapse is true, set collapse to false. If collapse is false, set collapse to true.
+   */
+  const toggleNavbar = (value) => {
+    if (userInfo) {
+      setUserInfo(false);
+    }
+    if (value === "Sản phẩm") {
+      setChildItem(true);
+    } else {
+      if (value !== "back") {
+        setCollapse(!collapsed);
+      }
+      setChildItem(false);
+    }
+  };
 
-            //                             {/* <ul className="dropdown-menu">
-            //                                 <li className="nav-item">
-            //                                     <Link href="/" activeClassName="active">
-            //                                         <a className="nav-link">Home One</a>
-            //                                     </Link>
-            //                                 </li>
+  const classOne = collapsed
+    ? "collapse navbar-collapse"
+    : "collapse navbar-collapse show";
+  const classTwo = collapsed
+    ? "navbar-toggler navbar-toggler-right collapsed"
+    : "navbar-toggler navbar-toggler-right";
+  return (
+    <>
+      <div id="navbar" className="navbar-area fixed-top">
+        {isMobile ? (
+          <nav
+            className={`navbar navbar-expand-md navbar-light py-2 ${
+              !collapsed && "align-items-start height"
+            }`}
+          >
+            <div
+              className={`container h-100 ${!collapsed && "flex-row-reverse"}`}
+            >
+              <button
+                onClick={toggleNavbar}
+                className={`${classTwo}`}
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="icon-bar top-bar"></span>
+                <span className="icon-bar middle-bar"></span>
+                <span className="icon-bar bottom-bar"></span>
+              </button>
 
-            //                                 <li className="nav-item">
-            //                                     <Link href="/index-2" activeClassName="active">
-            //                                         <a className="nav-link">Home Two</a>
-            //                                     </Link>
-            //                                 </li>
+              <Link href="/" passHref>
+                <Image
+                  onClick={() => {
+                    setChildItem(false);
+                    setCollapse(true);
+                  }}
+                  src={NewHeaderLogo}
+                  alt="logo-header"
+                  layout="intrinsic"
+                />
+              </Link>
 
-            //                                 <li className="nav-item">
-            //                                     <Link href="/index-3" activeClassName="active">
-            //                                         <a className="nav-link">Home Three</a>
-            //                                     </Link>
-            //                                 </li>
+              {collapsed && (
+                <div className="d-flex justify-content-between align-items-center">
+                  {/* <SearchOutlined className="navbar-search" /> */}
+                  <Avatar
+                    size="small"
+                    className="bg-dark ms-3"
+                    icon={<UserOutlined />}
+                    onClick={() => {
+                      toggleNavbar();
+                      setUserInfo(!userInfo);
+                    }}
+                  />
+                </div>
+              )}
 
-            //                                 <li className="nav-item">
-            //                                     <Link href="/index-4" activeClassName="active">
-            //                                         <a className="nav-link">Home Four</a>
-            //                                     </Link>
-            //                                 </li>
-                                            
-            //                                 <li className="nav-item">
-            //                                     <Link href="/index-5" activeClassName="active">
-            //                                         <a className="nav-link">Home Five</a>
-            //                                     </Link>
-            //                                 </li>
-            //                             </ul> */}
-            //                         </li>
+              <div
+                className={`position-relative h-100 ${classOne}`}
+                id="navbarSupportedContent"
+              >
+                {/* <ul className={`navbar-nav m-auto align-items-center ${isMobile && "mt-4"}`}> */}
+                {userInfo ? (
+                  <ul
+                    className={`navbar-nav m-auto align-items-center mt-3 h-100`}
+                  >
+                    {isMobile ? (
+                      auth?.full_name || auth?.username ? (
+                        <>
+                          {/* <li className="d-flex">
+                            <Avatar
+                              size="small"
+                              className="bg-dark me-2"
+                              icon={<UserOutlined />}
+                            />
+                            <p className="">
+                              {auth?.full_name || auth?.username}
+                            </p>
+                          </li> */}
+                          <Link href="#">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                                logout();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer d-flex">
+                                <Avatar
+                                  size="small"
+                                  className="bg-dark me-2"
+                                  icon={<UserOutlined />}
+                                />
+                                {auth?.full_name || auth?.username}
+                              </li>
+                            </a>
+                          </Link>
+                          <Link href="#">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                                logout();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Đăng xuất
+                              </li>
+                            </a>
+                          </Link>
+                          <Link href="/forgot-password">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Quên mật khẩu
+                              </li>
+                            </a>
+                          </Link>
+                          <Link href="/tra-cuu">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Tra cứu bảo hiểm
+                              </li>
+                            </a>
+                          </Link>
+                          <ButtonEzin
+                            types="secondary"
+                            className="nav-btn mt-3"
+                            onClick={() => {
+                              toggleNavbar();
+                              router.push("/kich-hoat-the");
+                            }}
+                          >
+                            Kích hoạt
+                          </ButtonEzin>
+                          <ButtonEzin
+                            types="primary"
+                            className="nav-btn mt-2"
+                            onClick={() => {
+                              toggleNavbar();
+                              router.push("https://onelink.to/27s8vu");
+                            }}
+                          >
+                            Download
+                          </ButtonEzin>
+                        </>
+                      ) : (
+                        <>
+                          <Link href="/login">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Đăng nhập
+                              </li>
+                            </a>
+                          </Link>
+                          <Link href="/sign-up">
+                            <a className="text-dark text-capitalize w-100">
+                              <li
+                                className="nav-item dropend cursor-pointer d-flex align-items-center justify-content-between"
+                                onClick={() => {
+                                  toggleNavbar();
+                                }}
+                              >
+                                Đăng ký{" "}
+                                <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
+                                  Nhận ngay 2000{" "}
+                                  <img
+                                    src="/images/coin.png"
+                                    alt="Coin"
+                                    className="navbar-coin"
+                                  />
+                                </span>
+                              </li>
+                            </a>
+                          </Link>
+                          <Link href="/forgot-password">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Quên mật khẩu
+                              </li>
+                            </a>
+                          </Link>
+                          <Link href="/tra-cuu">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Tra cứu bảo hiểm
+                              </li>
+                            </a>
+                          </Link>
+                          <ButtonEzin
+                            types="secondary"
+                            className="nav-btn mt-3"
+                            onClick={() => {
+                              toggleNavbar();
+                              router.push("/kich-hoat-the");
+                            }}
+                          >
+                            Kích hoạt
+                          </ButtonEzin>
+                          <ButtonEzin
+                            types="primary"
+                            className="nav-btn mt-2"
+                            onClick={() => {
+                              toggleNavbar();
+                              router.push("https://onelink.to/27s8vu");
+                            }}
+                          >
+                            Download
+                          </ButtonEzin>
+                        </>
+                      )
+                    ) : null}
+                  </ul>
+                ) : (
+                  <ul
+                    className={`navbar-nav m-auto align-items-center mt-3 h-100`}
+                  >
+                    {isMobile ? (
+                      auth?.full_name || auth?.username ? (
+                        <>
+                          {headers &&
+                            headers.map((header) => {
+                              return (
+                                // <li className={`nav-item ${isMobile && "w-100"}`} key={header.key}>
+                                <li
+                                  className={`nav-item w-100`}
+                                  key={header.key}
+                                >
+                                  <Link href={header.link}>
+                                    <a
+                                      className={`nav-link text-black text-start ${
+                                        header.label === "Ezin Life" && "mb-1"
+                                      } d-flex align-items-center justify-content-between`}
+                                      onClick={() => {
+                                        if (header.label === "Sản phẩm") {
+                                          toggleNavbar("Sản phẩm");
+                                        } else {
+                                          toggleNavbar();
+                                        }
+                                      }}
+                                      // onClick={(e) => e.preventDefault()}
+                                    >
+                                      {header.label}
+                                      {header.label === "Sản phẩm" && (
+                                        <RightOutlined />
+                                      )}{" "}
+                                    </a>
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          <Link href="https://store.ezin.vn/">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Trở thành EzStore
+                              </li>
+                            </a>
+                          </Link>
+                          <ButtonEzin
+                            types="secondary"
+                            className="nav-btn mt-3"
+                            onClick={() => {
+                              toggleNavbar();
+                              router.push("/kich-hoat-the");
+                            }}
+                          >
+                            Kích hoạt
+                          </ButtonEzin>
+                          <ButtonEzin
+                            types="primary"
+                            className="nav-btn mt-2"
+                            onClick={() => {
+                              toggleNavbar();
+                              router.push("https://onelink.to/27s8vu");
+                            }}
+                          >
+                            Download
+                          </ButtonEzin>
+                        </>
+                      ) : (
+                        <>
+                          {headers &&
+                            headers.map((header) => {
+                              return (
+                                // <li className={`nav-item ${isMobile && "w-100"}`} key={header.key}>
+                                <li
+                                  className={`nav-item w-100`}
+                                  key={header.key}
+                                >
+                                  <Link href={header.link}>
+                                    <a
+                                      className={`nav-link text-black text-start ${
+                                        header.label === "Ezin Life" && "mb-1"
+                                      } d-flex align-items-center justify-content-between`}
+                                      onClick={() => {
+                                        if (header.label === "Sản phẩm") {
+                                          toggleNavbar("Sản phẩm");
+                                        } else {
+                                          toggleNavbar();
+                                        }
+                                      }}
+                                      // onClick={(e) => e.preventDefault()}
+                                    >
+                                      {header.label}
+                                      {header.label === "Sản phẩm" && (
+                                        <RightOutlined />
+                                      )}{" "}
+                                    </a>
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          <Link href="/login">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Đăng nhập
+                              </li>
+                            </a>
+                          </Link>
+                          <Link href="/sign-up">
+                            <a className="text-dark text-capitalize w-100">
+                              <li
+                                className="nav-item dropend cursor-pointer d-flex align-items-center justify-content-between"
+                                onClick={() => {
+                                  toggleNavbar();
+                                }}
+                              >
+                                Đăng ký{" "}
+                                <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
+                                  Nhận ngay 2000{" "}
+                                  <img
+                                    src="/images/coin.png"
+                                    alt="Coin"
+                                    className="navbar-coin"
+                                  />
+                                </span>
+                              </li>
+                            </a>
+                          </Link>
+                          {/* <Link href="/forgot-password">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Quên mật khẩu
+                              </li>
+                            </a>
+                          </Link> */}
+                          {/* <Link href="/tra-cuu">
+                            <a
+                              className={`text-dark text-capitalize w-100 ${
+                                isMobile && "text-start"
+                              }`}
+                              onClick={() => {
+                                toggleNavbar();
+                              }}
+                            >
+                              <li className="nav-item dropend cursor-pointer">
+                                Tra cứu bảo hiểm 22222
+                              </li>
+                            </a>
+                          </Link> */}
+                          <ButtonEzin
+                            types="secondary"
+                            className="nav-btn mt-3"
+                            onClick={() => {
+                              toggleNavbar();
+                              router.push("/kich-hoat-the");
+                            }}
+                          >
+                            Kích hoạt
+                          </ButtonEzin>
+                          <ButtonEzin
+                            types="primary"
+                            className="nav-btn mt-2"
+                            onClick={() => {
+                              toggleNavbar();
+                              router.push("https://onelink.to/27s8vu");
+                            }}
+                          >
+                            Download
+                          </ButtonEzin>
+                        </>
+                      )
+                    ) : (
+                      headers &&
+                      headers.map((header) => {
+                        return (
+                          // <li className={`nav-item ${isMobile && "w-100"}`} key={header.key}>
+                          <li className={`nav-item w-100`} key={header.key}>
+                            <Link href={header.link}>
+                              <a
+                                className={`nav-link text-black text-start ${
+                                  header.label === "Ezin Life" && "mb-1"
+                                } d-flex align-items-center justify-content-between`}
+                                onClick={() => {
+                                  if (header.label === "Sản phẩm") {
+                                    toggleNavbar("Sản phẩm");
+                                  } else {
+                                    toggleNavbar();
+                                  }
+                                }}
+                                // onClick={(e) => e.preventDefault()}
+                              >
+                                {header.label}
+                                {header.label === "Sản phẩm" && (
+                                  <RightOutlined />
+                                )}{" "}
+                              </a>
+                            </Link>
+                          </li>
+                        );
+                      })
+                    )}
+                  </ul>
+                )}
+                {childItem && (
+                  <ul
+                    className={`product-item w-100 h-100 navbar-nav m-auto align-items-center mt-3`}
+                  >
+                    <div
+                      className="d-flex align-items-center"
+                      onClick={() => toggleNavbar("back")}
+                    >
+                      <LeftOutlined />
+                      <div className="ms-2 navbar-back">Trở về</div>
+                    </div>
+                    <>
+                      <div className="w-100">
+                        <div className="single-widget mb-2">
+                          <h3 className="navbar mt-2">Ô tô và Xe máy</h3>
+                          <ul>
+                            {vehicle.map((item) => (
+                              <div className="">
+                                <div className="">
+                                  <Link href={`san-pham/${item.slug}#mua-ngay`}>
+                                    <a
+                                      className={`text-dark text-capitalize navbar-childItem w-100 ${
+                                        isMobile && "text-start"
+                                      }`}
+                                      onClick={() => {
+                                        toggleNavbar();
+                                      }}
+                                    >
+                                      <li className="nav-item dropend cursor-pointer">
+                                        {item.name}
+                                      </li>
+                                    </a>
+                                  </Link>
+                                </div>
+                              </div>
+                            ))}
+                          </ul>
+                        </div>
 
-            //                         <li className="nav-item">
-            //                             <Link href="#">
-            //                                 <a className="nav-link text-black" onClick={e => e.preventDefault()}>
-            //                                     Sản phẩm <i className='bx bx-chevron-down'></i>
-            //                                 </a>
-            //                             </Link>
+                        <div className="single-widget mb-2">
+                          <h3 className="navbar mt-2">Cá nhân</h3>
+                          <ul>
+                            {personal.map((item) => (
+                              <div className="">
+                                <div className="">
+                                  <Link href={`san-pham/${item.slug}#mua-ngay`}>
+                                    <a
+                                      className={`text-dark text-capitalize navbar-childItem w-100 ${
+                                        isMobile && "text-start"
+                                      }`}
+                                      onClick={() => {
+                                        toggleNavbar();
+                                      }}
+                                    >
+                                      <li className="nav-item dropend cursor-pointer">
+                                        {item.name}
+                                      </li>
+                                    </a>
+                                  </Link>
+                                </div>
+                              </div>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </>
+                  </ul>
+                )}
+              </div>
+            </div>
+          </nav>
+        ) : (
+          <nav
+            className={`navbar navbar-expand-md navbar-light w-100 py-2 ${
+              !collapsed && "align-items-start"
+            }`}
+          >
+            <div
+              className={`d-flex align-items-center justify-content-between w-100 px-3`}
+            >
+              <button
+                onClick={toggleNavbar}
+                className={`${classTwo}`}
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="icon-bar top-bar"></span>
+                <span className="icon-bar middle-bar"></span>
+                <span className="icon-bar bottom-bar"></span>
+              </button>
 
-            //                             <ul className="dropdown-menu">
-            //                                 <li className="nav-item">
-            //                                     <Link href="/about-1" activeClassName="active">
-            //                                         <a className="nav-link">Ô tô</a>
-            //                                     </Link>
-            //                                 </li>
+              <Link href="/" passHref>
+                <Image
+                  onClick={() => {
+                    setChildItem(false);
+                    setCollapse(true);
+                  }}
+                  src={NewHeaderLogo}
+                  alt="logo-header"
+                  layout="intrinsic"
+                />
+              </Link>
 
-            //                                 <li className="nav-item">
-            //                                     <Link href="/about-2" activeClassName="active">
-            //                                         <a className="nav-link">Xe máy</a>
-            //                                     </Link>
-            //                                 </li>
+              <div className={classOne} id="navbarSupportedContent">
+                <ul className="navbar-nav m-auto align-items-center">
+                  {headers &&
+                    headers.map((header) => {
+                      return (
+                        <li className="nav-item" key={header.key}>
+                          <Link href={header.link}>
+                            <a
+                              className="nav-link text-black text-start"
+                              onClick={toggleNavbar}
+                              // onClick={(e) => e.preventDefault()}
+                            >
+                              {header.label}
+                              {header.children && (
+                                <i className="bx bx-chevron-down"></i>
+                              )}{" "}
+                              {/* <i className='bx bx-chevron-down'></i> */}
+                            </a>
+                          </Link>
 
-            //                                 <li className="nav-item">
-            //                                     <Link href="/about-2" activeClassName="active">
-            //                                         <a className="nav-link">Con người</a>
-            //                                     </Link>
-            //                                 </li>
-            //                             </ul>
-            //                         </li>
+                          {header.children && (
+                            <ul className="dropdown-menu">
+                              {header.children.map((child) => {
+                                return (
+                                  <li
+                                    className="nav-item dropend"
+                                    key={child.key}
+                                  >
+                                    <Link
+                                      href={child.link}
+                                      activeClassName="active"
+                                    >
+                                      <a className="nav-link">
+                                        {child.label}
+                                        {child.children && (
+                                          <i
+                                            className="bx bx-chevron-right"
+                                            style={{ top: "4px" }}
+                                          ></i>
+                                        )}
+                                      </a>
+                                    </Link>
+                                    {child.children && (
+                                      <ul
+                                        className="dropdown-menu"
+                                        style={{ top: "-5px" }}
+                                      >
+                                        {child.children.map((child) => {
+                                          return (
+                                            <li
+                                              className="nav-item"
+                                              key={child.key}
+                                            >
+                                              <Link
+                                                href={child.link}
+                                                activeClassName="active"
+                                              >
+                                                <a className="nav-link">
+                                                  {child.label}
+                                                </a>
+                                              </Link>
+                                            </li>
+                                          );
+                                        })}
+                                      </ul>
+                                    )}
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          )}
+                        </li>
+                      );
+                    })}
+                </ul>
+                <ul className="navbar-nav  align-items-center">
+                  <ButtonEzin
+                    types="secondary"
+                    className="px-4 py-2 btn-nav-web"
+                    onClick={() => {
+                      toggleNavbar();
+                      router.push("/kich-hoat-the");
+                    }}
+                  >
+                    Kích hoạt
+                  </ButtonEzin>
+                  <ButtonEzin
+                    types="primary"
+                    className="ms-2 px-4 py-2 btn-nav-web"
+                    onClick={() => router.push("https://onelink.to/27s8vu")}
+                  >
+                    Download
+                  </ButtonEzin>
+                  <div
+                    className={`${
+                      !isMobile ? "ms-2" : "text-uppercase"
+                    } others-options text-ms-16 fw-ms-default w-100`}
+                  >
+                    <ul className="navbar-nav m-auto align-item-baseline">
+                      <li
+                        className="nav-item w-100 d-flex align-items-center"
+                        onClick={() =>
+                          setShowNavbar(
+                            showNavbar !== "account" ? "account" : null
+                          )
+                        }
+                      >
+                        <Avatar
+                          size="small"
+                          className="bg-dark avater-icon ms-3"
+                          icon={<UserOutlined />}
+                          onClick={() => {
+                            toggleNavbar();
+                            setUserInfo(!userInfo);
+                          }}
+                        />
+                        <a className="pt-1 text-capitalize px-1 d-flex w-100 pb-sm-1 default-btn nav-link-ez text-dot-1 text-black">
+                          {auth?.full_name || auth?.username
+                            ? ellipsis(
+                                titleCase(auth?.full_name || auth?.username)
+                              )
+                            : "Tài khoản"}
+                          <i className="bx bx-chevron-down"></i>
+                        </a>
+                        {showNavbar === "account" && (
+                          <ul className="dropdown-menu navbar no-border pt-sm-1 no-shadow mt-sm-0 navbar-userInfo">
+                            {auth?.full_name || auth?.username ? (
+                              <div
+                                className="text-dark text-capitalize w-100"
+                                onClick={() => {
+                                  toggleNavbar();
+                                  logout();
+                                }}
+                              >
+                                <li className="nav-item dropend cursor-pointer">
+                                  Đăng xuất
+                                </li>
+                              </div>
+                            ) : (
+                              <>
+                                <Link href="/login">
+                                  <a
+                                    className={`text-dark text-capitalize w-100 ${
+                                      isMobile && "text-start"
+                                    }`}
+                                    onClick={() => {
+                                      toggleNavbar();
+                                    }}
+                                  >
+                                    <li className="nav-item dropend cursor-pointer">
+                                      Đăng nhập
+                                    </li>
+                                  </a>
+                                </Link>
+                                <Link href="/sign-up">
+                                  <a className="text-dark text-capitalize">
+                                    <li
+                                      className="nav-item dropend cursor-pointer d-flex align-items-center"
+                                      onClick={() => {
+                                        toggleNavbar();
+                                      }}
+                                    >
+                                      Đăng ký{" "}
+                                      <span className="ms-1 badge rounded-pill bg-warning text-dark bg-color-coin">
+                                        Nhận ngay 2000{" "}
+                                        <img
+                                          src="/images/coin.png"
+                                          alt="Coin"
+                                          className="navbar-coin"
+                                        />
+                                      </span>
+                                    </li>
+                                  </a>
+                                </Link>
+                                <Link href="/forgot-password">
+                                  <a
+                                    className={`text-dark text-capitalize w-100 ${
+                                      isMobile && "text-start"
+                                    }`}
+                                    onClick={() => {
+                                      toggleNavbar();
+                                    }}
+                                  >
+                                    <li className="nav-item dropend cursor-pointer">
+                                      Quên mật khẩu
+                                    </li>
+                                  </a>
+                                </Link>
+                              </>
+                            )}
+                            <Link href="/tra-cuu">
+                              <a
+                                className={`text-dark text-capitalize w-100 ${
+                                  isMobile && "text-start"
+                                }`}
+                                onClick={() => {
+                                  toggleNavbar();
+                                }}
+                              >
+                                <li className="nav-item dropend cursor-pointer">
+                                  Tra cứu bảo hiểm
+                                </li>
+                              </a>
+                            </Link>
+                          </ul>
+                        )}
+                      </li>
+                    </ul>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        )}
+      </div>
 
-            //                         <li className="nav-item">
-            //                             <Link href="#">
-            //                                 <a className="nav-link text-black" onClick={e => e.preventDefault()}>
-            //                                     Ezcoin 
-            //                                     {/* <i className='bx bx-chevron-down'></i> */}
-            //                                 </a>
-            //                             </Link>
-
-            //                             {/* <ul className="dropdown-menu">
-            //                                 <li className="nav-item">
-            //                                     <Link href="/services" activeClassName="active">
-            //                                         <a className="nav-link">Services Style One</a>
-            //                                     </Link>
-            //                                 </li>
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/services-2" activeClassName="active">
-            //                                         <a className="nav-link">Services Style Two</a>
-            //                                     </Link>
-            //                                 </li>
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/services-3" activeClassName="active">
-            //                                         <a className="nav-link">Services Style Three</a>
-            //                                     </Link>
-            //                                 </li>
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/services-4" activeClassName="active">
-            //                                         <a className="nav-link">Services Style Four</a>
-            //                                     </Link>
-            //                                 </li>
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/service-details" activeClassName="active">
-            //                                         <a className="nav-link">Service Details</a>
-            //                                     </Link>
-            //                                 </li>
-            //                             </ul> */}
-            //                         </li>
-
-            //                         <li className="nav-item">
-            //                             <Link href="#">
-            //                                 <a className="nav-link text-black" onClick={e => e.preventDefault()}>
-            //                                     EzLife <i className='bx bx-chevron-down'></i>
-            //                                 </a>
-            //                             </Link>
-
-            //                             <ul className="dropdown-menu">
-            //                                 <li className="nav-item">
-            //                                     <Link href="/pricing" activeClassName="active">
-            //                                         <a className="nav-link">Ezin life</a>
-            //                                     </Link>
-            //                                 </li>
-                                    
-            //                                 <li className="nav-item">
-            //                                     <Link href="#">
-            //                                         <a className="nav-link" onClick={e => e.preventDefault()}>
-            //                                             BH tai nạn <i className='bx bx-chevron-down'></i>
-            //                                         </a>
-            //                                     </Link>
-
-            //                                     {/* <ul className="dropdown-menu">
-            //                                         <li className="nav-item">
-            //                                             <Link href="/login" activeClassName="active">
-            //                                                 <a className="nav-link">Quyền lợi</a>
-            //                                             </Link>
-            //                                         </li>
-            //                                     </ul> */}
-            //                                 </li>
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/faq" activeClassName="active">
-            //                                         <a className="nav-link">Các quy tắc</a>
-            //                                     </Link>
-            //                                 </li>
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="#">
-            //                                         <a className="nav-link" onClick={e => e.preventDefault()}>
-            //                                             TNDS <i className='bx bx-chevron-down'></i>
-            //                                         </a>
-            //                                     </Link>
-
-            //                                     {/* <ul className="dropdown-menu">
-            //                                         <li className="nav-item">
-            //                                             <Link href="/login" activeClassName="active">
-            //                                                 <a className="nav-link">TNDS xe máy</a>
-            //                                             </Link>
-            //                                         </li>
-
-            //                                         <li className="nav-item">
-            //                                             <Link href="/sign-up" activeClassName="active">
-            //                                                 <a className="nav-link">TNDS xe ô tô</a>
-            //                                             </Link>
-            //                                         </li>
-            //                                     </ul> */}
-            //                                 </li>
-
-            //                                 {/* <li className="nav-item">
-            //                                     <Link href="/terms-conditions" activeClassName="active">
-            //                                         <a className="nav-link">Terms & Conditions</a>
-            //                                     </Link>
-            //                                 </li> 
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/privacy-policy" activeClassName="active">
-            //                                         <a className="nav-link">Privacy Policy</a>
-            //                                     </Link>
-            //                                 </li>
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/coming-soon" activeClassName="active">
-            //                                         <a className="nav-link">Coming Soon</a>
-            //                                     </Link>
-            //                                 </li>
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/login" activeClassName="active">
-            //                                         <a className="nav-link">Log In</a>
-            //                                     </Link>
-            //                                 </li>
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/sign-up" activeClassName="active">
-            //                                         <a className="nav-link">Sign Up</a>
-            //                                     </Link>
-            //                                 </li> 
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/404" activeClassName="active">
-            //                                         <a className="nav-link">404 error</a>
-            //                                     </Link>
-            //                                 </li> */}
-            //                             </ul>
-            //                         </li>
-
-            //                         <li className="nav-item">
-            //                             <Link href="#">
-            //                                 <a className="nav-link text-black" onClick={e => e.preventDefault()}>
-            //                                     Tiện ích 
-            //                                     {/* <i className='bx bx-chevron-down'></i> */}
-            //                                 </a>
-            //                             </Link>
-
-            //                             {/* <ul className="dropdown-menu">
-            //                                 <li className="nav-item">
-            //                                     <Link href="/news-grid" activeClassName="active">
-            //                                         <a className="nav-link">News Grid</a>
-            //                                     </Link>
-            //                                 </li>
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/news-right-sidebar" activeClassName="active">
-            //                                         <a className="nav-link">News Right Sidebar</a>
-            //                                     </Link>
-            //                                 </li>
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/news-details" activeClassName="active">
-            //                                         <a className="nav-link">News Details</a>
-            //                                     </Link>
-            //                                 </li>
-            //                             </ul> */}
-            //                         </li>
-
-            //                         <li className="nav-item">
-            //                             <Link href="#">
-            //                                 <a className="nav-link text-black" onClick={e => e.preventDefault()}>
-            //                                     Đối tác 
-            //                                     {/* <i className='bx bx-chevron-down'></i> */}
-            //                                 </a>
-            //                             </Link>
-
-            //                             {/* <ul className="dropdown-menu">
-            //                                 <li className="nav-item">
-            //                                     <Link href="/contact" activeClassName="active">
-            //                                         <a className="nav-link">Contact Style One</a>
-            //                                     </Link>
-            //                                 </li>
-
-            //                                 <li className="nav-item">
-            //                                     <Link href="/contact-2" activeClassName="active">
-            //                                         <a className="nav-link">Contact Style Two</a>
-            //                                     </Link>
-            //                                 </li>
-            //                             </ul> */}
-            //                         </li>
-
-            //                         <li className="nav-item">
-            //                             <Link href="#">
-            //                                 <a className="nav-link text-black" onClick={e => e.preventDefault()}>
-            //                                     Trở thành EzStore 
-            //                                     {/* <i className='bx bx-chevron-down'></i> */}
-            //                                 </a>
-            //                             </Link>
-            //                         </li>
-            //                     </ul>
-
-            //                     <div className="others-options">
-            //                         <Link href="/login">
-            //                             <a className="default-btn">
-            //                                 Log In <i className="bx bx-log-in-circle"></i>
-            //                             </a>
-            //                         </Link>
-            //                     </div>
-            //                 </div>
-            //             </div>
-            //         </nav>
-            //     </div>
-            // </>
-//         );
-//     }
-// }
+      {/* <div className="menu-wrap">
+        <div className="menu-circle mb-2 rounded-circle contact">
+          <Image
+            // onClick={toggleNavbar}
+            className="contact-icon"
+            src={ContactIMG}
+            alt="logo-contact"
+            layout="intrinsic"
+          />
+        </div>
+        <div className="menu-circle rounded-circle contact">
+          <Image
+            // onClick={toggleNavbar}
+            className="contact-icon"
+            src={ContactIMG}
+            alt="logo-contact"
+            layout="intrinsic"
+          />
+        </div>
+      </div> */}
+    </>
+  );
+};
 
 export default Navbar;
-

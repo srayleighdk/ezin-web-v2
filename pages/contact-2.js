@@ -14,8 +14,8 @@ class Contact2 extends Component {
                 <PageBanner 
                     pageTitle="Contact Style Two" 
                     homePageUrl="/" 
-                    homePageText="Home" 
-                    activePageText="Contact Style Two" 
+                    // homePageText="Home" 
+                    // activePageText="Contact Style Two" 
                 /> 
 
                 <ContactInfo />

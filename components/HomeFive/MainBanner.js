@@ -1,123 +1,114 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
+import { Modal, Checkbox } from "antd";
+import { useRouter } from "next/router";
+import ButtonEzin from "../Common/Button";
+import { useMediaQuery } from "react-responsive";
+// import BgBannerHeader from "../../public/images/bg-banner-header.png";
 
-class MainBanner extends Component {
-    render() {
-        return (
-            <section className="slider-area">
-                <Swiper 
-                    navigation={true} 
-                    autoplay={{
-                        delay: 6000,
-                        pauseOnMouseEnter: true,
-                    }}
-                    modules={[Navigation, Autoplay]} 
-                    className="hero-swiper"
+export default function MainBanner() {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const router = useRouter();
+  const [visibleAudio, setVisibleAudio] = useState(false);
+
+  return (
+    <div
+      className="jumpx-slider-item pt-sm-1 pb-sm-0"
+      style={{
+        backgroundImage: `url(/images/bg-banner-header.png)`,
+        maxHeight: "100vh",
+      }}
+    >
+      <section className="slider-area pb-0">
+        {/* <div
+        className="jumpx-slider-item vh-100"
+        style={{
+          backgroundImage: `url(/images/bg-banner-header.png)`,
+          minHeight: "100vh",
+        }}
+      > */}
+        <div className="text-center mt-40 pt-sm-1">
+          <div className="jumpx-slider-text overflow-hidden one mx-auto homepage-no-maxWidth">
+            {/* <span>IT & AI Services</span> */}
+            <h1 className="text-black mb-0 px-ms-3 banner-header">
+              Trải nghiệm cuộc sống tuyệt vời
+            </h1>
+            <p className="banner-maxim text-center px-ms-4 mb-3">
+              " Những hy sinh của ngày hôm nay sẽ được đền đáp vào ngày mai. "
+            </p>
+          </div>
+        </div>
+        <div
+          className="jumpx-slider-item mt-ms-80"
+          style={{
+            backgroundImage: `url(/images/banner-home.png)`,
+            width: "100vw",
+          }}
+        >
+          <div className="d-table">
+            <div className="d-table-cell">
+              <div
+                className={`
+               slider-btn position-absolute d-flex justify-content-center w-100 d-sm-flex px-ms-3 flex-column flex-md-row`}
+              >
+                <ButtonEzin
+                  className={`mx-3 btn-buy-banner text-center shadow align-self-center`}
+                  onClick={() => router.push("/#san-pham")}
+                  types="primary"
                 >
-                    <SwiperSlide>
-                        <div 
-                            className="jumpx-slider-item vh-100" 
-                            style={{ backgroundImage: `url(/images/home-five/slider.png)`, minHeight: "100vh" }}
-                        >
-                            <div className="d-table">
-                                <div className="d-table-cell">
-                                    <div className="container">
-                                        <div className="jumpx-slider-text overflow-hidden one mx-auto homepage-no-maxWidth">
-                                            {/* <span>IT & AI Services</span> */}
-                                            <h1 className="text-black mb-0 text-60">Trải nghiệm cuộc sống tuyệt vời</h1>
-                                            <p className="text-black mb-46">Những hy sinh của ngày hôm nay sẽ được đền đáp vào ngày mai.</p>
-                                            
-                                            <div className="slider-btn">
-                                            <Link href="/contact">
-                                                    <a className="default-btn white">
-                                                        Mua bảo hiểm ngay
-                                                    </a>
-                                                </Link>
+                  Mua bảo hiểm ngay
+                </ButtonEzin>
 
-                                                <Link href="/services">
-                                                    <a className="default-btn active">
-                                                        Xem video
-                                                    </a>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide>
-                        <div 
-                            className="jumpx-slider-item vh-100" 
-                            style={{ backgroundImage: `url(/images/home-five/slider.png)` }}
-                        >
-                            <div className="d-table">
-                                <div className="d-table-cell">
-                                    <div className="container">
-                                        <div className="jumpx-slider-text overflow-hidden one mx-auto homepage-no-maxWidth">
-                                            {/* <span>IT & AI Services</span> */}
-                                            <h1 className="text-black mb-0 text-60">Đi bình an về hạnh phúc</h1>
-                                            <p className="text-black mb-46">Hạnh phúc lớn nhất là sống hài lòng từng chút một.</p>
-                                            
-                                            <div className="slider-btn">
-                                            <Link href="/contact">
-                                                    <a className="default-btn white">
-                                                        Mua bảo hiểm ngay
-                                                    </a>
-                                                </Link>
-
-                                                <Link href="/services">
-                                                    <a className="default-btn active">
-                                                        Xem video
-                                                    </a>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    
-                    <SwiperSlide>
-                        <div 
-                            className="jumpx-slider-item vh-100" 
-                            style={{ backgroundImage: `url(/images/home-five/slider.png)` }}
-                        >
-                            <div className="d-table">
-                                <div className="d-table-cell">
-                                    <div className="container">
-                                        <div className="jumpx-slider-text overflow-hidden one mx-auto homepage-no-maxWidth">
-                                            {/* <span>IT & AI Services</span> */}
-                                            <h1 className="text-black mb-0 text-60">Trải nghiệm cuộc sống tuyệt vời</h1>
-                                            <p className="text-black mb-46">Những hy sinh của ngày hôm nay sẽ được đền đáp vào ngày mai.</p>
-                                            
-                                            <div className="slider-btn">
-                                            <Link href="/contact">
-                                                    <a className="default-btn white">
-                                                        Mua bảo hiểm ngay
-                                                    </a>
-                                                </Link>
-
-                                                <Link href="/services">
-                                                    <a className="default-btn active">
-                                                        Xem video
-                                                    </a>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                </Swiper>
-            </section>
-        );
-    }
+                <ButtonEzin
+                  className="btn-video-banner d-flex justify-content-center align-items-center text-center align-self-center"
+                  onClick={() => setVisibleAudio(true)}
+                  types="default"
+                >
+                  <div className="playVideo rounded-circle position-relative me-3">
+                    <div className="playIcon"></div>
+                  </div>
+                  <div className="view-video">Xem video</div>
+                </ButtonEzin>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Modal
+          title="Giới thiệu về Ezin"
+          visible={visibleAudio}
+          onOk={() => setVisibleAudio(false)}
+          onCancel={() => setVisibleAudio(false)}
+          okText="Đồng ý"
+          cancelText="Đóng"
+          closable={true}
+        >
+          <div
+            style={{
+              height: "auto",
+              overflow: "auto",
+              border: "2px solid #E5E7EB",
+              borderRadius: "10px",
+              wordWrap: "break-word",
+              padding: "10px",
+              textAlign: "justify",
+              fontSize: "12px",
+            }}
+          >
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/6Bz_kMgu3fA?autoplay=1"
+              title="Quy tắc bảo hiểm"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </Modal>
+        {/* </div> */}
+      </section>
+    </div>
+  );
 }
-
-export default MainBanner;

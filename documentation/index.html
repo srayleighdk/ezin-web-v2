@@ -12,8 +12,8 @@
         <script src="js/custom.js"></script>
     </head>
     <body data-spy="scroll" data-target=".sidebar" data-offset="200">
-        <aside class="sidebar sidebar-boxed sidebar-dark">  
-            <ul class="nav sidenav dropable">
+        <aside className="sidebar sidebar-boxed sidebar-dark">  
+            <ul className="nav sidenav dropable">
                 <li><a href="#introduction" title="Introduction">Introduction</a></li>
                 <li><a href="#getting_started" title="Setup Development Envrionment">Setup Development Environment</a></li>
                 <li><a href="#documenter_cover">Pages and Components Info</a></li>
@@ -28,25 +28,25 @@
             </ul>
         </aside>
 
-        <header class="site-header navbar-transparent"> 
-            <div class="banner auto-size" style="background-color: #455aa2">
-                <div class="container-fluid">
+        <header className="site-header navbar-transparent"> 
+            <div className="banner auto-size" style="background-color: #455aa2">
+                <div className="container-fluid">
                     <h1><strong>Jumpx - React</strong>  Documentation</h1>
                 </div>
             </div>
         </header>
         
-        <main class="container-fluid"> 
-            <article class="main-content" role="main">
+        <main className="container-fluid"> 
+            <article className="main-content" role="main">
                 <section id="introduction">
-                    <div class="page-header">
+                    <div className="page-header">
                         <h3>Introduction</h3>
                     </div>
                     <p>Jumpx is a clean Responsive React template for IT company and Next Generation Tech Startups. This is created for the individuals and companies who have startup business initiatives, IT Solutions or Online Marketing services, Future Startup Business, etc. Also, this template is suitable for Mobile App, Software, Startups, WebApps, SaaS product, and any other business agencies.</p>
                 </section>
 
                 <section id="getting_started">
-                    <div class="page-header">
+                    <div className="page-header">
                         <h3>Setup Development Environment</h3>
                     </div>
                     <p>
@@ -60,7 +60,7 @@
                         </p>
                     </ul>
                     
-                    <div class="page-header">
+                    <div className="page-header">
                         <h3>Preparation</h3>
                     </div>
                     <p>
@@ -71,8 +71,8 @@
 
                     <strong>Let's have a look on the setup process:</strong> <br>
                     <p>Use terminal and navigate to the project root.</p>
-                    <p>Then run : <code class="language-markup">npm install</code></p>
-                    <p>Then run : <code class="language-markup">npm run dev</code></p>
+                    <p>Then run : <code className="language-markup">npm install</code></p>
+                    <p>Then run : <code className="language-markup">npm run dev</code></p>
                     <p>It'll return something like this in the console:</p>
 
                     <p>> project@2.0.0 dev drive:\project</p>
@@ -84,16 +84,16 @@
 					<p>[ event ] compiled successfully</p>
                     <p>Now, in the browser go to <a href="localhost:3000">localhost:3000</a></p>
 					
-					<div class="page-header">
+					<div className="page-header">
                         <h3>For Production Build</h3>
                     </div>
-                    <p>Run : <code class="language-markup">npm run build</code></p>
-                    <p>Then Run : <code class="language-markup">npm run start</code></p>
+                    <p>Run : <code className="language-markup">npm run build</code></p>
+                    <p>Then Run : <code className="language-markup">npm run start</code></p>
                     <p>See the official next.js doc <a href="https://nextjs.org/docs/deployment#other-hosting-options" target="_blank">here</a></p>
                 </section>
 
                 <section id="documenter_cover">
-                    <div class="page-header">
+                    <div className="page-header">
                         <h3>Pages and Components Info</h3>
                     </div>
                     
@@ -162,12 +162,12 @@
                 </section>
 
                 <section id="dependencies">
-                    <div class="page-header">
+                    <div className="page-header">
                         <h3>Dependencies</h3>
                     </div>
                     <p> Here are the <strong>dependencies</strong> list which being used in the Jumpx React Template:</p>
-                    <pre class="line-numbers">
-<code class="language-markup"> 
+                    <pre className="line-numbers">
+<code className="language-markup"> 
 "dependencies": {
 	"animate.css": "^4.1.1",
     "axios": "^0.27.2",
@@ -184,28 +184,28 @@
     "swiper": "^8.3.2"
 }
 </code>
-                    </pre class="brush:css">
+                    </pre className="brush:css">
                 </section>
 
                 <section id="change_layout">
-                    <div class="page-header">
+                    <div className="page-header">
                         <h3>Change Default Home Page</h3>
                     </div>
-                    <p>The default home page is <code class="language-markup">index.js</code> which placed in <code class="language-markup">/pages/index.js</code> if you want change this default to home page two as default home then just take backup your <code class="language-markup">index.js</code> & make <code class="language-markup">home-two.js</code> to <code class="language-markup">index.js</code> & that is.</p>
+                    <p>The default home page is <code className="language-markup">index.js</code> which placed in <code className="language-markup">/pages/index.js</code> if you want change this default to home page two as default home then just take backup your <code className="language-markup">index.js</code> & make <code className="language-markup">home-two.js</code> to <code className="language-markup">index.js</code> & that is.</p>
                 </section>
  
                 <section id="fonts_used">
-                    <div class="page-header">
+                    <div className="page-header">
                         <h3>Fonts</h3>
                     </div>
                     <p> By default, the template loads <strong>Open+Sans and Dosis</strong> font from Google Web Font Services, you can change the font with the one that suits you best.</p>
-                    <p>You will find the code file: <code class="language-css">/pages/_document.js</code></p>
+                    <p>You will find the code file: <code className="language-css">/pages/_document.js</code></p>
                     <img src="img/document.png" alt="">
 					<p><b>Note:</b> After SCSS file run then it will be work</p>
                 </section>
 
                 <section id="global_color">
-                    <div class="page-header">
+                    <div className="page-header">
                         <h3>Global Style</h3>
                     </div>
 					<p>To change global Style file path /style/style.scss</p>
@@ -214,7 +214,7 @@
                 </section>
 
                 <section id="run-scss">
-                    <div class="page-header">
+                    <div className="page-header">
                         <h3 style="margin-top: 0; margin-bottom: 12px;">How to Run SCSS File</h3>
                     </div>
                     <p>Please open the file Visual Studio Code Editor.</p>
@@ -223,7 +223,7 @@
                 </section>
                 
                 <section id="Contact_Form_Setup">
-                    <div class="page-header">
+                    <div className="page-header">
                         <h3 style="margin-top: 0; margin-bottom: 12px;">Contact Form Setup</h3>
                     </div>
                     <p>
@@ -239,14 +239,14 @@
                 </section>
 				 
                 <section id="credits">
-                    <div class="page-header">
+                    <div className="page-header">
                         <h3>Credits</h3>
                     </div>
                     <strong>Images</strong><br>
                     <a href="https://unsplash.com/" target="_blank">Unsplash</a><br />
                     <a href="https://burst.shopify.com/" target="_blank">Burst</a><br />
                     <a href="https://www.freepik.com/" target="_blank">Freepick</a><br />
-                    <div class="height-15"></div>
+                    <div className="height-15"></div>
                     <strong>Packages</strong><br>
                     <a href="https://www.npmjs.com/package/react" target="_blank">React</a><br />
                     <a href="https://www.npmjs.com/package/next" target="_blank">Next.js</a><br />
@@ -257,7 +257,7 @@
                 </section>
                 
                 <section id="supports">
-                    <div class="page-header">
+                    <div className="page-header">
                         <h3 style="margin-top: 0; margin-bottom: 12px;">24-Hour Turnaround Support:</h3>
                     </div>
 					<p>Quick, Dedicated &amp; Professional Support!</p>
@@ -267,10 +267,10 @@
             </article>
         </main>
 
-        <footer class="site-footer">
-            <div class="container-fluid"><a id="scroll-up" href="#"><i class="fa fa-angle-up"></i></a>
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
+        <footer className="site-footer">
+            <div className="container-fluid"><a id="scroll-up" href="#"><i className="fa fa-angle-up"></i></a>
+                <div className="row">
+                    <div className="col-md-6 col-sm-6">
                         <p>Copyright EnvyTheme.com All right reserved</p>
                     </div>
                 </div>
