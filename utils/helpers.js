@@ -70,7 +70,9 @@ export const toLocaleDateString = (dateString = null) => {
 
 export const formatVND = (value = 0) => {
   try {
-    return `${Number(value.toFixed(1)).toLocaleString()}đ`;
+    // const res = `${Number(value.toFixed(1)).toLocaleString('vi-VN')}đ`;
+    const res = `${formatNumber(value)}đ`
+    return res;
   } catch (ex) {
 
   }
